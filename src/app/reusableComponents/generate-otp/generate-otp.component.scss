@@ -1,0 +1,92 @@
+.regenerate {
+  text-align: center;
+  margin-top: 0.8rem;
+}
+#timer {
+  text-align: center;
+
+  button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #018401;
+    margin-top: 0.4rem;
+  }
+}
+// Header section
+ion-toolbar {
+  --background: white;
+  color: black;
+  ion-icon {
+    font-size: 35px;
+    margin-left: 21px;
+  }
+}
+
+// text
+ion-text {
+  h4 {
+    font-size: 22px;
+    color: #040d2c;
+    margin-left: 1.25rem;
+    margin-top: 2rem;
+  }
+  p {
+    margin-left: 20px;
+    line-height: 24px;
+    font-size: 16px;
+    color: #666666;
+    font-weight: 400;
+    margin-top: 8px;
+  }
+}
+
+// passcode text
+.passcode {
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  margin-top: 1rem;
+}
+.ellipses {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 24px;
+  #circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+
+    .inner-circle {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .test {
+    background-color: #040d2c;
+  }
+}
+
+// dialpad section
+.dialpad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 15px 17px 77px 17px;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: space-evenly;
+  .grid-items {
+    display: grid;
+    justify-content: space-evenly;
+    --background: white;
+    font-size: 35px;
+    color: #000000;
+  }
+}

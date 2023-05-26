@@ -1,0 +1,6 @@
+{
+	"appId": "io.ionic.starter",
+	"appName": "Olive Bank",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}

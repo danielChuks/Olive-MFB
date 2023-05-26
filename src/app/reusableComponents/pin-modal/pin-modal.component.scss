@@ -1,0 +1,108 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// passcode text
+.auth-pin {
+  margin-top: 15px;
+
+  ion-input {
+    background: #f5f5f5;
+    border: 1px solid #e5e5e5;
+    color: #000;
+  }
+}
+.passcode {
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
+.ellipses {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 24px;
+  #circle {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+
+    .inner-circle {
+      width: 16px;
+      height: 16px;
+      border: 1px solid #000;
+      border-radius: 50%;
+      text-align: center;
+      font-weight: bold;
+    }
+  }
+
+  .test {
+    background-color: #018401;
+  }
+}
+
+// dialpad section
+.dialpad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 15px 17px 77px 17px;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: space-evenly;
+
+  .grid-items {
+    display: grid;
+    justify-content: space-evenly;
+    --background: white;
+    font-size: 40px;
+    color: #000000;
+  }
+
+  .clear {
+    font-size: 26px;
+    margin-top: 10px;
+  }
+}
+
+ion-segment-button {
+  --indicator-color: #018401;
+}
+
+ion-segment-button {
+  --indicator-color: #018401;
+}
+
+/* Material Design styles */
+ion-segment {
+  margin-top: 32px;
+  --background: #ffffff;
+  height: 46px;
+  border: 2px solid #e5e5e5;
+  font-size: 14px;
+  color: #c4c4c4;
+  font-weight: 600;
+}
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #7c7c7c;
+  --indicator-height: 40px;
+}
+
+/* iOS styles */
+ion-segment-button.ios {
+  --color: #838383;
+  --color-checked: #fff;
+  --border-radius: 4px;
+  --indicator-height: 40px;
+}
+
+ion-input {
+  background-color: #000;
+  color: white;
+}

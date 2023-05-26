@@ -1,0 +1,43 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon
+      name="chevron-back-outline"
+      routerLink="/manage-beneficiaries"
+    ></ion-icon>
+    <ion-text><span>Add Beneficiary</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form class="transfer-forms" [formGroup]="beneficiaryForm">
+    <div class="account">
+      <div class="account-header" (click)="openBankModal()">
+        <ion-text>{{bankName}}</ion-text>
+        <ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+      </div>
+    </div>
+
+    <div class="account-number">
+      <ion-input
+        counter="true"
+        (input)="getNameEnquiry($event)"
+        type="text"
+        maxlength="10"
+        placeholder="Account Number"
+        formControlName="beneficiaryAcctNum"
+        [attr.disabled]="bankCode ? false: true"
+      ></ion-input>
+      <ion-text [style.color]="display ? 'black': 'red'" id="name">{{beneficiaryname}}</ion-text>    </div>
+
+    <div class="btn">
+      <ion-button
+        class="button"
+        (click)="addBeneficiary(beneficiaryForm)"
+        type="submit"
+        expand="full"
+        [disabled]="bankCode && success  ? false : true"
+        >Add Beneficiary</ion-button
+      >
+    </div>
+  </form>
+</ion-content>

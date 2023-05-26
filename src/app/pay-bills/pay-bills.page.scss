@@ -1,0 +1,77 @@
+@import "../transfer/transfer.page.scss";
+
+.ion-no-border {
+  ion-text {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: calc(50% - 71px / 2);
+    top: calc(50% - 20px / 2 - 0.5px);
+  }
+}
+ion-list {
+  // margin-top: -32px;
+  margin-bottom: 32px;
+}
+ion-select {
+  height: 56px;
+  color: #000;
+  margin-right: 0.3rem;
+  margin-left: -0.6rem;
+}
+
+ion-select-option {
+  color: #000;
+}
+
+ion-label {
+  font-size: 14px;
+}
+
+.accounts {
+  height: 56px;
+  background-color: #ededed;
+  border-color: 2px solid #e5e5e5;
+  margin-top: 1.5rem;
+}
+
+.accounts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666666;
+  padding: 18px 8px 10px 8px;
+
+  ion-text {
+    height: 15px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+
+.account-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666666;
+  padding: 18px 8px 10px 8px;
+  height: 56px;
+  background-color: #ededed;
+  border-color: 2px solid #e5e5e5;
+
+  .account-type {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      margin-top: -8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+  }
+}
+
+.input {
+  background-color: #e5e5e5;
+}
+

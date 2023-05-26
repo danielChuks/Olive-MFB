@@ -1,0 +1,83 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/hometab"></ion-icon>
+    <ion-text><span>Pay Bills</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <form   class="transfer-forms">
+
+
+   <div class="accounts" (click)="isAccount =!isAccount" >
+      <div class="accounts-header">
+        <ion-text>{{accountNumber}}</ion-text><ion-icon name="chevron-down-outline" slot="end"  ></ion-icon>
+      </div>
+    </div>
+
+<div *ngIf="isAccount" >
+    <div *ngFor="let account of multipleAccounts"  class="account-list" (click)="selectAccountNumber(account.accountNumber)"  (click)="isAccount =!isAccount">
+      <div  class="account-type">
+        <h3>{{account.accountNumber}}</h3>
+      </div>
+
+      <div class="acct-number">
+        <ion-text>{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text>
+      </div>
+    </div>
+    </div>
+
+
+      <div class="select-container input">
+    <ion-select class="testing" [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)">
+      <ion-select-option class= "my-custom-class"  *ngFor="let category of categories" value={{category.categoryid}}> {{category.categoryname}}</ion-select-option>
+    </ion-select>
+    </div>
+
+
+     <div class="select-container input">
+    <ion-select  #bill placeholder="Select Billers" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getBillerProduct(bill.value)" [disabled]="billerDisable">
+      <ion-select-option  *ngFor="let biller of billers" value={{biller.billerid}}>{{ biller.billername }}</ion-select-option>
+    </ion-select>
+    </div>
+
+
+     <div class="select-container input">
+    <ion-select #prod placeholder="Select Product" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getTransAmount(prod.value)" [disabled]="productDisable">
+      <ion-select-option *ngFor="let product of billerProduct"  value={{product.paymentitemid}}>{{product.paymentitemname}}</ion-select-option>
+    </ion-select>
+    </div>
+
+
+  
+
+
+    <div class="input">
+      <ion-input [(ngModel)]="transfer.amount" (input)="formatInput($event.target.value)" type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
+       <!-- <span class="message">{{error}}</span> -->
+    </div>
+      <div class="transfer-limit">
+      <ion-label>Current. transfer limit: {{limit|currency:"NGN":"symbol-narrow"}}</ion-label>
+    </div>
+
+
+    <ion-list  *ngIf="display">
+      <ion-item class="input" >
+        <ion-input type="text" placeholder={{fieldResult1}} [(ngModel)]="transfer.customer1" name="customer1"></ion-input>
+      </ion-item>
+  
+    </ion-list>
+
+    <ion-list *ngIf="display2">
+      <ion-item *ngIf="display2">
+        <ion-input type="text" placeholder={{fieldResult2}}  name="customer2" required></ion-input>
+      </ion-item>
+    </ion-list>
+
+
+    <div class="btn">
+      <ion-button class="button" (click)="continue()" [disabled]="transfer.customer1 ? false : true"  type="submit" expand="full" routerLink="/bills-activity" >Continue</ion-button>
+      </div>
+
+  </form>
+</ion-content>

@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/hometab/transfer"></ion-icon>
+    <ion-text><span>Confirmation</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" fullscreen [scrollEvents]="true">
+
+  <div class="confirm-details">
+    <ion-text>Confirm transaction details</ion-text>
+    <div>
+
+      <ion-list>
+
+        <div class="from">
+          <ion-label>
+            <h2>From</h2>
+            <h3>{{accountType}}</h3>
+            <p>{{sourceAccount}}</p>
+          </ion-label>
+        </div>
+
+        <ion-item-divider></ion-item-divider>
+
+        <div class="to">
+          <ion-label>
+            <h2>To</h2>
+            <h3>{{beneficiaryName}}</h3>
+            <p>{{destinationAccount}} . {{beneficiaryBank}}</p>
+          </ion-label>
+        </div>
+
+        <ion-item-divider></ion-item-divider>
+
+        <div class="amount">
+          <ion-label>
+            <h2>Amount</h2>
+            <h3><span> {{amount |currency:"NGN":"symbol-narrow"}}</span></h3>
+          </ion-label>
+        </div>
+
+        <ion-item-divider></ion-item-divider>
+
+      </ion-list>
+    </div>
+
+
+    <div class="btn">
+      <ion-button expand="block"  (click)="openPinModal()" [strong]="true">Continue</ion-button>
+     </div>
+      <div class="btn-edit">
+        <ion-button class="button"  type="submit" expand="full" routerLink="/new-tab/hometab/transfer">Edit</ion-button>
+      </div>
+  </div>
+

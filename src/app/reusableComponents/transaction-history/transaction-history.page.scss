@@ -1,0 +1,29 @@
+@import "/src/app/hometab/hometab.page.scss";
+@import "/src/app/transfer/full-activity/full-activity.page.scss";
+@import "/src/app/transfer/receipt/receipt.page.scss";
+
+ion-header {
+  ion-text {
+    margin-left: -18px;
+    width: 179px;
+  }
+}
+.overflow {
+  overflow-y: scroll;
+  margin-top: -40px;
+}
+
+.header {
+  h3 {
+    font-size: 20px;
+  }
+
+  .search {
+    font-size: 25px;
+    color: black;
+  }
+  .filter {
+    font-size: 25px;
+    color: black;
+  }
+}

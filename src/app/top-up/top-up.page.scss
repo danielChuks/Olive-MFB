@@ -1,0 +1,111 @@
+@import "../transfer/transfer.page.scss";
+
+.input {
+  background-color: #e5e5e5;
+  border: 1px solid black;
+}
+
+ion-segment {
+  margin-top: 2.5rem;
+}
+
+ion-list {
+  --background: "#ffffff";
+  --ion-text-color: #000000;
+}
+
+ion-button {
+  margin-top: 3rem;
+  --border-radius: 0.8rem;
+  height: 50px;
+  font-size: 16px;
+  --background: #018401;
+  --background-activated: #018401;
+}
+
+ion-segment-button {
+  --indicator-color: #018401;
+}
+
+ion-segment {
+  margin-top: 32px;
+  --background: #ffffff;
+  height: 46px;
+  border: 2px solid #e5e5e5;
+  font-size: 14px;
+  color: #c4c4c4;
+  font-weight: 600;
+}
+
+.check {
+  text-align: center;
+}
+
+.input-box {
+  background-color: #ededed;
+  margin-top: 2.5rem;
+  height: 3.5rem;
+}
+
+.accounts {
+  height: 56px;
+  background-color: #ededed;
+  border-color: 2px solid #e5e5e5;
+  margin-top: 1.5rem;
+}
+
+.accounts-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666666;
+  padding: 18px 8px 10px 8px;
+
+  ion-text {
+    height: 15px;
+    font-weight: 400;
+    line-height: 18px;
+  }
+}
+
+.account-list {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #666666;
+  padding: 18px 8px 10px 8px;
+  height: 56px;
+  background-color: #ededed;
+  border-color: 2px solid #e5e5e5;
+
+  .account-type {
+    h3 {
+      font-size: 16px;
+    }
+    p {
+      margin-top: -8px;
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+  }
+}
+ion-label {
+  font-size: 14px;
+}
+
+.select-container {
+  margin-top: 2rem;
+  border: none;
+  height: 56px;
+  ion-select {
+    height: 56px;
+    color: #000;
+    margin-right: 0.3rem;
+    margin-left: -0.6rem;
+  }
+}
+
+.popover-wide {
+  background-color: red;
+  --background: red;
+}

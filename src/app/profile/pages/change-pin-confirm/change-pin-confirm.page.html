@@ -1,0 +1,57 @@
+<!-- header -->
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/profile"></ion-icon>
+    <ion-text><span>Change Pin</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content>
+<!-- passcode text -->
+  <ion-text>
+<h4>Confirm your new Transaction PIN</h4>
+<p>Input your new current 4-digit PIN again </p>
+</ion-text>
+
+<!-- ellipses -->
+<p class="passcode">Confirm New PIN </p>
+<div class="ellipses">
+        <div id="circle" >
+          <div id="circlesss0" class="inner-circle "></div>
+        </div>
+        <div id="circle " >
+          <div id="circle">
+            <div id="circlesss1" class="inner-circle "></div>
+          </div>
+        </div>
+        <div id="circle">
+          <div id="circle">
+            <div id="circlesss2" class="inner-circle "></div>
+          </div>
+        </div>
+        <div id="circle" >
+          <div id="circle">
+            <div id="circlesss3" class="inner-circle "></div>
+          </div>
+        </div>
+        </div>
+
+<!-- dialpad section -->
+<div class="dialpad">
+<ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
+<ion-button    fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(5)">5</ion-button>
+<ion-button  fill="clear"  type="button" size="small" class="grid-items"(click)="addNumber(6)">6</ion-button>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
+  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
+<!-- <ion-button  routerLink="/profile/success-page" fill="clear" type="button" size="small" class="grid-items" >OK</ion-button> -->
+</div>
+
+
+</ion-content>

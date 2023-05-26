@@ -1,0 +1,76 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon
+      name="chevron-back-outline"
+      routerLink="/forgot-password"
+    ></ion-icon>
+    <ion-text><span>Forgot Password</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text>
+    <h3>Forgot your Password?</h3>
+    <p>Please input your OTP and new password</p>
+  </ion-text>
+
+  <form [formGroup]="changePasswordForm">
+    <div class="accountNumber">
+      <ion-label for="otp" form>Enter OTP</ion-label>
+      <ion-input
+        type="text"
+        name="otp"
+        maxlength="6"
+        formControlName="otp"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+
+    <div class="password">
+      <ion-label for="password" form>Enter New Password</ion-label>
+      <ion-input
+        type="password"
+        name="password"
+        maxlength="10"
+        formControlName="newPassword"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+    <ion-list lines="none">
+      <ion-label>Password must have at least 8 characters</ion-label>
+    </ion-list>
+
+    <div class="password">
+      <ion-label for="password" form>Confirm New Password</ion-label>
+      <ion-input
+        type="password"
+        name="password"
+        maxlength="10"
+        formControlName="confirmNewPassword"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+
+    <div
+      style="color: red"
+      *ngIf="changePasswordForm.get('newPassword').value !== changePasswordForm.get('confirmNewPassword').value && changePasswordForm.get('confirmNewPassword').value !== null"
+    >
+      Passwords does not match
+    </div>
+
+    <p class="regenerate">Didn't receive Otp?</p>
+    <div id="timer">
+      <p *ngIf="countdownTime > 0">Resend Otp in: {{countdownTime}} seconds</p>
+      <button (click)="resendOtp()" [disabled]="disableResendButton">
+        Resend OTP
+      </button>
+    </div>
+
+    <ion-button
+      expand="block"
+      [disabled]="!changePasswordForm.valid"
+      (click)="changePassword(changePasswordForm)"
+      >Submit</ion-button
+    >
+  </form>
+</ion-content>

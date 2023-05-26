@@ -1,0 +1,7 @@
+<ion-content class="ion-padding">
+  <h3>Bundle</h3>
+  <ion-item *ngFor="let product  of billerProducts"  >
+    <ion-label (click)="confirm(product.paymentitemname, product.paymentCode, product.amount)">
+      {{product.paymentitemname}}mb for {{product.amount / 100 | currency:"NGN":"symbol-narrow"}}</ion-label>
+  </ion-item>
+</ion-content>

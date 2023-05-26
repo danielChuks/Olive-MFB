@@ -1,0 +1,45 @@
+
+<ion-content fullscreen class="ion-padding">
+  <img src="../assets/images/olive.png" />
+  <p class="welcome-text">Welcome to Olive MFB!</p>
+
+  <form [formGroup]="signInForm">
+    <!-- input fields -->
+    <div class="accountNumber">
+      <ion-label for="accountNumber" form>Account Number</ion-label>
+      <ion-input
+      (keyup.enter)="signIn(signInForm)"
+        type="tel"
+        name="accountNumber"
+        maxlength="10"
+        formControlName="accountNumber"
+        [disabled]="savedAccountNumber ? true : false"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+
+    <div class="password">
+      <ion-label for="password">Password</ion-label>
+
+    <ion-input [type]="showPwd ? 'text' : 'password'" formControlName="password" (keyup.enter)="signIn(signInForm)">
+  </ion-input>
+  <ion-icon slot="end" [name]="pwdIcon" (click)="togglePwd()"></ion-icon>
+    </div>
+    <p class="forgot-password" slot="end"  routerLink="/forgot-password">Forgot Password?</p>
+    <!-- end of input field -->
+
+    <!-- button -->
+    <div class="btn">
+    <ion-button
+      expand="block"
+      (click)="signIn(signInForm)"
+    [disabled]="!signInForm.valid">Sign in</ion-button>
+    </div>
+
+    <p class="register-text forgot-text" *ngIf="savedAccountNumber" (click)="unlinkDevice()">Not {{savedAccountNumber}}? Unlink device</p>
+    <div  *ngIf="!savedAccountNumber" class="signup">
+      <!-- <p routerLink="/signup">Open Account</p> -->
+       <p routerLink="/signup-form">Sign up</p>
+    </div>
+  </form>
+</ion-content>

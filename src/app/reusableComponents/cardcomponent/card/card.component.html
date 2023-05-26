@@ -1,0 +1,16 @@
+<ion-card >
+        <div class="card-header">
+        <!-- <ion-label>Savings Account</ion-label> -->
+         <ion-label slot="end" >{{accountNumber}}</ion-label>
+        </div>
+        <div class="divider"></div>
+
+     <ion-card-content>
+      <!-- <ion-label slot="start" >Account Balance</ion-label> -->
+      <div class="card-content">
+        <span *ngIf="isdisplay">{{accountBalance|currency:"NGN":"symbol-narrow"}}</span>
+        <span class="hidden-balance" *ngIf="!isdisplay">****</span>
+         <ion-button (click)="hideBalance()" slot="" fill="outline"><ion-icon click name="eye-off-sharp"></ion-icon></ion-button>
+      </div>
+     </ion-card-content>
+   </ion-card>

@@ -1,0 +1,115 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon
+      name="chevron-back-outline"
+      routerLink="/new-tab/hometab"
+    ></ion-icon>
+    <ion-text><span>Same Transfer</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<!-- Transfer Forms -->
+<ion-content class="ion-padding">
+  <form [formGroup]="intTransForm" class="transfer-forms">
+    <div class="transfer-forms">
+      <div class="accounts" (click)="isAccount =!isAccount">
+        <div class="accounts-header">
+          <ion-text>{{accountNumber}}</ion-text
+          ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+        </div>
+      </div>
+
+      <!-- list of Accounts -->
+      <div *ngIf="isAccount">
+        <div
+          *ngFor="let account of multipleAccounts"
+          class="account-list"
+          (click)="selectAccountNumber(account.accountNumber)"
+          (click)="isAccount =!isAccount"
+        >
+          <div class="account-type">
+            <h3>{{account.accountNumber}}</h3>
+          </div>
+
+          <div class="acct-number">
+            <ion-text
+              >{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text
+            >
+          </div>
+        </div>
+      </div>
+      <!--End list of Accounts -->
+
+      <div class="beneficiary-tab">
+        <div class="input beneficiary">
+          <ion-input
+            (input)="getNameEnquiry($event)"
+            maxlength="10"
+            type="text"
+            name="beneficiaryAcctNum"
+            placeholder="Beneficiary Account Number"
+            formControlName="beneficiaryAcctNum"
+          ></ion-input>
+          <ion-text
+            [style.color]="isAccountSelected === false && accountName ? 'red' : 'black'"
+            >{{beneficiaryAccountName}}</ion-text
+          >
+        </div>
+
+        <!-- Open beneficiaries modal -->
+        <div class="input beneficiaries" slot="end">
+          <ion-icon
+            (click)="openModal()"
+            name="id-card-sharp"
+            slot="end"
+          ></ion-icon>
+        </div>
+      </div>
+
+      <div class="input">
+        <ion-input
+          type="text"
+          name="amount"
+          formControlName="amount"
+          placeholder="N Amount"
+          (input)="formatInput($event.target.value)"
+        ></ion-input>
+      </div>
+
+      <div class="transfer-limit">
+        <ion-label
+          >Current. transfer limit:
+          {{limit|currency:"NGN":"symbol-narrow"}}</ion-label
+        >
+      </div>
+
+      <div class="input">
+        <ion-input
+          type="text"
+          name="narration"
+          formControlName="narration"
+          placeholder="Narration"
+        ></ion-input>
+      </div>
+      <!--End of Transfer Forms -->
+
+      <div class="toggle">
+        <ion-toggle (ionChange)="toggleChange($event)"></ion-toggle>
+        <ion-text>Save to my list of beneficiaries</ion-text>
+      </div>
+
+      <div class="btn">
+        <ion-button
+          class="button"
+          (click)="internalTransfer(intTransForm)"
+          [disabled]="intTransForm.valid === true && isAccountSelected === true ? false : true"
+          type="submit"
+          expand="full"
+          >Continue</ion-button
+        >
+      </div>
+    </div>
+  </form>
+</ion-content>
+
+<!-- (ionSlideDidChange)="slideChanged($event)" -->

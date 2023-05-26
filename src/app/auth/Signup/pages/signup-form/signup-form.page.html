@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/login-screen"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [scrollEvents]="true">
+
+  <div class="top">
+    <h2>Already have an account?</h2>
+    <p>Register with an existing account. Please enter your details below.</p>
+  </div>
+
+  <form [formGroup]="SignUpForm">
+    <div class="auth">
+      <div class="auth-form">
+
+        <div class="accountNumber input">
+          <ion-label for="accountNumber">Account number</ion-label>
+          <ion-input type="accountNumber" maxlength="10" type="text" name="accountNumber" placeholder="" formControlName="accountNumber" ></ion-input>
+        </div>
+
+
+        <div class="password input">
+          <ion-label for="password">Enter Password</ion-label>
+          <ion-input [type]="showPwd ? 'text' : 'password'" name="password" placeholder="" formControlName="password"></ion-input>
+          <ion-icon id="eye" slot="end" [name]="pwdIcon" (click)="togglePwd()"></ion-icon>
+          
+
+          <ion-list lines="none">
+            <ion-label>Password must have at least 8 characters</ion-label>
+          </ion-list>
+        </div>
+
+        <div class="confirm-password input">
+          <ion-label for="confirm-password">Confirm Password</ion-label>
+          <ion-input  [type]="showPwds ? 'text' : 'password'" name="confirmPassword" placeholder="" formControlName="confirmPassword" ></ion-input>
+          <ion-icon id="eye" slot="end" [name]="pwdIcons" (click)="togglePwds()"></ion-icon>
+          {{this.message}}
+        </div>
+        <div style='color:red' *ngIf="SignUpForm.get('password').value !== SignUpForm.get('confirmPassword').value && SignUpForm.get('confirmPassword').value !== null">
+          Passwords does not match</div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <ion-text>By tapping ”Next”, you agree to our
+        <a href="#" routerLink="/signup">Terms & Conditions and Privacy policy</a></ion-text>
+        <div class="">
+      <ion-button (click)="SignUp(SignUpForm)"    class="button"  type="submit" expand="block" [disabled]="!SignUpForm.valid" >Next</ion-button>
+      </div>
+    </div>
+  </form>
+
+
+
+</ion-content>

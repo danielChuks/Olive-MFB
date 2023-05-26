@@ -1,0 +1,58 @@
+* {
+  
+  --ion-background-color: white;
+  --ion-text-color: #000000;
+ --ion-text-color-rgb: 0,0,0;
+  font-family: JosefinSans;
+
+}
+@font-face {
+ font-family: 'JosefinSans';
+ src: url('/assets/fonts/JosefinSans.ttf');
+}
+//  logo
+.avatar{
+ display: block;
+  margin-left: auto;
+  margin-right: auto;
+ margin-top: 31px;
+ height: 41px;
+ width: 119px;
+ object-fit: contain;
+
+}
+
+// verification image
+.avatar-1{
+   width: 83px;
+   height: 84px;
+   object-fit: contain;
+   text-align: center;
+   margin-top: 183px;
+   display: block;
+   margin-left: auto;
+   margin-right: auto;
+ }
+
+ h2{
+   text-align: center;
+   font-size: 24px;
+   font-weight: 600;
+   color: #040D2C;
+   margin-top: 42.5px;
+ }
+ p{
+   color:#040D2C;
+   font-size:16px;
+   margin-top: 8px;
+   text-align: center;
+ }
+
+ ion-button{
+ --background: #040d2c;
+ --background-activated: #040d2c;
+ --border-radius:5px;
+ margin-top: 205px;
+ height: 50px;
+ margin: 200px 4px 0 4px;
+ }

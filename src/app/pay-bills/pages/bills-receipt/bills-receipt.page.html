@@ -1,0 +1,121 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="close-outline"  routerLink="/new-tab/hometab" slot="end"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+  <div class="avatar">
+    <ion-img src="./assets/images/approved.png"></ion-img>
+  </div>
+  <div class="successful">
+    <h3>{{status}}</h3>
+    <h2>You have successfully transferred</h2>
+    <p>{{amount |currency:"NGN":"symbol-narrow"}}</p>
+  </div>
+
+    <div class="transaction-flow">
+    <div class="from">
+      <ion-label>
+        <h2>From</h2>
+        <!-- <h3>{{accountType}}</h3> -->
+        <h3>{{accountNumber}}</h3>
+      </ion-label>
+    </div>
+    <div class="to">
+      <ion-label>
+        <h2>To</h2>
+        <h3>{{customerId}}</h3>
+        <div class="flex">
+          <h2>{{recipient}}</h2>
+          <h2>{{product}}</h2>
+        </div>
+       
+      </ion-label>
+    </div>
+    </div>
+
+
+    <div class="receipt">
+      <ion-list>
+        <h3 class="transaction_header">Transaction receipt</h3>
+        <div class="share_receipt">
+          <ion-avatar slot="start">
+            <ion-icon name="download-outline"></ion-icon>
+          </ion-avatar>
+          <ion-label (click)="downloadInvoice()">Download Receipt</ion-label>
+        </div>
+
+        <!-- <div class="share_receipt">
+          <ion-avatar slot="start">
+            <ion-icon name="share-social-outline"></ion-icon>
+          </ion-avatar>
+          <ion-label>Share Receipt</ion-label>
+        </div> -->
+        </ion-list>
+  </div>
+  <div class="btn">
+    <ion-button class="button"  type="submit" expand="block" routerLink="/new-tab/hometab">Done</ion-button>
+  </div>
+</ion-content>
+
+
+<div id="PrintInvoice" class="invoice-box hidden">
+
+  <div class="header" 
+    style="background-color: #018401;
+    color: white;
+    width: 100%;
+    height: 56px;
+    padding: 16px;
+    ">
+    <h4 style="
+      font-size: 18px;
+      line-height: 18px;
+    ">Nwannegadi Microfinance Bank</h4>  
+  </div>
+
+<div class="ion-padding receipt">
+  <div class="transaction-receipt-header">
+    <h4 style="
+    font-size: 18px;
+    line-height: 18px;
+  ">Transaction receipt</h4>
+  </div>
+
+ 
+  <ion-list class="ion-padding" > 
+    <!-- <ion-item style=" margin: 0px -35px 5px -15px;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;">
+      <ion-label style="font-size: 14px;">Transaction type:</ion-label>
+      <p style="font-size: 14px;">{{getintTransfer.transType}}</p> 
+    </ion-item> -->
+    <ion-item style=" margin: 0px -35px 5px -15px;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;">
+      <ion-label style="font-size: 14px; padding: 16px;">Transfer from:</ion-label>
+      <p style="font-size: 14px; padding: 16px;">{{accountNumber}}</p>
+    </ion-item>
+    <ion-item style=" margin: 0px -35px 5px -15px;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;">
+      <ion-label style="font-size: 14px; padding: 16px;">Transfer to:</ion-label>
+      <p style="font-size: 14px; padding: 16px;">{{recipient}}</p>
+    </ion-item>
+  </ion-list>
+  <p style="font-weight: 400;
+  font-size: 14px;
+  line-height: 18px;
+  text-align: justify;">Disclaimer: Your transfer has been successful, and the beneficiary’s account will be credited. 
+  However, this does not serve as a confirmation of credit into the beneficiary’s account. Due to the nature of the internet, 
+  transactions may be subject to interruption, transmission blackout, delayed transmission, and incorrect data transmission. 
+  The bank is not liable for malfunctions in  communications facilities not within its control that may affect the accuracy 
+  or timeliness of messages and transactions you send. 
+  All transactions are subject  to verification and our normal fraud checks.</p>
+</div>
+</div>

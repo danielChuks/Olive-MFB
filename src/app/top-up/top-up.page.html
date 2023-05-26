@@ -1,0 +1,117 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/hometab"></ion-icon>
+    <ion-text><span>Mobile Top Up</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  class="ion-padding">
+
+     <div class="accounts" (click)="isAccount =!isAccount" >
+      <div class="accounts-header">
+        <ion-text>{{accountNumber}}</ion-text><ion-icon name="chevron-down-outline" slot="end"  ></ion-icon>
+      </div>
+    </div>
+
+<div *ngIf="isAccount" >
+    <div *ngFor="let account of multipleAccounts"  class="account-list" (click)="selectAccountNumber(account.accountNumber)"  (click)="isAccount =!isAccount">
+      <div  class="account-type">
+        <h3>{{account.accountNumber}}</h3>
+      </div>
+
+      <div class="acct-number">
+        <ion-text>{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text>
+      </div>
+    </div>
+    </div>
+
+    <ion-segment  value="all" mode="ios"
+    [(ngModel)]="segmentModel"
+    (ionChange)="segmentChanged($event)">
+      <ion-segment-button value="seg1">
+        <ion-label>Airtime</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="seg2">
+        <ion-label>Data Bundle</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+
+    <form [formGroup]="airtimeForm"  class="" *ngIf="segmentModel === 'seg1'">
+  <ion-list>
+
+
+ <div class="select-container input">
+    <ion-select placeholder="Select Carrier" interface="action-sheet"  [interfaceOptions]="{ cssClass: 'select'}"   (ionChange)="selectCarrier($event)">
+      <ion-select-option [disabled]="true"  *ngFor="let biller of billers" value={{biller.billerid}} >{{biller.billername}}</ion-select-option>
+      <!-- <ion-select-option [disabled]="true" *ngIf="!billers">Carriers not Available, Please try again later</ion-select-option> -->
+    </ion-select>
+    </div>
+
+
+
+
+
+  <ion-input [disabled]="isNumberDisabled" placeholder="Enter Mobile Number" class="input-box" type="number"
+    id="phoneInput"   formControlName="airtimeNumber"></ion-input>
+
+
+  <ion-input class="input-box" [ngModel]="airtimeAmount" (input)="formatInput($event.target.value)" [disabled]="isAmountDisabled" placeholder="Amount" type="text" formControlName="airtimeAmount"></ion-input>
+   <div class="transfer-limit">
+    <ion-label>Current. transfer limit: {{limit|currency:"NGN":"symbol-narrow"}}</ion-label>
+    </div>
+
+    <div class="button">
+      <ion-button routerLink="/top-up/topup-confirmation" (click)="submitAirtimeDetails(airtimeForm)" type="submit" [disabled]="airtimeForm.valid && isAccountSelected ? false : true"  expand="full" >Continue</ion-button>
+    </div>
+
+</ion-list>
+</form>
+
+        <form [formGroup]="mobileDataForm" class="" *ngIf="segmentModel === 'seg2'">
+<!--
+          <div  (click)="openCarrier('carrier')" class="select-carrier" >
+            <ion-text ng-class="testdata"> {{ billerNameSeg2}} </ion-text><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+          </div> -->
+
+          <div class="select-container input">
+    <ion-select placeholder="Select Carrier" [interfaceOptions]="{ cssClass: 'select'}"   interface="action-sheet" (ionChange)="selectCarrierForBundle($event)">
+      <ion-select-option  *ngFor="let biller of billers" value={{biller.billerid}} >{{biller.billername}}</ion-select-option>
+
+    </ion-select>
+    </div>
+
+
+          <!-- <div  (click)="openCarrier('bundle')" class="select-carrier  bundle">
+            <ion-text>{{selectBundle}}</ion-text><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+          </div> -->
+
+             <div class="select-container input">
+    <ion-select #bund placeholder="Select Bundle"    interface="action-sheet" (ionChange)="getAmount(bund.value)">
+      <ion-select-option  *ngFor="let bundle of billerProducts" value={{bundle.paymentitemid}}> {{bundle.paymentitemname}}mb for {{bundle.amount / 100 | currency:"NGN":"symbol-narrow"}}</ion-select-option>
+    </ion-select>
+    </div>
+
+
+    <ion-input class="input-box" placeholder="Amount" [ngModel]="dataAmount" (input)="formatInput($event.target.value)"   type="text" formControlName="mobileDataAmount"   required></ion-input>
+    <div class="transfer-limit">
+    <ion-label>Current. transfer limit: {{limit|currency:"NGN":"symbol-narrow"}}</ion-label>
+     </div>
+
+
+
+    <ion-input placeholder="Mobile Number" class="input-box" type="number" formControlName="mobileDataNumber"
+      id="phoneInput"  ></ion-input>
+
+
+        <div class="button">
+           <ion-button routerLink="/top-up/topup-confirmation" (click)="submitDataDetails(mobileDataForm)" type="submit" [disabled]="!mobileDataForm.valid" expand="full" >Continue</ion-button>
+          </div>
+
+        </form>
+
+
+
+
+
+</ion-content>

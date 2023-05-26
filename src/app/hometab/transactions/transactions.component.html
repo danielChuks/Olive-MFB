@@ -1,0 +1,36 @@
+
+<ion-content>
+  <div class="transaction-body">
+<div class="transaction-history" *ngFor="let history of accountHist, let i=index">
+  <ion-item  *ngIf="i<5" (click)="openModal(history.transactionDate,
+  history.transactionType, history.transactionReference,
+  history.transactionAmount, history.senderAndReceiverInfo.sourceAccount, history.senderAndReceiverInfo.beneficiaryName, history.statementBalance, history.senderAndReceiverInfo.beneficiaryAccountNumber,
+  history.senderAndReceiverInfo.sourceAccountName)" button>
+    <ion-avatar>
+      <ion-icon [name]="history.transactionType === 'DR' ? 'arrow-up-outline' : 'arrow-down-outline'"></ion-icon>
+    </ion-avatar>
+    <div id="transactions-details">
+      <div class="transactions-amount" >
+        <h3>{{history.transactionType === 'DR' ? 'Debit' : 'Credit'}}</h3>
+        <p  *ngIf="history.senderAndReceiverInfo"> {{history.transactionType === 'DR' ? history.senderAndReceiverInfo.beneficiaryName : history.senderAndReceiverInfo.sourceAccountName}}</p>
+      </div>
+
+      <div class="transactions-amount" >
+        <p>{{history.transactionDate}}</p>
+      </div>
+    </div>
+
+<div id = "transactions-balance">
+  <div class="transaction-amount" >
+    <h3 [class]="history.transactionType === 'DR' ? 'debit' : 'credit'">{{history.transactionAmount|currency:"NGN":"symbol-narrow"}}</h3>
+    <!-- <p>{{history.statementBalance|currency:"NGN":"symbol-narrow"}}</p> -->
+  </div>
+</div>
+</ion-item>
+
+  <ion-item *ngIf="accountHist.length <= 0">
+   <h3>No recent Transactions </h3>
+  </ion-item>
+</div>
+</div>
+</ion-content>

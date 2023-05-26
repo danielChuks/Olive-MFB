@@ -1,0 +1,133 @@
+/*
+ * App Global CSS
+ * ----------------------------------------------------------------------------
+ * Put style rules here that you want to apply globally. These styles are for
+ * the entire app and not just one component. Additionally, this file can be
+ * used as an entry point to import other CSS/Sass files to be included in the
+ * output CSS.
+ * For more information on global stylesheets, visit the documentation:
+ * https://ionicframework.com/docs/layout/global-stylesheets
+ */
+
+/* Core CSS required for Ionic components to work properly */
+@import "~@ionic/angular/css/core.css";
+
+/* Basic CSS for apps built with Ionic */
+@import "~@ionic/angular/css/normalize.css";
+@import "~@ionic/angular/css/structure.css";
+@import "~@ionic/angular/css/typography.css";
+@import "~@ionic/angular/css/display.css";
+
+/* Optional CSS utils that can be commented out */
+@import "~@ionic/angular/css/padding.css";
+@import "~@ionic/angular/css/float-elements.css";
+@import "~@ionic/angular/css/text-alignment.css";
+@import "~@ionic/angular/css/text-transformation.css";
+@import "~@ionic/angular/css/flex-utils.css";
+
+@import "/src/theme/variables.scss";
+
+@font-face {
+  font-family: "JosefinSans";
+  src: url("/assets/fonts/JosefinSans.ttf");
+}
+
+* {
+  font-family: josefinSans;
+  --ion-background-color: white;
+  --ion-text-color: #000000;
+  --ion-text-color-rgb: 0, 0, 0;
+  --ion-tab-button-color: rgb(248, 248, 248);
+  --ion-tab-bar-color: #8b8b8b;
+  margin: 0;
+}
+
+ion-loading.custom-loading {
+  --background: #e3edff;
+  --spinner-color: #040d2c;
+  color: #040d2c;
+}
+
+// Header section
+ion-toolbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --background: white;
+  color: black;
+  ion-icon {
+    font-size: 30px;
+    margin-left: 16px;
+    margin-top: 9px;
+  }
+  ion-text {
+    position: absolute;
+    width: 100%;
+    height: 20px;
+    left: calc(50% - 128px / 2 - 0.5px);
+    top: calc(50% - 20px / 2);
+
+    font-family: "Josefin Sans";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 20px;
+    line-height: 20px;
+    color: #000000;
+  }
+}
+
+.beneficiaries {
+  ion-input {
+    height: 56px;
+    background-color: #ededed;
+    border-color: 1px solid #e5e5e5;
+  }
+}
+
+.input {
+  ion-input {
+    height: 56px;
+    background-color: #ededed;
+    border-color: 1px solid #e5e5e5;
+  }
+}
+
+.btn {
+  margin-top: 42px;
+  ion-button {
+    --background: #018401;
+    --background-activated: #018401;
+    --border-radius: 5px;
+    height: 50px;
+    font-weight: 200;
+  }
+}
+
+.select .action-sheet-wrapper {
+  --button-color: black;
+  --button-color: black;
+}
+
+.service-slides .swiper-pagination-bullet {
+  border-radius: 0;
+  width: 12px;
+  height: 3px;
+}
+
+.scroll {
+  height: 100vh;
+  overflow-y: scroll;
+}
+
+.pin-modal {
+  --width: auto;
+  --height: auto;
+  --max-width: 90%;
+  --max-height: 90%;
+  --overflow: auto;
+
+  > .ion-page {
+    position: static;
+    contain: initial;
+  }
+}

@@ -1,0 +1,56 @@
+@import "/src/app/transfer/transfer.page.scss";
+
+.account-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  padding: 14px 8px 10px 8px;
+  height: 56px;
+  margin-top: 26px;
+  margin-bottom: 40px;
+
+  #name {
+    float: right;
+    position: absolute;
+  }
+
+  ion-icon {
+    float: right;
+  }
+}
+
+.account-number {
+  background: #ffffff;
+  border: 2px solid #e5e5e5;
+  padding: 8px 8px 30px 8px;
+  height: 56px;
+  margin-top: 26px;
+  margin-bottom: 3rem;
+
+  #name {
+    float: right;
+    margin: 8px -10px 0px 0px;
+    font-size: 15px;
+  }
+
+  ion-icon {
+    float: right;
+  }
+}
+
+.ion-no-border {
+  ion-text {
+    width: 100%;
+  }
+}
+
+ion-searchbar {
+  margin-top: 32px;
+}
+
+.scroll {
+  height: 100vh;
+  overflow-y: scroll;
+}

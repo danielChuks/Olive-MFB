@@ -1,0 +1,34 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="close-outline" routerLink="/transfer" (click)="cancel()"></ion-icon>
+    <ion-text><span>Beneficiaries</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-searchbar [debounce]="1000" color="dark" placeholder="Search" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+
+<ion-content class="ion-padding">
+  <div class="beneficiaries-list">
+    <ion-item-group  *ngFor="let list of filteredBenList"  button detail="true">
+      <ion-item (click)="addBeneficiary(list.benAccountNumber,list.benAccountName, list.benBankName, list.benBankCode, sendTrue )"  button>
+        <!-- <ion-avatar>
+          <ion-label>AA</ion-label>
+        </ion-avatar> -->
+        <div class="beneficiaries-details">
+          <div class="ben-name">
+            <ion-text>{{list.benAccountName}} </ion-text>
+          </div>
+          <div class="ben-account">
+            <h3>{{list.benAccountNumber}}</h3><h2>.</h2><h3>{{list.benBankName}}</h3>
+          </div>
+        </div>
+      </ion-item>
+    </ion-item-group>
+
+      <ion-item *ngIf="filteredBenList && filteredBenList.length <= 0">
+      <h3>Can't Find Beneficiary</h3>
+      </ion-item>
+
+
+  </div>
+</ion-content>

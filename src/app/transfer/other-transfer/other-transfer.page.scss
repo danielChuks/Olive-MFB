@@ -1,0 +1,25 @@
+@import "/src/app/transfer/transfer.page.scss";
+
+ion-toggle{
+  --background-checked : #018401;
+}
+
+.bankName {
+  ion-input {
+    overflow-y: scroll;
+  }
+}
+
+// .beneficiary-tab {
+//   display: flex;
+// ion-icon{
+//   float: right;
+//   margin-left: 200px;
+// }
+// }
+
+// .bank-modal {
+//   ion-searchbar {
+//     margin-top: 80px;
+//   }
+// }

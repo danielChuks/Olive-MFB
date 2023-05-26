@@ -1,0 +1,19 @@
+<ion-content class="ion-padding">
+  <h3>Banks</h3>
+   <ion-searchbar [debounce]="1000" color="dark" placeholder="Search" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+   <div class="scroll">
+      <div *ngIf="filteredBankList &&  filteredBankList.length > 0">
+<ion-item *ngFor="let bank of filteredBankList">
+  <ion-label (click)="confirm(bank.bankName, bank.bankCode)">{{bank.bankName}}</ion-label>
+</ion-item>
+</div>
+<div  *ngIf="filteredBankList && filteredBankList.length <=0" >
+ <ion-item >
+  <ion-label >Bank not Found</ion-label>
+  </ion-item>
+  </div>
+</div>
+
+
+
+</ion-content>

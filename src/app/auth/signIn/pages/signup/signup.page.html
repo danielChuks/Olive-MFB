@@ -1,0 +1,41 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/login-screen"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding" [scrollEvents]="true">
+
+  <div class="top">
+    <h2>Let's get started</h2>
+    <p>Open an account with OLIVE MFB with just a few easy steps!</p>
+  </div>
+
+  <form [formGroup]="SignUpForm">
+    <div class="auth">
+      <div class="auth-form">
+        <div class="username">
+          <ion-label for="username"> Username</ion-label>
+          <ion-input type="username" name="email" placeholder="" formControlName="username"></ion-input>
+        </div>
+        <div class="password">
+          <ion-label for="password">Enter Password</ion-label>
+          <ion-input type="password" name="password" placeholder="" formControlName="password"></ion-input>
+        </div>
+
+        <div class="confirm-password">
+          <ion-label for="password">Confirm Password</ion-label>
+          <ion-input type="password" name="password" placeholder="" formControlName="confirmPassword"></ion-input>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      <ion-text>By tapping ”Next”, you agree to our
+        <a href="#" routerLink="/signup">Terms & Conditions and Privacy policy</a></ion-text>
+      <ion-button class="button" type="submit" expand="block" routerLink="/signup2" [disabled]="!SignUpForm.valid">Next</ion-button>
+      <h4>Already have an account? <a href="#"> Sign In</a></h4>
+    </div>
+  </form>
+
+</ion-content>

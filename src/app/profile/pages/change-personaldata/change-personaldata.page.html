@@ -1,0 +1,76 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/profile"></ion-icon>
+    <ion-text><span>Change Password</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content  class="ion-padding">
+    <ion-item>
+      <ion-select interface="action-sheet" placeholder="Select Account">
+        <ion-select-option value="id1">Savings Account- 2087634521</ion-select-option>
+        <ion-select-option value="id2">Savings Account- 2087634521</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+
+    <ion-item>
+      <ion-select [(ngModel)]="selectedItem" (ngModelChange)="valueChanged($event)" interface="action-sheet" placeholder="Select Type">
+        <ion-select-option  value="email">Email</ion-select-option>
+        <ion-select-option value="phone">Phone</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+
+    <div class="input" *ngIf="isInput">
+    <ion-input   [ngClass]="test ? 'display' : 'displayNone'" type="email"  name="inputEmail" placeholder="Input Email" ></ion-input>
+
+    <ion-input [ngClass]="test ? 'displayNone' : 'display'"  type="text"  name="inputText" placeholder="Input Phone Number"></ion-input>
+  </div>
+
+
+  <ion-button id="open-modal"     class="button"  type="submit" expand="block" [disabled]="" >Continue</ion-button>
+
+
+  <ion-modal  (click)="cancel()" trigger="open-modal" (willDismiss)="onWillDismiss($event)" [initialBreakpoint]="0.9" [breakpoints]="[0, 0.9]" >
+
+    <ng-template>
+    <ion-content class="ion-padding">
+<p>Authenticate Change</p>
+
+
+<!-- ellipses -->
+<p class="passcode">Change Pin</p>
+<div class="ellipses">
+<div id="circle"></div>
+<div id="circle"></div>
+<div id="circle"></div>
+<div id="circle"></div>
+<div id="circle"></div>
+<div id="circle"></div>
+</div>
+
+<!-- dialpad section -->
+<div class="dialpad">
+<ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
+<ion-button    fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(5)">5</ion-button>
+<ion-button  fill="clear"  type="button" size="small" class="grid-items"(click)="addNumber(6)">6</ion-button>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
+<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
+  <ion-button routerLink="/profile/success-page"  fill="clear" type="button" size="small" class="grid-items" >OK</ion-button>
+</div>
+
+      </ion-content>
+
+    </ng-template>
+    </ion-modal>
+
+
+</ion-content>

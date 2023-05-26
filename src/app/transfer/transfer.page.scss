@@ -1,0 +1,180 @@
+.transfer-forms {
+  height: 18px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+
+  ion-item {
+    --background: #ededed;
+    ion-select-option {
+      display: flex;
+      justify-content: space-between;
+    }
+  }
+  .input {
+    margin-top: 32px;
+    ion-input {
+      height: 56px;
+      background-color: #ededed;
+      border-color: 1px solid #e5e5e5;
+      padding: 40px;
+    }
+  }
+  .accounts {
+    height: 56px;
+    background-color: #ededed;
+    border-color: 2px solid #e5e5e5;
+  }
+
+  .accounts-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666666;
+    padding: 18px 8px 10px 8px;
+
+    ion-text {
+      height: 15px;
+      font-weight: 400;
+      line-height: 18px;
+    }
+  }
+
+  .account-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #666666;
+    padding: 18px 8px 10px 8px;
+    height: 56px;
+    background-color: #ededed;
+    border-color: 2px solid #e5e5e5;
+
+    .account-type {
+      h3 {
+        font-size: 16px;
+      }
+      p {
+        margin-top: -8px;
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  //Add Beneficiaries
+  .beneficiary-tab {
+    display: flex;
+
+    .beneficiary {
+      margin-top: 25px;
+      ion-input {
+        height: 56px;
+        width: 269px;
+        background-color: #ededed;
+        border-radius: 1px solid #000000;
+        --placeholder-color: #000000;
+      }
+
+      ion-text {
+        width: 100%;
+        font-size: 14px;
+      }
+    }
+
+    //beneficiaries-icon
+    .beneficiaries {
+      background-color: #018401;
+      width: 50px;
+      height: 56px;
+      margin-top: 25px;
+      margin-left: 16px;
+      ion-icon {
+        width: 50px;
+        height: 56px;
+        color: #ffffff;
+      }
+
+      ion-avatar {
+        width: 50px;
+        height: 56px;
+      }
+    }
+  }
+
+  .transfer-limit {
+    margin-top: 4px;
+    height: 23px;
+  }
+
+  .toggle {
+    margin-top: 32px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 4px 24px 4px 4px;
+    height: 19px;
+  }
+}
+
+.beneficiaries-list {
+  ion-item {
+    margin: 0px 0px 0px -15px;
+  }
+  ion-avatar {
+    background-color: #e6e6e6;
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+
+    ion-label {
+      color: #000000;
+      font-size: 15px;
+      margin: 5px 0px 0px 8px;
+    }
+  }
+}
+
+.beneficiaries-details {
+  margin-top: 18px;
+}
+
+.ben-name {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  ion-text {
+    font-weight: 900;
+    font-size: 16px;
+  }
+}
+
+.ben-account {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  h3 {
+    font-weight: 300;
+    font-size: 14px;
+    margin-top: 8px;
+  }
+
+  h2 {
+    font-weight: 900;
+    font-size: 20px;
+    margin: 0px 4px 10px 4px;
+  }
+}
+
+.account-options {
+  display: flex;
+  justify-content: space-between;
+}
+
+ion-toggle {
+  --background-checked: #018401;
+}
+ion-label {
+  font-size: 14px;
+}

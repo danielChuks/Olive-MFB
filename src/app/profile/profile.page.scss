@@ -1,0 +1,153 @@
+@import "../../app/hometab/hometab.page.scss";
+
+ion-content{
+  .header{
+    background-color: #018401;
+    height: 20rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    line-height: 2.5rem;
+    margin-top: -1rem;
+    
+    h2{
+      margin-top: 1rem;
+    }
+    
+    p{
+      margin-top: 2rem;
+      margin-bottom: 1.7rem;
+      font-size: 1.3rem;
+    }
+
+    .avatar{
+      height: 5.5rem;
+      width: 5.5rem;
+      border-radius: 3.125rem;
+      margin-left: 0.75rem;
+      background-color: white;
+      position: relative;
+      margin: auto;
+    }
+
+    .over{
+      margin-top: 2rem;
+      background-color: #E5E5E5;
+      // position: absolute;
+      width: 100%;
+      height: 100%;
+      border-radius:3.125rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      ion-icon{
+        color: black;
+        font-size: 2.1875rem;
+      }
+    }
+  }
+
+  .overlay{
+    background-color: #ffffff;
+    margin-top: -1.5rem;
+    box-shadow: none;
+  }
+
+  .content{
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    ion-icon{
+      font-size: 20px;
+    }
+
+    .settings-header{
+      background-color: #ffffff;
+      margin: 10px 0px 10px 16px;
+      p{
+        font-size: 23px;
+        font-weight: 400;
+        color: #018401;
+      }
+    }
+
+    .user-details{
+      background-color: #ffffff;
+      margin-top: 1.0rem;
+      margin-left: -0.5rem;
+      margin-right: -0.3rem;
+
+      ion-avatar {
+        margin-right: 8px;
+        width: 32px;
+        height: 32px;
+        background: #018401;
+        img{
+            color: white;
+            padding: 2px;
+            height: 28px;
+            width: 28px;
+            margin: 2px;
+        }
+    }
+
+    ion-icon{
+      margin-right: -0.3rem;
+    }
+    }
+
+
+    .app-details{
+      background-color: #ffffff;
+      margin-top: 1.0rem;
+      margin-left: -0.5rem;
+      margin-right: -0.3rem;
+
+      ion-avatar {
+        margin-right: 8px;
+        width: 32px;
+        height: 32px;
+        background: #018401;
+        img{
+            color: white;
+            padding: 2px;
+            height: 28px;
+            width: 28px;
+            margin: 2px;
+        }
+    }
+
+    ion-icon{
+      margin-right: -0.3rem;
+    }
+
+    .logout-details{
+      img{
+        width: 25px;
+        height: 25px;
+        margin-right:8px;
+      }
+    }
+    }
+  }
+
+  .modal-content{
+    border: 1px solid red;
+    }
+}
+
+
+
+ion-modal{
+  ng-template{
+    ion-content{
+      ion-item{
+        --ion-text-color: #000000;
+      }
+      }
+
+  }
+}
+

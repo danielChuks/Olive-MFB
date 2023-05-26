@@ -1,0 +1,121 @@
+* {
+  --ion-background-color: white;
+  --ion-text-color: #000000;
+	--ion-text-color-rgb: 0,0,0;
+  font-family: josefinSans;
+}
+@font-face {
+  font-family: 'JosefinSans';
+  src: url('/assets/fonts/JosefinSans.ttf');
+}
+ion-header {
+  background-color: white;
+  ion-button {
+    margin-top: 15.6px;
+    color: none;
+    border: none;
+  }
+  ion-icon {
+    color: #040D2C;
+    width: 25px;
+    height: 25px;
+  }
+}
+
+ion-content {
+.auth {
+  margin-top: 23px;
+
+  h2 {
+    color:#040D2C;
+    width: 248px;
+    height: 26px;
+  }
+
+  p {
+    margin-top: 8px;
+    height: 48px;
+    color: #666666;
+  }
+  ion-input {
+    background-color: #F5F5F5;
+    border-color: 1px solid #E5E5E5;
+  }
+}
+
+.auth-form {
+
+  .username {
+    margin-top: 32px;
+    ion-label {
+      color:#040D2C;
+    }
+
+    ion-input {
+      margin-top: 8px;
+      height: 56px;
+    }
+  }
+
+  .password {
+
+  margin-top: 24px;
+    ion-label {
+      color:#040D2C;
+    }
+
+    ion-input {
+      margin-top: 8px;
+      height: 56px;
+    }
+  }
+
+  .confirm-password {
+
+    margin-top: 24px;
+      ion-label {
+        color:#040D2C;
+      }
+
+      ion-input {
+        margin-top: 8px;
+        height: 56px;
+      }
+    }
+}
+
+.footer {
+  margin-top: 24px;
+  ion-text {
+    position: static;
+    height: 42px;
+    font-size: 400;
+    line-height: 21px;
+  }
+
+  a {
+    text-decoration: none;
+    color: #040d2ca1;
+  }
+
+  ion-button {
+    margin-top: 32px;
+    --background: #040D2C;
+    --background-activated: #040D2C;
+    height: 50px;
+    border-radius: 5px;
+  }
+
+  h4 {
+    margin-top: 32px;
+    text-align: center;
+    color: #040D2C;
+    height: 14px;
+    font-size: 14px;
+    top: 82px;
+    a {
+      color: #040D2C;
+    }
+  }
+}
+}

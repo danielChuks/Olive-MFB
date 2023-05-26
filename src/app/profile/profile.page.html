@@ -1,0 +1,149 @@
+<ion-content>
+  <div class="header">
+    <div class="sub-header">
+
+      <h2>Profile</h2>
+
+      <div class="avatar">
+        <div class="over">
+          <h3>{{initials}}</h3>
+        </div>
+      </div>
+
+      <p>{{accountInformation && accountInformation.accountName}}</p>
+
+    </div>
+  </div>
+
+    <div class="overlay">
+  <div class="content">
+    <div class="settings-header">
+      <p>Settings</p>
+    </div>
+
+    <ion-list lines="full" class="user-details">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img
+            id="circle"
+            src="../../assets/images/user-shield-50.png"
+            alt=""
+          />
+        </ion-avatar>
+        <ion-label (click)="security =!security">Security</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+
+      <div class="security-details" *ngIf="security">
+        <ion-item>
+          <ion-avatar slot="start">
+            <img id="circle" src="../../assets/images/pin-pad.png" alt="" />
+          </ion-avatar>
+          <ion-label (click)="openChangePin()"
+            >Change Transaction PIN</ion-label
+          >
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img
+              id="circle"
+              src="../../assets/images/forgot-password.png"
+              alt=""
+            />
+          </ion-avatar>
+          <ion-label (click)="openForgotPin()">Forgot PIN</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-avatar slot="start">
+            <img id="circle" src="../../assets/images/validation.png" alt="" />
+          </ion-avatar>
+          <ion-label (click)="openChangePassword()">Change Password</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <!-- <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img id="circle" src="../../assets/images/lock-50.png" alt="" />
+          </ion-avatar>
+          <ion-label (click)="openPersonalData()"
+            >Change Personal Data</ion-label
+          >
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item> -->
+      </div>
+    </ion-list>
+
+    <ion-list lines="full" class="app-details">
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img id="circle" src="../../assets/images/account.png" alt="" />
+        </ion-avatar>
+        <ion-label id="open-modal">Account</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img id="circle" src="../../assets/images/contact.png" alt="" />
+        </ion-avatar>
+        <ion-label>Help</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+      <ion-item lines="none">
+        <ion-avatar slot="start">
+          <img id="circle" src="../../assets/images/info2.png" alt="" />
+        </ion-avatar>
+        <ion-label>About</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+
+    <ion-list lines="full" class="user-details">
+      <ion-item lines="none" (click)="logout()">
+        <ion-avatar slot="start">
+          <img id="circle" src="../../assets/images/logout.png" alt="" />
+        </ion-avatar>
+        <ion-label>Logout</ion-label>
+        <ion-icon name="chevron-forward-outline"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </div>
+    </div>
+
+  <ion-modal
+    trigger="open-modal"
+    (willDismiss)="onWillDismiss($event)"
+    [initialBreakpoint]="0.35"
+    [breakpoints]="[0, 0.35]"
+  >
+    <ng-template>
+      <ion-content>
+        <ion-item>
+          <ion-label>BVN</ion-label>
+          <ion-label color="primary" slot="end"
+            >{{accountInformation.bvn}}</ion-label
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label>Account Number</ion-label>
+          <ion-label color="primary" slot="end"
+            >{{accountInformation.accountNumber }}</ion-label
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label>Email</ion-label>
+          <ion-label color="primary" slot="end">
+            {{accountInformation.email}}</ion-label
+          >
+        </ion-item>
+        <ion-item>
+          <ion-label>Phone</ion-label>
+          <ion-label color="primary" slot="end">
+            {{accountInformation.phone}}</ion-label
+          >
+        </ion-item>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
+

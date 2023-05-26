@@ -1,0 +1,54 @@
+@import "../forgot-password.page.scss";
+
+.ion-padding {
+  p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 24px;
+
+    text-align: justify;
+  }
+
+  .accountNumber {
+    margin-top: 24px;
+  }
+}
+
+ion-list {
+  margin-top: 8px;
+  font-weight: 300;
+  font-size: 15px;
+  ion-label {
+    margin-left: 4px;
+    font-weight: 400;
+    font-size: 15px;
+  }
+
+  ion-item {
+    margin-bottom: -15px;
+    font-weight: 400;
+    font-size: 14px;
+    color: #000000;
+  }
+}
+
+ion-button {
+  margin-top: 60px;
+}
+
+.regenerate {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+}
+
+#timer {
+  text-align: center;
+
+  button {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: #018401;
+    margin-top: 0.4rem;
+  }
+}

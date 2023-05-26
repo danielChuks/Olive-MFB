@@ -1,0 +1,44 @@
+<div class="card">
+  <div *ngIf="listOfCards.length > 0">
+  <ion-card *ngFor="let  details of listOfCards" >
+    <div class="title">
+      <h3>{{details.cardType}}</h3>
+      <h3>NMF</h3>
+    </div>
+    <img class="chip" src= "../assets/images/chip-card.png">
+    <h4>{{details.cardPan}}</h4>
+
+    <div class="subtitle">
+      <h3 class="name">{{details.nameOnCard}}</h3>
+      <h3 class="date">Expiry Date: <span> {{details.expiryDate}}</span></h3>
+    </div>
+  </ion-card>
+  </div>
+
+     <ion-card>
+    <div class="empty-card" *ngIf="listOfCards.length === 0">
+      <h3> Card not available</h3>
+    </div>
+    </ion-card>
+
+
+
+
+
+  <div class="select-accounts">
+    <ion-select  (ionChange)="handleSelectOption($event)" [interfaceOptions]="{cssClass: 'select'}" interface="action-sheet" placeholder="Select  Account Number">
+      <ion-select-option  *ngFor="let account of multipleAccounts" value={{account.accountNumber}}>
+        {{account.accountNumber}}
+      </ion-select-option>
+    </ion-select>
+  </div>
+
+  <div class="services">
+  <ion-text>Services</ion-text>
+  <div class="header">
+    <h3>Block Card</h3>
+    <ion-toggle (ionChange)="toggleChange($event)" [disabled]="istoggleDisabled"  slot="end"></ion-toggle>
+  </div>
+</div>
+</div>
+

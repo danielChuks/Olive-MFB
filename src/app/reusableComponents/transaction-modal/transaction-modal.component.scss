@@ -1,0 +1,46 @@
+@import "/src/app/transfer/receipt/receipt.page.scss";
+// @import "/src/app/home/pages/dashboard/dashboard.page.scss";
+@import "/src/app/transfer/full-activity/full-activity.page.scss";
+@import "/src/app/hometab/transactions/transactions.component.scss";
+
+ion-item {
+  margin: 0px 0px 15px -15px;
+}
+
+.receipt {
+  .transaction-receipt-header {
+    margin-bottom: -10px;
+  }
+
+  .share_receipt {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    width: 100%;
+    ion-avatar {
+      margin-right: 8px;
+      width: 29px;
+      height: 29px;
+      background: #040d2c;
+      ion-icon {
+        color: white;
+        padding: 3px;
+        height: 22px;
+        width: 23px;
+      }
+    }
+
+    ion-label {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 16px;
+      font-size: 14px;
+      margin-right: 40%;
+      width: 100%;
+    }
+  }
+}
+
+.hidden {
+  display: none;
+}

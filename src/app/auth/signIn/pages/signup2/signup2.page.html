@@ -1,0 +1,91 @@
+<ion-header class="header">
+  <ion-button color="none" routerLink="/signup">
+    <ion-icon slot="icon-only" name="chevron-back-outline"></ion-icon>
+  </ion-button>
+</ion-header>
+
+<!--segment-->
+<ion-content fullscreen [scrollEvents]="true" class="ion-padding">
+  <div class="top">
+    <h2>Enter phone or email</h2>
+  </div>
+
+  <ion-segment
+    value="all"
+    mode="ios"
+    [(ngModel)]="segmentModel"
+    (ionChange)="segmentChanged($event)"
+  >
+    <ion-segment-button value="1">
+      <ion-label>Phone</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      <ion-label>Email</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <div class="phone" *ngIf="segmentModel === '1'">
+    <ion-grid class="number">
+      <ion-row>
+        <ion-col>
+          <ion-label position="stacked">Phone Number</ion-label>
+          <ion-select placeholder="+234">
+            <ion-select-option
+              [value]="st"
+              *ngFor="let st of [{ name: '+234'},{name: '+44'}]"
+              >{{st.name}}
+            </ion-select-option>
+          </ion-select>
+        </ion-col>
+        <ion-col class="ion-align-self-end">
+          <ion-input type="tel" name="email" placeholder=""></ion-input>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <!--email-segment-->
+  <div class="email" *ngIf="segmentModel === '2'">
+    <ion-label for="email"> Email</ion-label>
+    <ion-input type="email" name="email" placeholder=""></ion-input>
+  </div>
+  <div class="button">
+    <ion-button type="submit" expand="full" id="openModal">Next</ion-button>
+  </div>
+
+  <!--Modal-section-->
+  <div class="modal">
+    <ion-modal
+      trigger="openModal"
+      [initialBreakpoint]="0.9"
+      [breakpoints]="[0, 0.9]"
+    >
+      <ng-template>
+        <ion-content class="ion-padding">
+          <div class="phone" *ngIf="segmentModel === '1'">
+            <h4>Confirm your phone number</h4>
+            <p>We’ve sent a code to +234-7093456789 for confirmation</p>
+            <ion-label for="phone">Enter verification code</ion-label>
+            <ion-input type="text" name="phone" placeholder=""></ion-input>
+          </div>
+          <div class="email" *ngIf="segmentModel === '2'">
+            <h4>Confirm your email</h4>
+            <p>We’ve sent a code to ********@gmail.com for confirmation</p>
+            <ion-label for="email"> Enter verification code</ion-label>
+            <ion-input type="username" name="email" placeholder=""></ion-input>
+          </div>
+          <div class="dismiss-button">
+            <ion-button
+              type="submit"
+              expand="full"
+              data-dismiss="modal"
+              routerLink="/fill-form"
+              >Next</ion-button
+            >
+          </div>
+          <a href="#">Resend code</a>
+          <!--End of modal section-->
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+  </div>
+</ion-content>

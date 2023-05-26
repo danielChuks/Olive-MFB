@@ -1,0 +1,7 @@
+<ion-content class="ion-padding">
+  <h3>Carriers</h3>
+<ion-item *ngFor="let biller of billers"  >
+  <ion-label (click)="confirm(biller.billername,biller.billerid)">{{biller.billername}}</ion-label>
+</ion-item>
+
+</ion-content>

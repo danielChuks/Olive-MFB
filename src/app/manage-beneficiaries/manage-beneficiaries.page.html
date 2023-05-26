@@ -1,0 +1,59 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon
+      name="chevron-back-outline"
+      routerLink="/new-tab/hometab"
+    ></ion-icon>
+    <ion-text><span>Beneficiaries</span></ion-text>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-searchbar
+    [debounce]="1000"
+    color="dark"
+    [debounce]="1000"
+    (ionChange)="handleSearchInput($event)"
+  ></ion-searchbar>
+  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
+  </ion-refresher>
+  <ion-content class="ion-padding">
+    <div class="beneficiaries-list">
+      <ion-item-group button detail="true">
+        <ion-item
+          *ngFor="let list of filteredBenList"
+          (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
+          button
+        >
+          <div class="beneficiaries-details">
+            <div class="ben-name">
+              <ion-text>{{list.benAccountName}} </ion-text>
+            </div>
+            <div class="ben-account">
+              <h3>{{list.benAccountNumber}}</h3>
+              <h2>.</h2>
+              <h3>{{list.benBankName}}</h3>
+            </div>
+          </div>
+        </ion-item>
+
+        <ion-item *ngIf=" filteredBenList && filteredBenList.length <= 0">
+          <h3>Can't find Beneficiary</h3>
+        </ion-item>
+      </ion-item-group>
+    </div>
+  </ion-content>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button routerLink="/add-beneficiaries">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

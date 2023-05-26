@@ -1,0 +1,54 @@
+<!--Header-->
+<ion-header class="ion-no-border">
+      <ion-button color="none" routerLink="/signup2">
+        <ion-icon  slot="icon-only" name="chevron-back-outline"></ion-icon>
+      </ion-button>
+</ion-header>
+
+<!--form details-->
+<ion-content class="ion-padding" fullscreen [scrollEvents]="true">
+  <div class= "auth">
+    <div class="top">
+    <h2>Fill in your details</h2>
+    <p>Please add your name as it appears on your official documents and identifications</p>
+    </div>
+
+    <div class="auth-form">
+    <div class="first-name">
+      <ion-label for="first-name">Legal First Name</ion-label>
+      <ion-input type="text" name="text" placeholder=""></ion-input>
+    </div>
+   <div class= "middle-name">
+    <ion-label for="middle-name">Legal Middle Name</ion-label>
+    <ion-input type="text" name="text" placeholder=""></ion-input>
+   </div>
+
+    <div class= "last-name">
+      <ion-label for="last-name">Legal Last Name</ion-label>
+        <ion-input type="text" name="text" placeholder=""></ion-input>
+      </div>
+
+      <div class= "gender">
+        <ion-label>Gender</ion-label>
+        <ion-select placeholder="">
+          <ion-select-option [value]="st" *ngFor="let st of [{ name: 'Male'},{name: 'Female'}]">{{st.name}}
+          </ion-select-option>
+        </ion-select>
+        </div>
+
+        <div class= "dob">
+          <ion-label for="dob">Date of Birth</ion-label>
+          <ion-select placeholder="DD/MM/YYYY">
+            <ion-select-option [value]="st" *ngFor="let st of [{ name: 'Male'},{name: 'Female'}]">{{st.name}}
+            </ion-select-option>
+          </ion-select>
+          </div>
+    </div>
+  <!--End of form details-->
+
+  <!--page button-->
+  </div>
+    <div class="btn">
+    <ion-button class="button"  type="submit" expand="block" routerLink="/welcomescreen">Submit</ion-button>
+  </div>
+</ion-content>

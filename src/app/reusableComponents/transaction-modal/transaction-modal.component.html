@@ -1,0 +1,287 @@
+<!-- Modal-content -->
+
+<ion-content class="ion-padding">
+  <!-- <ion-item>
+                <div class="modal transactions">
+                <div class="transaction-details">
+                  <ion-label>
+                    <p>Narrative</p>
+                    <h2>ATM WD</h2>
+                  </ion-label>
+                </div>
+                </div>
+              </ion-item>
+         -->
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>Transaction Date</p>
+          <h2>{{ getSelectedHistory.transDate }}</h2>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>Transaction Type</p>
+          <h2>{{ getSelectedHistory.transType }}</h2>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>Transaction Reference</p>
+          <h2>{{ getSelectedHistory.transRef }}</h2>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>Transaction Amount</p>
+          <h2>
+            {{
+              getSelectedHistory.transAmount
+                | currency : "NGN" : "symbol-narrow"
+            }}
+          </h2>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>Balance after transaction</p>
+          <h2>
+            {{
+              getSelectedHistory.balance | currency : "NGN" : "symbol-narrow"
+            }}
+          </h2>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>From</p>
+          <h2>{{ getSelectedHistory.srcAccount }}</h2>
+          <p>{{ getSelectedHistory.srcAccountName }}</p>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <ion-item>
+    <div class="transactions">
+      <div class="transaction-details">
+        <ion-label>
+          <p>To</p>
+          <h2>{{ getSelectedHistory.benName }}</h2>
+          <p>{{ getSelectedHistory.benAcctNo }}</p>
+        </ion-label>
+      </div>
+    </div>
+  </ion-item>
+
+  <div class="receipt">
+    <div class="transaction-receipt-header">
+      <h4>Transaction receipt</h4>
+    </div>
+    <ion-list>
+      <div class="share_receipt">
+        <ion-avatar slot="start">
+          <ion-icon name="download-outline"></ion-icon>
+        </ion-avatar>
+        <ion-label (click)="downloadInvoice()">Download Receipt</ion-label>
+        <!-- </div> -->
+
+        <!-- <div class="share_receipt"> -->
+        <!-- <ion-avatar slot="end">
+                      <ion-icon name="share-social-outline"></ion-icon>
+                    </ion-avatar>
+                    <ion-label>Share Receipt</ion-label> -->
+      </div>
+    </ion-list>
+    <!-- <h3 class="transaction_header">Report an issue</h3> -->
+  </div>
+</ion-content>
+
+<div id="PrintInvoice" class="invoice-box hidden">
+  <div
+    class="header"
+    style="
+      background-color: #003a00;
+      color: white;
+      width: 100%;
+      text-align: center;
+      height: 56px;
+      padding: 16px;
+    "
+  >
+    <h4 style="font-size: 18px; line-height: 18px; margin-top: -1px">
+      Nwannegadi Microfinance Bank
+    </h4>
+  </div>
+
+  <div class="ion-padding receipt">
+    <div class="transaction-receipt-header">
+      <h4 style="font-size: 18px; line-height: 18px">Transaction receipt</h4>
+    </div>
+
+    <ion-list class="ion-padding">
+      <ion-item
+        style="
+          margin: -30px -35px -10px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Transaction type:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.transType }}
+        </p>
+      </ion-item>
+      <ion-item
+        style="
+          margin: -40px -35px -10px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Transfer from:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.srcAccount }}
+        </p>
+      </ion-item>
+      <ion-item
+        style="
+          margin: -40px -35px -10px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Transfer to:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.benName }}
+        </p>
+      </ion-item>
+      <ion-item
+        style="
+          margin: -40px -35px -10px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px"
+          >Beneficiary’s Account Number:</ion-label
+        >
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.benAcctNo }}
+        </p>
+      </ion-item>
+      <!-- <ion-item style="margin: -40px -35px -10px -15px;
+                display: flex;
+                padding: 16px;
+                justify-content: space-between ;
+                align-items: center;">
+                  <ion-label style="font-size: 14px;">Bank:</ion-label>
+                  <p style="font-size: 14px; padding: 16px;">Access Bank PLC</p>
+                </ion-item> -->
+      <ion-item
+        style="
+          margin: -40px -35px 0px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Amount:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{
+            getSelectedHistory.transAmount | currency : "NGN" : "symbol-narrow"
+          }}
+        </p>
+      </ion-item>
+      <ion-item
+        style="
+          margin: -40px -35px 5px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Date:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.transDate }}
+        </p>
+      </ion-item>
+      <!-- <ion-item style=" margin: -40px -35px -10px -15px;
+                display: flex;
+                padding: 16px;
+                justify-content: space-between ;
+                align-items: center;">
+                  <ion-label style="font-size: 14px;">Narration:</ion-label>
+                  <p style="font-size: 14px; padding: 16px;">Bread and Egg</p>
+                </ion-item> -->
+      <ion-item
+        style="
+          margin: -40px -35px -10px -15px;
+          display: flex;
+          padding: 16px;
+          justify-content: space-between;
+          align-items: center;
+        "
+      >
+        <ion-label style="font-size: 14px">Reference Number:</ion-label>
+        <p style="font-size: 14px; padding: 16px">
+          {{ getSelectedHistory.transRef }}
+        </p>
+      </ion-item>
+    </ion-list>
+    <p
+      style="
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 18px;
+        text-align: justify;
+      "
+    >
+      Disclaimer: Your transfer has been successful, and the beneficiary’s
+      account will be credited. However, this does not serve as a confirmation
+      of credit into the beneficiary’s account. Due to the nature of the
+      internet, transactions may be subject to interruption, transmission
+      blackout, delayed transmission, and incorrect data transmission. The bank
+      is not liable for malfunctions in communications facilities not within its
+      control that may affect the accuracy or timeliness of messages and
+      transactions you send. All transactions are subject to verification and
+      our normal fraud checks.
+    </p>
+  </div>
+</div>

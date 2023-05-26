@@ -1,0 +1,139 @@
+//Confirmation Details
+.confirm-details {
+  height: 18px;
+  margin-top: 24px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 18px;
+  color: #000000;
+
+  h2 {
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 14px;
+    color: #000000;
+  }
+
+  h3 {
+    margin-top: 8px;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 16px;
+  }
+
+  p {
+    margin-top: 4px;
+  }
+
+  .from {
+    margin-top: 24px;
+    font-weight: 300;
+    font-size: 14px;
+  }
+
+  .to {
+    margin-top: 20px;
+  }
+
+  .amount {
+    margin-top: 24px;
+  }
+  .commission {
+    margin-top: 24px;
+  }
+  .debit {
+    margin-top: 24px;
+  }
+}
+
+ion-item-divider {
+  margin-top: -25px;
+  opacity: 800;
+  background-color: rgba(255, 255, 255, 0.267);
+  height: 1px;
+}
+
+.btn-edit {
+  ion-button {
+    --background: white;
+    --background-activated: #040d2c;
+    --border-radius: 5px;
+    --color: #040d2c;
+    border: #040d2c 2px solid;
+    height: 56px;
+    margin-top: 32px;
+    font-weight: 600;
+
+    line-height: 16px;
+  }
+}
+
+// passcode text
+.auth-pin {
+  margin-top: 20px;
+}
+.passcode {
+  text-align: center;
+  font-size: 16px;
+  color: #000000;
+  font-weight: 400;
+}
+.ellipses {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-top: 24px;
+  #circle {
+    width: 16px;
+    height: 16px;
+    background: #c4c4c4;
+    border-radius: 50%;
+    text-align: center;
+    font-weight: bold;
+  }
+}
+
+// dialpad section
+.dialpad {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 35px 17px 77px 17px;
+  column-gap: 20px;
+  row-gap: 20px;
+  justify-content: center;
+  .grid-items {
+    --background: white;
+    font-size: 40px;
+    color: #000000;
+  }
+}
+
+ion-segment-button {
+  --indicator-color: #040d2c;
+}
+
+/* Material Design styles */
+ion-segment {
+  margin-top: 32px;
+  --background: #ffffff;
+  height: 46px;
+  border: 2px solid #e5e5e5;
+  font-size: 14px;
+  color: #c4c4c4;
+  font-weight: 600;
+}
+ion-segment-button.md {
+  --color: #000;
+  --color-checked: #7c7c7c;
+  --indicator-height: 40px;
+}
+
+/* iOS styles */
+ion-segment-button.ios {
+  --color: #838383;
+  --color-checked: #fff;
+  --border-radius: 4px;
+  --indicator-height: 40px;
+}

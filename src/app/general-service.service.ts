@@ -1,0 +1,96 @@
+/* eslint-disable @typescript-eslint/member-ordering */
+import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
+import { LoadingController } from '@ionic/angular';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class GeneralServiceService {
+  //internal transfer
+  private initialMessage = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentMessage = this.initialMessage.asObservable();
+
+  //external transfer
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  private setExternalBeneficiary = new BehaviorSubject<any>(''); //subscribe ro receive new data
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentBeneficiary = this.setExternalBeneficiary.asObservable(); //call to set new dat
+
+  private setAccountNum = new BehaviorSubject<any>('');
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentAccountNum = this.setAccountNum.asObservable();
+
+  private setAirtimeDetails = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentAirtimeDetails = this.setAirtimeDetails.asObservable();
+
+  private setExternalBeneficiaryDetails = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentBeneficiaryDetails = this.setExternalBeneficiaryDetails.asObservable();
+
+  private setName = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  currentName = this.setName.asObservable();
+
+  private oldPin = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  setOldPin = new BehaviorSubject<any>('');
+
+  private newPin = new BehaviorSubject<any>('');
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  setNewPin = new BehaviorSubject<any>('');
+
+  private forgotPinDetails = new BehaviorSubject<any>('');
+  setForgotPindetails = this.forgotPinDetails.asObservable();
+
+  constructor(private loadingCtrl: LoadingController) {}
+
+  updateMessage(accountNo: any) {
+    //update internal transfer
+    this.initialMessage.next(accountNo);
+  }
+
+  updateExternal(details: any) {
+    //update external transfer
+    this.setExternalBeneficiary.next(details);
+  }
+
+  updateAccountNum(accountNo: any) {
+    this.setAccountNum.next(accountNo);
+  }
+
+  updateAirtimeDetails(airtimeDetails: any) {
+    this.setAirtimeDetails.next(airtimeDetails);
+  }
+
+  updateExternalBeneficiaryDetails(externalBenDetails: any) {
+    this.setExternalBeneficiaryDetails.next(externalBenDetails);
+  }
+
+  updateName(details: any) {
+    this.setName.next(details);
+  }
+
+  updateOldPin(pin: any) {
+    this.setOldPin.next(pin);
+  }
+
+  updateNewPin(pin: any) {
+    this.setNewPin.next(pin);
+  }
+
+  updatePinDetails(details: any) {
+    this.forgotPinDetails.next(details);
+  }
+
+  async loader() {
+    const loading = await this.loadingCtrl.create({
+      message: '',
+      cssClass: 'custom-loading',
+    });
+    loading.present();
+  }
+}
