@@ -65,42 +65,15 @@
 
   //Add Beneficiaries
   .beneficiary-tab {
-    display: flex;
-
-    .beneficiary {
-      margin-top: 25px;
-      ion-input {
-        height: 56px;
-        width: 269px;
-        background-color: #ededed;
-        border-radius: 1px solid #000000;
-        --placeholder-color: #000000;
-      }
-
       ion-text {
         width: 100%;
         font-size: 14px;
       }
-    }
-
-    //beneficiaries-icon
-    .beneficiaries {
-      background-color: #018401;
-      width: 269px;
-      height: 56px;
-      margin-top: 25px;
-      margin-left: 16px;
-      ion-icon {
-        width: 50px;
-        height: 56px;
-        color: #ffffff;
+      p {
+        margin-top: -10px;
+        font-size: 14px;
+        float: right;
       }
-
-      ion-avatar {
-        width: 50px;
-        height: 56px;
-      }
-    }
   }
 
   .transfer-limit {
