@@ -42,7 +42,11 @@
 
       <div class="beneficiary-tab">
         <div class="input">
-          <p (click)="openModal()">Select Beneficiary</p>
+          <div class="select-beneficiary">
+            <p>Beneficiaries</p>
+            <p (click)="openModal()">Select Beneficiary</p>
+          </div>
+          
           <ion-input
             (input)="getNameEnquiry($event)"
             maxlength="10"

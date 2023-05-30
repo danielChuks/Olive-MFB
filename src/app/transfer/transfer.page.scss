@@ -64,15 +64,21 @@
   }
 
   //Add Beneficiaries
+  .select-beneficiary{
+    display: flex;
+    justify-content: space-between;
+  }
   .beneficiary-tab {
       ion-text {
         width: 100%;
         font-size: 14px;
       }
       p {
-        margin-top: -10px;
+        margin-top: -5px;
         font-size: 14px;
+        font-weight: 600;
         float: right;
+        color: #8d8f59;
       }
   }
 
