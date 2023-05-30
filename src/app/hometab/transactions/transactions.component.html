@@ -2,7 +2,7 @@
 <ion-content>
   <div class="transaction-body">
 <div class="transaction-history" *ngFor="let history of accountHist, let i=index">
-  <ion-item  *ngIf="i<5" (click)="openModal(history.transactionDate,
+  <ion-item   (click)="openModal(history.transactionDate,
   history.transactionType, history.transactionReference,
   history.transactionAmount, history.senderAndReceiverInfo.sourceAccount, history.senderAndReceiverInfo.beneficiaryName, history.statementBalance, history.senderAndReceiverInfo.beneficiaryAccountNumber,
   history.senderAndReceiverInfo.sourceAccountName)" button>
@@ -28,9 +28,10 @@
 </div>
 </ion-item>
 
-  <ion-item *ngIf="accountHist.length <= 0">
+
+</div>
+<ion-item *ngIf="accountHist &&  accountHist.length <= 0">
    <h3>No recent Transactions </h3>
   </ion-item>
-</div>
 </div>
 </ion-content>
