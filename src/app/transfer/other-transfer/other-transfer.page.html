@@ -32,20 +32,17 @@
       <ion-input (click)="openBankModal()" [(ngModel)]="bankName" [ngModelOptions]="{standalone: true}" type="text" name="text" placeholder="Bank Name" [disabled]="isBankSelected"></ion-input>
     </div>
 
-
-
     <div class="beneficiary-tab">
       <div class="input beneficiary">
-        <!-- <ion-input counter="true" type="text"  [(ngModel)]="benAcctNo" [ngModelOptions]="{standalone: true}" maxlength="10" placeholder=" Beneficiary Account Number"></ion-input>
-        <ion-text >{{beneficiaryAccountName}}</ion-text> -->
+        <p (click)="openModal()">Select Beneficiary</p>
+
         <ion-input counter="true" type="text"  (input)="getNameEnquiry($event)"  [(ngModel)]="benAcctNo" [ngModelOptions]="{standalone: true}" maxlength="10" placeholder=" Beneficiary Account Number" [disabled]="isBeneficiarySelected"></ion-input>
         <ion-text [style.color]="isAccountSelected === false && accountName ? 'red' : 'black'">{{beneficiaryAccountName}}</ion-text>
       </div>
 
 
       <!-- Open beneficiaries modal -->
-      <div class="beneficiaries" (click)="isValid =!isValid" (click)="openModal()">
-        <ion-icon name="id-card-sharp" slot="end"></ion-icon>
+      <div class="beneficiaries" (click)="isValid =!isValid">
          <!-- Beneficiary Modal-content -->
   <div class="bank-modal">
     <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">

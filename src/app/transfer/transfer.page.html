@@ -41,7 +41,8 @@
       <!--End list of Accounts -->
 
       <div class="beneficiary-tab">
-        <div class="input beneficiary">
+        <div class="input">
+          <p (click)="openModal()">Select Beneficiary</p>
           <ion-input
             (input)="getNameEnquiry($event)"
             maxlength="10"

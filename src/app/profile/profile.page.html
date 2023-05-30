@@ -1,7 +1,6 @@
 <ion-content>
   <div class="header">
     <div class="sub-header">
-
       <h2>Profile</h2>
 
       <div class="avatar">
@@ -11,104 +10,96 @@
       </div>
 
       <p>{{accountInformation && accountInformation.accountName}}</p>
-
     </div>
   </div>
 
-    <div class="overlay">
-  <div class="content">
-    <div class="settings-header">
-      <p>Settings</p>
-    </div>
-
-    <ion-list lines="full" class="user-details">
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img
-            id="circle"
-            src="../../assets/images/user-shield-50.png"
-            alt=""
-          />
-        </ion-avatar>
-        <ion-label (click)="security =!security">Security</ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-item>
-
-      <div class="security-details" *ngIf="security">
-        <ion-item>
-          <ion-avatar slot="start">
-            <img id="circle" src="../../assets/images/pin-pad.png" alt="" />
-          </ion-avatar>
-          <ion-label (click)="openChangePin()"
-            >Change Transaction PIN</ion-label
-          >
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-item>
-        <ion-item>
+  <div class="overlay">
+    <div class="content">
+      <ion-list lines="full" class="user-details">
+        <ion-item lines="none">
           <ion-avatar slot="start">
             <img
               id="circle"
-              src="../../assets/images/forgot-password.png"
+              src="../../assets/images/user-shield-50.png"
               alt=""
             />
           </ion-avatar>
-          <ion-label (click)="openForgotPin()">Forgot PIN</ion-label>
+          <ion-label (click)="security =!security">Security</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
-        <ion-item>
+
+        <div class="security-details" *ngIf="security">
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img id="circle" src="../../assets/images/pin-pad.png" alt="" />
+            </ion-avatar>
+            <ion-label (click)="openChangePin()"
+              >Change Transaction PIN</ion-label
+            >
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img
+                id="circle"
+                src="../../assets/images/forgot-password.png"
+                alt=""
+              />
+            </ion-avatar>
+            <ion-label (click)="openForgotPin()">Forgot PIN</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-avatar slot="start">
+              <img
+                id="circle"
+                src="../../assets/images/validation.png"
+                alt=""
+              />
+            </ion-avatar>
+            <ion-label (click)="openChangePassword()"
+              >Change Password</ion-label
+            >
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+        </div>
+      </ion-list>
+
+      <ion-list lines="full" class="app-details">
+        <ion-item lines="none">
           <ion-avatar slot="start">
-            <img id="circle" src="../../assets/images/validation.png" alt="" />
+            <img id="circle" src="../../assets/images/account.png" alt="" />
           </ion-avatar>
-          <ion-label (click)="openChangePassword()">Change Password</ion-label>
+          <ion-label id="open-modal">Account</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
-        <!-- <ion-item lines="none">
+        <ion-item lines="none">
           <ion-avatar slot="start">
-            <img id="circle" src="../../assets/images/lock-50.png" alt="" />
+            <img id="circle" src="../../assets/images/contact.png" alt="" />
           </ion-avatar>
-          <ion-label (click)="openPersonalData()"
-            >Change Personal Data</ion-label
-          >
+          <ion-label id="open-mol">Help</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-item> -->
-      </div>
-    </ion-list>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-avatar slot="start">
+            <img id="circle" src="../../assets/images/info2.png" alt="" />
+          </ion-avatar>
+          <ion-label id="open-moal">About</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
 
-    <ion-list lines="full" class="app-details">
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img id="circle" src="../../assets/images/account.png" alt="" />
-        </ion-avatar>
-        <ion-label id="open-modal">Account</ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img id="circle" src="../../assets/images/contact.png" alt="" />
-        </ion-avatar>
-        <ion-label>Help</ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-item>
-      <ion-item lines="none">
-        <ion-avatar slot="start">
-          <img id="circle" src="../../assets/images/info2.png" alt="" />
-        </ion-avatar>
-        <ion-label>About</ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-list>
-
-    <ion-list lines="full" class="user-details">
-      <ion-item lines="none" (click)="logout()">
-        <ion-avatar slot="start">
-          <img id="circle" src="../../assets/images/logout.png" alt="" />
-        </ion-avatar>
-        <ion-label>Logout</ion-label>
-        <ion-icon name="chevron-forward-outline"></ion-icon>
-      </ion-item>
-    </ion-list>
-  </div>
+      <ion-list lines="full" class="user-details">
+        <ion-item lines="none" (click)="logout()">
+          <ion-avatar slot="start">
+            <img id="circle" src="../../assets/images/logout.png" alt="" />
+          </ion-avatar>
+          <ion-label>Logout</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
     </div>
+  </div>
 
   <ion-modal
     trigger="open-modal"
@@ -145,5 +136,69 @@
       </ion-content>
     </ng-template>
   </ion-modal>
-</ion-content>
 
+  <!-- About Modal -->
+  <ion-modal
+    #modal
+    trigger="open-moal"
+    (willDismiss)="onWillDismiss($event)"
+    [initialBreakpoint]="0.7"
+    [breakpoints]="[0, 0.7]"
+  >
+    <ng-template>
+      <ion-content class="about ion-padding">
+        <div class="avatar-1">
+          <ion-img src="./assets/images/Neptune.png"></ion-img>
+        </div>
+
+        <div class="about-content">
+          <h3>&copy; 2023 Neptune App. All rights reserved.</h3>
+          <p>Powered by Neptune Microfinance Bank</p>
+
+          <p>App Version: 1.0.0</p>
+          <ion-button>Terms and Conditions of Use</ion-button>
+          <ion-button (click)="modal.dismiss()">I understand</ion-button>
+        </div>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+
+
+  <!-- Help & Support -->
+  <ion-modal
+    trigger="open-mol"
+    (willDismiss)="onWillDismiss($event)"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0, 0.5]"
+  >
+    <ng-template>
+      <ion-content class="help ion-padding">
+        <div class="help-header">
+          <ion-title>HELP & SUPPORT</ion-title>
+        </div>
+        <ion-list lines="full" class="help-details">
+          <ion-item lines="none">
+            <ion-label>Call Us on 0700 200 200 200</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Contact us on Twitter</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Contact us on Instagram</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Contact us via Email</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-label>Close account</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+        </ion-list>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
+</ion-content>
