@@ -1,4 +1,4 @@
-  <ion-header class="ion-no-border">
+  <ion-header *ngIf="!isView" class="ion-no-border">
     <ion-toolbar>
       <div class="content-header">
           <ion-avatar slot="start">
@@ -6,9 +6,14 @@
           </ion-avatar>
           <ion-label>Hello {{firstName}}, </ion-label>
       </div>
-      <!-- <ion-icon name="notifications-outline" slot="end"></ion-icon> -->
     </ion-toolbar>
   </ion-header>
+
+  <ion-header *ngIf="isView">
+  <ion-toolbar>
+    <ion-title class="ion-text-center"> Transaction History </ion-title>
+  </ion-toolbar>
+</ion-header>
 
   <ion-content>
     <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
@@ -31,7 +36,7 @@
   </ion-slides>
 </div>
 
-    <div class="padding">
+    <!-- <div class="padding">
     <div class="container" *ngIf="!extend">
       <ion-slides class='service-slides' [options]="{ slidesPerView:3 }" mode="ios" pager>
         <ion-slide>
@@ -67,23 +72,53 @@
         </ion-slide>
       </ion-slides>
     </div>
+    </div> -->
+
+
+    <div *ngIf="!isView"  class="sections">
+      <div  class="innercontainer" routerLink="/new-tab/hometab/transfer">
+        <img id="circle" src="../../assets/images/int-transfer.png"/>
+        <a>Same Transfer</a>
+        </div>
+
+        <div  class="innercontainer"  routerLink="/other-transfer">
+         <img id="circle" src="../../assets/images/bank-transfer.png"/>
+        <a>Other Banks</a>
+        </div>
+
+        <div  class="innercontainer"  routerLink="/manage-beneficiaries">
+       <img id="circle" src="../../assets/images/user-profile.png"/>
+        <a>Beneficiaries</a>
+        </div>
+
+        <div  class="innercontainer"  routerLink="/new-tab/hometab/top-up">
+         <img id="circle" src="../../assets/images/arrows.png"/>
+        <a>Top Up</a>
+        </div>
+
+        <div  class="innercontainer" routerLink="/pay-bills">
+         <img id="circle" src="../../assets/images/bill.png"/>
+        <a>Pay Bills</a>
+        </div>
     </div>
 
-
-    <div class="overlay-body" *ngIf="!extend">
+<p *ngIf="isView" (click)="backHome()" class="backHome">Back to home</p>
+    <div class="overlay-body">
       <div class="overlay" >
         <div class="header">
-          <h3>Recent Transactions</h3>
+          <h3 *ngIf="!isView">Recent Transactions</h3>
           <!-- Route to transaction history page -->
-          <p (click)="extend =!extend">View More</p>
+          <p *ngIf="!isView" (click)="ViewMore()">View More</p>
+          <ion-searchbar color="dark" *ngIf="isView" class="searchbar"  [debounce]="1000" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+
         </div>
         <div class="divider"></div>
         <!-- Transaction History -->
-        <app-transactions [accountHist] = "accountHistory"></app-transactions>
+        <app-transactions [accountHist] = "filteredAccountHistory"></app-transactions>
       </div>
     </div>
 
-    <div  *ngIf="extend" class="history">
+    <!-- <div  *ngIf="extend" class="history">
       <div class="overlay-body">
         <div class="overlay">
           <div class="header history">
@@ -96,10 +131,10 @@
         <ion-searchbar class="searchbar" *ngIf="isSearch" [debounce]="1000"></ion-searchbar>
         <div class="divider"></div>
         <app-transactions [accountHist] = "accountHistory"> </app-transactions>
-             <!-- <app-transaction-modal></app-transaction-modal> -->
+
         </div>
       </div>
-    </div>
+    </div> -->
 
   </ion-content>
 

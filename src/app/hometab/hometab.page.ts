@@ -27,8 +27,10 @@ export class HometabPage implements OnInit, OnDestroy {
   multipleAccounts;
   currentIndex;
   currentAcctNumber;
-  isSearch = false;
+  isSearch : boolean = true;
   extend = false;
+  isView: boolean = false;
+  filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
 
   constructor(
@@ -37,7 +39,30 @@ export class HometabPage implements OnInit, OnDestroy {
     private alertController: AlertController,
     private http: HttpClient,
     private generalService: GeneralServiceService
-  ) {}
+  ) { }
+
+  ViewMore() {
+    this.isView = true
+  }
+
+  backHome() {
+    this.isView = false
+     this.filteredAccountHistory = this.accountHistory;
+  }
+
+
+  //handle Search Functionality for Transaction History
+  handleSearchInput(e) {
+    const query = e.target.value.toLowerCase();
+      if (!query) {
+      this.filteredAccountHistory = this.accountHistory; //if there is nothing entered, display all the list
+    }
+      else {
+        this.filteredAccountHistory = this.accountHistory.filter((hist) => {
+          return   hist.transactionAmount.toLowerCase().includes(query) || hist.transactionType.toLowerCase().includes(query)
+        })
+    }
+  }
 
   // get index of card and use the index to pick account number from the list.
   slideChanged(event) {
@@ -55,6 +80,7 @@ export class HometabPage implements OnInit, OnDestroy {
       this.dashboardService.getTransactionHistory().subscribe(
         (data) => {
           this.accountHistory = data.accountHistory;
+          this.filteredAccountHistory = data.accountHistory;
         },
 
         (err) => {}
@@ -67,6 +93,8 @@ export class HometabPage implements OnInit, OnDestroy {
       this.dashboardService.getTransactionHistoryOnInit().subscribe(
         (data) => {
           this.accountHistory = data.accountHistory;
+           this.filteredAccountHistory = data.accountHistory;
+           console.log(this.accountHistory)
         },
         (err) => {}
       )
