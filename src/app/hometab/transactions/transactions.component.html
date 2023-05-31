@@ -12,10 +12,10 @@
     <div id="transactions-details">
       <div class="transactions-amount" >
         <h3>{{history.transactionType === 'DR' ? 'Debit' : 'Credit'}}</h3>
-        <p  *ngIf="history.senderAndReceiverInfo"> {{history.transactionType === 'DR' ? history.senderAndReceiverInfo.beneficiaryName : history.senderAndReceiverInfo.sourceAccountName}}</p>
+        <p *ngIf="history.senderAndReceiverInfo"> {{history.transactionType === 'DR' ? history.senderAndReceiverInfo.beneficiaryName : history.senderAndReceiverInfo.sourceAccountName}}</p>
       </div>
 
-      <div class="transactions-amount" >
+      <div class="transactions-amount-subcontent" >
         <p>{{history.transactionDate}}</p>
       </div>
     </div>
