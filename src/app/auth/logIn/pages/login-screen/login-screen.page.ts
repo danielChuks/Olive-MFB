@@ -109,11 +109,11 @@ export class LoginScreenPage {
     this.login.accountNumber = formGroup.value.accountNumber;
     this.login.password = formGroup.value.password;
     this.login.appVersion = 'v3';
-    this.login.deviceUIID = 'ae49ded2873115c7'; //capacitor / cordova
+    // this.login.deviceUIID = 'ae49ded2873115c7'; //capacitor / cordova
     const date = new Date();
     // this.login.currentDate = date.toLocaleDateString('en-GB').replace(/\//g, '-');
     this.login.currentDate = '31-01-2025'; //not hard-coded
-    // this.login.deviceUIID = Device.uuid;
+    this.login.deviceUIID = Device.uuid;
     this.LoginService.loginWithDetails(this.login).subscribe(
       (data) => {
         sessionStorage.setItem('accountNumber', this.login.accountNumber);

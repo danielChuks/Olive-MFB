@@ -67,6 +67,7 @@ export class SignupFormPage implements OnInit, OnDestroy {
       .subscribe(
         (data) => {},
         (err) => {
+          console.log(err);
           //  this.presentAlert(err.error.message);  //display error otherwise and not open otp modal
           this.presentAlert('Unable to generate Otp for this Account Number');
         }

@@ -1,9 +1,11 @@
 ion-tab-bar{
   color: #e3e6ef;
-  --color-selected: #19a30d!important;
+  --color-selected: #649173!important;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #649173, #DBD5A4 );  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #649173, #DBD5A4 );
 }
 ion-tab-button:hover{
-  color: #19a30d;
+  color: #649173;
 }
 
 
