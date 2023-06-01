@@ -2,7 +2,9 @@
 
 ion-content {
   .header {
-    background-color: #018401;
+    background: #3E5151;  
+    background: -webkit-linear-gradient(to right, #94876e, #3E5151);  
+    background: linear-gradient(to right, #94876e, #3E5151); 
     height: 20rem;
     text-align: center;
     display: flex;
@@ -57,7 +59,7 @@ ion-content {
   }
 
   .content {
-    margin-top: -3rem;
+    margin-top: -4rem;
     ion-icon {
       font-size: 20px;
     }
@@ -74,13 +76,13 @@ ion-content {
 
     .user-details {
       background-color: #ffffff;
-      margin: 1rem -0.3rem 0 -0.5rem;
+      margin: 1rem 0.3rem 0 0.3rem;
       border-radius: 5px;
       ion-avatar {
         margin-right: 8px;
         width: 32px;
         height: 32px;
-        background: #018401;
+        background: #3E5151;
         img {
           color: white;
           padding: 2px;
@@ -97,14 +99,14 @@ ion-content {
 
     .app-details {
       background-color: #ffffff;
-      margin: 1rem -0.3rem 0 -0.5rem;
+      margin: 1rem 0.3rem 0 0.3rem;
       border-radius: 5px;
 
       ion-avatar {
         margin-right: 8px;
         width: 32px;
         height: 32px;
-        background: #018401;
+        background: #3E5151;
         img {
           color: white;
           padding: 2px;
@@ -153,6 +155,7 @@ ion-modal {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20%;
+  margin-bottom: 15%;
 }
 
 .about-content {
@@ -177,7 +180,7 @@ ion-modal {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    --background: #018401;
+    --background: #3E5151;
     --border-radius: 5px;
     height: 40px;
     font-weight: 400;
@@ -190,5 +193,9 @@ ion-modal {
 .help {
   ion-title {
     margin: 15px 0 0 -6px;
+    font-size: 16px;
+  }
+  ion-label {
+    font-size: 14px;
   }
 }

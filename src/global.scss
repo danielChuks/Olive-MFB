@@ -25,10 +25,6 @@
 @import "~@ionic/angular/css/text-transformation.css";
 @import "~@ionic/angular/css/flex-utils.css";
 
-
-/* Importing font */
-@import url('https://fonts.googleapis.com/css2?family=Fjalla+One&family=Rancho&display=swap');
-
 @import "/src/theme/variables.scss";
 
 @font-face {
@@ -99,8 +95,8 @@ ion-toolbar {
 .btn {
   margin-top: 42px;
   ion-button {
-    --background: #8d8f59;
-    --background-activated: #5a5c32;
+    --background: #45644f;
+    --background-activated: #649173;
     --border-radius: 5px;
     height: 50px;
     font-weight: 200;
