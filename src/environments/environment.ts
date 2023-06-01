@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 // Neptune IP
-baseUrl: 'http://10.152.2.26',
-baseApi: 'http://10.152.2.26:8080/api/v1/',
+baseUrl: 'http://10.152.2.126',
+baseApi: 'http://10.152.2.126:8080/api/v1/',
 
 
 // Nwannegadi IP
@@ -25,3 +25,5 @@ baseApi: 'http://10.152.2.26:8080/api/v1/',
  * on performance if an error is thrown.
  */
 // import 'zone.js/dist/zone-error';  // Included with Angular CLI.
+
+

@@ -2,10 +2,9 @@
 
 ion-content {
   .header {
-    background: #3E5151;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #DECBA4, #3E5151);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #DECBA4, #3E5151); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
+    background: #3E5151;  
+    background: -webkit-linear-gradient(to right, #94876e, #3E5151);  
+    background: linear-gradient(to right, #94876e, #3E5151); 
     height: 20rem;
     text-align: center;
     display: flex;
@@ -156,6 +155,7 @@ ion-modal {
   margin-left: auto;
   margin-right: auto;
   margin-top: 20%;
+  margin-bottom: 15%;
 }
 
 .about-content {
@@ -180,7 +180,7 @@ ion-modal {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    --background: #6e7a32;
+    --background: #3E5151;
     --border-radius: 5px;
     height: 40px;
     font-weight: 400;
