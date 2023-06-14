@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GeneralServiceService } from 'src/app/general-service.service';
 
 @Component({
   selector: 'app-create-pin',
@@ -10,9 +11,10 @@ export class CreatePinPage implements OnInit {
 
   private createPasscodeValues: number[] = [];
 
-  constructor() {}
+  constructor( private generalService: GeneralServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
   addNumber(num: number): void {
     if (this.createPasscodeValues.length !== 4) {
@@ -24,7 +26,8 @@ export class CreatePinPage implements OnInit {
         this.convertedPin = this.createPasscodeValues
           .toString()
           .replace(/,/g, ''); //convert to string then remove the commas
-        sessionStorage.setItem('pin', this.convertedPin); //should be reviewed;
+        // sessionStorage.setItem('pin', this.convertedPin); //should be reviewed;
+        this.generalService.setCreatedPin(this.convertedPin); //set newly created pin
       }
     }
   }
