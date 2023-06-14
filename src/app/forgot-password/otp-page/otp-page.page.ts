@@ -133,6 +133,7 @@ export class OtpPagePage implements OnInit, OnDestroy {
         (err) => {
           loading.dismiss();
           this.presentAlert(err.error.message || 'Unable to reach server');
+          //recheck and test for errors cuz even if one of the credentials are wrong, it still returns unable to reacvh server
         }
       )
     );

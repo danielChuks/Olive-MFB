@@ -96,12 +96,13 @@ export class SignupFormPage implements OnInit, OnDestroy {
     // this.register.deviceUIID = "ae49ded2873115c7";
     this.register.currentDate = '31-01-2025';
     this.register.deviceUIID = Device.uuid;
-    //set account number to sharedservice, to be used to validate otp(can be refactored by pssing prop directly to the otp component)
+    //set account number to sharedservice, to be used to validate otp(can be refactored by passing prop directly to the otp component)
     this.generalService.updateAccountNum(
       this.SignUpForm.get('accountNumber').value
     );
 
-    sessionStorage.setItem('signUpDetails', JSON.stringify(this.register));
+    this.generalService.updateSignUpDetails(this.register); //store signUpData using behaviour subject
+    // sessionStorage.setItem('signUpDetails', JSON.stringify(this.register));
   }
 
   ngOnInit() {}

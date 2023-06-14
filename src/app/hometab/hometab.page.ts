@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-inferrable-types */
+/* eslint-disable @typescript-eslint/type-annotation-spacing */
+/* eslint-disable @typescript-eslint/naming-convention */
+/* eslint-disable @typescript-eslint/semi */
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { DashboardService } from './dashboard.service';
@@ -6,6 +10,8 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
+import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+// import { } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-hometab',
@@ -29,6 +35,7 @@ export class HometabPage implements OnInit, OnDestroy {
   currentAcctNumber;
   isSearch : boolean = true;
   extend = false;
+  // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   isView: boolean = false;
   filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
@@ -58,9 +65,8 @@ export class HometabPage implements OnInit, OnDestroy {
       this.filteredAccountHistory = this.accountHistory; //if there is nothing entered, display all the list
     }
       else {
-        this.filteredAccountHistory = this.accountHistory.filter((hist) => {
-          return   hist.transactionAmount.toLowerCase().includes(query) || hist.transactionType.toLowerCase().includes(query)
-        })
+        // eslint-disable-next-line max-len
+        this.filteredAccountHistory = this.accountHistory.filter((hist) => hist.transactionAmount.toLowerCase().includes(query) || hist.transactionType.toLowerCase().includes(query))
     }
   }
 

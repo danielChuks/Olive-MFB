@@ -105,6 +105,9 @@ export class PinModalComponent implements OnInit, OnDestroy {
   }
 
   saveLocalBeneficiary() {
+     this.beneficiaryDetails = JSON.parse(
+      sessionStorage.getItem('trnsBeneficiaryDetails')
+    );
     if (this.beneficiaryDetails) {
       this.httpSubscriptions.push(
         this.beneficiaryService
@@ -128,9 +131,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
 
     // get and post saved beneficiary details
     // if(on a particular this.route, set details else do the other)
-    this.beneficiaryDetails = JSON.parse(
-      sessionStorage.getItem('trnsBeneficiaryDetails')
-    );
+
 
     //post details and allow transfer
     // check for current route
@@ -230,12 +231,11 @@ export class PinModalComponent implements OnInit, OnDestroy {
       }
       if (this.createPasscodeValues.length === 4) {
         this.convertedPin = this.createPasscodeValues.toString(); // convert array values to string
-        this.pinValidationDetails.accessPin = this.convertedPin.replace(
-          /,/g,
-          ''
-        ); //initialize pin to pin object
-        this.pinValidationDetails.accountNumber =
-          sessionStorage.getItem('accountNumber'); //initialize account number
+        this.pinValidationDetails.accessPin = this.convertedPin.replace(/,/g, '');
+        //initialize pin to pin object
+        this.pinValidationDetails.accountNumber = sessionStorage.getItem('accountNumber');
+        //initialize account number
+        console.log(this.pinValidationDetails);
         this.httpSubscriptions.push(
           this.transferService.validatePin(this.pinValidationDetails).subscribe(
             (data) => {

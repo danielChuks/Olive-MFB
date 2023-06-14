@@ -4,6 +4,7 @@ import { AlertController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { LoadingController } from '@ionic/angular';
+import { GeneralServiceService } from 'src/app/general-service.service';
 
 @Component({
   selector: 'app-confirm-pin',
@@ -16,19 +17,32 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
   convertedPin;
   signUpDetails;
   updatedSignupDetails;
-  private httpSubscription: Subscription;
+ private httpSubscriptions: Subscription[] = [];
   private createPasscodeValues: number[] = [];
 
   constructor(
     private registerService: RegisterDeviceService,
     private alertController: AlertController,
     private router: Router,
-    private loadingCtrl: LoadingController
+    private loadingCtrl: LoadingController,
+    private generalService: GeneralServiceService
   ) {}
 
   ngOnInit() {
-    this.signUpDetails = JSON.parse(sessionStorage.getItem('signUpDetails'));
-    this.pin = sessionStorage.getItem('pin');
+    //unsubscribe
+    this.httpSubscriptions.push(this.generalService.signUpDetails.subscribe(
+       (signupData) => {
+         this.signUpDetails = signupData;
+         console.log(this.signUpDetails);
+       }));
+
+    this.httpSubscriptions.push(this.generalService.getcreatedPin.subscribe(
+      (newCreatedPin) => {
+        this.pin = newCreatedPin;
+      }
+    ));
+    // this.signUpDetails = JSON.parse(sessionStorage.getItem('signUpDetails'));
+    // this.pin = sessionStorage.getItem('pin');
   }
 
   async addNumber(num: number) {
@@ -52,7 +66,7 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
           accessPin: this.convertedPin,
         };
         if (this.pin === this.convertedPin) {
-          this.httpSubscription = this.registerService
+          this.httpSubscriptions.push(this.registerService
             .RegisterDevice(this.updatedSignupDetails)
             .subscribe(
               (data) => {
@@ -65,12 +79,13 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
                   err.error.message ||
                     err.error.accountNumber ||
                     err.error.accessPin ||
-                    err.error.password ||
+                  err.error.password ||
+                    err.error.deviceUIID ||
                     'unable to reach server'
                 );
                 console.log(err);
               }
-            );
+            ));
         } else {
           loading.dismiss();
           this.presentAlert('pins do not match');
@@ -88,9 +103,10 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    if (this.httpSubscription) {
-      this.httpSubscription.unsubscribe();
+    if (this.httpSubscriptions.length > 0) {
+      this.httpSubscriptions.forEach(subscription => subscription.unsubscribe());
     }
+    console.log('component closed');
   }
 
   async presentAlert(msg) {

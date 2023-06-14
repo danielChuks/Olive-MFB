@@ -35,26 +35,36 @@ export class GeneralServiceService {
   // eslint-disable-next-line @typescript-eslint/member-ordering
   currentName = this.setName.asObservable();
 
-  private oldPin = new BehaviorSubject<any>('');
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   setOldPin = new BehaviorSubject<any>('');
 
-  private newPin = new BehaviorSubject<any>('');
-  // eslint-disable-next-line @typescript-eslint/member-ordering
   setNewPin = new BehaviorSubject<any>('');
 
   private forgotPinDetails = new BehaviorSubject<any>('');
   setForgotPindetails = this.forgotPinDetails.asObservable();
 
-  constructor(private loadingCtrl: LoadingController) {}
+  signUpDetails = new BehaviorSubject<any>('');
 
+  getcreatedPin = new BehaviorSubject<any>('');
+
+  constructor(private loadingCtrl: LoadingController) { }
+
+  //get/update signup data
+  updateSignUpDetails(details: object){
+    this.signUpDetails.next(details);
+  }
+
+  //set newly created pin
+  setCreatedPin(pin: string) {
+    this.getcreatedPin.next(pin);
+  }
+
+      //update internal transfer
   updateMessage(accountNo: any) {
-    //update internal transfer
     this.initialMessage.next(accountNo);
   }
 
-  updateExternal(details: any) {
     //update external transfer
+  updateExternal(details: any) {
     this.setExternalBeneficiary.next(details);
   }
 
@@ -74,14 +84,18 @@ export class GeneralServiceService {
     this.setName.next(details);
   }
 
+  //change pin
   updateOldPin(pin: any) {
     this.setOldPin.next(pin);
   }
 
+  //changepin
   updateNewPin(pin: any) {
     this.setNewPin.next(pin);
   }
 
+
+  //change pin
   updatePinDetails(details: any) {
     this.forgotPinDetails.next(details);
   }
