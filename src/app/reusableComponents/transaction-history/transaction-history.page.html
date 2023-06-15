@@ -1,35 +1,39 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/hometab"></ion-icon>
+    <ion-icon
+      name="chevron-back-outline"
+      routerLink="/new-tab/hometab"
+    ></ion-icon>
     <ion-text><span>Transaction History</span></ion-text>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-    <!-- ion-card -->
-      <div class="ion-padding">
-        <app-card
-        [accountBalance] = "accountBalance"
-        [accountNumber]= "accountNumber">
-        </app-card>
-      </div>
+  <!-- ion-card -->
+  <div class="ion-padding">
+    <app-card [accountBalance]="accountBalance" [accountNumber]="accountNumber">
+    </app-card>
+  </div>
 
-    <!-- Transaction contents -->
-    <div class="overlay-body">
-      <div class="overlay" >
-        <div class="header">
-          <h3>Transactions</h3>
-          <p>
-            <ion-icon class="search" name="search-outline" (click)="isSearch=!isSearch"></ion-icon>
-            <ion-icon class="filter" name="options-outline"></ion-icon>
-          </p>
-        </div>
+  <!-- Transaction contents -->
+  <div class="overlay-body">
+    <div class="overlay">
+      <div class="header">
+        <h3>Transactions</h3>
+        <p>
+          <ion-icon
+            class="search"
+            name="search-outline"
+            (click)="isSearch=!isSearch"
+          ></ion-icon>
+          <ion-icon class="filter" name="options-outline"></ion-icon>
+        </p>
+      </div>
 
       <!-- <ion-searchbar class="searchbar" *ngIf="isSearch" [debounce]="1000" (ionChange)="handleChange($event)"></ion-searchbar> -->
       <div class="divider"></div>
-           <app-transactions ></app-transactions>
-           <!-- <app-transaction-modal></app-transaction-modal> -->
-      </div>
+      <app-transactions></app-transactions>
+      <!-- <app-transaction-modal></app-transaction-modal> -->
     </div>
-
+  </div>
 </ion-content>

@@ -10,8 +10,6 @@ import { TransactionModalModule } from 'src/app/reusableComponents/transaction-m
 import { TransactionsModule } from 'src/app/hometab/transactions/transactions.module';
 
 
-
-
 @NgModule({
   imports: [
     CommonModule,

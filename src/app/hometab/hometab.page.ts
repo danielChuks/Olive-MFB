@@ -10,7 +10,7 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
+
 // import { } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
