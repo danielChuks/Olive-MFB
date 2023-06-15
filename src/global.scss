@@ -28,12 +28,12 @@
 @import "/src/theme/variables.scss";
 
 @font-face {
-  font-family: "JosefinSans";
-  src: url("/assets/fonts/JosefinSans.ttf");
+  font-family: "Montserrat";
+  src: url("/assets/fonts/Montserrat-Medium.ttf");
 }
 
 * {
-  font-family: josefinSans;
+  font-family: Montserrat;
   --ion-background-color: white;
   --ion-text-color: #000000;
   --ion-text-color-rgb: 0, 0, 0;
@@ -48,31 +48,30 @@ ion-loading.custom-loading {
   color: #040d2c;
 }
 
+// Text
+p {
+  color: #A3A30A;
+}
+
 // Header section
 ion-toolbar {
   display: flex;
   justify-content: center;
   align-items: center;
   --background: white;
-  color: black;
+  color: #808000;
+  margin: 5px 0px 0 0px;
   ion-icon {
     font-size: 30px;
-    margin-left: 16px;
-    margin-top: 9px;
   }
-  ion-text {
-    position: absolute;
-    width: 100%;
-    height: 20px;
-    left: calc(50% - 128px / 2 - 0.5px);
-    top: calc(50% - 20px / 2);
-
-    font-family: "Josefin Sans";
-    font-style: normal;
-    font-weight: 600;
-    font-size: 20px;
-    line-height: 20px;
-    color: #000000;
+  ion-col {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 46px;
   }
 }
 
@@ -93,13 +92,15 @@ ion-toolbar {
 }
 
 .btn {
-  margin-top: 42px;
+  margin-top: 40px;
   ion-button {
-    --background: #45644f;
-    --background-activated: #649173;
-    --border-radius: 5px;
+    --background: #0c0b0b;
+    --background-activated: #000000;
+    --border-radius: 8px;
     height: 50px;
-    font-weight: 200;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 16px;
   }
 }
 

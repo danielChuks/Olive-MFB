@@ -1,0 +1,57 @@
+.img-tree {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.img-container {
+  height: 122px;
+  padding: 2rem 6rem;
+  -webkit-animation: scale-up-center 1.4s cubic-bezier(0.39, 0.575, 0.565, 1)
+    both;
+  animation: scale-up-center 1.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.img-tree2 {
+  width: 100%;
+  max-width: 208px;
+  height: auto;
+  margin-top: 50%;
+}
+
+.text {
+  position: absolute;
+  width: 240px;
+  height: 52px;
+  left: calc(50% - 240px / 2);
+  top: 626px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 131.4%;
+  /* or 26px */
+
+  text-align: center;
+  text-transform: uppercase;
+
+  color: #808000;
+}
+
+@-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+    transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}

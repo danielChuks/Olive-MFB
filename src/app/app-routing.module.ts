@@ -168,7 +168,11 @@ const routes: Routes = [
   {
     path: 'forgot-pin-otp',
     loadChildren: () => import('../app/profile/pages/forgot-pin-otp/forgot-pin-otp.module').then( m => m.ForgotPinOtpPageModule)
+  },  {
+    path: 'splashscreen',
+    loadChildren: () => import('./splashscreen/splashscreen.module').then( m => m.SplashscreenPageModule)
   }
+
 
 
 
