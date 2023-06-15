@@ -53,6 +53,8 @@ ion-toolbar {
   }
 }
 
+//transfer history top bar
+
 //Dashboard Components
 .padding {
   padding: 16px;
@@ -182,9 +184,30 @@ ion-toolbar {
   display: none;
 }
 
-.sections{
+.sections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 25px;
 }
 
+.overlay-body {
+  .header {
+    display: flex;
+    justify-content: center;
+    gap: 39px;
+
+    .funnel-icon {
+      width: 30px;
+      height: 30px;
+      color: gray;
+    }
+    .searchbar {
+      border: red solid 1px;
+      width: 247px;
+      height: 34px;
+      border: 1px solid #a6a6a6;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+  }
+}
