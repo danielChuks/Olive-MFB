@@ -50,7 +50,7 @@ ion-loading.custom-loading {
 
 // Text
 p {
-  color: #A3A30A;
+  color: #a3a30a;
 }
 
 // Header section
@@ -62,7 +62,7 @@ ion-toolbar {
   color: #808000;
   margin: 5px 0px 0 0px;
   ion-icon {
-    font-size: 30px;
+    font-size: 28px;
   }
   ion-col {
     display: flex;
@@ -134,21 +134,21 @@ ion-toolbar {
 }
 
 ion-searchbar.searchbar {
-  --background: #ffffff;;
+  --background: #ffffff;
   --color: #000;
   --placeholder-color: #000;
   --icon-color: #000;
   --clear-button-color: #000;
   --border-radius: none;
-   --box-shadow: none !important
+  --box-shadow: none !important;
 }
 
 ion-searchbar.ios.searchbar {
   --cancel-button-color: #000;
-   --box-shadow: none !important
+  --box-shadow: none !important;
 }
 
 ion-searchbar.md.searchbar {
   --cancel-button-color: #000;
-   --box-shadow: none !important
+  --box-shadow: none !important;
 }
