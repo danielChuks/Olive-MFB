@@ -4,10 +4,9 @@
     <img src="../assets/images/olive3.png" />
   </div>
 
-  <p class="welcome-text">
-    {{ savedAccountNumber ? "Welcome Back," : "Welcome to Olive MFB"}}
+  <ion-text class="welcome-text">Login</ion-text>
+  <p class="sub-text">{{ savedAccountNumber ? "Welcome back !" : "Welcome to Olive MFB"}}
   </p>
-  <p class="sub-text">Please log into your account</p>
 
   <form [formGroup]="signInForm">
     <!-- input fields -->
@@ -55,7 +54,7 @@
       *ngIf="savedAccountNumber"
       (click)="unlinkDevice()"
     >
-      Not {{savedAccountNumber}}? Unlink device
+      Not {{savedAccountNumber}}? <span>Unlink device</span>  
     </p>
     <div *ngIf="!savedAccountNumber" class="signup">
       <!-- <p routerLink="/signup">Open Account</p> -->
