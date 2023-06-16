@@ -1,3 +1,8 @@
+// ion-slides {
+//   height: 100%;
+//   border: 1px solid green;
+//   padding: 0 !important;
+// }
 .my-slides {
   --bullet-background: white;
   --bullet-background-active: white;
@@ -14,11 +19,52 @@
   height: 15px;
 }
 
-app-card {
-  background-color: #ffffff;
-  width: 100%;
-  margin-right: 0.625rem;
+.slide{
+  border: 1px solid green;
+  // padding-top: -100px;
 }
+
+.quick_action{
+  margin-top: .6rem;
+  h6{
+      color: #484848;
+    font-weight: 700;
+  }
+
+  .row{
+    margin-top: -25px;
+  }
+
+  // .bottom-row{
+  //   margin-top: -25px;
+  // }
+  .column{
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 13px;
+  align-items: center;
+
+  p{
+    margin-top: -24px;
+  }
+}
+}
+
+.transaction_history{
+  margin-top: 1rem;
+  display: block;
+
+header{
+  font-weight: 700;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+}
+
+
 
 //Toolbar Styling
 ion-toolbar {
@@ -52,6 +98,8 @@ ion-toolbar {
     }
   }
 }
+
+//transfer history top bar
 
 //Dashboard Components
 .padding {
@@ -178,13 +226,48 @@ ion-toolbar {
   }
 }
 
-.hidden {
-  display: none;
-}
 
-.sections{
+
+.sections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   row-gap: 25px;
 }
 
+.overlay-body {
+  .header {
+    display: flex;
+    justify-content: center;
+    gap: 39px;
+
+    .funnel-icon {
+      width: 30px;
+      height: 30px;
+      color: gray;
+    }
+    .searchbar {
+      border: red solid 1px;
+      width: 247px;
+      height: 34px;
+      border: 1px solid #a6a6a6;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
+  }
+}
+
+ion-modal {
+  --height: 50%;
+  --border-radius: 16px;
+  --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+};
+
+ion-modal::part(backdrop) {
+  background: rgba(209, 213, 219);
+  opacity: 1;
+}
+
+ion-modal ion-toolbar {
+  --background: rgb(14 116 144);
+  --color: white;
+}

@@ -34,7 +34,7 @@ export class LoginScreenPage {
   signInForm: FormGroup;
   inputAccountNumber;
   savedAccountNumber;
-  pwdIcon = 'eye-outline';
+  pwdIcon = 'eye';
   showPwd = false;
   isFirstEnter = true;
   isFieldDisabled: boolean;
@@ -151,7 +151,7 @@ export class LoginScreenPage {
 
   togglePwd() {
     this.showPwd = !this.showPwd;
-    this.pwdIcon = this.showPwd ? 'eye-off-outline' : 'eye-outline';
+    this.pwdIcon = this.showPwd ? 'eye-off' : 'eye';
   }
 
   initializeApp() {

@@ -10,8 +10,6 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
-import { faCoffee } from '@fortawesome/free-solid-svg-icons';
-// import { } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-hometab',
@@ -33,12 +31,14 @@ export class HometabPage implements OnInit, OnDestroy {
   multipleAccounts;
   currentIndex;
   currentAcctNumber;
-  isSearch : boolean = true;
+  isSearch: boolean = true;
   extend = false;
   // eslint-disable-next-line @typescript-eslint/no-inferrable-types
   isView: boolean = false;
   filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
+
+
 
   constructor(
     private router: Router,
@@ -46,27 +46,29 @@ export class HometabPage implements OnInit, OnDestroy {
     private alertController: AlertController,
     private http: HttpClient,
     private generalService: GeneralServiceService
-  ) { }
+  ) {}
 
   ViewMore() {
-    this.isView = true
+    this.isView = true; // Set the flag to true when "View More" is clicked
   }
 
   backHome() {
-    this.isView = false
-     this.filteredAccountHistory = this.accountHistory;
+    this.isView = false;
+    this.filteredAccountHistory = this.accountHistory;
   }
-
 
   //handle Search Functionality for Transaction History
   handleSearchInput(e) {
     const query = e.target.value.toLowerCase();
-      if (!query) {
+    if (!query) {
       this.filteredAccountHistory = this.accountHistory; //if there is nothing entered, display all the list
-    }
-      else {
-        // eslint-disable-next-line max-len
-        this.filteredAccountHistory = this.accountHistory.filter((hist) => hist.transactionAmount.toLowerCase().includes(query) || hist.transactionType.toLowerCase().includes(query))
+    } else {
+      // eslint-disable-next-line max-len
+      this.filteredAccountHistory = this.accountHistory.filter(
+        (hist) =>
+          hist.transactionAmount.toLowerCase().includes(query) ||
+          hist.transactionType.toLowerCase().includes(query)
+      );
     }
   }
 
@@ -99,8 +101,8 @@ export class HometabPage implements OnInit, OnDestroy {
       this.dashboardService.getTransactionHistoryOnInit().subscribe(
         (data) => {
           this.accountHistory = data.accountHistory;
-           this.filteredAccountHistory = data.accountHistory;
-           console.log(this.accountHistory)
+          this.filteredAccountHistory = data.accountHistory;
+          console.log(this.accountHistory);
         },
         (err) => {}
       )
