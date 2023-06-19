@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-splashscreen',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SplashscreenPage implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
+    setTimeout(() => {
+      this.router.navigate(['/landing-page']); // Navigate to your main page after the desired delay
+    }, 5000); // Set the desired delay in milliseconds
   }
 
 }

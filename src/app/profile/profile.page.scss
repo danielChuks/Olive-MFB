@@ -2,26 +2,46 @@
 
 ion-content {
   .header {
-    background: #3E5151;  
-    background: -webkit-linear-gradient(to right, #94876e, #3E5151);  
-    background: linear-gradient(to right, #94876e, #3E5151); 
-    height: 20rem;
-    text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    background: url("../../assets/images/olive_smilling_girl.png");
+    //  background-color: #cccccc; /* Used if the image is unavailable */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 17rem;
     color: white;
-    line-height: 2.5rem;
-    margin-top: -1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
 
-    h2 {
-      margin-top: 1rem;
+    .toolbar {
+      width: 100%;
+      padding: 0.5rem;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 46px;
+
+      ion-col {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      ion-icon {
+        font-size: 28px;
+      }
+      // width: calc(100% - ${75}px);
+      // border: 1px solid rgb(24, 4, 4);
+      // background-color: #040d2c;
     }
 
-    p {
-      margin-top: 2rem;
-      margin-bottom: 1.7rem;
+    h3 {
+      margin-top: 1.5rem;
+      font-weight: 600;
+      font-size: 18px;
+      line-height: 22px;
       font-size: 1.3rem;
+      text-transform: capitalize;
     }
 
     .avatar {
@@ -29,15 +49,13 @@ ion-content {
       width: 5.5rem;
       border-radius: 3.125rem;
       margin-left: 0.75rem;
-      background-color: white;
       position: relative;
       margin: auto;
     }
 
     .over {
-      margin-top: 2rem;
-      background-color: #e5e5e5;
-      // position: absolute;
+      background-color: #b5b59c;
+      color: #000000;
       width: 100%;
       height: 100%;
       border-radius: 3.125rem;
@@ -52,61 +70,49 @@ ion-content {
     }
   }
 
-  .overlay {
-    background-color: #e2e2e2a2;
-    box-shadow: none;
-    border-radius: 0;
-  }
-
   .content {
-    margin-top: -4rem;
+    // margin-top: 0.9rem;
+    // border: 1px solid #000000;
     ion-icon {
       font-size: 20px;
     }
 
-    .settings-header {
-      background-color: #ffffff;
-      margin: 10px 0px 10px 16px;
-      p {
-        font-size: 23px;
-        font-weight: 400;
-        color: #018401;
-      }
-    }
+    // .user-details {
+    //   // background-color: #ffffff;
+    //   // margin: 0rem 0.3rem 0 0.3rem;
+    //   // border-radius: 5px;
+    //   ion-avatar {
+    //     margin-right: 8px;
+    //     width: 32px;
+    //     height: 32px;
+    //     background: #3e5151;
+    //     img {
+    //       color: white;
+    //       padding: 2px;
+    //       height: 28px;
+    //       width: 28px;
+    //       margin: 2px;
+    //     }
+    //   }
 
-    .user-details {
+    //   ion-icon {
+    //     margin-right: -0.3rem;
+    //   }
+    // }
+
+    ion-item {
       background-color: #ffffff;
-      margin: 1rem 0.3rem 0 0.3rem;
+      margin: 0.9rem 0.3rem 0 0.3rem;
       border-radius: 5px;
+      height: 51px;
+      box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
+      border-radius: 8px;
+      
       ion-avatar {
         margin-right: 8px;
         width: 32px;
         height: 32px;
-        background: #3E5151;
-        img {
-          color: white;
-          padding: 2px;
-          height: 28px;
-          width: 28px;
-          margin: 2px;
-        }
-      }
-
-      ion-icon {
-        margin-right: -0.3rem;
-      }
-    }
-
-    .app-details {
-      background-color: #ffffff;
-      margin: 1rem 0.3rem 0 0.3rem;
-      border-radius: 5px;
-
-      ion-avatar {
-        margin-right: 8px;
-        width: 32px;
-        height: 32px;
-        background: #3E5151;
+        background: #3e5151;
         img {
           color: white;
           padding: 2px;
@@ -180,7 +186,7 @@ ion-modal {
     justify-content: center;
     align-items: center;
     margin-top: 30px;
-    --background: #3E5151;
+    --background: #3e5151;
     --border-radius: 5px;
     height: 40px;
     font-weight: 400;

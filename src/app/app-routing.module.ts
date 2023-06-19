@@ -6,6 +6,10 @@ import { UnauthGuard } from './guards/unauth.guard';
 const routes: Routes = [
   {
     path: '',
+    loadChildren: () => import('./splashscreen/splashscreen.module').then( m => m.SplashscreenPageModule)
+  },
+  {
+    path: 'login-screen',
     loadChildren: () => import('./auth/logIn/pages/login-screen/login-screen.module').then( m => m.LoginScreenPageModule)
   },
   {
@@ -168,10 +172,15 @@ const routes: Routes = [
   {
     path: 'forgot-pin-otp',
     loadChildren: () => import('../app/profile/pages/forgot-pin-otp/forgot-pin-otp.module').then( m => m.ForgotPinOtpPageModule)
-  },  {
+  },
+  {
     path: 'splashscreen',
     loadChildren: () => import('./splashscreen/splashscreen.module').then( m => m.SplashscreenPageModule)
+  },  {
+    path: 'landing-page',
+    loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
   }
+
 
 
 

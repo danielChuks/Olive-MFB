@@ -1,15 +1,15 @@
 @import '../../../../reusableComponents/pin-modal/pin-modal.component.scss';
 // Header section
-ion-toolbar{
-   --background: white;
-   height: 96px;
-   color: black;
-   ion-icon{
-     font-size: 35px;
-     margin-top: 55px;
-     margin-left: 21px;
-   }
-}
+// ion-toolbar{
+//    --background: white;
+//    height: 96px;
+//    color: black;
+//    ion-icon{
+//      font-size: 35px;
+//      margin-top: 55px;
+//      margin-left: 21px;
+//    }
+// }
 
 // text
 ion-text{
@@ -37,34 +37,37 @@ p{
   font-weight: 400;
 
 }
-.ellipses{
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  margin-top: 24px;
-  #circle {
-    width: 16px;
-    height: 16px;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
+// .ellipses{
+//   display: flex;
+//   gap: 20px;
+//   justify-content: center;
+//   margin-top: 24px;
+//   #circle {
+//     // width: 16px;
+//     // height: 16px;
+//     top: 36.69%;
+// bottom: 57.69%;
+
+// border: 1px solid #808000;  
+//     text-align: center;
+//     font-weight: bold;
   
-    .inner-circle{
-    width: 16px;
-    height: 16px;
-    border: 1px solid #000;
-    border-radius: 50%;
-    text-align: center;
-    font-weight: bold;
-    }
-  }
+//     .inner-circle{
+//       // width: 16px;
+//       // height: 16px;
+//     border: 1px solid #000;
+//     // border-radius: 50%;
+//     text-align: center;
+//     font-weight: bold;
+//     }
+//   }
   
-  .test{
-    background-color:#040D2C ;
-  }
+//   .test{
+//     background-color:#040D2C ;
+//   }
 
   
-  }
+//   }
 
 // dialpad section
 .dialpad{
