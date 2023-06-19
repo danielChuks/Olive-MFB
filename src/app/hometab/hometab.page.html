@@ -9,40 +9,16 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-header *ngIf="isView" class="ion-no-border">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="auto"
-          ><ion-icon name="arrow-back" (click)="backHome()"></ion-icon
-        ></ion-col>
-        <ion-col size="9.8"> Transaction History</ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing..."
-    >
-    </ion-refresher-content>
-  </ion-refresher>
-  <!-- ion-card -->
-  <div class="ion-padding">
+<ion-content class="ion-padding" [fullscreen]="true">
+  <div>
     <ion-slides
       (ionSlideDidChange)="slideChanged($event)"
-      class="my-slides"
       [options]="{ slidesPerView:1 }"
+      class="slide"
       pager
     >
       <ion-slide
-        class="card"
-        *ngFor="let account of multipleAccounts; let i = index"
+        *ngFor="let account of multipleAccounts; let i = index; "
       >
         <app-card
           [accountBalance]="account.availableBalance"
@@ -59,25 +35,29 @@
       <a>Same Transfer</a>
     </div>
 
-    <div class="innercontainer" routerLink="/other-transfer">
-      <img id="circle" src="../../assets/images/bank-transfer.png" />
-      <a>Other Banks</a>
-    </div>
+       <ion-col>
+        <div class="column">
+         <img src="../../assets/images/Transaction history.svg"/>
+          <p>Transactions</p>
+         </div>
+        </ion-col>
 
-    <div class="innercontainer" routerLink="/manage-beneficiaries">
-      <img id="circle" src="../../assets/images/user-profile.png" />
-      <a>Beneficiaries</a>
-    </div>
+       <ion-col routerLink="/manage-beneficiaries">
+          <div class="column">
+         <img  src="../../assets/images/Beneficiaries.svg"/>
+          <p>Beneficiaries</p>
+         </div>
+        </ion-col>
 
-    <div class="innercontainer" routerLink="/new-tab/hometab/top-up">
-      <img id="circle" src="../../assets/images/arrows.png" />
-      <a>Top Up</a>
-    </div>
+        <ion-col>
+           <div class="column">
+             <img  src="../../assets/images/Settings.svg"/>
+               <p>Settings</p>
+           </div>
+          </ion-col>
 
-    <div class="innercontainer" routerLink="/pay-bills">
-      <img id="circle" src="../../assets/images/bill.png" />
-      <a>Pay Bills</a>
-    </div>
+       </ion-row>
+     </ion-grid>
   </div>
 
   <div class="transaction-container">

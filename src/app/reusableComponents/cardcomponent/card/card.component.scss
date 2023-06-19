@@ -1,57 +1,86 @@
-ion-card{
-  height: 140px;
+.cardWrapper{
+  // background-color: red;
+  position: relative;
+  text-align: center;
+  color: white !important;
   width: 100%;
-  background: #3E5151;  
-  background: -webkit-linear-gradient(to right, #94876e, #3E5151);  
-  background: linear-gradient(to right, #94876e, #3E5151); 
-  // yosi
-  // background: #3E5151;  
-  // background: -webkit-linear-gradient(to right, #5c7e7e, #2c3a3a);
-  // background: linear-gradient(to right, #77764c, #3E5151); 
-  margin-top: 22px;
+  height: 100%;
+}
 
-ion-card-content{
-  color: #f5f5f5;
-  font-size: 16px;
+.top-left {
+  position: absolute;
+  top: 3.2rem;
+  color: white;
+  left: 2.5rem;
+
+
 }
-ion-item{
-  color: #f5f5f5;
-  font-size: 13px;
+
+.bottom-left{
+  display: flex;
+   flex-direction: column;
+   gap: .3rem;
+    color: white !important;
+    position: absolute;
+    bottom: 3rem;
+    left: 2.5rem;
+
+    .available_text{
+    font-size: 14px;
+     color: white !important;
+  }
+
+  .hidden-balance{
+    color: white !important;
+    font-size: 20px !important;
+  }
+
+  .show_balance{
+    color: white !important;
+    font-size: 20px !important;
+  }
 }
-span{
-  font-size: 28px;
-  display: block;
+
+.bottom-right {
+  position: absolute;
+  bottom: 3rem;
+  right:  2rem;
 }
+
+.card-img{
+  width: 100%;
+
 }
+
 
 ion-button{
   color: #f5f5f5;
   --border-style: none;
 }
 
-.card-content {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
+// .card-content {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+// }
 
-.card-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 16px;
-  color: white;
-  ion-label {
-    font-size: 16px;
-  }
-}
+// .card-header {
+//   display: flex;
+//   align-items: center;
+//   justify-content: space-between;
+//   padding: 16px;
+//   color: white;
+//   ion-label {
+//     font-size: 16px;
+//   }
+// }
 
-.divider {
-    background-color: rgb(255, 255, 255);
-    height: 1px;
-    margin: 0px 16px 0px 16px;
-}
+// .divider {
+//     background-color: rgb(255, 255, 255);
+//     height: 1px;
+//     margin: 0px 16px 0px 16px;
+// }
 
-.hidden-balance {
-  letter-spacing: 10px;
-}
+// .hidden-balance {
+//   letter-spacing: 10px;
+// }

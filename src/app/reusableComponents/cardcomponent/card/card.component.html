@@ -1,16 +1,24 @@
-<ion-card >
-        <div class="card-header">
-        <!-- <ion-label>Savings Account</ion-label> -->
+<div class="cardWrapper">
+  <p class="top-left">{{accountNumber}}</p>
+  <div class="bottom-left">
+    <p class="available_text">Available Balance</p>
+      <p class="show_balance" *ngIf="isdisplay">{{accountBalance|currency:"NGN":"symbol-narrow"}}</p>
+      <p class="hidden-balance" *ngIf="!isdisplay">****</p>
+  </div>
+  <div class="bottom-right">
+     <ion-button (click)="hideBalance()" slot="" fill="outline"><ion-icon click name="eye-off-sharp"></ion-icon></ion-button>
+  </div>
+  <img class="card-img" src="../../../../assets/images/Card.svg"/>
+        <!-- <div class="card-header">
          <ion-label slot="end" >{{accountNumber}}</ion-label>
         </div>
-        <div class="divider"></div>
+        <div class="divider"></div> -->
 
-     <ion-card-content>
-      <!-- <ion-label slot="start" >Account Balance</ion-label> -->
+     <!-- <ion-card-content>
       <div class="card-content">
         <span *ngIf="isdisplay">{{accountBalance|currency:"NGN":"symbol-narrow"}}</span>
         <span class="hidden-balance" *ngIf="!isdisplay">****</span>
          <ion-button (click)="hideBalance()" slot="" fill="outline"><ion-icon click name="eye-off-sharp"></ion-icon></ion-button>
       </div>
-     </ion-card-content>
-   </ion-card>
+     </ion-card-content> -->
+   </div>

@@ -20,7 +20,12 @@
           history.senderAndReceiverInfo.sourceAccountName
         )
       "
-      button
+      button >
+
+  <div class="transaction-body">
+    <div
+      class="transaction-history"
+      *ngFor="let history of accountHist; let i = index"
     >
       <ion-avatar>
         <ion-icon
@@ -57,7 +62,7 @@
           </div>
         </div>
       </div>
-    </ion-item>
+    <!-- </ion-item> -->
   </div>
   <ion-item *ngIf="accountHist && accountHist.length <= 0">
     <h3>No recent Transactions</h3>
