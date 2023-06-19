@@ -94,74 +94,57 @@ ion-toolbar {
   height: 200px;
 }
 
-.overlay {
-  background-color: #ffffff;
+.test {
+  position: fixed;
   width: 100%;
   height: 100%;
-  //  border: 1px solid red;
-  position: fixed;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+.transaction-container {
+  background-color: #ffffff;
+  margin-top: 300px;
   padding: 16px 16px 0 16px;
-  // border-top-left-radius: 24px;
-  // border-top-right-radius: 24px;
+
   margin-top: 12px;
-  box-shadow: 1px 35px 8px 35px rgb(192, 192, 192);
-  h3 {
-    color: #000000;
-    font-weight: 600;
-    font-size: 16px;
-  }
-  p {
-    color: #44579a;
-    font-weight: 400;
-    font-size: 14px;
-  }
+
   .header {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-bottom: 7px;
-  }
+    gap: 39px;
 
-  .divider {
-    background-color: rgb(163, 163, 163);
-    height: 1px;
-    margin: 0px -16px 0px -16px;
-  }
-
-  .history {
-    p {
-      margin-right: -0.625rem;
-      ion-icon {
-        font-size: 25px;
-        margin-right: 15px;
-        color: black;
-      }
+    .title {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 700;
+      font-size: 12px;
+      line-height: 24px;
+      font-family: "Montserrat";
+      font-weight: 600;
+      color: #484848 !important;
     }
-  }
-
-  //ion-items styling
-  .transactions {
-    margin-top: 18px;
-  }
-
-  .transaction-details {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    h3 {
-      margin-left: 76px;
+    .view-more {
+      color: #484848 !important;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      font-size: 12px;
+      line-height: 24px;
     }
-  }
 
-  .transaction-amount {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-top: -20px;
-  }
-
-  .date {
-    margin: -20px 0 0 0;
+    .funnel-icon {
+      width: 30px;
+      height: 30px;
+      color: gray;
+    }
+    .searchbar {
+      width: 247px;
+      height: 40px;
+      border: 1px solid #a6a6a6;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    }
   }
 }
 
@@ -190,23 +173,4 @@ ion-toolbar {
   row-gap: 25px;
 }
 
-.overlay-body {
-  .header {
-    display: flex;
-    justify-content: center;
-    gap: 39px;
 
-    .funnel-icon {
-      width: 30px;
-      height: 30px;
-      color: gray;
-    }
-    .searchbar {
-      width: 247px;
-      height: 40px;
-      border: 1px solid #a6a6a6;
-      margin-bottom: 10px;
-      border-radius: 10px;
-    }
-  }
-}

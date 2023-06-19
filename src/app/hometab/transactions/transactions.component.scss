@@ -1,20 +1,16 @@
 //ion-items styling
-.transaction-body {
-  height: 110vh;
-  overflow-y: scroll;
-  overflow-x: hidden;
-  border: #e20c0c solid 1px;
-}
 
-#date{
+#date {
   font-size: 12px;
 }
-#name{
+#name {
   font-size: 50px;
 }
 .transaction-history {
   ion-item {
     margin: 0px -16px 0px -15px;
+    background: #fafafa;
+    color: #4b4b4b;
   }
   ion-avatar {
     background-color: #f1f1f1;
@@ -55,17 +51,7 @@
       color: #666666;
     }
   }
-  .transactions-amount-subcontent {
-  p {
-    font-size:13px;
-    line-height: 15px;
-    margin-bottom: 4px;
-    color: #666666;
-  }
 }
-
-}
-
 
 #transactions-balance {
   float: right;
@@ -75,6 +61,15 @@
     width: 100%;
     align-content: center;
     direction: rtl;
+    font-size: 16px;
+  }
+  .transactions-amount-subcontent {
+    p {
+      font-size: 10px;
+      line-height: 15px;
+      margin-bottom: 4px;
+      color: #666666;
+    }
   }
 }
 
@@ -82,21 +77,24 @@
   float: right;
   width: 25%;
   margin-bottom: 15px;
+  font-family: "Montserrat";
+  color: #4b4b4b;
+  font-style: normal;
+  font-weight: 600;
   h3 {
-    font-size: 15px;
-    line-height: 16px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
   }
 }
 
 //change balance color
 h3[class="debit"] {
-  color: #e20c0c;
   font-size: 25px;
   margin: 7px 0px 0px 7px;
 }
 
 h3[class="credit"] {
-  color: #1dca19;
   font-size: 25px;
   margin: 7px 0px 0px 7px;
 }
