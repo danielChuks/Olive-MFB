@@ -1,3 +1,16 @@
+<ion-header *ngIf="isView" class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"
+          ><ion-icon name="arrow-back" (click)="backHome()"></ion-icon
+        ></ion-col>
+        <ion-col size="9.8"> Transaction History</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
 <ion-header *ngIf="!isView" class="ion-no-border">
   <ion-toolbar>
     <div class="content-header">
@@ -17,9 +30,7 @@
       class="slide"
       pager
     >
-      <ion-slide
-        *ngFor="let account of multipleAccounts; let i = index; "
-      >
+      <ion-slide *ngFor="let account of multipleAccounts; let i = index; ">
         <app-card
           [accountBalance]="account.availableBalance"
           [accountNumber]="account.accountNumber"
@@ -27,37 +38,85 @@
         </app-card>
       </ion-slide>
     </ion-slides>
-  </div>
 
-  <div *ngIf="!isView" class="sections">
-    <div class="innercontainer" routerLink="/new-tab/hometab/transfer">
-      <img id="circle" src="../../assets/images/int-transfer.png" />
-      <a>Same Transfer</a>
-    </div>
+    <!-- timit -->
 
-       <ion-col>
-        <div class="column">
-         <img src="../../assets/images/Transaction history.svg"/>
-          <p>Transactions</p>
-         </div>
-        </ion-col>
+    <div class="quick_action" *ngIf="!isView">
+      <h6>Quick Action</h6>
 
-       <ion-col routerLink="/manage-beneficiaries">
-          <div class="column">
-         <img  src="../../assets/images/Beneficiaries.svg"/>
-          <p>Beneficiaries</p>
-         </div>
-        </ion-col>
+      <ion-grid [fixed]="true">
+        <ion-row class="row">
+          <ion-col id="open-modal" expand="block">
+            <ion-modal #modal trigger="open-modal">
+              <ng-template>
+                <ion-content class="ion-padding">
+                  <div class="select_transfer">
+                    <p class="heading">Select the preferred transfer type</p>
 
-        <ion-col>
-           <div class="column">
-             <img  src="../../assets/images/Settings.svg"/>
-               <p>Settings</p>
-           </div>
+                    <button
+                      class="same_transfer"
+                      (click)="cancel()"
+                      routerLink="/new-tab/hometab/transfer"
+                    >
+                      Same Bank Transfer
+                    </button>
+
+                    <button
+                      class="other_transfer"
+                      (click)="cancel()"
+                      routerLink="/other-transfer"
+                    >
+                      Other Bank Transfer
+                    </button>
+                  </div>
+                </ion-content>
+              </ng-template>
+            </ion-modal>
+            <div class="column">
+              <img src="../../assets/images/Transfer.svg" />
+              <p>Transfer</p>
+            </div>
           </ion-col>
 
-       </ion-row>
-     </ion-grid>
+          <ion-col routerLink="top-up">
+            <div class="column">
+              <img src="../../assets/images/Top up.svg" />
+              <p>Top up</p>
+            </div>
+          </ion-col>
+
+          <ion-col routerLink="/pay-bills">
+            <div class="column">
+              <img src="../../assets/images/Pay bills.svg" />
+              <p>Pay Bills</p>
+            </div>
+          </ion-col>
+        </ion-row>
+
+        <ion-row class="bottom-row">
+          <ion-col>
+            <div class="column">
+              <img src="../../assets/images/Transaction history.svg" />
+              <p>Transactions</p>
+            </div>
+          </ion-col>
+
+          <ion-col routerLink="/manage-beneficiaries">
+            <div class="column">
+              <img src="../../assets/images/Beneficiaries.svg" />
+              <p>Beneficiaries</p>
+            </div>
+          </ion-col>
+
+          <ion-col>
+            <div class="column">
+              <img src="../../assets/images/Settings.svg" />
+              <p>Settings</p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
   </div>
 
   <div class="transaction-container">

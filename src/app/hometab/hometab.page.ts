@@ -40,8 +40,6 @@ export class HometabPage implements OnInit, OnDestroy {
   filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
 
-
-
   constructor(
     private router: Router,
     private dashboardService: DashboardService,
@@ -50,17 +48,17 @@ export class HometabPage implements OnInit, OnDestroy {
     private generalService: GeneralServiceService
   ) {}
 
-  // ViewMore() {
-  //   this.isView = true; // Set the flag to true when "View More" is clicked
-  // }
+  ViewMore() {
+    this.isView = true; // Set the flag to true when "View More" is clicked
+  }
 
-  // backHome() {
-  //   this.isView = false;
-  //   this.filteredAccountHistory = this.accountHistory;
-  // }
+  backHome() {
+    this.isView = false;
+    this.filteredAccountHistory = this.accountHistory;
+  }
 
   //close modal
-   cancel() {
+  cancel() {
     this.modal.dismiss(null, 'cancel');
   }
 
