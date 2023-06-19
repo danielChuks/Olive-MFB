@@ -10,7 +10,7 @@ import { HttpClient } from '@angular/common/http';
   selector: 'app-transactions',
   templateUrl: './transactions.component.html',
   styleUrls: ['./transactions.component.scss'],
-  providers:[DashboardService]
+  providers: [DashboardService],
 })
 export class TransactionsComponent implements OnInit {
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
@@ -25,12 +25,14 @@ export class TransactionsComponent implements OnInit {
   multipleAccounts;
   selectedHistory;
 
-  constructor(  private router: Router,
-                public dashboardService: DashboardService,
-                private alertController: AlertController,
-                private modalCtrl: ModalController,
-                public http: HttpClient,
-                private platform: Platform) { }
+  constructor(
+    private router: Router,
+    public dashboardService: DashboardService,
+    private alertController: AlertController,
+    private modalCtrl: ModalController,
+    public http: HttpClient,
+    private platform: Platform
+  ) {}
 
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
@@ -43,12 +45,30 @@ export class TransactionsComponent implements OnInit {
     this.modal.dismiss(this.name, 'confirm');
   }
 
-  ngOnInit(){}
+  ngOnInit() {}
 
+  // formating the date
+  formatDate(date: string): string {
+    const formattedDate = new Date(date).toLocaleDateString('en-GB', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric',
+    });
+    return formattedDate;
+  }
   // eslint-disable-next-line max-len
-  async openModal(transactionDate,transactionType, transactionReference, transactionAmount, sourceAccount,
-    beneficiaryName, statementBalance, beneficiaryAccountNo, sourceAccountName ) {
-      const modal = await this.modalCtrl.create({
+  async openModal(
+    transactionDate,
+    transactionType,
+    transactionReference,
+    transactionAmount,
+    sourceAccount,
+    beneficiaryName,
+    statementBalance,
+    beneficiaryAccountNo,
+    sourceAccountName
+  ) {
+    const modal = await this.modalCtrl.create({
       component: TransactionModalComponent,
       backdropBreakpoint: 0.1,
       initialBreakpoint: 600 / this.platform.height(),
@@ -56,23 +76,25 @@ export class TransactionsComponent implements OnInit {
     });
     modal.present();
     this.selectedHistory = {
-    transDate : transactionDate,
-    transType: transactionType,
-    transRef: transactionReference,
-    transAmount: transactionAmount,
-    srcAccount: sourceAccount,
-    srcAccountName:  sourceAccountName,
-    benName: beneficiaryName,
-    balance: statementBalance,
-    benAcctNo: beneficiaryAccountNo,
+      transDate: transactionDate,
+      transType: transactionType,
+      transRef: transactionReference,
+      transAmount: transactionAmount,
+      srcAccount: sourceAccount,
+      srcAccountName: sourceAccountName,
+      benName: beneficiaryName,
+      balance: statementBalance,
+      benAcctNo: beneficiaryAccountNo,
     };
 
-    sessionStorage.setItem('selectedHistory', JSON.stringify(this.selectedHistory));
+    sessionStorage.setItem(
+      'selectedHistory',
+      JSON.stringify(this.selectedHistory)
+    );
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
       this.message = `Hello, ${data}!`;
     }
   }
-
 }

@@ -10,7 +10,8 @@
   ion-item {
     margin: 0px -16px 0px -15px;
     background: #fafafa;
-    color: #4b4b4b;
+    border-radius: 8px;
+    margin-bottom: 10px;
   }
   ion-avatar {
     background-color: #f1f1f1;
@@ -44,11 +45,13 @@
   }
 
   .transactions-amount {
-    p {
-      font-size: 13px;
+    .transaction-details-content {
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 400;
+      font-size: 12px;
       line-height: 15px;
-      margin-bottom: 4px;
-      color: #666666;
+      color: #4b4b4b;
     }
   }
 }
