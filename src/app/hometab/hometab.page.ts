@@ -10,7 +10,7 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
-// import { } from '@fortawesome/free-solid-svg-icons';
+import { IonModal } from '@ionic/angular';
 
 @Component({
   selector: 'app-hometab',
@@ -20,6 +20,7 @@ import { GeneralServiceService } from '../general-service.service';
 export class HometabPage implements OnInit, OnDestroy {
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   @ViewChild('slides', { static: true }) slides: IonSlides;
+  @ViewChild(IonModal) modal: IonModal;
 
   // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
   initials: any;
@@ -39,8 +40,6 @@ export class HometabPage implements OnInit, OnDestroy {
   filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
 
-
-
   constructor(
     private router: Router,
     private dashboardService: DashboardService,
@@ -56,6 +55,11 @@ export class HometabPage implements OnInit, OnDestroy {
   backHome() {
     this.isView = false;
     this.filteredAccountHistory = this.accountHistory;
+  }
+
+  //close modal
+  cancel() {
+    this.modal.dismiss(null, 'cancel');
   }
 
   //handle Search Functionality for Transaction History
