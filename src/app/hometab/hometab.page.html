@@ -39,51 +39,18 @@
        <ion-col id="open-modal" expand="block">
          <ion-modal #modal trigger="open-modal">
     <ng-template>
-      <ion-content>
-        <ion-toolbar>
-          <ion-title>Modal</ion-title>
-          <ion-buttons slot="end">
-            <ion-button color="light" (click)="modal.dismiss()">Close</ion-button>
-          </ion-buttons>
-        </ion-toolbar>
-        <ion-list>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=b"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Connor Smith</h2>
-              <p>Sales Rep</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=a"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Daniel Smith</h2>
-              <p>Product Designer</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=d"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Greg Smith</h2>
-              <p>Director of Operations</p>
-            </ion-label>
-          </ion-item>
-          <ion-item>
-            <ion-avatar slot="start">
-              <ion-img src="https://i.pravatar.cc/300?u=e"></ion-img>
-            </ion-avatar>
-            <ion-label>
-              <h2>Zoey Smith</h2>
-              <p>CEO</p>
-            </ion-label>
-          </ion-item>
-        </ion-list>
+      <ion-content class="ion-padding">
+        <div class="select_transfer">
+        <p class="heading">Select the preferred transfer type</p>
+
+        <button class="same_transfer" (click)="cancel()" routerLink="/new-tab/hometab/transfer">
+           Same Bank Transfer
+        </button>
+
+         <button class="other_transfer" (click)="cancel()"  routerLink="/other-transfer">
+           Other Bank Transfer
+        </button>
+        </div>
       </ion-content>
     </ng-template>
   </ion-modal>
@@ -137,119 +104,5 @@
      </ion-grid>
   </div>
 
-  <div class="transaction_history">
-    <header>
-      <p>Recent Transactions</p>
-      <p>view more </p>
-    </header>
 
-     <main>
-    <app-transactions
-        [accountHist]="filteredAccountHistory"
-      ></app-transactions>
-</main>
-
-  </div>
 </ion-content>
-<!-- <ion-header *ngIf="isView">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="auto"
-          ><ion-icon name="arrow-back" (click)="backHome()"></ion-icon
-        ></ion-col>
-        <ion-col size="9.8"> Transaction History</ion-col>
-      </ion-row>
-    </ion-grid>
-  </ion-toolbar>
-</ion-header> -->
-
-<!-- <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Pull to refresh"
-      refreshingSpinner="circles"
-      refreshingText="Refreshing..."
-    >
-    </ion-refresher-content>
-  </ion-refresher> -->
-
-
-  <!-- ion-card -->
-
-
-
-
-  <!-- <div *ngIf="!isView" class="sections">
-    <div class="innercontainer" routerLink="/new-tab/hometab/transfer">
-      <img id="circle" src="../../assets/images/int-transfer.png" />
-      <a>Same Transfer</a>
-    </div>
-
-    <div class="innercontainer" routerLink="/other-transfer">
-      <img id="circle" src="../../assets/images/bank-transfer.png" />
-      <a>Other Banks</a>
-    </div>
-
-    <div class="innercontainer" routerLink="/manage-beneficiaries">
-      <img id="circle" src="../../assets/images/user-profile.png" />
-      <a>Beneficiaries</a>
-    </div>
-
-    <div class="innercontainer" routerLink="/new-tab/hometab/top-up">
-      <img id="circle" src="../../assets/images/arrows.png" />
-      <a>Top Up</a>
-    </div>
-
-    <div class="innercontainer" routerLink="/pay-bills">
-      <img id="circle" src="../../assets/images/bill.png" />
-      <a>Pay Bills</a>
-    </div>
-  </div> -->
-
-  <!-- <div class="overlay-body">
-    <div class="overlay">
-      <div
-        class="header"
-        [class.isView]="isView"
-        [style.justify-content]="!isView ? 'space-around' : '' "
-      >
-        <h3 *ngIf="!isView">Recent Transactions</h3>
-        <!-- Route to transaction history page -->
-        <!-- <p *ngIf="!isView" (click)="ViewMore()">View More</p>
-        <ion-searchbar
-          fill="none"
-          *ngIf="isView"
-          class="searchbar"
-          [debounce]="1000"
-          (ionChange)="handleSearchInput($event)"
-        ></ion-searchbar>
-        <ion-icon name="funnel" class="funnel-icon" *ngIf="isView"></ion-icon>
-      </div>
-      <div class="divider"></div> -->
-      <!-- Transaction History -->
-      <!-- <app-transactions
-        [accountHist]="filteredAccountHistory"
-      ></app-transactions>
-    </div>
-  </div> -->
-
-  <!-- <div  *ngIf="extend" class="history">
-      <div class="overlay-body">
-        <div class="overlay">
-          <div class="header history">
-            <h3>Transactions</h3>
-            <p>
-              <ion-icon name="chevron-down-outline" slot="end" (click)="extend =!extend"></ion-icon>
-            </p>
-          </div>
-
-        <ion-searchbar class="searchbar" *ngIf="isSearch" [debounce]="1000"></ion-searchbar>
-        <div class="divider"></div>
-        <app-transactions [accountHist] = "accountHistory"> </app-transactions>
-
-        </div>
-      </div>
-    </div> -->
-<!-- </ion-content> -->
