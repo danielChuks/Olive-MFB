@@ -100,12 +100,12 @@ export class SignupFormPage implements OnInit, OnDestroy {
       this.SignUpForm.get('accountNumber').value
     );
 
-    this.generalService.updateSignUpDetails(this.register); //store signUpData using behaviour subject
+    this.generalService.updateSignUpDetails(this.register);
+     //store signUpData using behaviour subject
     // sessionStorage.setItem('signUpDetails', JSON.stringify(this.register));
   }
 
   ngOnInit() {}
-
   async presentAlert(msg) {
     const alert = await this.alertController.create({
       message: msg,

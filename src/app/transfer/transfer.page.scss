@@ -12,21 +12,44 @@
       justify-content: space-between;
     }
   }
-  .input {
-    margin-top: 32px;
+  .inputGroup {
+    margin-top: 2.5rem;
     ion-input {
       height: 56px;
       background-color: #ededed;
       border-color: 1px solid #e5e5e5;
       padding: 40px;
+      border-radius: 0.8rem;
     }
+
+    .select-beneficiary{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: .2rem;
+    align-items: center;
+    }
+
+    .title{
+      font-weight: 600;
+       font-size: 14px;
+    }
+
   }
+
+   .transfer-limit {
+    margin-top: 4px;
+    height: 23px;
+    display: flex;
+    justify-content: space-between;
+  }
+
+
   .accounts {
     height: 56px;
     background-color: #ededed;
     border-color: 2px solid #e5e5e5;
+    border-radius: 0.8rem;
   }
-
   .accounts-header {
     display: flex;
     justify-content: space-between;
@@ -40,7 +63,6 @@
       line-height: 18px;
     }
   }
-
   .account-list {
     display: flex;
     justify-content: space-between;
@@ -63,31 +85,12 @@
     }
   }
 
-  //Add Beneficiaries
-  .select-beneficiary{
-    display: flex;
-    justify-content: space-between;
-  }
-  .beneficiary-tab {
-      ion-text {
-        width: 100%;
-        font-size: 14px;
-      }
-      p {
-        margin-top: -5px;
-        font-size: 14px;
-        font-weight: 600;
-        float: right;
-        color: #8d8f59;
-      }
-  }
 
-  .transfer-limit {
-    margin-top: 4px;
-    height: 23px;
-  }
 
   .toggle {
+    ion-toggle {
+  --background-checked: #018401;
+}
     margin-top: 32px;
     display: flex;
     flex-direction: row;
@@ -95,8 +98,14 @@
     padding: 4px 24px 4px 4px;
     height: 19px;
   }
+
+  ion-text{
+    font-size: 16px;
+  }
 }
 
+
+//beneficiaries modal STYLES
 .beneficiaries-list {
   ion-item {
     margin: 0px 0px 0px -15px;
@@ -151,9 +160,7 @@
   justify-content: space-between;
 }
 
-ion-toggle {
-  --background-checked: #018401;
-}
+
 ion-label {
   font-size: 14px;
 }

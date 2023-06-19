@@ -44,38 +44,29 @@
       </div>
       <!--End list of Accounts -->
 
-      <div class="beneficiary-tab">
-        <div class="input">
-          <div class="select-beneficiary">
-            <p>Beneficiaries</p>
-            <p (click)="openModal()">Select Beneficiary</p>
+      <!-- <div class="beneficiary-tab"> -->
+        <div class="inputGroup">
+          <div class="select-beneficiary title">
+            <p>Beneficiary account</p>
+            <img   (click)="openModal()" class="" alt="beneficiaries icon" src="../../assets/icon/beneficiariesIcon.svg"/>
           </div>
-          
           <ion-input
             (input)="getNameEnquiry($event)"
             maxlength="10"
             type="text"
             name="beneficiaryAcctNum"
-            placeholder="Beneficiary Account Number"
+            placeholder="Input beneficiary account"
             formControlName="beneficiaryAcctNum"
           ></ion-input>
-          <ion-text
+          <ion-text class="title"
             [style.color]="isAccountSelected === false && accountName ? 'red' : 'black'"
             >{{beneficiaryAccountName}}</ion-text
           >
         </div>
+      <!--  </div> -->
 
-        <!-- Open beneficiaries modal -->
-        <!-- <div class="input beneficiaries" slot="end">
-          <ion-icon
-            (click)="openModal()"
-            name="id-card-sharp"
-            slot="end"
-          ></ion-icon>
-        </div> -->
-      </div>
-
-      <div class="input">
+      <div class="inputGroup">
+        <p class="title">Amount(NGN)</p>
         <ion-input
           type="text"
           name="amount"
@@ -86,18 +77,19 @@
       </div>
 
       <div class="transfer-limit">
-        <ion-label
-          >Current. transfer limit:
-          {{limit|currency:"NGN":"symbol-narrow"}}</ion-label
-        >
+        <ion-label>Current. transfer limit:</ion-label>
+        <ion-label  class="title">
+          {{limit|currency:"NGN":"symbol-narrow"}}
+        </ion-label>
       </div>
 
-      <div class="input">
+      <div class="inputGroup">
+         <p class="title">Narration</p>
         <ion-input
           type="text"
           name="narration"
           formControlName="narration"
-          placeholder="Narration"
+          placeholder="Transaction description"
         ></ion-input>
       </div>
       <!--End of Transfer Forms -->
@@ -120,4 +112,3 @@
   </form>
 </ion-content>
 
-<!-- (ionSlideDidChange)="slideChanged($event)" -->
