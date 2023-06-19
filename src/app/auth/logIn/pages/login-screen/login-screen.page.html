@@ -5,8 +5,7 @@
   </div>
 
   <ion-text class="welcome-text">Login</ion-text>
-  <p class="sub-text">{{ savedAccountNumber ? "Welcome back !" : "Welcome to Olive MFB"}}
-  </p>
+  <p class="sub-text">{{ savedAccountNumber ? "Welcome back !" : "Welcome to Olive MFB"}}</p>
 
   <form [formGroup]="signInForm">
     <!-- input fields -->
@@ -45,7 +44,7 @@
         expand="block"
         (click)="signIn(signInForm)"
         [disabled]="!signInForm.valid"
-        >Sign in</ion-button
+        >Log in</ion-button
       >
     </div>
 

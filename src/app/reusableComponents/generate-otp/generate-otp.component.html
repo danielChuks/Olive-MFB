@@ -1,10 +1,24 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="chevron-back-outline"
+          routerLink="/signup-form"
+        ></ion-icon></ion-col>
+        <!-- <ion-col size="9.5">Same Bank Transfer</ion-col> -->
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
 
 <!-- passcode text -->
 <ion-text>
-<h4>Authenticate</h4>
-<p>Please input the one time password sent to the phone number associated with this account </p>
+<h4> Verification</h4>
+<p>Kindly input the OTP that was sent to the
+  phone number attached to this account. </p>
 </ion-text>
 
 <!-- ellipses -->
@@ -39,6 +53,13 @@
             <div id="circles5" class="inner-circle "></div>
           </div>
         </div>
+        </div>
+
+        <div class="btn">
+          <ion-button
+          class="button"
+          type="submit"
+          expand="block">Confirm OTP</ion-button>
         </div>
 
         <p class="regenerate">Didn't receive Otp?</p>

@@ -1,33 +1,28 @@
 <ion-content>
   <div class="header">
+    <div class="toolbar">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto"
+            ><ion-icon
+              name="arrow-back"
+              routerLink="/new-tab/hometab"
+            ></ion-icon>
+          </ion-col>
+          <ion-col size="9.5">Profile</ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
     <div class="sub-header">
-      <h2>Profile</h2>
-
       <div class="avatar">
-        <div class="over">
-          <h3>{{initials}}</h3>
-        </div>
+        <h3 class="over">{{initials}}</h3>
       </div>
-
-      <p>{{accountInformation && accountInformation.accountName}}</p>
+      <h3>{{accountInformation && accountInformation.accountName}}</h3>
     </div>
   </div>
 
-  <div class="overlay">
     <div class="content">
-      <ion-list lines="full" class="user-details">
-        <ion-item lines="none">
-          <ion-avatar slot="start">
-            <img
-              id="circle"
-              src="../../assets/images/user-shield-50.png"
-              alt=""
-            />
-          </ion-avatar>
-          <ion-label (click)="security =!security">Security</ion-label>
-          <ion-icon name="chevron-forward-outline"></ion-icon>
-        </ion-item>
-
+      <!-- <ion-list lines="full" class="user-details">
         <div class="security-details" *ngIf="security">
           <ion-item lines="none">
             <ion-avatar slot="start">
@@ -63,46 +58,45 @@
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>
         </div>
-      </ion-list>
+      </ion-list> -->
 
-      <ion-list lines="full" class="app-details">
+      <ion-list lines="full" >
         <ion-item lines="none">
-          <ion-avatar slot="start">
+          <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/account.png" alt="" />
-          </ion-avatar>
-          <ion-label id="open-modal">Account</ion-label>
+          </ion-avatar> -->
+          <ion-label id="open-modal">Account Information</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-item lines="none">
-          <ion-avatar slot="start">
+          <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/contact.png" alt="" />
-          </ion-avatar>
-          <ion-label id="open-mol">Help</ion-label>
+          </ion-avatar> -->
+          <ion-label id="open-mol">Help & Support</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-item lines="none">
-          <ion-avatar slot="start">
+          <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/info2.png" alt="" />
-          </ion-avatar>
+          </ion-avatar> -->
           <ion-label id="open-moal">About</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
-      </ion-list>
-
-      <ion-list lines="full" class="user-details">
         <ion-item lines="none" (click)="logout()">
-          <ion-avatar slot="start">
+          <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/logout.png" alt="" />
-          </ion-avatar>
+          </ion-avatar> -->
           <ion-label>Logout</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
       </ion-list>
+
+      
     </div>
-  </div>
 
   <ion-modal
     trigger="open-modal"
+    mode="ios"
     (willDismiss)="onWillDismiss($event)"
     [initialBreakpoint]="0.35"
     [breakpoints]="[0, 0.35]"
@@ -140,32 +134,44 @@
   <!-- About Modal -->
   <ion-modal
     #modal
+    mode="ios"
     trigger="open-moal"
     (willDismiss)="onWillDismiss($event)"
-    [initialBreakpoint]="0.7"
-    [breakpoints]="[0, 0.7]"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0, 0.5]"
   >
-    <ng-template>
-      <ion-content class="about ion-padding">
-        <div class="avatar-1">
-          <img src="../assets/images/olive3.png" />
-        </div>
-
-        <div class="about-content">
-          <h3>&copy; 2023 Olive App. All rights reserved.</h3>
-          <p>Powered by Olive Microfinance Bank</p>
-
-          <p>App Version: 1.0.0</p>
-          <ion-button (click)="modal.dismiss()">I understand</ion-button>
-        </div>
-      </ion-content>
-    </ng-template>
+  <ng-template>
+    <ion-content class="help ion-padding">
+      <div class="help-header">
+        <ion-title>HELP & SUPPORT</ion-title>
+      </div>
+      <ion-list lines="full" class="help-details">
+        <ion-item>
+          <h3>
+            For help and enquiries, kindly contact us via any of our channles
+          </h3>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>0700 200 200 200</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-label>support@olivemfb.com</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+        <ion-item>
+          <ion-label>www.olivemfb.com</ion-label>
+          <ion-icon name="chevron-forward-outline"></ion-icon>
+        </ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template>
   </ion-modal>
-
 
   <!-- Help & Support -->
   <ion-modal
     trigger="open-mol"
+    mode="ios"
     (willDismiss)="onWillDismiss($event)"
     [initialBreakpoint]="0.5"
     [breakpoints]="[0, 0.5]"
@@ -176,24 +182,21 @@
           <ion-title>HELP & SUPPORT</ion-title>
         </div>
         <ion-list lines="full" class="help-details">
+          <ion-item>
+            <h3>
+              For help and enquiries, kindly contact us via any of our channles
+            </h3>
+          </ion-item>
           <ion-item lines="none">
-            <ion-label>Call Us on 0700 200 200 200</ion-label>
+            <ion-label>0700 200 200 200</ion-label>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>
           <ion-item lines="none">
-            <ion-label>Contact us on Twitter</ion-label>
+            <ion-label>support@olivemfb.com</ion-label>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>
-          <ion-item lines="none">
-            <ion-label>Contact us on Instagram</ion-label>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Contact us via Email</ion-label>
-            <ion-icon name="chevron-forward-outline"></ion-icon>
-          </ion-item>
-          <ion-item lines="none">
-            <ion-label>Close account</ion-label>
+          <ion-item>
+            <ion-label>www.olivemfb.com</ion-label>
             <ion-icon name="chevron-forward-outline"></ion-icon>
           </ion-item>
         </ion-list>
