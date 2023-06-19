@@ -3,106 +3,106 @@
   height: 110vh;
   overflow-y: scroll;
   overflow-x: hidden;
-}
 
-#date {
-  font-size: 12px;
-}
-#name {
-  font-size: 50px;
-}
-.transaction-history {
-  ion-item {
-    margin: 0px -16px 0px -15px;
-    background: #fafafa;
-    border-radius: 8px;
-    margin-bottom: 10px;
+  #date {
+    font-size: 12px;
   }
-  ion-avatar {
-    background-color: #f1f1f1;
-    width: 45px;
-    height: 40px;
-    margin-right: 10px;
-
-    ion-icon[name="arrow-up-outline"] {
-      color: #e000009c;
-      font-size: 25px;
-      margin: 7px 0px 0px 7px;
+  #name {
+    font-size: 50px;
+  }
+  .transaction-history {
+    ion-item {
+      margin: 0px -16px 0px -15px;
+      background: #fafafa;
+      border-radius: 8px;
+      margin-bottom: 10px;
     }
+    ion-avatar {
+      background-color: #f1f1f1;
+      width: 45px;
+      height: 40px;
+      margin-right: 10px;
 
-    ion-icon[name="arrow-down-outline"] {
-      color: #0a792f9c;
-      font-size: 25px;
-      margin: 7px 0px 0px 7px;
-    }
-  }
-}
+      ion-icon[name="arrow-up-outline"] {
+        color: #e000009c;
+        font-size: 25px;
+        margin: 7px 0px 0px 7px;
+      }
 
-#transactions-details {
-  float: left;
-  width: 50%;
-  align-content: center;
-  margin-bottom: 15px;
-  h3 {
-    font-size: 16px;
-    line-height: 16px;
-    margin-bottom: 4px;
-  }
-
-  .transactions-amount {
-    .transaction-details-content {
-      font-family: "Montserrat";
-      font-style: normal;
-      font-weight: 400;
-      font-size: 12px;
-      line-height: 15px;
-      color: #4b4b4b;
+      ion-icon[name="arrow-down-outline"] {
+        color: #0a792f9c;
+        font-size: 25px;
+        margin: 7px 0px 0px 7px;
+      }
     }
   }
-}
 
-#transactions-balance {
-  float: right;
-  width: 50%;
-  .transaction-amount {
-    display: block;
-    width: 100%;
+  #transactions-details {
+    float: left;
+    width: 50%;
     align-content: center;
-    direction: rtl;
-    font-size: 16px;
-  }
-  .transactions-amount-subcontent {
-    p {
-      font-size: 10px;
-      line-height: 15px;
+    margin-bottom: 15px;
+    h3 {
+      font-size: 16px;
+      line-height: 16px;
       margin-bottom: 4px;
-      color: #666666;
+    }
+
+    .transactions-amount {
+      .transaction-details-content {
+        font-family: "Montserrat";
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 15px;
+        color: #4b4b4b;
+      }
     }
   }
-}
 
-.transaction-amount {
-  float: right;
-  width: 25%;
-  margin-bottom: 15px;
-  font-family: "Montserrat";
-  color: #4b4b4b;
-  font-style: normal;
-  font-weight: 600;
-  h3 {
-    font-weight: 600;
-    font-size: 16px;
-    line-height: 20px;
+  #transactions-balance {
+    float: right;
+    width: 50%;
+    .transaction-amount {
+      display: block;
+      width: 100%;
+      align-content: center;
+      direction: rtl;
+      font-size: 16px;
+    }
+    .transactions-amount-subcontent {
+      p {
+        font-size: 10px;
+        line-height: 15px;
+        margin-bottom: 4px;
+        color: #666666;
+      }
+    }
   }
-}
 
-//change balance color
-h3[class="debit"] {
-  font-size: 25px;
-  margin: 7px 0px 0px 7px;
-}
+  .transaction-amount {
+    float: right;
+    width: 25%;
+    margin-bottom: 15px;
+    font-family: "Montserrat";
+    color: #4b4b4b;
+    font-style: normal;
+    font-weight: 600;
+    h3 {
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 20px;
+    }
+  }
 
-h3[class="credit"] {
-  font-size: 25px;
-  margin: 7px 0px 0px 7px;
+  //change balance color
+  h3[class="debit"] {
+    font-size: 25px;
+    margin: 7px 0px 0px 7px;
+  }
+
+  h3[class="credit"] {
+    font-size: 25px;
+    margin: 7px 0px 0px 7px;
+  }
 }

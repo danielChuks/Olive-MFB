@@ -56,6 +56,8 @@ export class TransactionsComponent implements OnInit {
     });
     return formattedDate;
   }
+
+//checking the transaction type to render the image
   // eslint-disable-next-line max-len
   async openModal(
     transactionDate,

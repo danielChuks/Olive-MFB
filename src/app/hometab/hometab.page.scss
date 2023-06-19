@@ -16,7 +16,6 @@
 
 .slide {
   border: 1px solid green;
-  // padding-top: -100px;
 }
 
 .quick_action {
@@ -30,9 +29,6 @@
     margin-top: -25px;
   }
 
-  // .bottom-row{
-  //   margin-top: -25px;
-  // }
   .column {
     display: flex;
     flex-direction: column;
@@ -112,7 +108,6 @@ ion-toolbar {
 ion-modal {
   --height: 35%;
   --border-radius: 16px;
-  // --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
 }
 
 ion-modal::part(backdrop) {
@@ -147,8 +142,10 @@ ion-modal::part(backdrop) {
   background-color: #ffffff;
   margin-top: 300px;
   padding: 16px 16px 0 16px;
-  // position: relative;
   margin-top: 12px;
+  position: fixed;
+  height: 100%;
+  width: 100%;
 
   .header {
     display: flex;
