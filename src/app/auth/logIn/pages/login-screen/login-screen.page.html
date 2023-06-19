@@ -5,7 +5,7 @@
   </div>
 
   <ion-text class="welcome-text">Login</ion-text>
-  <p class="sub-text">{{ savedAccountNumber ? "Welcome back !" : "Welcome to Olive MFB"}}</p>
+  <p class="sub-text text">{{ savedAccountNumber ? "Welcome back !" : "Welcome to Olive MFB"}}</p>
 
   <form [formGroup]="signInForm">
     <!-- input fields -->
@@ -33,7 +33,7 @@
       </ion-input>
       <ion-icon slot="end" [name]="pwdIcon" (click)="togglePwd()"></ion-icon>
     </div>
-    <p class="forgot-password" slot="end" routerLink="/forgot-password">
+    <p class="forgot-password text" slot="end" routerLink="/forgot-password">
       Forgot Password?
     </p>
     <!-- end of input field -->

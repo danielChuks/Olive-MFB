@@ -13,7 +13,7 @@ export class SplashscreenPage implements OnInit {
   ngOnInit() {
     setTimeout(() => {
       this.router.navigate(['/landing-page']); // Navigate to your main page after the desired delay
-    }, 5000); // Set the desired delay in milliseconds
+    }, 3000); // Set the desired delay in milliseconds
   }
 
 }

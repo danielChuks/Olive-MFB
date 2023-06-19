@@ -1,18 +1,45 @@
 .header {
-    background: url("../../assets/images/olive_smilling_girl.png");
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-attachment: fixed;
-    background-size: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: -1;
-    height: 100vh;
+  background: url("../../assets/images/olive_smilling_girl.png");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  background-size: cover;
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  height: 100vh;
 }
 
 .btn {
-    margin-top: 15rem;
+  margin-top: 140%;
+  ion-button {
+    --background: #ffffff;
+    color: #808000;
+    //   --background-activated: #000000;
+    //   --border-radius: 8px;
+    //   height: 50px;
+    //   text-transform: capitalize;
+    //   font-weight: 600;
+    //   font-size: 16px;
+  }
 }
+
+.btn2 {
+  margin-top: 40px;
+  border-radius: 8px;
+  ion-button {
+    --background: transparent;
+    height: 50px;
+    text-transform: capitalize;
+    font-weight: 600;
+    font-size: 16px;
+    border: 2px solid #FFFFFF;
+    --border-radius: 8px;
+    color: #FFFFFF;
+  }
+}
+
+
