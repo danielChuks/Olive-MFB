@@ -143,15 +143,11 @@ ion-modal::part(backdrop) {
 }
 
 //Transactions Component
-#scroll-list {
-  height: 200px;
-}
-
 .transaction-container {
   background-color: #ffffff;
   margin-top: 300px;
   padding: 16px 16px 0 16px;
-  position: fixed;
+  // position: relative;
   margin-top: 12px;
 
   .header {

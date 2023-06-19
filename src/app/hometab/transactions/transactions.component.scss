@@ -1,4 +1,9 @@
 //ion-items styling
+.transaction-body {
+  height: 110vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
 
 #date {
   font-size: 12px;
