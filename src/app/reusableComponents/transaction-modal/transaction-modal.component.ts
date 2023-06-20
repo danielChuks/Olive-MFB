@@ -29,7 +29,6 @@ export class TransactionModalComponent implements OnInit {
     this.getSelectedHistory = JSON.parse(
       sessionStorage.getItem('selectedHistory')
     );
-    //console.log(this.getSelectedHistory);
   }
 
   onWillDismiss(event: Event) {
@@ -39,10 +38,6 @@ export class TransactionModalComponent implements OnInit {
     }
   }
 
-  // confirm() {
-  //   // this.modal.dismiss(this.name, 'confirm');
-  //   this.route.navigateByUrl('/pdf-test');
-  // }
 
   downloadInvoice() {
     this.content = document.getElementById('PrintInvoice').innerHTML;
