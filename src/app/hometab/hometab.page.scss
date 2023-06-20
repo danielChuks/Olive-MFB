@@ -143,9 +143,9 @@ ion-modal::part(backdrop) {
   margin-top: 300px;
   padding: 16px 16px 0 16px;
   margin-top: 12px;
-  position: fixed;
   height: 100%;
   width: 100%;
+  position: fixed;
 
   .header {
     display: flex;
@@ -184,6 +184,11 @@ ion-modal::part(backdrop) {
       margin-bottom: 10px;
       border-radius: 10px;
     }
+  }
+
+  .history-container {
+    overflow: scroll;
+    height: 100vh;
   }
 }
 
