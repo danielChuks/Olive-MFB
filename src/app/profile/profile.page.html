@@ -94,15 +94,28 @@
       
     </div>
 
-  <ion-modal
-    trigger="open-accountmodal"
+    <div class="modals">
+  <!-- <ion-modal
+    trigger="accountmodal"
     mode="ios"
-    (willDismiss)="onWillDismiss($event)"
-    [initialBreakpoint]="0.35"
-    [breakpoints]="[0, 0.35]"
+    [initialBreakpoint]="0.5" [breakpoints]="[0, 0.5]"
   >
     <ng-template>
-      <ion-content>
+      <ion-content class="help ion-padding">
+        <ion-item>
+          <ion-header class="ion-no-border">
+            <ion-toolbar>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>Account Information</ion-col>
+                  <ion-col size="auto"><ion-icon
+                    name="close" 
+                  ></ion-icon></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-toolbar>
+          </ion-header>
+        </ion-item>
         <ion-item>
           <ion-label>BVN</ion-label>
           <ion-label color="primary" slot="end"
@@ -129,7 +142,62 @@
         </ion-item>
       </ion-content>
     </ng-template>
-  </ion-modal>
+  </ion-modal> -->
+  <ion-modal
+  #modal
+  mode="ios"
+  trigger="accountmodal"
+  (willDismiss)="onWillDismiss($event)"
+  [initialBreakpoint]="0.6"
+  [breakpoints]="[0, 0.6]"
+>
+<ng-template>
+  <ion-content>
+    <ion-list lines="full" class="help-details">
+      
+      <ion-item>
+        <ion-header class="ion-no-border">
+          <ion-toolbar>
+            <ion-grid>
+              <ion-row>
+                <ion-col>Account Information</ion-col>
+                <ion-col size="auto"><ion-icon
+                  name="close" 
+                ></ion-icon></ion-col>
+              </ion-row>
+            </ion-grid>
+          </ion-toolbar>
+        </ion-header>
+      </ion-item>
+
+      <div class="accountcontent">
+      
+        <div class="details">
+        <ion-label>BVN</ion-label>
+        <ion-input [value]="accountInformation.bvn" disabled  fill="outline"></ion-input>
+
+      </div>
+
+      <div class="details">
+        <ion-label>Account Number</ion-label>
+        <ion-input [value]="accountInformation.accountNumber" disabled  fill="outline"></ion-input>
+      </div>
+        <!-- <p class="contain"></p> -->
+
+        <div class="details">
+        <ion-label>Email</ion-label>
+        <ion-input [value]="accountInformation.email" disabled  fill="outline"></ion-input>
+        </div>
+
+        <div class="details">
+        <ion-label>Phone</ion-label>
+        <ion-input [value]="accountInformation.phone" disabled  fill="outline"></ion-input>
+        </div>
+    </div>
+    </ion-list>
+  </ion-content>
+</ng-template>
+</ion-modal>
 
   <!-- About Modal -->
   <ion-modal
@@ -142,10 +210,21 @@
   >
   <ng-template>
     <ion-content class="help ion-padding">
-      <div class="help-header">
-        <ion-title>HELP & SUPPORT</ion-title>
-      </div>
       <ion-list lines="full" class="help-details">
+        <ion-item>
+          <ion-header class="ion-no-border">
+            <ion-toolbar>
+              <ion-grid>
+                <ion-row>
+                  <ion-col>Help & Support</ion-col>
+                  <ion-col size="auto"><ion-icon
+                    name="close" 
+                  ></ion-icon></ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-toolbar>
+          </ion-header>
+        </ion-item>
         <ion-item>
           <h3>
             For help and enquiries, kindly contact us via any of our channles
@@ -178,10 +257,21 @@
   >
     <ng-template>
       <ion-content class="help ion-padding">
-        <div class="help-header">
-          <ion-title>HELP & SUPPORT</ion-title>
-        </div>
         <ion-list lines="full" class="help-details">
+          <ion-item>
+            <ion-header class="ion-no-border">
+              <ion-toolbar>
+                <ion-grid>
+                  <ion-row>
+                    <ion-col>About</ion-col>
+                    <ion-col size="auto"><ion-icon
+                      name="close" 
+                    ></ion-icon></ion-col>
+                  </ion-row>
+                </ion-grid>
+              </ion-toolbar>
+            </ion-header>
+          </ion-item>
           <ion-item>
             <h3>
               For help and enquiries, kindly contact us via any of our channles
@@ -203,4 +293,5 @@
       </ion-content>
     </ng-template>
   </ion-modal>
+</div>
 </ion-content>
