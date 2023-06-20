@@ -64,12 +64,10 @@ transferModel = new InternalTransferModel();
      async openPinModal() {
       const modal = await this.modalCtrl.create({
         component: PinModalComponent,
-        backdropBreakpoint: 0.1,
-        initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
+        cssClass: 'full-page-modal',
+        backdropDismiss: false,
       });
       modal.present();
-
       const { data, role } = await modal.onWillDismiss();
 
     }
@@ -128,20 +126,5 @@ transferModel = new InternalTransferModel();
 
     await alert.present();
   }
-
-  async openModal() {
-    const modal = await this.modalCtrl.create({
-      component: PinModalComponent,
-      backdropBreakpoint: 0.1,
-      initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
-    });
-    modal.present();
-
-    const { data, role } = await modal.onWillDismiss();
-
-    this.confirm();
-
-}
 
 }

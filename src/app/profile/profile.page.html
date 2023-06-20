@@ -65,21 +65,21 @@
           <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/account.png" alt="" />
           </ion-avatar> -->
-          <ion-label id="open-modal">Account Information</ion-label>
+          <ion-label id="accountmodal">Account Information</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-item lines="none">
           <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/contact.png" alt="" />
           </ion-avatar> -->
-          <ion-label id="open-mol">Help & Support</ion-label>
+          <ion-label id="helpmodal">Help & Support</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-item lines="none">
           <!-- <ion-avatar slot="start">
             <img id="circle" src="../../assets/images/info2.png" alt="" />
           </ion-avatar> -->
-          <ion-label id="open-moal">About</ion-label>
+          <ion-label id="aboutmodal">About</ion-label>
           <ion-icon name="chevron-forward-outline"></ion-icon>
         </ion-item>
         <ion-item lines="none" (click)="logout()">
@@ -95,7 +95,7 @@
     </div>
 
   <ion-modal
-    trigger="open-modal"
+    trigger="open-accountmodal"
     mode="ios"
     (willDismiss)="onWillDismiss($event)"
     [initialBreakpoint]="0.35"
@@ -135,10 +135,10 @@
   <ion-modal
     #modal
     mode="ios"
-    trigger="open-moal"
+    trigger="helpmodal"
     (willDismiss)="onWillDismiss($event)"
-    [initialBreakpoint]="0.9"
-    [breakpoints]="[0, 0.9]"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0, 0.5]"
   >
   <ng-template>
     <ion-content class="help ion-padding">
@@ -170,11 +170,11 @@
 
   <!-- Help & Support -->
   <ion-modal
-    trigger="open-mol"
+    trigger="aboutmodal"
     mode="ios"
     (willDismiss)="onWillDismiss($event)"
-    [initialBreakpoint]="0.9"
-    [breakpoints]="[0, 0.9]"
+    [initialBreakpoint]="0.5"
+    [breakpoints]="[0, 0.5]"
   >
     <ng-template>
       <ion-content class="help ion-padding">

@@ -1,9 +1,11 @@
-@import "../../app/hometab/hometab.page.scss";
+// @import "../../app/hometab/hometab.page.scss";
 
 ion-content {
   .header {
     background: url("../../assets/images/olive_smilling_girl.png");
     //  background-color: #cccccc; /* Used if the image is unavailable */
+    filter: drop-shadow(0px 0px 0px #303000);
+
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
