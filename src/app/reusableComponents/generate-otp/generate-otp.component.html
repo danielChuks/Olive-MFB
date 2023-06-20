@@ -1,14 +1,15 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="auto"><ion-icon
-          name="chevron-back-outline"
-          routerLink="/signup-form"
-        ></ion-icon></ion-col>
-        <!-- <ion-col size="9.5">Same Bank Transfer</ion-col> -->
-      </ion-row>
-    </ion-grid>
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto"
+            ><ion-icon
+              name="arrow-back"
+              routerLink="/new-tab/hometab"
+            ></ion-icon><p> Back</p>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
   </ion-toolbar>
 </ion-header>
 
@@ -17,7 +18,7 @@
 <!-- passcode text -->
 <ion-text>
 <h4> Verification</h4>
-<p>Kindly input the OTP that was sent to the
+<p class="text">Kindly input the OTP that was sent to the
   phone number attached to this account. </p>
 </ion-text>
 
@@ -62,10 +63,9 @@
           expand="block">Confirm OTP</ion-button>
         </div>
 
-        <p class="regenerate">Didn't receive Otp?</p>
+        <p class="regenerate">Didn't receive Otp? <ion-button fill="clear" (click)="resendOtp()" [disabled]="disableResendButton">Try again</ion-button></p>
         <div id="timer">
-          <p *ngIf="countdownTime > 0">Resend Otp in: {{countdownTime}} seconds </p>
-          <button (click)="resendOtp()" [disabled]="disableResendButton">Resend OTP</button>
+          <p class="text" *ngIf="countdownTime > 0">{{countdownTime}} secs </p>
         </div>
 
 <!-- dialpad section -->

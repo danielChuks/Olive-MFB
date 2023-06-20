@@ -1,55 +1,66 @@
 <!-- header -->
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/create-pin"></ion-icon>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="arrow-back"
+          routerLink="/signup-form"
+        ></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+
+<ion-content class="ion-padding">
 <!-- passcode text -->
-  <ion-text>
-<h3>Confirm Transaction Pin</h3>
-<p>Please input a 4 digit pin to be used as verification for your transactions</p>
-</ion-text>
+  
+<h3>Create Pin</h3>
+<p class="text">Please enter a 4-digit transaction pin. This pin will be used to verify your transactions</p>
 
+ <div class="same">
+   <!-- ellipses -->
+   <div class="auth-pin">
+     <p class="passcode">Confirm Transaction Pin</p>
 <!-- ellipses -->
-<p class="passcode">Confirm Pin</p>
 <div class="ellipses">
   <div id="circle" >
-    <div id="circless0" class="inner-circle "></div>
+    <div id="circles0" class="inner-circle "></div>
   </div>
   <div id="circle " >
     <div id="circle">
-      <div id="circless1" class="inner-circle "></div>
+      <div id="circles1" class="inner-circle "></div>
     </div>
   </div>
   <div id="circle">
     <div id="circle">
-      <div id="circless2" class="inner-circle "></div>
+      <div id="circles2" class="inner-circle "></div>
     </div>
   </div>
   <div id="circle" >
     <div id="circle">
-      <div id="circless3" class="inner-circle "></div>
+      <div id="circles3" class="inner-circle "></div>
     </div>
   </div>
   </div>
 
 <!-- dialpad section -->
 <div class="dialpad">
-<ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
-<ion-button    fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(5)">5</ion-button>
-<ion-button  fill="clear"  type="button" size="small" class="grid-items"(click)="addNumber(6)">6</ion-button>
-<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
-<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
-  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
-<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
- <!-- <ion-button routerLink="/passcode-set"  fill="clear" type="button" size="small" class="grid-items" >OK</ion-button> -->
-</div>
-
+  <ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
+  <ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
+  <ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
+  <ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
+  <ion-button    fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(5)">5</ion-button>
+  <ion-button  fill="clear"  type="button" size="small" class="grid-items"(click)="addNumber(6)">6</ion-button>
+  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
+  <ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
+    <div></div>
+  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
+    <ion-button  fill="clear" type="button" size="small" class="grid-items clear" (click)="removeNumber()"><ion-icon name="backspace-sharp" ></ion-icon></ion-button>
+  </div>
+   </div>
+ </div>
 
 </ion-content>
