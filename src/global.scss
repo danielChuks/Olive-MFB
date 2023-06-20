@@ -35,7 +35,7 @@
 * {
   font-family: Montserrat;
   --ion-background-color: white;
-  --ion-text-color: #252525;
+  --ion-text-color: #000000;
   --ion-text-color-rgb: 0, 0, 0;
   --ion-tab-button-color: rgb(248, 248, 248);
   --ion-tab-bar-color: #8b8b8b;
@@ -50,7 +50,9 @@ ion-loading.custom-loading {
 }
 
 // Text
-
+.text {
+  color: #a3a30a;
+}
 
 // Header section
 ion-toolbar {
@@ -135,18 +137,20 @@ ion-toolbar {
 
 ion-searchbar.searchbar {
   --background: #ffffff;
-  --color: #4b4b4b;
-  --placeholder-color: #4b4b4b;
-  --clear-button-color: #4b4b4b;
+  --color: #000;
+  --placeholder-color: #000;
+  --icon-color: #000;
+  --clear-button-color: #000;
+  --border-radius: none;
   --box-shadow: none !important;
 }
 
 ion-searchbar.ios.searchbar {
-  --cancel-button-color: #4b4b4b;
+  --cancel-button-color: #000;
   --box-shadow: none !important;
 }
 
 ion-searchbar.md.searchbar {
-  --cancel-button-color: #4b4b4b;
+  --cancel-button-color: #000;
   --box-shadow: none !important;
 }

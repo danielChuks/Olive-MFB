@@ -78,8 +78,8 @@ export class SignupFormPage implements OnInit, OnDestroy {
   async openOtpModal() {
     const modal = await this.modalCtrl.create({
       component: GenerateOtpComponent,
-      cssClass: 'full-page-modal', // Add the CSS class to make it full page
-      backdropDismiss: false, // Prevent dismissing the modal on clicking outside
+      cssClass: 'full-page-modal',
+      backdropDismiss: false,
     });
     modal.present();
     this.generateOtp();
