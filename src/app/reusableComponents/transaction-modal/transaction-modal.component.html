@@ -1,102 +1,78 @@
 <!-- Modal-content -->
-
 <ion-content class="ion-padding">
-  <!-- <ion-item>
-                <div class="modal transactions">
-                <div class="transaction-details">
-                  <ion-label>
-                    <p>Narrative</p>
-                    <h2>ATM WD</h2>
-                  </ion-label>
-                </div>
-                </div>
-              </ion-item>
-         -->
+  <ion-item lines="none">
+    <div class="header">
+      <ion-label class="text">Transcation Details</ion-label>
+      <ion-icon name="close" class="icon"></ion-icon>
+    </div>
+  </ion-item>
+  <div class="bottom-border"></div>
   <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>Transaction Date</p>
-          <h2>{{ getSelectedHistory.transDate }}</h2>
-        </ion-label>
-      </div>
+    <div class="transaction-type">
+      <ion-label>
+        <ion-icon
+          class=""
+          [name]="
+            getSelectedHistory.transactionType === 'DR'
+              ? 'arrow-up-outline'
+              : 'arrow-down-outline'
+          "
+        ></ion-icon>
+      </ion-label>
+
+      <ion-label>
+        <h2>
+          {{
+            getSelectedHistory.transAmount | currency : "NGN" : "symbol-narrow"
+          }}
+        </h2>
+      </ion-label>
+    </div>
+  </ion-item>
+
+  <ion-item class="forTo">
+    <div class="from">
+      <ion-label>
+        <p>From</p>
+        <h2>{{ getSelectedHistory.srcAccount }}</h2>
+        <p>{{ getSelectedHistory.srcAccountName }}</p>
+      </ion-label>
+    </div>
+    <div class="to">
+      <ion-label>
+        <p>To</p>
+        <h2>{{ getSelectedHistory.benName }}</h2>
+        <p>{{ getSelectedHistory.benAcctNo }}</p>
+      </ion-label>
     </div>
   </ion-item>
 
   <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>Transaction Type</p>
-          <h2>{{ getSelectedHistory.transType }}</h2>
-        </ion-label>
-      </div>
+    <div class="">
+      <ion-label>
+        <p>Transaction Date</p>
+        <h2>{{ getSelectedHistory.transDate }}</h2>
+      </ion-label>
     </div>
   </ion-item>
 
   <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>Transaction Reference</p>
-          <h2>{{ getSelectedHistory.transRef }}</h2>
-        </ion-label>
-      </div>
+    <div class="">
+      <ion-label>
+        <p>Transaction Reference</p>
+        <h2>{{ getSelectedHistory.transRef }}</h2>
+      </ion-label>
     </div>
   </ion-item>
 
   <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>Transaction Amount</p>
-          <h2>
-            {{
-              getSelectedHistory.transAmount
-                | currency : "NGN" : "symbol-narrow"
-            }}
-          </h2>
-        </ion-label>
-      </div>
-    </div>
-  </ion-item>
-
-  <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>Balance after transaction</p>
-          <h2>
-            {{
-              getSelectedHistory.balance | currency : "NGN" : "symbol-narrow"
-            }}
-          </h2>
-        </ion-label>
-      </div>
-    </div>
-  </ion-item>
-
-  <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>From</p>
-          <h2>{{ getSelectedHistory.srcAccount }}</h2>
-          <p>{{ getSelectedHistory.srcAccountName }}</p>
-        </ion-label>
-      </div>
-    </div>
-  </ion-item>
-
-  <ion-item>
-    <div class="transactions">
-      <div class="transaction-details">
-        <ion-label>
-          <p>To</p>
-          <h2>{{ getSelectedHistory.benName }}</h2>
-          <p>{{ getSelectedHistory.benAcctNo }}</p>
-        </ion-label>
-      </div>
+    <div class="">
+      <ion-label>
+        <p>Balance after transaction</p>
+        <h2>
+          {{ getSelectedHistory.balance | currency : "NGN" : "symbol-narrow" }}
+        </h2>
+      </ion-label>
     </div>
   </ion-item>
 
@@ -110,19 +86,12 @@
           <ion-icon name="download-outline"></ion-icon>
         </ion-avatar>
         <ion-label (click)="downloadInvoice()">Download Receipt</ion-label>
-        <!-- </div> -->
-
-        <!-- <div class="share_receipt"> -->
-        <!-- <ion-avatar slot="end">
-                      <ion-icon name="share-social-outline"></ion-icon>
-                    </ion-avatar>
-                    <ion-label>Share Receipt</ion-label> -->
       </div>
     </ion-list>
-    <!-- <h3 class="transaction_header">Report an issue</h3> -->
   </div>
 </ion-content>
 
+<!-- pdf section -->
 <div id="PrintInvoice" class="invoice-box hidden">
   <div
     class="header"
@@ -136,7 +105,7 @@
     "
   >
     <h4 style="font-size: 18px; line-height: 18px; margin-top: -1px">
-      Nwannegadi Microfinance Bank
+      Olive Microfinance Bank
     </h4>
   </div>
 
@@ -204,14 +173,6 @@
           {{ getSelectedHistory.benAcctNo }}
         </p>
       </ion-item>
-      <!-- <ion-item style="margin: -40px -35px -10px -15px;
-                display: flex;
-                padding: 16px;
-                justify-content: space-between ;
-                align-items: center;">
-                  <ion-label style="font-size: 14px;">Bank:</ion-label>
-                  <p style="font-size: 14px; padding: 16px;">Access Bank PLC</p>
-                </ion-item> -->
       <ion-item
         style="
           margin: -40px -35px 0px -15px;
@@ -242,14 +203,7 @@
           {{ getSelectedHistory.transDate }}
         </p>
       </ion-item>
-      <!-- <ion-item style=" margin: -40px -35px -10px -15px;
-                display: flex;
-                padding: 16px;
-                justify-content: space-between ;
-                align-items: center;">
-                  <ion-label style="font-size: 14px;">Narration:</ion-label>
-                  <p style="font-size: 14px; padding: 16px;">Bread and Egg</p>
-                </ion-item> -->
+
       <ion-item
         style="
           margin: -40px -35px -10px -15px;
@@ -276,12 +230,11 @@
       Disclaimer: Your transfer has been successful, and the beneficiary’s
       account will be credited. However, this does not serve as a confirmation
       of credit into the beneficiary’s account. Due to the nature of the
-      internet, transactions may be subject to interruption, transmission
-      blackout, delayed transmission, and incorrect data transmission. The bank
-      is not liable for malfunctions in communications facilities not within its
-      control that may affect the accuracy or timeliness of messages and
-      transactions you send. All transactions are subject to verification and
-      our normal fraud checks.
+      internet, may be subject to interruption, transmission blackout, delayed
+      transmission, and incorrect data transmission. The bank is not liable for
+      malfunctions in communications facilities not within its control that may
+      affect the accuracy or timeliness of messages and you send. All are
+      subject to verification and our normal fraud checks.
     </p>
   </div>
 </div>

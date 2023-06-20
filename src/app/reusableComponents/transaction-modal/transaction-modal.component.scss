@@ -3,8 +3,54 @@
 @import "/src/app/transfer/full-activity/full-activity.page.scss";
 @import "/src/app/hometab/transactions/transactions.component.scss";
 
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+
+  .text {
+    color: #808000;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 46px;
+  }
+  // .icon {
+  // }
+}
+
+.bottom-border {
+  left: 4.5px;
+  border: 1px solid #727263;
+}
+
+.transaction-type {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: solid red 1px;
+  width: 100%;
+  gap: 5px;
+  padding-top: 15px;
+
+  ion-icon[name="arrow-up-outline"] {
+    color: #e000009c;
+    font-size: 25px;
+    margin: 7px 0px 0px 7px;
+    background-color: 'blue'
+  }
+
+  ion-icon[name="arrow-down-outline"] {
+    color: #0a792f9c;
+    font-size: 25px;
+    margin: 7px 0px 0px 7px;
+  }
+}
+
 ion-item {
-  margin: 0px 0px 15px -15px;
+  margin: 20px 0px 15px -15px;
 }
 
 .receipt {
