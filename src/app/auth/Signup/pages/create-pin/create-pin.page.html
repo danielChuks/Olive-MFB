@@ -1,19 +1,27 @@
 <!-- header -->
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/signup-form"></ion-icon>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="arrow-back"
+          routerLink="/signup-form"
+        ></ion-icon></ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
-<ion-content>
 
+
+<ion-content class="ion-padding">
 <!-- passcode text -->
-  <ion-text>
-<h3>Create Transaction Pin</h3>
-<p>Please input a 4 digit pin to be used as verification for your transactions</p>
-</ion-text>
+ 
+<h3>Create Pin</h3>
+<p>Please enter a 4-digit transaction pin. This pin will be used to verify your transactions</p>
+
 
 <!-- ellipses -->
-<p class="passcode">Pin</p>
+<p class="passcode">Confirm Transaction Pin</p>
 <div class="ellipses">
   <div id="circle" >
     <div id="circles0" class="inner-circle "></div>
@@ -46,7 +54,7 @@
 <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
 <ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
 <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
-  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
+  <ion-button  fill="clear" type="button" size="small" class="grid-items clear" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
 <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
 <ion-button  routerLink="/confirm-pin" fill="clear" type="button" size="small" class="grid-items" >OK</ion-button>
 </div>
