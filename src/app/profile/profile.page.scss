@@ -1,9 +1,8 @@
-@import "../../app/hometab/hometab.page.scss";
-
 ion-content {
   .header {
     background: url("../../assets/images/olive_smilling_girl.png");
     //  background-color: #cccccc; /* Used if the image is unavailable */
+    filter: drop-shadow(0px 0px 0px #303000);
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -71,34 +70,9 @@ ion-content {
   }
 
   .content {
-    // margin-top: 0.9rem;
-    // border: 1px solid #000000;
     ion-icon {
       font-size: 20px;
     }
-
-    // .user-details {
-    //   // background-color: #ffffff;
-    //   // margin: 0rem 0.3rem 0 0.3rem;
-    //   // border-radius: 5px;
-    //   ion-avatar {
-    //     margin-right: 8px;
-    //     width: 32px;
-    //     height: 32px;
-    //     background: #3e5151;
-    //     img {
-    //       color: white;
-    //       padding: 2px;
-    //       height: 28px;
-    //       width: 28px;
-    //       margin: 2px;
-    //     }
-    //   }
-
-    //   ion-icon {
-    //     margin-right: -0.3rem;
-    //   }
-    // }
 
     ion-item {
       background-color: #ffffff;
@@ -107,7 +81,7 @@ ion-content {
       height: 51px;
       box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.07);
       border-radius: 8px;
-      
+
       ion-avatar {
         margin-right: 8px;
         width: 32px;
@@ -138,16 +112,6 @@ ion-content {
 
   .modal-content {
     border: 1px solid red;
-  }
-}
-
-ion-modal {
-  ng-template {
-    ion-content {
-      ion-item {
-        --ion-text-color: #000000;
-      }
-    }
   }
 }
 
@@ -198,10 +162,35 @@ ion-modal {
 
 .help {
   ion-title {
-    margin: 15px 0 0 -6px;
+    // margin: 15px 0 0 -6px;
     font-size: 16px;
   }
   ion-label {
     font-size: 14px;
   }
+}
+
+.modals {
+  ion-grid {
+    margin: 0 120px 0 0;
+  }
+}
+
+.accountcontent {
+  display: flex;
+  flex-direction: column;
+  // align-items: center;
+  padding: 18px 34px ;
+
+  .details {
+    margin-top: 10px;
+  }
+}
+
+ion-input {
+  margin-top: 6px;
+  height: 48px;
+  background-color: #ededed;
+  border-color: 1px solid #3a0404;
+  border-radius: 8px;
 }

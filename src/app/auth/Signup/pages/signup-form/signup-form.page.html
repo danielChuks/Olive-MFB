@@ -2,16 +2,14 @@
   <div class="img-container">
     <img src="../assets/images/olive3.png" />
   </div>
-
-  <div class="top">
-    <h2>Register</h2>
-    <p>Welcome to Olive Microfinance Bank</p>
-  </div>
+  
+  <ion-text class="welcome-text">Register</ion-text>
+  <p class="sub-text text">Welcome to Olive Microfinance Bank</p>
 
   <form [formGroup]="SignUpForm">
     <div class="auth">
       <div class="auth-form">
-        <div class="accountNumber input">
+        <div class="form input">
           <ion-label for="accountNumber">Account number</ion-label>
           <ion-input
             type="accountNumber"
@@ -23,7 +21,7 @@
           ></ion-input>
         </div>
 
-        <div class="password input">
+        <div class="form input">
           <ion-label for="password">Enter Password</ion-label>
           <ion-input
             [type]="showPwd ? 'text' : 'password'"
@@ -43,7 +41,7 @@
           </ion-list> -->
         </div>
 
-        <div class="password input">
+        <div class="form input">
           <ion-label for="confirm-password">Confirm Password</ion-label>
           <ion-input
             [type]="showPwds ? 'text' : 'password'"

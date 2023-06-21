@@ -130,6 +130,7 @@
       <p class="view-more" *ngIf="!isView" (click)="ViewMore()">View More</p>
       <ion-searchbar
         fill="none"
+        mode="ios"
         *ngIf="isView"
         class="searchbar"
         [debounce]="1000"
@@ -138,6 +139,10 @@
       <ion-icon name="funnel" class="funnel-icon" *ngIf="isView"></ion-icon>
     </div>
     <!-- Transaction History -->
-    <app-transactions [accountHist]="filteredAccountHistory"></app-transactions>
+    <div class="history-container">
+      <app-transactions
+        [accountHist]="filteredAccountHistory"
+      ></app-transactions>
+    </div>
   </div>
 </ion-content>

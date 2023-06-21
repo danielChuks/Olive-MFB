@@ -12,8 +12,8 @@ img{
 
 // verification image
  .verified{
-    width: 83px;
-    height: 84px;
+    width: 174px;
+    height: 166px;
     object-fit: contain;
     text-align: center;
     margin-top: 180px;
@@ -23,23 +23,22 @@ img{
   }
 
   h3{
+    margin-top: 29px;
     text-align: center;
     font-size: 24px;
     font-weight: 600;
     color: #040D2C;
   }
   p{
-    color:#040D2C;
+    color:#000000;
     font-size:16px;
-    margin-top: -5px;
     text-align: center;
+    margin: 25px 50px 0 50px;
+    // text-align: justify;
   }
 
-  ion-button{
-  --background: #018401;
-  --border-radius:5px;
-  height: 50px;
-  margin: 200px 4px 0 4px;
-
+  .btn {
+    margin-top: 143px;
   }
+
 
