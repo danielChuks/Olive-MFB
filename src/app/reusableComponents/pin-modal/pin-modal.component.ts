@@ -56,7 +56,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
     private route: Router,
     private payBillsService: PayBillsService,
     private topUpService: TopUpService,
-    private generalService: GeneralServiceService
+    private generalService: GeneralServiceService,
   ) {}
 
   ngOnInit() {
@@ -88,6 +88,10 @@ export class PinModalComponent implements OnInit, OnDestroy {
     if (ev.detail.role === 'confirm') {
       this.message = '${ev.detail.data}';
     }
+  }
+
+  goBack() {
+      return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   //check if user opted to save beneficiary in external transfer page.
