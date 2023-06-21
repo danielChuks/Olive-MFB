@@ -2,16 +2,19 @@
 <ion-content class="ion-padding">
   <ion-item lines="none">
     <div class="header">
-      <ion-label class="text">Transcation Details</ion-label>
-      <ion-icon name="close" class="icon"></ion-icon>
+      <div class="title">
+        <ion-label class="text">Transcation Details</ion-label>
+      </div>
+      <div class="icon">
+        <ion-icon name="close" size="large"></ion-icon>
+      </div>
     </div>
   </ion-item>
   <div class="bottom-border"></div>
-  <ion-item>
+  <ion-item lines="none">
     <div class="transaction-type">
       <ion-label>
         <ion-icon
-          class=""
           [name]="
             getSelectedHistory.transactionType === 'DR'
               ? 'arrow-up-outline'
@@ -21,7 +24,13 @@
       </ion-label>
 
       <ion-label>
-        <h2>
+        <h2
+          [ngStyle]="
+            getSelectedHistory.transactionType === 'DR'
+              ? { color: 'red' }
+              : { color: 'green' }
+          "
+        >
           {{
             getSelectedHistory.transAmount | currency : "NGN" : "symbol-narrow"
           }}
@@ -30,45 +39,53 @@
     </div>
   </ion-item>
 
-  <ion-item class="forTo">
-    <div class="from">
-      <ion-label>
+  <ion-item class="forTo" lines="none">
+    <ion-label>
+      <div class="from">
         <p>From</p>
-        <h2>{{ getSelectedHistory.srcAccount }}</h2>
         <p>{{ getSelectedHistory.srcAccountName }}</p>
-      </ion-label>
-    </div>
-    <div class="to">
-      <ion-label>
+        <h2>{{ getSelectedHistory.srcAccount }}</h2>
+      </div>
+    </ion-label>
+    <ion-label>
+      <div class="to">
         <p>To</p>
-        <h2>{{ getSelectedHistory.benName }}</h2>
-        <p>{{ getSelectedHistory.benAcctNo }}</p>
-      </ion-label>
-    </div>
+        <p>{{ getSelectedHistory.benName }}</p>
+        <h2>{{ getSelectedHistory.benAcctNo }}</h2>
+      </div>
+    </ion-label>
   </ion-item>
 
-  <ion-item>
-    <div class="">
+  <ion-item lines="none">
+    <div class="transaction-date">
       <ion-label>
         <p>Transaction Date</p>
+      </ion-label>
+      <ion-label>
         <h2>{{ getSelectedHistory.transDate }}</h2>
       </ion-label>
     </div>
   </ion-item>
 
-  <ion-item>
-    <div class="">
+  <ion-item lines="none">
+    <div class="transaction-reference">
       <ion-label>
         <p>Transaction Reference</p>
-        <h2>{{ getSelectedHistory.transRef }}</h2>
+      </ion-label>
+      <ion-label>
+        <h2>
+          {{ getSelectedHistory.transRef }}
+        </h2>
       </ion-label>
     </div>
   </ion-item>
 
-  <ion-item>
-    <div class="">
+  <ion-item lines="none">
+    <div class="balance-after">
       <ion-label>
         <p>Balance after transaction</p>
+      </ion-label>
+      <ion-label>
         <h2>
           {{ getSelectedHistory.balance | currency : "NGN" : "symbol-narrow" }}
         </h2>
@@ -77,17 +94,14 @@
   </ion-item>
 
   <div class="receipt">
-    <div class="transaction-receipt-header">
-      <h4>Transaction receipt</h4>
+    <div class="share-receipt">
+      <ion-icon name="share-outline" size="small"></ion-icon>
+      <ion-label (click)="downloadInvoice()">Share Receipt</ion-label>
     </div>
-    <ion-list>
-      <div class="share_receipt">
-        <ion-avatar slot="start">
-          <ion-icon name="download-outline"></ion-icon>
-        </ion-avatar>
-        <ion-label (click)="downloadInvoice()">Download Receipt</ion-label>
-      </div>
-    </ion-list>
+    <div class="download-receipt">
+      <ion-icon name="download-outline" size="small"></ion-icon>
+      <ion-label (click)="downloadInvoice()">Download PDF</ion-label>
+    </div>
   </div>
 </ion-content>
 
