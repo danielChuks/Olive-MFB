@@ -35,7 +35,7 @@
       ></ion-input>
 
       <ion-text [style.color]="display ? 'black': 'red'" id="name"
-        >{{beneficiaryname ? '' : beneficiaryCheck}}</ion-text
+        >{{beneficiaryname === true ? null : beneficiaryCheck}}</ion-text
       >
     </div>
 
