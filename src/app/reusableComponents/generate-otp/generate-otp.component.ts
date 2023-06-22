@@ -41,6 +41,10 @@ export class GenerateOtpComponent implements OnInit, OnDestroy {
     );
   }
 
+  cancel() {
+    this.modalCtrl.dismiss(null, 'cancel');
+  }
+
   //resend OTP
   resendOtp() {
     this.forgotPasswordService.requestOtp(this.accountNumber).subscribe(

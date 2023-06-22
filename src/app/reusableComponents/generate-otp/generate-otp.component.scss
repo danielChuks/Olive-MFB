@@ -1,12 +1,43 @@
-.regenerate {
-  text-align: left;
-  margin-top: 0.8rem;
-}
-#timer {
-  text-align: left;
-}
+.ion-padding{
+.grid {
+  margin-top: 1rem;
+ion-col {
+  display: flex;
+  // align-items: center;
+  // justify-content: center;
+  // text-align: center;
+  flex-direction: column;
+  // background-color: #135d54;
+  // border: solid 1px #fff;
+  color: #A3A30A;
+  font-size: 12px;
+  font-weight: 500;
+  .regenerate {
+  margin: 5px 0 0 0;
+  color: #000000;
+  }
+  .text {
+    margin-top: -9px;
+  }
+  ion-button {
+    margin: -0.5rem 0 0 -10px;
+    font-size: 10px;
+    color: #000000;
+    text-decoration: underline;
+    text-transform: capitalize;
+  }
 
-
+}
+}
+.resendOtp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  ion-icon {
+    width: 25px;
+    height: 25px;
+  }
+}
 // text
 ion-text {
   h4 {
@@ -60,15 +91,18 @@ ion-text {
 .dialpad {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 15px 17px 77px 17px;
+  padding: 20px 17px 20px 17px;
   column-gap: 20px;
   row-gap: 20px;
   justify-content: space-evenly;
+  // background-color: rgb(102, 13, 13);
+
   .grid-items {
+    // --background: rgb(110, 79, 79);
     display: grid;
     justify-content: space-evenly;
-    --background: white;
     font-size: 35px;
     color: #000000;
   }
+}
 }

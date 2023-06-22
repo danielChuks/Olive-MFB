@@ -80,7 +80,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
   }
 
   cancel() {
-    this.route.navigateByUrl('/pdf-test');
+    this.modalCtrl.dismiss(null, 'cancel');
   }
 
   onWillDismiss(event: Event) {
