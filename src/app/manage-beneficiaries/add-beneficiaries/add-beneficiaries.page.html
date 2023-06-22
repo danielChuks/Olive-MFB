@@ -33,10 +33,9 @@
         formControlName="beneficiaryAcctNum"
         [attr.disabled]="bankCode ? false: true"
       ></ion-input>
-      <ion-text [style.color]="display ? 'black': 'red'" id="name">{{beneficiaryname}}</ion-text> 
 
       <ion-text [style.color]="display ? 'black': 'red'" id="name"
-        >{{beneficiaryname === true ? null : beneficiaryCheck}}</ion-text
+        >{{beneficiaryname === true ? '' : beneficiaryCheck}}</ion-text
       >
     </div>
 
@@ -52,7 +51,6 @@
         [attr.disabled]="bankCode ? false: true"
       ></ion-input>
     </div>
-
 
     <div class="btn">
       <ion-button
