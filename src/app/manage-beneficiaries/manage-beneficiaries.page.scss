@@ -10,6 +10,27 @@
   }
 }
 
+.search-icon-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 37px 37px;
+  gap: 15px;
+
+    .searchbar {
+      width: 247px;
+      height: 40px;
+      border: 1px solid #a6a6a6;
+      margin-bottom: 10px;
+      border-radius: 10px;
+    
+  }
+
+  .funnel-icon {
+    width: 30px;
+    height: 30px;
+    color: gray;
+  }
+}
 .modal-accountname {
   display: flex;
   justify-content: center;
