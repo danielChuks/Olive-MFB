@@ -7,10 +7,10 @@
 
 <ion-content class="ion-padding">
   <div class="avatar">
-    <ion-img src="./assets/images/approved.png"></ion-img>
+    <ion-img src="./assets/images/success.svg"></ion-img>
   </div>
   <div class="successful">
-    <h3>{{status}}</h3>
+    <h3 class="text">{{status}}</h3>
     <h2>You have successfully transferred</h2>
     <p>{{amount |currency:"NGN":"symbol-narrow"}}</p>
   </div>
@@ -24,6 +24,7 @@
         <p>{{account}}</p>
       </ion-label>
     </div>
+
     <div class="to">
       <ion-label>
         <h2>To</h2>
@@ -31,27 +32,39 @@
         <p>{{destinationAccount}} . {{beneficiaryBank}}</p>
       </ion-label>
     </div>
+
     </div>
 
 
-    <div class="receipt">
+    <div class="download_share">
+      <div (click)="downloadInvoice()" class="wrapper">
+       <img class="" src="./assets/icon/share.svg"/>
+        <p>Download receipt</p>
+      </div>
+
+       <div  class="wrapper">
+        <img class="" src="./assets/icon/download.svg"/>
+        <p>Share receipt</p>
+      </div>
+    </div>
+    <!-- <div class="receipt">
       <ion-list>
-        <h3 class="transaction_header">Transaction receipt</h3>
         <div class="share_receipt">
           <ion-avatar slot="start">
-            <ion-icon name="download-outline"></ion-icon>
+            <img src="./assets/icon/share.svg"/>
           </ion-avatar>
           <ion-label (click)="downloadInvoice()">Download Receipt</ion-label>
+
         </div>
 
-        <!-- <div class="share_receipt">
+        <div class="share_receipt">
           <ion-avatar slot="start">
             <ion-icon name="share-social-outline"></ion-icon>
           </ion-avatar>
           <ion-label>Share Receipt</ion-label>
-        </div> -->
+        </div>
         </ion-list>
-  </div>
+  </div> -->
   <div class="btn">
     <ion-button class="button"  type="submit" expand="block" routerLink="/new-tab/hometab">Done</ion-button>
   </div>
@@ -60,7 +73,7 @@
 
 <div id="PrintInvoice" class="invoice-box hidden">
 
-  <div class="header" 
+  <div class="header"
     style="background-color: #018401;
     color: white;
     width: 100%;
@@ -70,7 +83,7 @@
     <h4 style="
       font-size: 18px;
       line-height: 18px;
-    ">Nwannegadi Microfinance Bank</h4>  
+    ">Nwannegadi Microfinance Bank</h4>
   </div>
 
 <div class="ion-padding receipt">
@@ -81,8 +94,8 @@
   ">Transaction receipt</h4>
   </div>
 
- 
-  <ion-list class="ion-padding" > 
+
+  <ion-list class="ion-padding" >
     <!-- <ion-item style=" margin: 0px -35px 5px -15px;
     display: flex;
     justify-content: space-between ;
@@ -110,7 +123,7 @@
     display: flex;
     padding: 16px;
     justify-content: space-between ;
-    align-items: center;"> 
+    align-items: center;">
       <ion-label style="font-size: 14px;">Beneficiary’s Name:</ion-label>
       <p style="font-size: 14px; padding: 16px;">{{beneficiaryName}}</p>
     </ion-item>
@@ -155,11 +168,11 @@
   <p style="font-weight: 400;
   font-size: 14px;
   line-height: 18px;
-  text-align: justify;">Disclaimer: Your transfer has been successful, and the beneficiary’s account will be credited. 
-  However, this does not serve as a confirmation of credit into the beneficiary’s account. Due to the nature of the internet, 
-  transactions may be subject to interruption, transmission blackout, delayed transmission, and incorrect data transmission. 
-  The bank is not liable for malfunctions in  communications facilities not within its control that may affect the accuracy 
-  or timeliness of messages and transactions you send. 
+  text-align: justify;">Disclaimer: Your transfer has been successful, and the beneficiary’s account will be credited.
+  However, this does not serve as a confirmation of credit into the beneficiary’s account. Due to the nature of the internet,
+  transactions may be subject to interruption, transmission blackout, delayed transmission, and incorrect data transmission.
+  The bank is not liable for malfunctions in  communications facilities not within its control that may affect the accuracy
+  or timeliness of messages and transactions you send.
   All transactions are subject  to verification and our normal fraud checks.</p>
 </div>
 </div>

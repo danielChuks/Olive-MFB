@@ -20,10 +20,11 @@ ion-icon {
   h3 {
     text-align: center;
     font-style: normal;
-    font-weight: 500;
-    font-size: 26px;
+    font-weight: 700;
+    font-size: 20px;
     line-height: 24px;
-    color: #040d2c;
+    color: #a3a30a;
+    text-transform: uppercase;
   }
 
   h2 {
@@ -37,12 +38,18 @@ ion-icon {
 
   p {
     color: #040d2c;
-    font-size: 26px;
+    font-size: 20px;
     text-align: center;
+    font-weight: 700;
   }
 }
 
 .transaction-flow {
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 1.5rem;
   h2 {
     font-style: normal;
     font-weight: 300;
@@ -61,16 +68,30 @@ ion-icon {
 
   p {
     margin-top: 4px;
+    font-weight: 700;
+      color: #000000;
   }
 
   .from {
     margin-top: 24px;
     font-weight: 300;
     font-size: 14px;
+    text-align: center;
   }
 
   .to {
-    margin-top: 20px;
+    text-align: center;
+  }
+}
+
+.download_share{
+  display: flex;
+  justify-content: space-between;
+  margin-top: 4rem;
+
+  .wrapper{
+    display: flex;
+    gap: 5px;
   }
 }
 
@@ -85,9 +106,11 @@ ion-icon {
     margin-top: 30px;
     ion-avatar {
       margin-right: 8px;
-      width: 29px;
-      height: 29px;
-      background: #040d2c;
+
+      img{
+      width: 20px;
+      height: 20px;
+      }
       ion-icon {
         color: white;
         padding: 3px;
