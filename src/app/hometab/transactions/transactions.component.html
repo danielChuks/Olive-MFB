@@ -22,15 +22,17 @@
       "
       button
     >
-      <ion-avatar>
-        <ion-icon
-          [name]="
+      <div class="image-container">
+        <img
+          class="type-icon"
+          [src]="
             history.transactionType === 'DR'
-              ? 'arrow-up-outline'
-              : 'arrow-down-outline'
+              ? '/assets/icon/debit.png'
+              : '/assets/icon/credit.png'
           "
-        ></ion-icon>
-      </ion-avatar>
+          alt="Arrow Image"
+        />
+      </div>
       <div id="transactions-details">
         <div class="transactions-amount">
           <h3>{{ history.transactionType === "DR" ? "Debit" : "Credit" }}</h3>

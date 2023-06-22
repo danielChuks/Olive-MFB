@@ -1,7 +1,7 @@
 //ion-items styling
 .transaction-body {
   height: 110vh;
-  
+
   #date {
     font-size: 12px;
   }
@@ -9,6 +9,7 @@
     font-size: 50px;
   }
   .transaction-history {
+    display: flex;
     ion-item {
       width: 100%;
       margin: 0px -16px 0px -15px;
@@ -16,22 +17,11 @@
       border-radius: 8px;
       margin-bottom: 10px;
     }
-    ion-avatar {
-      background-color: #f1f1f1;
-      width: 45px;
-      height: 40px;
-      margin-right: 10px;
 
-      ion-icon[name="arrow-up-outline"] {
-        color: #e000009c;
-        font-size: 25px;
-        margin: 7px 0px 0px 7px;
-      }
-
-      ion-icon[name="arrow-down-outline"] {
-        color: #0a792f9c;
-        font-size: 25px;
-        margin: 7px 0px 0px 7px;
+    .image-container {
+      padding-bottom: 24px;
+      img {
+        margin-right: 10px;
       }
     }
   }

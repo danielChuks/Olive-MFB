@@ -11,19 +11,20 @@
   <ion-item lines="none">
     <div class="transaction-type">
       <ion-label>
-        <ion-icon
-          [name]="
-            getSelectedHistory.transactionType === 'DR'
-              ? 'arrow-up-outline'
-              : 'arrow-down-outline'
+        <img
+          [src]="
+            getSelectedHistory.transType === 'DR'
+              ? '/assets/icon/debit.png'
+              : '/assets/icon/credit.png'
           "
-        ></ion-icon>
+          alt="Arrow Image"
+        />
       </ion-label>
 
       <ion-label>
         <h2
           [ngStyle]="
-            getSelectedHistory.transactionType === 'DR'
+            getSelectedHistory.transType === 'DR'
               ? { color: 'red' }
               : { color: 'green' }
           "
