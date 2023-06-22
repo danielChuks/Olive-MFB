@@ -1,17 +1,43 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/hometab/transfer"></ion-icon>
-    <ion-text><span>Confirmation</span></ion-text>
+    <ion-icon slot="start" name="chevron-back-outline"  routerLink="/new-tab/hometab/transfer"></ion-icon>
+    <ion-title><span>Confirmation</span></ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding" fullscreen [scrollEvents]="true">
 
-  <div class="confirm-details">
-    <ion-text>Confirm transaction details</ion-text>
+  <div class="introduction">
+    <ion-text>Please confirm transaction details before you continue</ion-text>
     <div>
 
-      <ion-list>
+
+  <div class="content">
+    <section>
+      <p>From</p>
+      <p>Savings Account</p>
+      <p class="bold_text">{{sourceAccount}}</p>
+    </section>
+
+    <section>
+       <p>To</p>
+      <p  class="bold_text">{{beneficiaryName}}</p>
+      <p>{{destinationAccount}}</p>
+    </section>
+
+    <section>
+        <p>Amount</p>
+        <p  class="bold_text">{{amount |currency:"NGN":"symbol-narrow"}}</p>
+    </section>
+
+      <section>
+        <p>Narration</p>
+         <p  class="bold_text">Transaction description</p>
+    </section>
+
+  </div>
+
+      <!-- <ion-list>
 
         <div class="from">
           <ion-label>
@@ -43,14 +69,15 @@
         <ion-item-divider></ion-item-divider>
 
       </ion-list>
-    </div>
+    </div> -->
 
-
+    <div class="button_group">
     <div class="btn">
       <ion-button expand="block"  (click)="openPinModal()" [strong]="true">Continue</ion-button>
      </div>
-      <div class="btn-edit">
-        <ion-button class="button"  type="submit" expand="full" routerLink="/new-tab/hometab/transfer">Edit</ion-button>
+      <div >
+        <ion-button class="button" class="btn-edit"  type="submit" expand="full" routerLink="/new-tab/hometab/transfer">Edit</ion-button>
+      </div>
       </div>
   </div>
 
