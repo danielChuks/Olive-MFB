@@ -2,114 +2,190 @@
   <ion-toolbar>
     <ion-grid>
       <ion-row>
-        <ion-col size="auto"><ion-icon
-          name="chevron-back-outline"
-          routerLink="/new-tab/hometab"
-        ></ion-icon></ion-col>
+        <ion-col size="auto"
+          ><ion-icon
+            name="chevron-back-outline"
+            routerLink="/new-tab/hometab"
+          ></ion-icon
+        ></ion-col>
         <ion-col size="9.5">Other Banks Transfer</ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-
 <ion-content class="ion-padding">
-  <form  [formGroup]="extTransForm" class="transfer-forms">
-
-    <div class="accounts" (click)="isAccount =!isAccount" >
+  <form [formGroup]="extTransForm" class="transfer-forms inputGroup">
+    <!-- <p class="title">Select account</p> -->
+    <div class="accounts" (click)="isAccount =!isAccount">
       <div class="accounts-header">
-        <ion-text>{{accountNumber}}</ion-text><ion-icon name="chevron-down-outline" slot="end"  ></ion-icon>
+        <ion-text>{{accountNumber}}</ion-text
+        ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
       </div>
     </div>
 
-<div *ngIf="isAccount" >
-    <div *ngFor="let account of multipleAccounts"  class="account-list" (click)="selectAccountNumber(account.accountNumber)"  (click)="isAccount =!isAccount">
-      <div  class="account-type">
-        <h3>{{account.accountNumber}}</h3>
-      </div>
+    <div *ngIf="isAccount">
+      <div
+        *ngFor="let account of multipleAccounts"
+        class="account-list"
+        (click)="selectAccountNumber(account.accountNumber)"
+        (click)="isAccount =!isAccount"
+      >
+        <div class="account-type">
+          <h3>{{account.accountNumber}}</h3>
+        </div>
 
-      <div class="acct-number">
-        <ion-text>{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text>
+        <div class="acct-number">
+          <ion-text
+            >{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text
+          >
+        </div>
       </div>
-    </div>
     </div>
 
     <!-- //bank modal -->
-    <div class="input">
-      <ion-input (click)="openBankModal()" [(ngModel)]="bankName" [ngModelOptions]="{standalone: true}" type="text" name="text" placeholder="Bank Name" [disabled]="isBankSelected"></ion-input>
+    <div class="inputGroup">
+      <p class="title">Destination bank</p>
+      <ion-input
+        (click)="openBankModal()"
+        [(ngModel)]="bankName"
+        [ngModelOptions]="{standalone: true}"
+        type="text"
+        name="text"
+        placeholder="select destination bank"
+        [disabled]="isBankSelected"
+      ></ion-input>
     </div>
 
-    <div class="beneficiary-tab">
+    <div class="beneficiary-tab inputGroup">
       <div class="input beneficiary">
-        <p (click)="openModal()">Select Beneficiary</p>
-
-        <ion-input counter="true" type="text"  (input)="getNameEnquiry($event)"  [(ngModel)]="benAcctNo" [ngModelOptions]="{standalone: true}" maxlength="10" placeholder=" Beneficiary Account Number" [disabled]="isBeneficiarySelected"></ion-input>
-        <ion-text [style.color]="isAccountSelected === false && accountName ? 'red' : 'black'">{{beneficiaryAccountName}}</ion-text>
+        <div class="select-beneficiary title">
+          <p class="title">Beneficiary account</p>
+          <img
+            (click)="openModal()"
+            class=""
+            alt="beneficiaries icon"
+            src="../../assets/icon/beneficiariesIcon.svg"
+          />
+        </div>
+        <ion-input
+          counter="true"
+          type="text"
+          (input)="getNameEnquiry($event)"
+          [(ngModel)]="benAcctNo"
+          [ngModelOptions]="{standalone: true}"
+          maxlength="10"
+          placeholder="input beneficiary account"
+          [disabled]="isBeneficiarySelected"
+        ></ion-input>
+        <ion-text
+          [style.color]="isAccountSelected === false && accountName ? 'red' : 'black'"
+          >{{beneficiaryAccountName}}</ion-text
+        >
       </div>
-
 
       <!-- Open beneficiaries modal -->
       <div class="beneficiaries" (click)="isValid =!isValid">
-         <!-- Beneficiary Modal-content -->
-  <div class="bank-modal">
-    <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
-      <ng-template>
-        <ion-header class="ion-no-border">
-          <ion-toolbar>
-            <ion-icon name="close-outline" routerLink="/other-transfer" (click)="cancel()"></ion-icon>
-            <ion-text><span>Beneficiaries</span></ion-text>
-          </ion-toolbar>
-        </ion-header>
-       <ion-searchbar [debounce]="1000" color="dark" placeholder="Search" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+        <!-- Beneficiary Modal-content -->
+        <div class="bank-modal">
+          <ion-modal trigger="open-modal" (willDismiss)="onWillDismiss($event)">
+            <ng-template>
+              <ion-header class="ion-no-border">
+                <ion-toolbar>
+                  <ion-icon
+                    name="close-outline"
+                    routerLink="/other-transfer"
+                    (click)="cancel()"
+                  ></ion-icon>
+                  <ion-text><span>Beneficiaries</span></ion-text>
+                </ion-toolbar>
+              </ion-header>
+              <ion-searchbar
+                [debounce]="1000"
+                color="dark"
+                placeholder="Search"
+                (ionChange)="handleSearchInput($event)"
+              ></ion-searchbar>
 
-        <ion-content class="ion-padding">
-          <div class="beneficiaries-list">
+              <ion-content class="ion-padding">
+                <div class="beneficiaries-list">
+                  <ion-item-group
+                    *ngFor="let beneficiary of filteredBenList"
+                    button
+                    detail="true"
+                  >
+                    <ion-item
+                      button
+                      (click)="confirm(beneficiary.benAccountNumber,beneficiary.benAccountName, beneficiary.benBankName, beneficiary.benBankCode)"
+                    >
+                      <div class="beneficiaries-details">
+                        <div class="ben-name">
+                          <ion-text>{{beneficiary.benAccountName}}</ion-text>
+                        </div>
+                        <div class="ben-account">
+                          <h3>{{beneficiary.benAccountNumber}}</h3>
+                          <h2>.</h2>
+                          <h3>{{beneficiary.benBankName}}</h3>
+                        </div>
+                      </div>
+                    </ion-item>
+                  </ion-item-group>
 
-            <ion-item-group  *ngFor="let beneficiary of filteredBenList" button detail="true">
-              <ion-item button (click)="confirm(beneficiary.benAccountNumber,beneficiary.benAccountName, beneficiary.benBankName, beneficiary.benBankCode)">
-                <div class="beneficiaries-details">
-                  <div class="ben-name">
-                    <ion-text>{{beneficiary.benAccountName}}</ion-text>
-                  </div>
-                  <div class="ben-account">
-                    <h3>{{beneficiary.benAccountNumber}}</h3><h2>.</h2><h3>{{beneficiary.benBankName}}</h3>
-                  </div>
-                </div>
-              </ion-item>
-            </ion-item-group>
-
-                  <ion-item *ngIf=" filteredBenList && filteredBenList.length <= 0">
-                  <h3>Beneficiary does not exist</h3>
+                  <ion-item
+                    *ngIf=" filteredBenList && filteredBenList.length <= 0"
+                  >
+                    <h3>Beneficiary does not exist</h3>
                   </ion-item>
-                  
-          </div>
-        </ion-content>
-      </ng-template>
-    </ion-modal>
-  </div>
+                </div>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+        </div>
       </div>
-  </div>
-
-
-
-  <div class="input">
-    <ion-input type="text" name="amount" formControlName="amount" placeholder="N Amount" (input)="formatInput($event.target.value)" ></ion-input>
-  </div>
-
-    <div class="transfer-limit">
-      <ion-label>Current. transfer limit:{{limit|currency:"NGN":"symbol-narrow"}}</ion-label>
     </div>
 
-    <div class="input">
-      <ion-input type="text" formControlName="narration" placeholder="Narration"></ion-input>
+    <div class="inputGroup">
+      <p class="title">Amount(NGN)</p>
+      <ion-input
+        type="text"
+        name="amount"
+        formControlName="amount"
+        placeholder="input amount"
+        (input)="formatInput($event.target.value)"
+      ></ion-input>
+    </div>
+
+    <div class="transfer-limit">
+      <ion-label>Current. transfer limit:</ion-label>
+      <ion-label class="title">
+        {{limit|currency:"NGN":"symbol-narrow"}}
+      </ion-label>
+    </div>
+
+    <div class="inputGroup">
+      <p class="title">Narration</p>
+      <ion-input
+        type="text"
+        formControlName="narration"
+        placeholder="transaction description"
+      ></ion-input>
     </div>
 
     <div class="toggle">
-       <ion-toggle  (ionChange)="toggleChange($event)"  ></ion-toggle> <ion-text>Save to my list of beneficiaries</ion-text>
+      <ion-toggle (ionChange)="toggleChange($event)"></ion-toggle>
+      <ion-text>Save to my list of beneficiaries</ion-text>
     </div>
 
     <div class="btn">
-      <ion-button class="button" (click)="externalTransfer(extTransForm)"  [disabled]="isAccountSelected && extTransForm.valid === true && accountNumber !== 'Select Account'? false : true"  type="submit" expand="full" routerLink="/external-transfer-activity" >Continue</ion-button>
+      <ion-button
+        class="button"
+        (click)="externalTransfer(extTransForm)"
+        [disabled]="isAccountSelected && extTransForm.valid === true && accountNumber !== 'Select Account'? false : true"
+        type="submit"
+       expand="block"
+        routerLink="/external-transfer-activity"
+        >Continue</ion-button
+      >
     </div>
-    </form>
+  </form>
 </ion-content>
