@@ -12,6 +12,18 @@
 </ion-header>
 
 <ion-content>
+
+
+  <div class="flex">
+  <ion-searchbar
+    [debounce]="1000"
+    mode="ios"
+    [debounce]="1000"
+    (ionChange)="handleSearchInput($event)"
+  ></ion-searchbar>      
+ 
+</div>
+
   <div class="search-icon-container">
     <ion-searchbar
       fill="none"
@@ -22,6 +34,7 @@
     ></ion-searchbar>
     <ion-icon name="funnel" class="funnel-icon"></ion-icon>
   </div>
+
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"

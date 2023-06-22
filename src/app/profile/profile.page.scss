@@ -175,27 +175,55 @@ ion-content {
   }
 }
 
-.modals {
-  ion-grid {
-    margin: 0 120px 0 0;
-  }
-}
+// .modals {
+//   ion-grid {
+//     margin: 0 120px 0 0;
+//   }
+// }
 
 .accountcontent {
   display: flex;
   flex-direction: column;
-  // align-items: center;
-  padding: 18px 34px ;
+  padding: 10px 34px;
 
+  ion-label {
+    color: #2f2f2f;
+    font-size: 1rem;
+    text-transform: capitalize;
+  }
+
+  ion-input {
+    margin-top: 6px;
+    height: 3rem;
+    border-radius: 8px;
+    border: 1px solid rgba(222, 226, 230, 0.6);
+    background: #fff;
+    color: #000000;
+    font-size: 0.875rem;
+    padding: 16px 16px !important;
+  }
   .details {
-    margin-top: 10px;
+    margin-top: 0.625rem;
   }
 }
 
-ion-input {
-  margin-top: 6px;
-  height: 48px;
-  background-color: #ededed;
-  border-color: 1px solid #3a0404;
-  border-radius: 8px;
+.padding {
+  padding: 0.625rem 1.5rem;
+
+  h3 {
+    font-weight: 500;
+    font-size: 0.875rem;
+    line-height: 1.0625rem;
+    text-align: center;
+  }
+
+  ion-icon {
+    width: 1.1875rem;
+    height: 1.125rem;
+    margin: 0 1.25rem 0 2.5rem;
+  }
+
+  ion-label {
+    font-size: 0.75rem;
+  }
 }
