@@ -1,10 +1,16 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon
-      name="chevron-back-outline"
-      routerLink="/manage-beneficiaries"
-    ></ion-icon>
-    <ion-text><span>Add Beneficiary</span></ion-text>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"
+          ><ion-icon
+            name="arrow-back"
+            routerLink="/manage-beneficiaries"
+          ></ion-icon
+        ></ion-col>
+        <ion-col size="9.5">Add Beneficiary</ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
@@ -28,7 +34,25 @@
         [attr.disabled]="bankCode ? false: true"
       ></ion-input>
       <ion-text [style.color]="display ? 'black': 'red'" id="name">{{beneficiaryname}}</ion-text> 
-      <ion-text>{{error}}</ion-text>   </div>
+
+      <ion-text [style.color]="display ? 'black': 'red'" id="name"
+        >{{beneficiaryname === true ? null : beneficiaryCheck}}</ion-text
+      >
+    </div>
+
+    <div class="account-name">
+      <ion-input
+        counter="true"
+        (input)="getNameEnquiry($event)"
+        type="text"
+        [value]="beneficiaryname"
+        maxlength="10"
+        placeholder="Account Name"
+        formControlName="beneficiaryAcctNum"
+        [attr.disabled]="bankCode ? false: true"
+      ></ion-input>
+    </div>
+
 
     <div class="btn">
       <ion-button
@@ -37,7 +61,7 @@
         type="submit"
         expand="block"
         [disabled]="bankCode && success  ? false : true"
-        >Add Beneficiary</ion-button
+        >Continue</ion-button
       >
     </div>
   </form>
