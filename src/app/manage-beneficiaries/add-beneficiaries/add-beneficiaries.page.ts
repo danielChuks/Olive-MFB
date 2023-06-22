@@ -26,7 +26,6 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
   bankName = 'Select Bank';
   beneficiaryForm: FormGroup;
   beneficiaryname;
-  error;
   bankCode: any;
   nameData: string;
   success = false;
@@ -100,10 +99,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
             },
 
             (err) => {
-
-              this.beneficiaryname = 'Invalid Account Number';
               this.beneficiaryCheck = 'Invalid Account Number';
-
               this.success = false;
               this.display = false;
             }
@@ -111,8 +107,6 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
         );
       }
     } else {
-
-      this.beneficiaryname = 'Account number must be 10 digits';
       this.beneficiaryCheck = 'Account number must be 10 digits';
       this.success = false;
       this.display = false;
