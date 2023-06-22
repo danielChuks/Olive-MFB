@@ -32,9 +32,11 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-content>
+
+
     <div class="beneficiaries-list">
       <ion-item-group button detail="true">
-        <ion-item
+        <ion-item 
           *ngFor="let list of filteredBenList"
           (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
           button
@@ -44,18 +46,20 @@
               <ion-text>{{list.benAccountName}} </ion-text>
             </div>
             <div class="ben-account">
-              <h3>{{list.benAccountNumber}}</h3>
-              <h2>.</h2>
-              <h3>{{list.benBankName}}</h3>
+              <p>{{list.benAccountNumber}}<p>
+              <div class="hiphin"> - </div>
+              <p>{{list.benBankName}}</p>
             </div>
           </div>
         </ion-item>
 
         <ion-item *ngIf=" filteredBenList && filteredBenList.length <= 0">
-          <h3>Can't find Beneficiary</h3>
+          <p>Can't find Beneficiary</p>
         </ion-item>
       </ion-item-group>
     </div>
+
+
   </ion-content>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
