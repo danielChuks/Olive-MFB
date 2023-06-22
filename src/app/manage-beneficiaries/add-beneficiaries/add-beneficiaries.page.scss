@@ -11,28 +11,44 @@
   margin-top: 26px;
   margin-bottom: 40px;
 
-  #name {
+  .name {
     float: right;
     position: absolute;
+    font-size: 10px;
   }
 
   ion-icon {
     float: right;
   }
 }
-
+.account-header {
+  border-radius: 12px;
+  background: #f0f3f3;
+  color: #3c3c43;
+  font-size: 14px;
+  font-family: Montserrat;
+  font-weight: 500;
+  line-height: 18px;
+  letter-spacing: -0.24px;
+  padding: 16px 16px;
+}
 .account-number {
-  background: #ffffff;
-  border: 2px solid #e5e5e5;
-  padding: 8px 8px 30px 8px;
-  height: 56px;
-  margin-top: 26px;
-  margin-bottom: 3rem;
+  display: block;
+  margin-top: 60px;
 
+  ion-input {
+    height: 48px;
+    padding: 16px 16px !important;
+    border-radius: 12px;
+    background: #f0f3f3;
+    color: #3c3c43;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
   #name {
+    font-size: 12px;
     float: right;
-    margin: 8px -10px 0px 0px;
-    font-size: 15px;
+    padding-right: 10px;
   }
 
   ion-icon {
@@ -40,6 +56,25 @@
   }
 }
 
+.account-name {
+  display: block;
+  margin-top: 60px;
+
+  ion-input {
+    height: 48px;
+    padding: 16px 16px !important;
+    border-radius: 12px;
+    background: #f0f3f3;
+    color: #3c3c43;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
+  #name {
+    font-size: 12px;
+    float: right;
+    padding-right: 10px;
+  }
+}
 .ion-no-border {
   ion-text {
     width: 100%;
@@ -53,4 +88,8 @@ ion-searchbar {
 .scroll {
   height: 100vh;
   overflow-y: scroll;
+}
+
+.btn {
+  --border-radius: 12px !important;
 }

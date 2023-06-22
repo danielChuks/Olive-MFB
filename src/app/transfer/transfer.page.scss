@@ -22,27 +22,25 @@
       border-radius: 0.8rem;
     }
 
-    .select-beneficiary{
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: .2rem;
-    align-items: center;
+    .select-beneficiary {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 0.2rem;
+      align-items: center;
     }
 
-    .title{
+    .title {
       font-weight: 600;
-       font-size: 14px;
+      font-size: 14px;
     }
-
   }
 
-   .transfer-limit {
+  .transfer-limit {
     margin-top: 4px;
     height: 23px;
     display: flex;
     justify-content: space-between;
   }
-
 
   .accounts {
     height: 56px;
@@ -85,12 +83,10 @@
     }
   }
 
-
-
   .toggle {
     ion-toggle {
-  --background-checked: #018401;
-}
+      --background-checked: #018401;
+    }
     margin-top: 32px;
     display: flex;
     flex-direction: row;
@@ -99,11 +95,10 @@
     height: 19px;
   }
 
-  ion-text{
+  ion-text {
     font-size: 16px;
   }
 }
-
 
 //beneficiaries modal STYLES
 .beneficiaries-list {
@@ -159,7 +154,6 @@
   display: flex;
   justify-content: space-between;
 }
-
 
 ion-label {
   font-size: 14px;
