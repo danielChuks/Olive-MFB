@@ -27,14 +27,15 @@
         formControlName="beneficiaryAcctNum"
         [attr.disabled]="bankCode ? false: true"
       ></ion-input>
-      <ion-text [style.color]="display ? 'black': 'red'" id="name">{{beneficiaryname}}</ion-text>    </div>
+      <ion-text [style.color]="display ? 'black': 'red'" id="name">{{beneficiaryname}}</ion-text> 
+      <ion-text>{{error}}</ion-text>   </div>
 
     <div class="btn">
       <ion-button
         class="button"
         (click)="addBeneficiary(beneficiaryForm)"
         type="submit"
-        expand="full"
+        expand="block"
         [disabled]="bankCode && success  ? false : true"
         >Add Beneficiary</ion-button
       >
