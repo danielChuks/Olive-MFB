@@ -1,88 +1,64 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline" routerLink="/pay-bills"></ion-icon>
-    <ion-text><span>Confirmation</span></ion-text>
+    <ion-icon
+      slot="start"
+      name="chevron-back-outline"
+      routerLink="/pay-bills"
+    ></ion-icon>
+    <ion-title><span>Confirmation</span></ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <div class="confirm-details">
-    <ion-text>Confirm transaction details</ion-text>
+<ion-content class="ion-padding" fullscreen [scrollEvents]="true">
+  <div class="introduction">
+    <ion-text>Please confirm transaction details before you continue</ion-text>
     <div>
-      <ion-list>
-        <div class="from">
-          <ion-label>
-            <h2>From</h2>
-            <h3>{{accountType}}</h3>
-            <p>{{accountNumber}}</p>
-          </ion-label>
-        </div>
 
-        <ion-item-divider></ion-item-divider>
+      <div class="content">
+        <section>
+          <p class="label_text">From</p>
+          <p class="bold_text">{{accountType}}</p>
+          <p>{{accountNumber}}</p>
+        </section>
 
-        <div class="to">
-          <ion-label>
-            <h2>To</h2>
+        <section>
+          <p class="label_text">{{category}}</p>
+          <p  class="bold_text">{{recipient}}</p>
+          <p class="bold_text">{{product}}</p>
+        </section>
 
-            <h3><span>{{recipient}}</span></h3>
-          </ion-label>
-        </div>
+        <section>
+          <p class="label_text">Amount</p>
+          <p class="bold_text">{{amount |currency:"NGN":"symbol-narrow" }}</p>
+        </section>
 
-        <ion-item-divider></ion-item-divider>
+        <section>
+          <p class="label_text">{{requiredField}}</p>
+          <p  class="bold_text">{{customerId}}</p>
+        </section>
 
-        <div class="carrier amount">
-          <ion-label>
-            <h2>Product</h2>
-            <h3><span>{{product}}</span></h3>
-          </ion-label>
-        </div>
-        <ion-item-divider></ion-item-divider>
 
-        <div class="product amount">
-          <ion-label>
-            <h2>Category</h2>
-            <h3><span>{{category}}</span></h3>
-          </ion-label>
-        </div>
+      </div>
 
-        <ion-item-divider></ion-item-divider>
-
-        <div class="product amount">
-          <ion-label>
-            <h2>{{requiredField}}</h2>
-            <h3><span>{{customerId}}</span></h3>
-          </ion-label>
-        </div>
-
-        <ion-item-divider></ion-item-divider>
-
-        <div class="amount">
-          <ion-label>
-            <h2>Amount</h2>
-            <h3><span>{{amount |currency:"NGN":"symbol-narrow" }}</span></h3>
-          </ion-label>
-        </div>
-
-        <ion-item-divider></ion-item-divider>
-      </ion-list>
-    </div>
-    <div class="btn">
-      <ion-button
-        class="button"
-        (click)="openPinModal()"
-        type="submit"
-        expand="block"
-        >Pay</ion-button
-      >
-    </div>
-    <div class="btn-edit">
-      <ion-button
-        class="button"
-        type="submit"
-        expand="block"
-        routerLink="/pay-bills"
-        >Edit</ion-button
-      >
+          <div class="button_group">
+      <div class="btn">
+        <ion-button
+          class="button"
+          (click)="openPinModal()"
+          type="submit"
+          expand="block"
+          >Pay</ion-button
+        >
+      </div>
+      <div class="btn">
+        <ion-button
+          class="btn-edit"
+          type="submit"
+          expand="block"
+          routerLink="/pay-bills"
+          >Edit</ion-button>
+      </div>
+      </div>
     </div>
   </div>
-</ion-content>
+  </ion-content>
