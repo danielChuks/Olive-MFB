@@ -23,7 +23,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
   message = '';
   name: '';
   isValid = false;
-  bankName = 'Bank Name';
+  bankName = 'Select Bank';
   beneficiaryForm: FormGroup;
   beneficiaryname;
   bankCode: any;
@@ -34,6 +34,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
   banks: any;
   mybank: any;
   display = false;
+  beneficiaryCheck;
 
   private httpSubscriptions: Subscription[] = [];
   // errorMessage: string;
@@ -81,6 +82,8 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
     this.banks = this.banks.filter((d) => d.toLowerCase().indexOf(query) > -1);
   }
 
+
+
   getNameEnquiry(event) {
     this.nameData = event.target.value;
     if (this.nameData.length === 10) {
@@ -96,7 +99,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
             },
 
             (err) => {
-              this.beneficiaryname = 'Invalid Account Number';
+              this.beneficiaryCheck = 'Invalid Account Number';
               this.success = false;
               this.display = false;
             }
@@ -104,7 +107,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
         );
       }
     } else {
-      this.beneficiaryname = 'Account number must be 10 digits';
+      this.beneficiaryCheck = 'Account number must be 10 digits';
       this.success = false;
       this.display = false;
     }

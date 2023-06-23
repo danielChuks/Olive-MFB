@@ -141,17 +141,15 @@ ion-modal::part(backdrop) {
 .transaction-container {
   background-color: #ffffff;
   margin-top: 300px;
-  padding: 16px 16px 0 16px;
+  padding: 16px 16px 16px 16px;
   margin-top: 12px;
-  height: 100%;
-  width: 100%;
   position: fixed;
 
   .header {
     display: flex;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-between;
     align-items: center;
-    gap: 39px;
 
     .title {
       font-family: "Montserrat";
@@ -176,6 +174,7 @@ ion-modal::part(backdrop) {
       width: 30px;
       height: 30px;
       color: gray;
+      padding: 27px;
     }
     .searchbar {
       width: 247px;

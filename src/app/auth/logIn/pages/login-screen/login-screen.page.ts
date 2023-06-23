@@ -159,7 +159,7 @@ export class LoginScreenPage {
 
     this.platform.backButton.subscribeWithPriority(10, (processNextHandler) => {
       // eslint-disable-next-line no-underscore-dangle
-      if (this._location.isCurrentPathEqualTo('/')) {
+      if (this._location.isCurrentPathEqualTo('/login-screen')) {
         // Show Exit Ale
         // eslint-disable-next-line @typescript-eslint/dot-notation
         navigator['app'].exitApp();

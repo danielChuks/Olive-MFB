@@ -69,7 +69,7 @@
     </div>
 
     <div class="button">
-      <ion-button routerLink="/top-up/topup-confirmation" (click)="submitAirtimeDetails(airtimeForm)" type="submit" [disabled]="airtimeForm.valid && isAccountSelected ? false : true"  expand="full" >Continue</ion-button>
+      <ion-button routerLink="/top-up/topup-confirmation" (click)="submitAirtimeDetails(airtimeForm)" type="submit" [disabled]="airtimeForm.valid && isAccountSelected ? false : true"  expand="block" >Continue</ion-button>
     </div>
 
 </ion-list>
@@ -112,7 +112,7 @@
 
 
         <div class="button">
-           <ion-button routerLink="/top-up/topup-confirmation" (click)="submitDataDetails(mobileDataForm)" type="submit" [disabled]="!mobileDataForm.valid" expand="full" >Continue</ion-button>
+           <ion-button routerLink="/top-up/topup-confirmation" (click)="submitDataDetails(mobileDataForm)" type="submit" [disabled]="!mobileDataForm.valid" expand="block" >Continue</ion-button>
           </div>
 
         </form>
