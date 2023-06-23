@@ -46,33 +46,32 @@ export class ExternalTransferActivityPage implements OnInit {
 
 
     ngOnInit() {
-      this.extTransferDetails = JSON.parse(sessionStorage.getItem('extTransferDetails'));
-      const {sourceAccountNumber, sourceAccountName, beneficiaryAccountNumber,
-         narration,  transactionAmount, name,
-         bankName, beneficiaryName, beneficiaryBankID } =  this.extTransferDetails;
-      //console.log(this.extTransferDetails);
-      this.sourceAccount = sourceAccountNumber;
-      this.benAccountName = beneficiaryName;
-      this.destinationAccount = beneficiaryAccountNumber;
-       this.amount = transactionAmount;
-      this.narration = narration;
-      this.bankName = bankName;
-      // eslint-disable-next-line radix
-      this.totalAmount = parseInt(transactionAmount);
-      // this.destinationAccount = destinationAccount;
-      // this.amount = amount;
-      // this.beneficiaryName = name;
+      // this.extTransferDetails = JSON.parse(sessionStorage.getItem('extTransferDetails'));
+      // const {sourceAccountNumber, sourceAccountName, beneficiaryAccountNumber,
+      //    narration,  transactionAmount, name,
+      //    bankName, beneficiaryName, beneficiaryBankID } =  this.extTransferDetails;
+      // //console.log(this.extTransferDetails);
+      // this.sourceAccount = sourceAccountNumber;
+      // this.benAccountName = beneficiaryName;
+      // this.destinationAccount = beneficiaryAccountNumber;
+      //  this.amount = transactionAmount;
+      // this.narration = narration;
+      // this.bankName = bankName;
       // // eslint-disable-next-line radix
-      // this.totalAmount = parseInt(amount) + this.commission;
-      // }
+      // this.totalAmount = parseInt(transactionAmount);
+      // // this.destinationAccount = destinationAccount;
+      // // this.amount = amount;
+      // // this.beneficiaryName = name;
+      // // // eslint-disable-next-line radix
+      // // this.totalAmount = parseInt(amount) + this.commission;
+      // // }
 }
 
 async openPinModal() {
   const modal = await this.modalCtrl.create({
     component: PinModalComponent,
-    backdropBreakpoint: 0.1,
-    initialBreakpoint: 600 / this.platform.height(),
-    breakpoints: [0, 600 / this.platform.height()],
+     cssClass: 'full-page-modal',
+     backdropDismiss: false,
   });
   modal.present();
 

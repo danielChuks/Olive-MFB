@@ -1,66 +1,59 @@
+
+
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/other-transfer"></ion-icon>
-    <ion-text><span>Confirmation</span></ion-text>
+    <ion-icon slot="start" name="chevron-back-outline"  routerLink="/other-transfer"></ion-icon>
+    <ion-title><span>Confirmation</span></ion-title>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content class="ion-padding" fullscreen [scrollEvents]="true">
 
-  <div class="confirm-details">
-    <ion-text>Confirm transaction details</ion-text>
+   <div class="introduction">
+    <ion-text>Please confirm transaction details before you continue</ion-text>
     <div>
 
-      <ion-list>
 
-        <div class="from">
-          <ion-label>
-            <h2>From</h2>
-            <h3>{{accountType}}</h3>
-            <p>{{sourceAccount}}</p>
-          </ion-label>
-        </div>
+  <div class="content">
+    <section>
+      <p>From</p>
+      <p>Savings Account</p>
+      <p class="bold_text">2001017191</p>
+    </section>
 
-        <ion-item-divider></ion-item-divider>
+    <section>
+       <p>To</p>
+      <p  class="bold_text">Ogunmepon Sodiq</p>
+      <p>2001017191</p>
+      <p>Zenith Bank Plc.</p>
+    </section>
 
-        <div class="to">
-          <ion-label>
-            <h2>To</h2>
-            <h3>{{benAccountName}}</h3>
-            <p>{{destinationAccount}} . {{bankName}}</p>
-          </ion-label>
-        </div>
+    <section>
+        <p>Amount</p>
+        <p  class="bold_text">{{1000 |currency:"NGN":"symbol-narrow"}}</p>
+    </section>
 
-        <ion-item-divider></ion-item-divider>
+      <section>
+        <p>Narration</p>
+         <p  class="bold_text">Transaction description</p>
+    </section>
 
-        <div class="amount">
-          <ion-label>
-            <h2>Amount</h2>
-            <h3><span>{{amount|currency:"NGN":"symbol-narrow"}}</span></h3>
-          </ion-label>
-        </div>
+  </div>
 
-        <ion-item-divider></ion-item-divider>
+    <div class="button_group">
 
-        <!-- <div class="commission">
-          <ion-label>
-            <h2>Commission</h2>
-            <h3>&#8358; <span>10</span></h3>
-          </ion-label>
-        </div> -->
-
-      </ion-list>
-    </div>
     <div class="btn">
-      <ion-button class="button" (click)="openPinModal()" type="submit" expand="full" >Continue</ion-button>
+      <ion-button class="button" (click)="openPinModal()" type="submit" expand="block" >Continue</ion-button>
     </div>
 
-    <!-- <div class="btn">
-      <ion-button expand="block" routerLink="/transfer/receipt"  [strong]="true">Continue</ion-button>
-     </div> -->
-      <div class="btn-edit">
-        <ion-button class="button"  type="submit" expand="full" routerLink="/other-transfer">Edit</ion-button>
+      <div class="btn">
+        <ion-button class="btn-edit"  type="submit" expand="block" routerLink="/other-transfer">Back</ion-button>
       </div>
+
+      </div>
+
+
   </div>
 
 
