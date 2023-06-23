@@ -180,7 +180,7 @@
       <ion-button
         class="button"
         (click)="externalTransfer(extTransForm)"
-        [disabled]="isAccountSelected && extTransForm.valid === true && accountNumber !== 'Select Account'? false : true"
+
         type="submit"
        expand="block"
         routerLink="/external-transfer-activity"
@@ -189,3 +189,5 @@
     </div>
   </form>
 </ion-content>
+
+        <!-- [disabled]="isAccountSelected && extTransForm.valid === true && accountNumber !== 'Select Account'? false : true" -->

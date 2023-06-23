@@ -26,14 +26,14 @@ export class ExtReceiptPage implements OnInit {
 
   ngOnInit() {
 
-    this.confirmationDetails = JSON.parse(sessionStorage.getItem('extTransferDetails'));
-    const {sourceAccountNumber, narration, beneficiaryAccountNumber, transactionAmount, beneficiaryName, bankName} =  this.confirmationDetails;
+//     this.confirmationDetails = JSON.parse(sessionStorage.getItem('extTransferDetails'));
+//     const {sourceAccountNumber, narration, beneficiaryAccountNumber, transactionAmount, beneficiaryName, bankName} =  this.confirmationDetails;
 
-this.account = sourceAccountNumber;
-this.destinationAccount = beneficiaryAccountNumber;
-this.amount = transactionAmount;
-    this.beneficiaryName = beneficiaryName;
-    this.beneficiaryBank = bankName;
+// this.account = sourceAccountNumber;
+// this.destinationAccount = beneficiaryAccountNumber;
+// this.amount = transactionAmount;
+//     this.beneficiaryName = beneficiaryName;
+//     this.beneficiaryBank = bankName;
   }
 
   downloadInvoice() {
