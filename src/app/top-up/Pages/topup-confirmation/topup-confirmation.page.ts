@@ -58,9 +58,8 @@ export class TopupConfirmationPage implements OnInit {
   async openPinModal() {
     const modal = await this.modalCtrl.create({
       component: PinModalComponent,
-      backdropBreakpoint: 0.1,
-      initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
+      cssClass: 'full-page-modal',
+        backdropDismiss: false,
     });
     modal.present();
 
@@ -79,20 +78,5 @@ export class TopupConfirmationPage implements OnInit {
     this.modal.dismiss(this.name, 'confirm');
   }
 
-  onWillDismiss(event: Event) {
-    const ev = event as CustomEvent<OverlayEventDetail<string>>;
-    if (ev.detail.role === 'confirm') {
-      this.message = '${ev.detail.data}';
-    }
-  }
 
-  addNumber(num: number): void {
-    if (this.createPasscodeValues.length !== 6) {
-      this.createPasscodeValues.push(num);
-    }
-  }
-
-  removeNumber() {
-    this.createPasscodeValues.pop();
-  }
 }

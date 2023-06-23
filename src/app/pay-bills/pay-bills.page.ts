@@ -95,8 +95,13 @@ export class PayBillsPage implements OnInit, OnDestroy  {
     const decimalPart = parts[1] || '';
     const integerDisplayValue = integerPart.replace(/\d(?=(\d{3})+$)/g, '$&,'); // add commas to integer part
     const displayValue = decimalPart ? integerDisplayValue + '.' + decimalPart : integerDisplayValue; // add decimal part if present
-     this.transfer.amount = displayValue; // update the form control value
-    }
+    //  this.transfer.amount = displayValue; // update the form control value
+    return displayValue;
+  }
+
+
+
+
 
   async continue() {
     // eslint-disable-next-line max-len
@@ -109,14 +114,16 @@ export class PayBillsPage implements OnInit, OnDestroy  {
     sourceAccountNumber: this.accountNumber,
     billerCategoryID: this.catId,
     billerId: this.billerUniqueId,
-    transactionAmount: this.transfer.amount.replaceAll(',', ''),
+    transactionAmount: this.transfer.amount.replaceAll(',', ''),//replaceAll method
     transactionDescription: this.prod,
     nameOfCategory: this.nameOfCategory,
     billerName: this.nameofBiller,
     requiredField : this.fieldResult1,
     mobileNumber: '',
     customerMail: '',
-   };
+    };
+
+    // console.log(this.transfer.amount.replaceAll(',', ''));
 
    this.billsPaymentData = {
     paymentCode:this.paymentItemCode,
@@ -127,7 +134,7 @@ export class PayBillsPage implements OnInit, OnDestroy  {
      customerMail: ''
     };
 
-   sessionStorage.setItem('transferInfo', JSON.stringify(this.transferInfo));
+   sessionStorage.setItem('transferInfo', JSON.stringify(this.transferInfo)); //use rxjs instead to solve the storage caching ish
    sessionStorage.setItem('billsPaymentData', JSON.stringify(this.billsPaymentData));
 }
 
@@ -298,7 +305,7 @@ displayTransactionAmount(transactionAmount) {
     this.isDisabled = true;
     const convertedAmt: number = parseInt(transactionAmount); //converted the string to a number
     const formattedAmount: number = (convertedAmt / 100); //converted the string to 2 decimal places
-    this.transfer.amount = formattedAmount;
+    this.transfer.amount = this.formatInput(formattedAmount.toString());
   }
 }
 

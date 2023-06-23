@@ -54,9 +54,8 @@ export class BillsActivityPage implements OnInit {
   async openPinModal() {
     const modal = await this.modalCtrl.create({
       component: PinModalComponent,
-      backdropBreakpoint: 0.1,
-      initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
+      cssClass: 'full-page-modal',
+      backdropDismiss: false,
     });
     modal.present();
 

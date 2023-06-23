@@ -35,32 +35,29 @@
     </div>
 
 
-      <div class="select-container input">
-    <ion-select class="testing" [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)">
+      <div class="inputGroup">
+    <ion-select  [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)">
       <ion-select-option class= "my-custom-class"  *ngFor="let category of categories" value={{category.categoryid}}> {{category.categoryname}}</ion-select-option>
     </ion-select>
     </div>
 
 
-     <div class="select-container input">
+     <div class="inputGroup">
     <ion-select  #bill placeholder="Select Billers" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getBillerProduct(bill.value)" [disabled]="billerDisable">
       <ion-select-option  *ngFor="let biller of billers" value={{biller.billerid}}>{{ biller.billername }}</ion-select-option>
     </ion-select>
     </div>
 
 
-     <div class="select-container input">
+     <div class="inputGroup">
     <ion-select #prod placeholder="Select Product" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getTransAmount(prod.value)" [disabled]="productDisable">
       <ion-select-option *ngFor="let product of billerProduct"  value={{product.paymentitemid}}>{{product.paymentitemname}}</ion-select-option>
     </ion-select>
     </div>
 
 
-  
-
-
-    <div class="input">
-      <ion-input [(ngModel)]="transfer.amount" (input)="formatInput($event.target.value)" type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
+    <div class="inputGroup">
+      <ion-input [(ngModel)]="transfer.amount"  type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
        <!-- <span class="message">{{error}}</span> -->
     </div>
       <div class="transfer-limit">
@@ -68,18 +65,13 @@
     </div>
 
 
-    <ion-list  *ngIf="display">
-      <ion-item class="input" >
+    <div class="inputGroup"  *ngIf="display">
         <ion-input type="text" placeholder={{fieldResult1}} [(ngModel)]="transfer.customer1" name="customer1"></ion-input>
-      </ion-item>
-  
-    </ion-list>
+    </div>
 
-    <ion-list *ngIf="display2">
-      <ion-item *ngIf="display2">
+    <div class="inputGroup" *ngIf="display2">
         <ion-input type="text" placeholder={{fieldResult2}}  name="customer2" required></ion-input>
-      </ion-item>
-    </ion-list>
+    </div>
 
 
     <div class="btn">

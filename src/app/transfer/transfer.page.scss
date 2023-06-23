@@ -22,6 +22,14 @@
       border-radius: 0.8rem;
     }
 
+    ion-select{
+       height: 56px;
+      background-color: #ededed;
+      border-color: 1px solid #e5e5e5;
+      border-radius: 0.8rem;
+      color: #000000;
+    }
+
     .select-beneficiary {
       display: flex;
       justify-content: space-between;
