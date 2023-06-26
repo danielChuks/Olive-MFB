@@ -1,7 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { IdleTimerService } from './idle-timer.service';
 import { AlertController } from '@ionic/angular';
-
+import { register } from 'swiper/element/bundle';
+register();
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
