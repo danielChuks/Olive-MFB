@@ -1,55 +1,67 @@
 <!-- header -->
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon name="chevron-back-outline"  routerLink="/new-tab/profile"></ion-icon>
-    <ion-text><span>Change Pin</span></ion-text>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="arrow-back"
+          routerLink="/change-pin-old"
+        ></ion-icon></ion-col>
+        <ion-col size="9.5">Change Pin</ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-<!-- passcode text -->
-  <ion-text>
-<h4>Enter your new Transaction PIN</h4>
-<p>Input your new current 4-digit PIN </p>
-</ion-text>
 
+<ion-content class="ion-padding">
+<!-- passcode text -->
+  
+<h3>Create Pin</h3>
+<p class="text">Please enter a 4-digit transaction pin. This pin will be used to verify your transactions</p>
+
+ <div class="same">
+   <!-- ellipses -->
+   <div class="auth-pin">
+     <p class="passcode">Enter Transaction Pin</p>
 <!-- ellipses -->
-<p class="passcode">New PIN </p>
 <div class="ellipses">
-        <div id="circle" >
-          <div id="circless0" class="inner-circle "></div>
-        </div>
-        <div id="circle ">
-          <div id="circle">
-            <div id="circless1" class="inner-circle "></div>
-          </div>
-        </div>
-        <div id="circle">
-          <div id="circle">
-            <div id="circless2" class="inner-circle "></div>
-          </div>
-        </div>
-        <div id="circle" >
-          <div id="circle">
-            <div id="circless3" class="inner-circle "></div>
-          </div>
-        </div>
-        </div>
+  <div id="circle" >
+    <div id="circless0" class="inner-circle "></div>
+  </div>
+  <div id="circle ">
+    <div id="circle">
+      <div id="circless1" class="inner-circle "></div>
+    </div>
+  </div>
+  <div id="circle">
+    <div id="circle">
+      <div id="circless2" class="inner-circle "></div>
+    </div>
+  </div>
+  <div id="circle" >
+    <div id="circle">
+      <div id="circless3" class="inner-circle "></div>
+    </div>
+  </div>
+  </div>
+
 <!-- dialpad section -->
 <div class="dialpad">
-<ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
-<ion-button    fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(5)">5</ion-button>
-<ion-button  fill="clear"  type="button" size="small" class="grid-items"(click)="addNumber(6)">6</ion-button>
-<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(7)">7</ion-button>
-<ion-button   fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
-<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
-  <ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
-<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
-<ion-button *ngIf="isPinComplete"  routerLink="/change-pin-confirm" fill="clear" type="button" size="small" class="grid-items" >OK</ion-button>
-</div>
-
+  <ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(5)">5</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items"(click)="addNumber(6)">6</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(7)">7</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="removeNumber()"><ion-icon name="backspace-sharp"></ion-icon></ion-button>
+  <ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(0)">0</ion-button>
+  <ion-button *ngIf="isPinComplete"  routerLink="/change-pin-confirm" fill="clear" type="button" size="small" class="grid-items" ><ion-icon name="checkmark-outline"></ion-icon></ion-button>
+  </div>
+   </div>
+ </div>
 
 </ion-content>
