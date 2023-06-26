@@ -10,7 +10,9 @@ import { IonSlides } from '@ionic/angular';
 import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
-import { IonModal } from '@ionic/angular';
+import { IonModal, Platform } from '@ionic/angular';
+import { FilterComponent } from './filter/filter.component';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-hometab',
@@ -40,13 +42,26 @@ export class HometabPage implements OnInit, OnDestroy {
   filteredAccountHistory;
   private httpSubscriptions: Subscription[] = [];
 
+  // eslint-disable-next-line @typescript-eslint/member-ordering
   constructor(
+    private modalCtrl: ModalController,
+    private platform: Platform,
     private router: Router,
     private dashboardService: DashboardService,
     private alertController: AlertController,
     private http: HttpClient,
     private generalService: GeneralServiceService
   ) {}
+
+  async openfilterModal() {
+    const modal = await this.modalCtrl.create({
+      component: FilterComponent,
+      backdropBreakpoint: 0.1,
+      initialBreakpoint: 400 / this.platform.height(),
+      breakpoints: [0, 400 / this.platform.height()],
+    });
+    modal.present();
+  }
 
   ViewMore() {
     this.isView = true; // Set the flag to true when "View More" is clicked
