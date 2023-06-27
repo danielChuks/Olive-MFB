@@ -2,7 +2,7 @@
 /* eslint-disable @typescript-eslint/type-annotation-spacing */
 /* eslint-disable @typescript-eslint/naming-convention */
 /* eslint-disable @typescript-eslint/semi */
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { Router, RouterOutlet } from '@angular/router';
 import { DashboardService } from './dashboard.service';
 import { AlertController } from '@ionic/angular';
@@ -11,6 +11,7 @@ import { HttpClient } from '@angular/common/http';
 import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
 import { IonModal } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-hometab',
@@ -21,6 +22,8 @@ export class HometabPage implements OnInit, OnDestroy {
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   @ViewChild('slides', { static: true }) slides: IonSlides;
   @ViewChild(IonModal) modal: IonModal;
+  @ViewChild('swiper')
+  swiperRef: ElementRef | undefined;
 
   // eslint-disable-next-line @typescript-eslint/type-annotation-spacing
   initials: any;
@@ -78,14 +81,12 @@ export class HometabPage implements OnInit, OnDestroy {
   }
 
   // get index of card and use the index to pick account number from the list.
-  slideChanged(event) {
-    event.target.getActiveIndex().then((index) => {
-      this.currentIndex = index; //use index in transaction History page
+  swiperSlideChanged(event: any) {
+      this.currentIndex = this.swiperRef?.nativeElement.swiper.activeIndex; //use index in transaction History page
       this.currentAcctNumber =
-        this.multipleAccounts[this.currentIndex].accountNumber;
+      this.multipleAccounts[this.currentIndex].accountNumber;
       sessionStorage.setItem('currentAcctNumber', this.currentAcctNumber);
       this.getHistory();
-    });
   }
 
   getHistory = () => {
