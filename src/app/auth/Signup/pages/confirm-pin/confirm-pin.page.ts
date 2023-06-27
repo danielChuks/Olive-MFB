@@ -49,7 +49,11 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
     if (this.createPasscodeValues.length !== 4) {
       this.createPasscodeValues.push(num);
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
-        document.getElementById(`circless${i}`).classList.add('test');
+        const iconElement = document.createElement('ion-icon');
+        iconElement.setAttribute('name', 'medical-sharp');
+        const circleElement = document.getElementById(`circles${i}`);
+        circleElement.innerHTML = '';
+        circleElement.appendChild(iconElement);
       }
       if (this.createPasscodeValues.length === 4) {
         const loading = await this.loadingCtrl.create({
@@ -88,7 +92,7 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
             ));
         } else {
           loading.dismiss();
-          this.presentAlert('pins do not match');
+          this.presentAlert('Pins do not match');
         }
       }
     }
@@ -96,8 +100,9 @@ export class ConfirmPinPage implements OnInit, OnDestroy {
 
   removeNumber() {
     this.createPasscodeValues.pop();
-    for (let i = this.createPasscodeValues.length; i >= 0; i++) {
-      document.getElementById(`circless${i}`).classList.remove('test');
+    for (let i = this.createPasscodeValues.length; i >= 0; i--) {
+      const circleElement = document.getElementById(`circles${i}`);
+      circleElement.innerHTML = '';
       break;
     }
   }

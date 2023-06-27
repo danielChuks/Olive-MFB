@@ -56,13 +56,14 @@
             (click)="togglePwds()"
           ></ion-icon>
           {{this.message}}
-        </div>
-        <div
-          style="color: red"
+          <div
+          style="color: red; font-size: 0.75rem;"
           *ngIf="SignUpForm.get('password').value !== SignUpForm.get('confirmPassword').value && SignUpForm.get('confirmPassword').value !== null"
         >
           Passwords does not match
         </div>
+        </div>
+        
       </div>
     </div>
 
