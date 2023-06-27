@@ -57,8 +57,8 @@ export class HometabPage implements OnInit, OnDestroy {
     const modal = await this.modalCtrl.create({
       component: FilterComponent,
       backdropBreakpoint: 0.1,
-      initialBreakpoint: 400 / this.platform.height(),
-      breakpoints: [0, 400 / this.platform.height()],
+      initialBreakpoint: 500 / this.platform.height(),
+      breakpoints: [0, 500 / this.platform.height()],
     });
     modal.present();
   }

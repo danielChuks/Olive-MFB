@@ -15,20 +15,36 @@
       <div class="date-container">
         <div class="start-date">
           <ion-label>Start Date </ion-label>
-          <ion-input placeholder="Select date"
-            ><ion-icon name="calendar"></ion-icon>
-          </ion-input>
+          <input type="date" />
         </div>
         <div class="end-date">
           <ion-label>End Date </ion-label>
-          <ion-input placeholder="Select date">
-            <ion-icon name="calendar"></ion-icon
-          ></ion-input>
+          <input type="date" />
         </div>
       </div>
     </div>
   </ion-item>
+  <div class="bottom-border-1"></div>
+
   <ion-item lines="none">
     <ion-label>Transaction type</ion-label>
   </ion-item>
+
+  <div class="credit-debit-container">
+    <div class="check">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Credit</ion-label>
+    </div>
+    <div class="check">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Debit</ion-label>
+    </div>
+  </div>
+
+  <div class="btn">
+    <ion-button class="button" type="submit" expand="block"
+      >Continue</ion-button
+    >
+  </div>
+  <div class="bottom"></div>
 </ion-content>
