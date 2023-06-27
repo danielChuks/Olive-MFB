@@ -1,33 +1,36 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-icon
-      name="chevron-back-outline"
-      routerLink="/new-tab/profile"
-    ></ion-icon>
-    <ion-text><span>Forgot Pin</span></ion-text>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="arrow-back"
+          routerLink="/settings"
+        ></ion-icon></ion-col>
+        <ion-col size="9.5">Forgot Pin</ion-col>
+      </ion-row>
+    </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <ion-text>
-    <h3>Forgot your Pin?</h3>
-    <p>
-      Please input your app password and a new transaction pin. An OTP will be
-      sent to your registered phone number
+    <h3>Forgot Password</h3>
+    <p class="text">
+      Kindly input account number and 
+transaction pin.
     </p>
   </ion-text>
   <form [formGroup]="forgotPinForm">
-    <div class="accountNumber">
+    <div class="form">
       <ion-label for="password" form>Password</ion-label>
       <ion-input
         type="password"
         name="password"
         formControlName="password"
       ></ion-input>
-      <ion-text></ion-text>
     </div>
 
-    <div class="password">
+    <div class="password form">
       <ion-label for="pin" form>New Transaction Pin</ion-label>
       <ion-input
         type="password"
@@ -36,15 +39,16 @@
         formControlName="pin"
         placeholder="Enter your new four digits  pin"
       ></ion-input>
-      <ion-text></ion-text>
+      <!-- <ion-text></ion-text>
+      <p>Transaction pin must be four digits</p> -->
     </div>
-    <p>Transaction pin must be four digits</p>
-
+   
+<div class="btn">
     <ion-button
       expand="block"
       [disabled]="!forgotPinForm.valid"
       (click)="checkPassword(forgotPinForm)"
-      >Submit</ion-button
-    >
+      >Submit</ion-button>
+  </div>
   </form>
 </ion-content>

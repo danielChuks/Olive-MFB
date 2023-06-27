@@ -31,7 +31,11 @@ export class ChangePinOldPage implements OnInit {
     if (this.createPasscodeValues.length !== 4) {
       this.createPasscodeValues.push(num);
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
-        document.getElementById(`circles${i}`).classList.add('test');
+        const iconElement = document.createElement('ion-icon');
+        iconElement.setAttribute('name', 'medical-sharp');
+        const circleElement = document.getElementById(`circles${i}`);
+        circleElement.innerHTML = '';
+        circleElement.appendChild(iconElement);
       }
       if (this.createPasscodeValues.length === 4) {
         const loading = await this.loadingCtrl.create({
@@ -62,8 +66,9 @@ export class ChangePinOldPage implements OnInit {
 
   removeNumber() {
     this.createPasscodeValues.pop();
-    for (let i = this.createPasscodeValues.length; i >= 0; i++) {
-      document.getElementById(`circles${i}`).classList.remove('test');
+    for (let i = this.createPasscodeValues.length; i >= 0; i--) {
+      const circleElement = document.getElementById(`circles${i}`);
+      circleElement.innerHTML = '';
       break;
     }
   }
