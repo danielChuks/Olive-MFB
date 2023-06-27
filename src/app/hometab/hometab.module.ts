@@ -11,8 +11,10 @@ import { TransactionModalModule } from '../reusableComponents/transaction-modal/
 // import { TransactionsModule } from '../reusableComponents/transactions/transactions.module';
 import { TransactionsModule } from './transactions/transactions.module';
 import { AuthInterceptor } from '../auth.interceptor';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
+    schemas: [CUSTOM_ELEMENTS_SCHEMA],
   imports: [
     CommonModule,
     FormsModule,
