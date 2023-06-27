@@ -5,8 +5,8 @@
 export const environment = {
   production: false,
 // Neptune IP
-baseUrl: 'http://10.152.2.126',
-baseApi: 'http://10.152.2.126:8080/api/v1/',
+  baseUrl: 'http://10.152.2.126',
+  baseApi: 'http://10.152.2.126:8080/api/v1/',
 
 
 // Nwannegadi IP

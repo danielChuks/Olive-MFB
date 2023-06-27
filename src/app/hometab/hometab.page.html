@@ -24,7 +24,7 @@
 
 <ion-content class="ion-padding" [fullscreen]="true">
   <div>
-    <ion-slides
+    <!-- <ion-slides
       (ionSlideDidChange)="slideChanged($event)"
       [options]="{ slidesPerView:1 }"
       class="slide"
@@ -37,7 +37,21 @@
         >
         </app-card>
       </ion-slide>
-    </ion-slides>
+    </ion-slides> -->
+
+    <swiper-container [pagination]="true" [slidesPerView]="1.05" #swiper (slidechange)="swiperSlideChanged($event)">
+      <swiper-slide *ngFor="let account of multipleAccounts; let i = index; ">
+
+        <app-card
+          [accountBalance]="account.availableBalance"
+          [accountNumber]="account.accountNumber"
+        >
+        </app-card>
+
+        <!-- <p>card 1</p> -->
+
+      </swiper-slide>
+    </swiper-container>
 
     <!-- timit -->
 

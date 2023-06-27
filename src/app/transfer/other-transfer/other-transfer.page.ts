@@ -217,7 +217,7 @@ export class OtherTransferPage implements OnInit, OnDestroy {
       .subscribe(
          data=>{
       this.beneficiaryAccountName = data.accountName;
-      this.isAccountSelected = true;
+          this.isAccountSelected = true;
          },
 
          err=>{

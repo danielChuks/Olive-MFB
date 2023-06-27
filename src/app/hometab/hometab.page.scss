@@ -1,22 +1,11 @@
-.my-slides {
-  --bullet-background: white;
-  --bullet-background-active: white;
+
+swiper-container{
+  --swiper-pagination-bullet-inactive-color:  black;
+  --swiper-pagination-color: #808000;
+  --swiper-pagination-bottom: -4px;
+  --swiper-pagination-bullet-horizontal-gap: 4px;
 }
 
-.service-slides {
-  --bullet-background: #018401;
-  --bullet-background-active: #018401;
-  padding-bottom: 2.2rem;
-}
-
-.service-slides .swiper-pagination-bullet {
-  width: 15px;
-  height: 15px;
-}
-
-.slide {
-  border: 1px solid green;
-}
 
 .quick_action {
   margin-top: 0.6rem;
