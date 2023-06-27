@@ -150,7 +150,8 @@
         [debounce]="1000"
         (ionChange)="handleSearchInput($event)"
       ></ion-searchbar>
-      <ion-icon name="funnel" class="funnel-icon" *ngIf="isView"></ion-icon>
+
+      <ion-icon name="funnel" class="funnel-icon" *ngIf="isView" (click)="openfilterModal()"> </ion-icon>
     </div>
     <!-- Transaction History -->
     <div class="history-container">

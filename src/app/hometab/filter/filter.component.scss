@@ -1,0 +1,105 @@
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
+
+  .text {
+    color: #808000;
+    font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.16px;
+  }
+
+  .icon {
+    position: absolute;
+    left: 88.61%;
+    right: 7.22%;
+    top: 5.48%;
+    bottom: 90.71%;
+  }
+}
+.bottom-border {
+  left: 4.5px;
+  border: 1px solid #cdcdb9;
+}
+
+.bottom-border-1 {
+  left: 4.5px;
+  border: 1px solid #cdcdb9;
+  margin-top: 23px;
+}
+
+.container {
+  width: 100%;
+  margin-top: 10px;
+
+  ion-label {
+    color: #000;
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.14px;
+  }
+
+  .date-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    gap: 16px;
+
+    ion-label {
+      color: #000;
+      font-size: 14px;
+      font-family: "Montserrat";
+      font-weight: 500;
+      line-height: 22px;
+      text-transform: capitalize;
+    }
+    input {
+      width: 148px;
+      height: 43px;
+      color: #3a0404;
+      font-size: 14px;
+      font-family: Montserrat;
+      font-weight: 500;
+      line-height: 22px;
+      background-color: white !important;
+      border-radius: 5px;
+      padding-left: 5px !important;
+      border: 1px solid #4b4b4b;
+    }
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      width: 25px;
+      height: 25px;
+      filter: invert(70%);
+      padding-right: 10px;
+      margin: 0px;
+    }
+  }
+
+  ion-label {
+    color: #000;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.14px;
+  }
+}
+.credit-debit-container {
+  display: flex;
+  width: 100%;
+  padding: 0 4rem 0 2rem;
+  justify-content: space-between !important;
+  .check  {
+    display: flex;
+    align-items: center;
+    ion-checkbox{
+      margin-right: 20px;
+    }
+  }
+}
