@@ -179,6 +179,10 @@ const routes: Routes = [
   },  {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
+  },
+  {
+    path: 'settings',
+    loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   }
 
 

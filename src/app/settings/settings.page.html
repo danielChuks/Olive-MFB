@@ -1,0 +1,56 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"><ion-icon
+          name="arrow-back"
+          routerLink="/new-tab/hometab"
+        ></ion-icon></ion-col>
+        <ion-col size="9.5">Settings</ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="content">
+   <ion-list lines="full" class="user-details">
+        <div class="security-details">
+          <ion-item lines="none">
+            <!-- <ion-avatar slot="start">
+              <img
+                id="circle"
+                src="../../assets/images/validation.png"
+                alt=""
+              />
+            </ion-avatar> -->
+            <ion-label (click)="openChangePassword()"
+              >Change Password</ion-label
+            >
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <!-- <ion-avatar slot="start">
+              <img id="circle" src="../../assets/images/pin-pad.png" alt="" />
+            </ion-avatar> -->
+            <ion-label (click)="openChangePin()"
+              >Change Transaction Pin</ion-label
+            >
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+          <ion-item lines="none">
+            <!-- <ion-avatar slot="start">
+              <img
+                id="circle"
+                src="../../assets/images/forgot-password.png"
+                alt=""
+              />
+            </ion-avatar> -->
+            <ion-label (click)="openForgotPin()">Reset Transaction Pin</ion-label>
+            <ion-icon name="chevron-forward-outline"></ion-icon>
+          </ion-item>
+         
+        </div>
+      </ion-list>
+  </div>
+</ion-content>
