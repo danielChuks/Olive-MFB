@@ -1,123 +1,177 @@
 //card styling
 
-.empty-card{
-// text-align: center;
-h3{
+.empty-card {
+  // text-align: center;
+  h3 {
     margin-top: 4rem;
-}
+  }
 }
 .card {
+  position: absolute;
+  height: 302px;
+  width: 100%;
+  background: #ffffff;
+
+  .title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+    margin-top: -5px;
+    color: #ffffff;
+    h3 {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 14px;
+    }
+  }
+
+  .chip {
     position: absolute;
-    height: 302px;
-    width: 100%;
-    background: #ffffff;
+    width: 34px;
+    height: 30px;
+    margin-left: 16px;
+    color: #ffffff;
+  }
 
-    .title {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 16px 0px 16px;
-        margin-top: -5px;
-        color: #ffffff;
-        h3 {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 14px;
-        }
+  h4 {
+    margin: 45px 0px -15px 16px;
+    font-weight: 600;
+    font-size: 24px;
+    color: #ffffff;
+  }
+
+  .subtitle {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 16px 0px 16px;
+    margin-top: 10px;
+    color: #ffffff;
+    .name {
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 14px;
+      width: 50%;
+      color: #ffffff;
     }
 
-    .chip {
-        position: absolute;
-        width: 34px;
-        height: 30px;
-        margin-left: 16px;
+    //Expiry date styling
+    .date {
+      // width: 25%;
+      font-size: 12px;
+      color: #ffffff;
+      span {
+        width: 32px;
+        height: 12px;
         color: #ffffff;
+      }
     }
-
-    h4{
-        margin: 45px 0px -15px 16px;
-        font-weight: 600;
-        font-size: 24px;
-        color: #ffffff;
-    }
-
-    .subtitle {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0px 16px 0px 16px;
-        margin-top: 10px;
-        color: #ffffff;
-        .name {
-            font-weight: 400;
-            font-size: 16px;
-            line-height: 14px;
-            width: 50%;
-            color: #ffffff;
-        }
-
-        //Expiry date styling
-        .date {
-            // width: 25%;
-            font-size: 12px;
-            color: #ffffff;
-            span{
-                width: 32px;
-                height: 12px;
-                color: #ffffff;
-            }
-        }
-    }
+  }
 }
 
 ion-card {
-    height: 165px;
-    // width: 100%;
-    margin: 32px 22px 0px 22px;
-    background: #3E5151;  
-    background: -webkit-linear-gradient(to right, #94876e, #3E5151);  
-    background: linear-gradient(to right, #94876e, #3E5151); 
-    border: 0.1px solid #a8b479;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 8px;
-    }
-    .select-accounts {
-        font-size: 15px;
-        color: #6e7a32;
-        padding: 40px;
-        font-weight: 600;
-    }
+  height: 165px;
+  margin: 32px 22px 0px 22px;
+  background: #3e5151;
+  background: -webkit-linear-gradient(to right, #94876e, #3e5151);
+  background: linear-gradient(to right, #94876e, #3e5151);
+  border: 0.1px solid #a8b479;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+}
+.select-accounts {
+  font-size: 15px;
+  color: #6e7a32;
+  padding: 40px;
+  font-weight: 600;
 
-    .services {
-        ion-text {
-            margin-left: 24px;
-            font-weight: 400;
-            font-size: 16px;
-            text-align: center;
-            color: #666666;
-        }
-    .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 16px;
-        h3 {
-            font-weight: 400;
-            font-size: 18px;
-            margin-left: 8px;
+  ion-select {
+    background: #f0f3f3;
+    border-radius: 12px;
+    padding: 16px 10px 16px 16px;
+  }
+}
 
-        }
-
-        ion-toggle {
-            height: 22.28px;
-            --background-checked : #018401;
-        }
-      }
-    }
-
-.empty-card{
-    color: #ffffff;
+.services {
+  ion-text {
+    margin-left: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    text-align: center;
+    color: #666666;
+  }
+  .header {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
+
+    h3 {
+      color: var(--gray-0, #252525);
+      font-size: 14px;
+      font-family: Montserrat;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.24px;
+    }
+
+    ion-toggle {
+      height: 22.28px;
+      --background-checked: #018401;
+    }
+  }
+}
+
+.empty-card {
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.account-details-container {
+  display: block;
+  margin-top: 26px;
+  padding-left: 27px;
+  padding-right: 27px;
+
+  .account-detail-reused {
+    display: flex;
+    gap: 10px;
+    color: var(--neutrals-2, #23262f);
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 40px;
+  }
+  .card-number {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--neutrals-2, #23262f);
+    font-size: 12px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 40px;
+
+    .card-number-content {
+      display: flex;
+      gap: 10px;
+    }
+    .show {
+      padding-right: 37px;
+      color: #808000;
+      font-size: 12px;
+      font-family: Montserrat;
+      font-weight: 600;
+      line-height: 24px;
+      text-decoration-line: underline;
+    }
+  }
+
+  .border {
+    border: #E0E0E0 solid 1px;
+    margin-top: 24px;
+    margin-bottom: 32px;
+  }
 }

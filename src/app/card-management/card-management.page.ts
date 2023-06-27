@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./card-management.page.scss'],
 })
 export class CardManagementPage implements OnInit {
+backHome() {
+throw new Error('Method not implemented.');
+}
 
   constructor() { }
 
