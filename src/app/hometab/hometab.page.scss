@@ -8,10 +8,11 @@ swiper-container{
 
 
 .quick_action {
-  margin-top: 0.6rem;
+  margin-top: 0.8rem;
   h6 {
     color: #484848;
     font-weight: 700;
+    font-size: 1rem;
   }
 
   .row {
@@ -21,14 +22,18 @@ swiper-container{
   .column {
     display: flex;
     flex-direction: column;
-    gap: 2px;
-    font-size: 13px;
+    gap: .375rem;
     align-items: center;
 
     p {
-      margin-top: -24px;
+      margin-top: -1.5rem;
+      font-size: 0.8rem;
     }
   }
+}
+
+ion-col{
+  text-align: center;
 }
 
 .select_transfer {
@@ -73,6 +78,9 @@ ion-toolbar {
       margin-left: 16px;
       width: 36px;
       height: 36px;
+       display: flex;
+    justify-content: center;
+      align-items: center;
       background-color: rgb(243, 243, 243);
     }
 
@@ -80,7 +88,6 @@ ion-toolbar {
       font-size: 20px;
       width: 20px;
       height: 20px;
-      margin: 6px 0px 0px 8px;
       color: #000000;
     }
 
@@ -88,7 +95,7 @@ ion-toolbar {
       font-size: 16px;
       margin: 0px 0 0px 9px;
       font-weight: 600;
-      font-size: 16px;
+      font-size: 1rem;
       line-height: 16px;
     }
   }
