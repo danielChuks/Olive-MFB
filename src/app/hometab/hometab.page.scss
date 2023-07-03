@@ -26,10 +26,20 @@ swiper-container{
     align-items: center;
 
     p {
-      margin-top: -24px;
+      margin-top: -1.5rem;
+      font-size: 0.85rem;
     }
   }
 }
+.test{
+  // border: 1px solid red;
+}
+
+ion-row{
+  gap: .0rem;
+}
+
+
 
 .select_transfer {
   display: flex;
