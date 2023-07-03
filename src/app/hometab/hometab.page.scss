@@ -143,8 +143,10 @@ ion-modal::part(backdrop) {
   padding: 16px 16px 16px 16px;
   margin-top: 12px;
   position: fixed;
+  width: 100%;
 
   .header {
+    border: solid red 1px;
     display: flex;
     width: 100%;
     justify-content: space-between;

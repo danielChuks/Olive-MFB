@@ -119,25 +119,25 @@
   </div>
 
   <div class="transaction-container">
-    <div
+    <!-- <div
       class="header"
       [class.isView]="isView"
-      [style.justify-content]="!isView ? 'space-around' : '' "
-    >
-      <h3 class="title" *ngIf="!isView">Recent Transactions</h3>
+      [style.justify-content]="!isView ? 'space-between' : '' "
+    > -->
+      <!-- <h3 class="title" *ngIf="!isView">Recent Transactions</h3> -->
       <!-- Route to transaction history page -->
-      <p class="view-more" *ngIf="!isView" (click)="ViewMore()">View More</p>
-      <ion-searchbar
+      <!-- <p class="view-more" *ngIf="!isView" (click)="ViewMore()">View More</p> -->
+      <!-- <ion-searchbar
         fill="none"
         mode="ios"
         *ngIf="isView"
         class="searchbar"
         [debounce]="1000"
         (ionChange)="handleSearchInput($event)"
-      ></ion-searchbar>
+      ></ion-searchbar> -->
 
-      <ion-icon name="funnel" class="funnel-icon" *ngIf="isView" (click)="openfilterModal()"> </ion-icon>
-    </div>
+      <!-- <ion-icon name="funnel" class="funnel-icon" *ngIf="isView" (click)="openfilterModal()"> </ion-icon>
+    </div> -->
     <!-- Transaction History -->
     <div class="history-container">
       <app-transactions
