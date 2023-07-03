@@ -14,7 +14,7 @@
 <ion-header *ngIf="!isView" class="ion-no-border">
   <ion-toolbar>
     <div class="content-header">
-      <ion-avatar slot="start">
+      <ion-avatar>
         <ion-icon name="person-outline"></ion-icon>
       </ion-avatar>
       <ion-label>Hello {{firstName}}, </ion-label>
@@ -92,22 +92,22 @@
           </ion-col>
         </ion-row>
 
-        <ion-row  class="bottom-row">
-          <ion-col  class="ion-text-center test" size="4" (click)="ViewMore()">
+        <ion-row class="ion-align-items-center" class="bottom-row">
+          <ion-col   size="4" (click)="ViewMore()">
             <div class="column">
               <img src="../../assets/images/Transaction history.svg" />
               <p>Transactions</p>
             </div>
           </ion-col>
 
-          <ion-col  class="ion-text-center test" size="4"  routerLink="/manage-beneficiaries">
+          <ion-col  size="4"  routerLink="/manage-beneficiaries">
             <div class="column">
               <img src="../../assets/images/Beneficiaries.svg" />
               <p>Beneficiaries</p>
             </div>
           </ion-col>
 
-          <ion-col   class="ion-text-center test" size="4"  routerLink="/settings">
+          <ion-col  size="4"  routerLink="/settings">
             <div class="column">
               <img src="../../assets/images/Settings.svg" />
               <p>Settings</p>

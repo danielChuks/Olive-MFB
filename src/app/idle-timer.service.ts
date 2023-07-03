@@ -12,7 +12,7 @@ export class IdleTimerService {
     private idle: Idle) { }
 
     startIdleTime(){
-      this.idle.setIdle(60);
+      this.idle.setIdle(5000);
       this.idle.setTimeout(90);
       this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
       this.idle.onTimeout.subscribe(() => {
@@ -20,7 +20,7 @@ export class IdleTimerService {
       });
       this.idle.onInterrupt.subscribe(() => {
         this.idle.watch();
-        this.idle.setIdle(60);
+        this.idle.setIdle(5000);
         this.idle.setTimeout(90);
       });
       this.idle.watch();
