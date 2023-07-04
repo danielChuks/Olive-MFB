@@ -63,7 +63,7 @@ ion-toolbar {
   color: #808000;
   // margin: 5px 0px 0 0px;
   ion-icon {
-    font-size: 28px;
+    font-size: 25px;
   }
   ion-col {
     display: flex;
@@ -73,6 +73,12 @@ ion-toolbar {
     font-weight: 700;
     font-size: 18px;
     line-height: 46px;
+  }
+
+  p {
+    font-size: 14px;
+    text-decoration: underline;
+    margin-top: -3px;
   }
 }
 

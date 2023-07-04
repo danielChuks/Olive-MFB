@@ -4,9 +4,13 @@
 
 export const environment = {
   production: false,
-// Neptune IP
+// Harl IP
   baseUrl: 'http://10.152.2.126',
   baseApi: 'http://10.152.2.126:8080/api/v1/',
+
+  // Timi IP
+  // baseUrl: 'http://10.152.2.36',
+  // baseApi: 'http://10.152.2.36:8080/api/v1/',
 
 
 // Nwannegadi IP
