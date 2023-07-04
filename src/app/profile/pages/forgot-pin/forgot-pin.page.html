@@ -6,20 +6,14 @@
           name="arrow-back"
           routerLink="/settings"
         ></ion-icon></ion-col>
-        <ion-col size="9.5">Forgot Pin</ion-col>
+        <ion-col size="9.5">Reset Pin</ion-col>
       </ion-row>
     </ion-grid>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-text>
-    <h3>Forgot Password</h3>
-    <p class="text">
-      Kindly input account number and 
-transaction pin.
-    </p>
-  </ion-text>
+  <h3>Kindly enter your app password and a new transaction pin.</h3>
   <form [formGroup]="forgotPinForm">
     <div class="form">
       <ion-label for="password" form>Password</ion-label>
