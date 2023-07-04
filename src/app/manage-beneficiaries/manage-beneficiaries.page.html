@@ -11,7 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
   <div class="search-icon-container">
     <ion-searchbar
       fill="none"
@@ -20,7 +20,7 @@
       [debounce]="1000"
       (ionChange)="handleSearchInput($event)"
     ></ion-searchbar>
-    <ion-icon name="funnel" class="funnel-icon"></ion-icon>
+    <ion-icon name="filter-outline" class="funnel-icon"></ion-icon>
   </div>
 
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
