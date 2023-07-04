@@ -1,10 +1,12 @@
 /* eslint-disable prefer-arrow/prefer-arrow-functions */
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { IonModal, Platform } from '@ionic/angular';
+import { AlertController, IonModal, Platform } from '@ionic/angular';
 import { BeneficiariesService } from './beneficiaries.service';
 import { ModalController } from '@ionic/angular';
 import { ModalPagePage } from './modal-page/modal-page.page';
 import { Subscription } from 'rxjs';
+import { Router } from '@angular/router';
+import { GeneralServiceService } from '../general-service.service';
 
 @Component({
   selector: 'app-manage-beneficiaries',
@@ -13,15 +15,21 @@ import { Subscription } from 'rxjs';
 })
 export class ManageBeneficiariesPage implements OnInit, OnDestroy {
   @ViewChild(IonModal) modal: IonModal;
-
+  senderAcctNo;
+  storedData;
   filteredBenList: any;
   selectedBeneficiary;
+  beneficiaryDetails;
+
   private httpSubscriptions: Subscription[] = [];
 
   constructor(
     public beneficiaryService: BeneficiariesService,
     private modalCtrl: ModalController,
-    private platform: Platform
+    private alertController: AlertController,
+    private generalService: GeneralServiceService,
+    private platform: Platform,
+    private router: Router
   ) {}
 
   async openModal(
@@ -77,6 +85,13 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.senderAcctNo = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.storedData = JSON.parse(sessionStorage.getItem('selectedBeneficiary'));
+    this.beneficiaryDetails = {
+      ...this.storedData,
+      senderAcctNo: this.senderAcctNo,
+    };
+
     this.httpSubscriptions.push(
       this.beneficiaryService.getBeneficiaryList().subscribe(
         (data) => {
@@ -87,6 +102,50 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
         (err) => {}
       )
     );
+  }
+
+  cancel() {
+    //close modal and navigate to transfer based on the beneficiary selected
+    if (this.beneficiaryDetails.bankCode === 'local') {
+      this.router.navigateByUrl('/transfer');
+      this.generalService.updateMessage({
+        isTrue: true,
+        benNo: this.beneficiaryDetails.beneficiaryAcctNo,
+        benName: this.beneficiaryDetails.beneficiaryAcctName,
+      });
+    } else {
+      this.router.navigateByUrl('/other-transfer');
+      this.generalService.updateExternal({
+        isTrue: true,
+        benNo: this.beneficiaryDetails.beneficiaryAcctNo,
+        benName: this.beneficiaryDetails.beneficiaryAcctName,
+      });
+    }
+
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
+
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      message: msg,
+      buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+  deleteBeneficiary() {
+    //console.log(this.beneficiaryDetails);
+    this.beneficiaryService.deleteBeneficiary().subscribe(
+      (data) => {
+        this.presentAlert(data.responseMessage);
+      },
+
+      (err) => {
+        //console.log(err);
+      }
+    );
+
+    return this.modalCtrl.dismiss(null, 'cancel');
   }
 
   handleRefresh(event) {
