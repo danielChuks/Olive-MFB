@@ -17,8 +17,9 @@ export const environment = {
 // baseUrl: 'http://192.168.1.2',
 // baseApi: 'http://192.168.1.2:8080/api/v1/',
 
+//Faith IP
 // baseUrl: 'http://10.152.2.134',
-// baseApi: 'http://10.152.2.134:8080/api/v1/',
+// baseApi: 'http://10.152.2.134:5000/api/v1/',
 };
 
 /*
