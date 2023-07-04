@@ -4,7 +4,7 @@
       <ion-row>
         <ion-col size="auto"
           ><ion-icon
-            name="chevron-back-outline"
+             name="arrow-back"
             routerLink="/new-tab/hometab"
           ></ion-icon
         ></ion-col>
@@ -75,7 +75,7 @@
           [(ngModel)]="benAcctNo"
           [ngModelOptions]="{standalone: true}"
           maxlength="10"
-          placeholder="input beneficiary account"
+          placeholder="Input beneficiary account"
           [disabled]="isBeneficiarySelected"
         ></ion-input>
         <ion-text
@@ -150,7 +150,7 @@
         type="text"
         name="amount"
         formControlName="amount"
-        placeholder="input amount"
+        placeholder="Input amount"
         (input)="formatInput($event.target.value)"
       ></ion-input>
     </div>
@@ -167,7 +167,7 @@
       <ion-input
         type="text"
         formControlName="narration"
-        placeholder="transaction description"
+        placeholder="Transaction description"
       ></ion-input>
     </div>
 
