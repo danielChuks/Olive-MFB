@@ -10,86 +10,91 @@ import { Router } from '@angular/router';
   styleUrls: ['./modal-page.page.scss'],
 })
 export class ModalPagePage implements OnInit {
-   message: string;
+  message: string;
   beneficiaryDetails;
   senderAcctNo;
   storedData;
-    constructor(private beneficiaryService: BeneficiariesService, private alertController: AlertController,
-      private modalCtrl: ModalController,  private generalService: GeneralServiceService, private router: Router,) { }
+  constructor(
+    private beneficiaryService: BeneficiariesService,
+    private alertController: AlertController,
+    private modalCtrl: ModalController,
+    private generalService: GeneralServiceService,
+    private router: Router
+  ) {}
 
-    ngOnInit() {
-      this.senderAcctNo = JSON.parse(sessionStorage.getItem('accountNumber'));
-      this.storedData= JSON.parse(sessionStorage.getItem('selectedBeneficiary'));
-      this.beneficiaryDetails = { ...this.storedData, senderAcctNo: this.senderAcctNo };
-    }
-
+  ngOnInit() {
+    this.senderAcctNo = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.storedData = JSON.parse(sessionStorage.getItem('selectedBeneficiary'));
+    this.beneficiaryDetails = {
+      ...this.storedData,
+      senderAcctNo: this.senderAcctNo,
+    };
+  }
 
   cancel() {
     //close modal and navigate to transfer based on the beneficiary selected
     if (this.beneficiaryDetails.bankCode === 'local') {
       this.router.navigateByUrl('/transfer');
       this.generalService.updateMessage({
-        isTrue : true,
+        isTrue: true,
         benNo: this.beneficiaryDetails.beneficiaryAcctNo,
-        benName : this.beneficiaryDetails.beneficiaryAcctName});
-    }
-    else {
+        benName: this.beneficiaryDetails.beneficiaryAcctName,
+      });
+    } else {
       this.router.navigateByUrl('/other-transfer');
       this.generalService.updateExternal({
-          isTrue : true,
+        isTrue: true,
         benNo: this.beneficiaryDetails.beneficiaryAcctNo,
-        benName : this.beneficiaryDetails.beneficiaryAcctName});
+        benName: this.beneficiaryDetails.beneficiaryAcctName,
+      });
     }
 
- return this.modalCtrl.dismiss(null, 'cancel');
-    }
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
 
-
-    deleteBeneficiary(){
-      //console.log(this.beneficiaryDetails);
-    this.beneficiaryService.deleteBeneficiary()
-    .subscribe(
-      data=>{
+  deleteBeneficiary() {
+    //console.log(this.beneficiaryDetails);
+    this.beneficiaryService.deleteBeneficiary().subscribe(
+      (data) => {
         this.presentAlert(data.responseMessage);
       },
 
-      err=>{
+      (err) => {
         //console.log(err);
       }
     );
 
-       return this.modalCtrl.dismiss(null, 'cancel');
-    }
+    return this.modalCtrl.dismiss(null, 'cancel');
+  }
 
+  async presentAlert(msg) {
+    const alert = await this.alertController.create({
+      message: msg,
+      buttons: ['OK'],
+    });
 
-    async presentAlert(msg) {
-      const alert = await this.alertController.create({
-        message: msg,
-        buttons: ['OK'],
-      });
+    await alert.present();
+  }
 
-      await alert.present();
-    }
-
-    async deleteAlert() {
-      const alert = await this.alertController.create({
-        header: 'Are you sure?',
-        cssClass: 'custom-alert',
-        mode: 'ios',
-        buttons: [
-          {
-            text: 'No',
-            cssClass: 'alert-button-cancel',
+  async deleteAlert() {
+    const alert = await this.alertController.create({
+      header: 'Are you sure?',
+      cssClass: 'custom-alert',
+      mode: 'ios',
+      buttons: [
+        {
+          text: 'No',
+          cssClass: 'alert-button-cancel',
+        },
+        {
+          text: 'Yes',
+          cssClass: 'alert-button-confirm',
+          handler: () => {
+            this.deleteBeneficiary();
           },
-          {
-            text: 'Yes',
-            cssClass: 'alert-button-confirm',
-            handler: () => {
-              this.deleteBeneficiary();
-            }
-          },
-        ],
-      });
-      await alert.present();
-    }
+        },
+      ],
+    });
+    await alert.present();
+  }
 }

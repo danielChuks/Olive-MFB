@@ -10,9 +10,9 @@
   }
 }
 
-
 .search-icon-container {
   display: flex;
+  align-items: center;
   justify-content: space-between;
   padding: 14px 37px 37px;
   gap: 15px;
@@ -29,6 +29,7 @@
     width: 30px;
     height: 30px;
     color: gray;
+    margin-bottom: 8px;
   }
 }
 
@@ -46,7 +47,7 @@
 ion-fab {
   padding-bottom: 36px;
   padding-right: 26px;
-  
+
   ion-fab-button {
     --background: #000000;
     --background-activated: #000000;
@@ -94,6 +95,83 @@ ion-fab {
         line-height: 18px;
         letter-spacing: -0.24px;
       }
+    }
+  }
+}
+ion-modal {
+  --height: 35%;
+  --border-radius: 16px;
+  padding: 16px;
+  overflow: hidden;
+  position: fixed;
+}
+
+ion-modal::part(backdrop) {
+  background: #000000;
+  opacity: 1;
+}
+
+ion-col {
+  text-align: center;
+}
+
+.select_transfer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  .heading {
+    margin-top: 2rem;
+    align-self: center;
+  }
+
+  .transfer-to-beneficiary {
+    background: #000;
+    padding: 1.1rem;
+    color: #ffffff;
+    font-size: 16px;
+    box-sizing: border-box;
+    margin-top: 1rem;
+  }
+
+  .delete-beneficiary {
+    padding: 1.1rem;
+    background-color: #ffffff;
+    font-size: 16px;
+    border: 2px solid #000000;
+    box-sizing: border-box;
+    margin-top: 1rem;
+    color: #000;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 600;
+  }
+
+  ion-text {
+    color: #595757;
+    font-size: 12px;
+    font-size: 12px;
+    font-family: "Montserrat";
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
+
+  .modal-accountno {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    p {
+      color: #595757;
+      font-size: 12px;
+      font-size: 12px;
+      font-family: "Montserrat";
+      font-style: normal;
+      font-weight: 600;
+      line-height: 18px;
+      letter-spacing: -0.24px;
     }
   }
 }

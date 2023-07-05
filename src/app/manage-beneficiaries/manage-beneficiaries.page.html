@@ -11,19 +11,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-
-
-  <div class="flex">
-  <ion-searchbar
-    [debounce]="1000"
-    mode="ios"
-    [debounce]="1000"
-    (ionChange)="handleSearchInput($event)"
-  ></ion-searchbar>      
- 
-</div>
-
+<ion-content class="ion-padding">
   <div class="search-icon-container">
     <ion-searchbar
       fill="none"
@@ -32,7 +20,7 @@
       [debounce]="1000"
       (ionChange)="handleSearchInput($event)"
     ></ion-searchbar>
-    <ion-icon name="funnel" class="funnel-icon"></ion-icon>
+    <ion-icon name="filter-outline" class="funnel-icon"></ion-icon>
   </div>
 
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
@@ -45,22 +33,19 @@
     </ion-refresher-content>
   </ion-refresher>
   <ion-content>
-
-
     <div class="beneficiaries-list">
       <ion-item-group button detail="true">
-        <ion-item 
-          *ngFor="let list of filteredBenList"
-          (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
-          button
-        >
+        <ion-item *ngFor="let list of filteredBenList" id="open-modal">
+          <!-- (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
+        button -->
           <div class="beneficiaries-details">
             <div class="ben-name">
               <ion-text>{{list.benAccountName}} </ion-text>
             </div>
             <div class="ben-account">
-              <p>{{list.benAccountNumber}}<p>
-              <div class="hiphin"> - </div>
+              <p>{{list.benAccountNumber}}</p>
+              <p></p>
+              <div class="hiphin">-</div>
               <p>{{list.benBankName}}</p>
             </div>
           </div>
@@ -72,7 +57,31 @@
       </ion-item-group>
     </div>
 
+    <ion-modal #modal trigger="open-modal">
+      <ion-col>
+        <ng-template>
+          <ion-content class="ion-padding">
+            <div class="select_transfer" *ngFor="let list of filteredBenList">
+              <div class="modal-accountno">
+                <div class="accountNo">
+                  <p>{{list.benAccountNumber}}</p>
+                </div>
+                <div class="bankName">
+                  <p>{{list.benBankName}}</p>
+                </div>
+              </div>
+              <button class="transfer-to-beneficiary" (click)="cancel()">
+                Transfer to beneficiary
+              </button>
 
+              <button class="delete-beneficiary" (click)="cancel()">
+                Delete beneficiary
+              </button>
+            </div>
+          </ion-content>
+        </ng-template>
+      </ion-col>
+    </ion-modal>
   </ion-content>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
