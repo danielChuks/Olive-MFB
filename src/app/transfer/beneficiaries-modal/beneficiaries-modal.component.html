@@ -1,11 +1,22 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-icon name="close-outline" routerLink="/transfer" (click)="cancel()"></ion-icon>
-    <ion-text><span>Beneficiaries</span></ion-text>
+<ion-header>
+  <ion-toolbar class="ion-padding-end" >
+    <ion-title>Select Beneficiary</ion-title>
+    <ion-icon size="large" name="close-outline" routerLink="/transfer" slot="end" (click)="cancel()"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
-<ion-searchbar [debounce]="1000" color="dark"  [debounce]="1000" (ionChange)="handleSearchInput($event)" ></ion-searchbar>
+<!-- <ion-searchbar [debounce]="1000" color="dark"  [debounce]="1000" (ionChange)="handleSearchInput($event)" ></ion-searchbar> -->
+
+  <div class="search-icon-container">
+    <ion-searchbar
+      fill="none"
+      mode="ios"
+      class="searchbar"
+      [debounce]="1000"
+      (ionChange)="handleSearchInput($event)"
+    ></ion-searchbar>
+</div>
+
 <ion-content class="ion-padding">
   <div class="beneficiaries-list">
     <ion-item-group  *ngFor="let list of filteredBenList"  button detail="true">
@@ -25,7 +36,7 @@
     </ion-item-group>
 
       <ion-item *ngIf="filteredBenList && filteredBenList.length <= 0">
-      <h3>Can't Find Beneficiary</h3>
+      <h6>Can't Find Beneficiary</h6>
       </ion-item>
 
 
