@@ -4,7 +4,7 @@
       <ion-row>
         <ion-col size="auto"
           ><ion-icon
-            name="chevron-back-outline"
+            name="arrow-back"
             routerLink="/new-tab/hometab"
           ></ion-icon
         ></ion-col>
@@ -80,8 +80,9 @@
       <ion-input
         [disabled]="isNumberDisabled"
         placeholder="Enter Mobile Number"
-        type="number"
+        type="tel"
         id="phoneInput"
+         maxlength="11"
         formControlName="airtimeNumber"
       ></ion-input>
     </div>
@@ -140,6 +141,7 @@
         #bund
         placeholder="Select Bundle"
         interface="action-sheet"
+         [interfaceOptions]="{ cssClass: 'select'}"
         (ionChange)="getAmount(bund.value)"
       >
         <ion-select-option
@@ -172,7 +174,8 @@
      <div class="inputGroup">
     <ion-input
       placeholder="Mobile Number"
-      type="number"
+      type="tel"
+        maxlength="11"
       formControlName="mobileDataNumber"
       id="phoneInput"
     ></ion-input>

@@ -5,6 +5,12 @@ ion-list {
   --ion-text-color: #000000;
 }
 
+ion-select {
+padding-right: .5rem;
+  width: 100%;
+  justify-content: center;
+}
+
 
 ion-segment-button {
   --indicator-color: #000000;
@@ -59,6 +65,7 @@ ion-segment {
   height: 56px;
   background-color: #ededed;
   border-color: 2px solid #e5e5e5;
+  margin-top: -.5rem;
 
   .account-type {
     h3 {
