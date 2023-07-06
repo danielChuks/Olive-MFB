@@ -1,8 +1,9 @@
 swiper-container {
   --swiper-pagination-bullet-inactive-color: black;
   --swiper-pagination-color: #808000;
-  --swiper-pagination-bottom: -4px;
-  --swiper-pagination-bullet-horizontal-gap: 4px;
+  --swiper-pagination-bottom: -0.25rem;
+  --swiper-pagination-bullet-horizontal-gap: 0.25rem;
+
 }
 
 .quick_action {
@@ -14,7 +15,7 @@ swiper-container {
   }
 
   .row {
-    margin-top: -25px;
+    margin-top: -1.5625rem;
   }
 
   .column {
