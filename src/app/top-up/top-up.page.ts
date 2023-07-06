@@ -247,7 +247,7 @@ export class TopUpPage implements OnInit {
     this.accountNumber = 'Select Account';
     this.dashboardService.getMultipleAccounts().subscribe(
       (data) => {
-        this.multipleAccounts = data.multipleAccounts;
+        this.multipleAccounts = data;
       },
 
       (err) => {

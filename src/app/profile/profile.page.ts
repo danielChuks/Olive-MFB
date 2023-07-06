@@ -54,8 +54,10 @@ export class ProfilePage implements OnInit, OnDestroy {
       .getAccountInformation()
       .subscribe(
         (data) => {
+          console.log(data);
           this.accountInformation = data;
-          this.initials = this.getInitials(this.accountInformation.accountName); //get initials
+          this.initials = this.getInitials(this.accountInformation.customerName); //get initials
+          console.log(data);
         },
 
         (err) => {
