@@ -167,8 +167,8 @@ export class HometabPage implements OnInit, OnDestroy {
     this.httpSubscriptions.push(
       this.dashboardService.getMultipleAccounts().subscribe(
         (data) => {
-          this.multipleAccounts = data.multipleAccounts;
-          // console.log(data)
+          this.multipleAccounts = data;
+          console.log(data)
         },
 
         (err) => {}

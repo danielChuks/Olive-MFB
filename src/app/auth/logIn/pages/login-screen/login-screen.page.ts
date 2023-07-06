@@ -149,6 +149,29 @@ export class LoginScreenPage {
     await alert.present();
   }
 
+
+  async presentUnlink() {
+    const alert = await this.alertController.create({
+      header: 'Warning!',
+      message: 'This action will clear all login details. Do you wish to continue?',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+        },
+        {
+          text: 'Unlink',
+          handler: () => {
+            this.unlinkDevice();
+            alert.dismiss();
+          }
+        },
+      ],
+    });
+
+    await alert.present();
+  }
+
   togglePwd() {
     this.showPwd = !this.showPwd;
     this.pwdIcon = this.showPwd ? 'eye-off' : 'eye';

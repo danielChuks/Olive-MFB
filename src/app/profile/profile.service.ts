@@ -15,7 +15,7 @@ export class ProfileService {
 
   getAccountInformation(): Observable<any> {
     // eslint-disable-next-line max-len
-    return this.http.get(`${environment.baseApi + `account` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`}` + '/information');
+    return this.http.get(`${environment.baseApi + `account` + '/information' + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`}`);
   }
 
   validatePin(accessPin: accessPinModel): Observable<any>{
