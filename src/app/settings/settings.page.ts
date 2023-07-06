@@ -19,11 +19,11 @@ export class SettingsPage implements OnInit {
   }
 
   openForgotPin() {
-    this.router.navigateByUrl('/new-tab/profile/forgot-pin');
+    this.router.navigateByUrl('/forgot-pin');
   }
 
   openChangePassword() {
-    this.router.navigateByUrl('/new-tab/profile/change-password');
+    this.router.navigateByUrl('/change-password');
   }
 
   openPersonalData() {
