@@ -16,8 +16,7 @@ export class CardComponent implements OnInit, OnDestroy {
   accountNumber;
   accountNumber2 = '012233443';
   accountType;
-  myselectedAccount = '';
-  multipleAccounts;
+  myselectedAccount = '';  multipleAccounts;
   firstName: any;
   accountName: any;
   listOfCards: any = [];
