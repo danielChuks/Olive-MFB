@@ -1,37 +1,77 @@
-// @import "../../transfer/transfer.page.scss";
+@import "../../transfer/transfer.page.scss";
 
-// ion-col {
-//   text-align: center;
-// }
+.header {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  align-items: center;
 
-// .select_transfer {
-//   display: flex;
-//   flex-direction: column;
-//   gap: 1rem;
-//   .heading {
-//     margin-top: 2rem;
-//     align-self: center;
-//   }
+  .text {
+    color: #808000;
+    font-size: 16px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.16px;
+  }
+}
+.bottom-border {
+  left: 4.5px;
+  border: 1px solid #cdcdb9;
+}
 
-//   .same_transfer {
-//     padding: 1.1rem;
-//     background-color: #000000;
-//     color: #ffffff;
-//     box-shadow: 0px 0px 4px -10px rgba(218, 218, 218, 0.26);
-//     font-size: 16px;
-//     box-sizing: border-box;
-//     margin-top: 1rem;
-//   }
+.container {
+  width: 100%;
+  margin-top: 10px;
 
-//   .other_transfer {
-//     padding: 1.1rem;
-//     background-color: #ffffff;
-//     color: #000000;
-//     font-size: 16px;
-//     border: 2px solid #000000;
-//     box-sizing: border-box;
-//     margin-top: 1rem;
-//   }
-// }
+  ion-label {
+    color: #000;
+    font-size: 14px;
+    font-family: "Montserrat";
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.14px;
+  }
 
+  ion-label {
+    color: #000;
+    font-size: 14px;
+    font-family: Montserrat;
+    font-weight: 600;
+    line-height: 46px;
+    letter-spacing: 0.14px;
+  }
+}
+.ben-filter-container {
+  display: block;
+  width: 100%;
+  padding: 1rem 4rem 0 1rem;
 
+  .check {
+    display: flex;
+    align-items: center;
+    margin: 30px auto;
+    margin-top: 0;
+    gap: 10px;
+  }
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+
+  .button {
+    background-color: #808000;
+    color: #fff;
+    text-align: center;
+    font-size: 16px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 18px;
+    width: 345px;
+    height: 48px;
+    border-radius: 12px;
+  }
+}
