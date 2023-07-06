@@ -152,6 +152,22 @@ const routes: Routes = [
     path: 'change-pin-confirm',
     loadChildren: () => import('./profile/pages/change-pin-confirm/change-pin-confirm.module').then( m => m.ChangePinConfirmPageModule)
   },
+  {
+    path: 'forgot-pin',
+    loadChildren: () => import('./profile/pages/forgot-pin/forgot-pin.module').then( m => m.ForgotPinPageModule)
+  },
+  {
+    path: 'success-page',
+    loadChildren: () => import('./profile/pages/success-page/success-page.module').then( m => m.SuccessPagePageModule)
+  },
+  {
+    path: 'change-password',
+    loadChildren: () => import('./profile/pages/change-password/change-password.module').then( m => m.ChangePasswordPageModule)
+  },
+  {
+    path: 'change-personaldata',
+    loadChildren: () => import('./profile/pages/change-personaldata/change-personaldata.module').then( m => m.ChangePersonaldataPageModule)
+  },
 
     {
     path: 'welcomescreen',
@@ -176,7 +192,8 @@ const routes: Routes = [
   {
     path: 'splashscreen',
     loadChildren: () => import('./splashscreen/splashscreen.module').then( m => m.SplashscreenPageModule)
-  },  {
+  },
+  {
     path: 'landing-page',
     loadChildren: () => import('./landing-page/landing-page.module').then( m => m.LandingPagePageModule)
   },

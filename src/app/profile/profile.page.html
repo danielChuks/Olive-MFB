@@ -1,19 +1,11 @@
 <ion-content>
   <div class="header">
     <div class="toolbar">
-      <ion-grid>
-        <ion-row>
-          <ion-col size="auto"
-            ><ion-icon
-              name="arrow-back"
-              routerLink="/new-tab/hometab"
-            ></ion-icon>
-          </ion-col>
-          <ion-col size="9.5">Profile</ion-col>
-        </ion-row>
-      </ion-grid>
+      <ion-header class="ion-no-border" mode="ios">
+        <ion-title class="ion-text-center">Profile</ion-title>
+      </ion-header>
     </div>
-    
+
     <div class="sub-header">
       <div class="avatar">
         <h3 class="over">{{initials}}</h3>
@@ -23,7 +15,6 @@
   </div>
 
   <div class="content">
- 
     <ion-list lines="full">
       <ion-item lines="none">
         <!-- <ion-avatar slot="start">
@@ -154,27 +145,27 @@
                 </ion-toolbar>
               </ion-header>
             </ion-item>
-            
+
             <div class="padding">
-            <ion-item>
-              <h3>
-                For help and enquiries, kindly contact us via any of our
-                channles
-              </h3>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-icon name="call"></ion-icon>
-              <ion-label>0700 200 200 200</ion-label>
-            </ion-item>
-            <ion-item lines="none">
-              <ion-icon name="mail"></ion-icon>
-              <ion-label>support@olivemfb.com</ion-label>
-            </ion-item>
-            <ion-item>
-              <ion-icon name="globe-outline"></ion-icon>
-              <ion-label>www.olivemfb.com</ion-label>
-            </ion-item>
-          </div>
+              <ion-item>
+                <h3>
+                  For help and enquiries, kindly contact us via any of our
+                  channles
+                </h3>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon name="call"></ion-icon>
+                <ion-label>0700 200 200 200</ion-label>
+              </ion-item>
+              <ion-item lines="none">
+                <ion-icon name="mail"></ion-icon>
+                <ion-label>support@olivemfb.com</ion-label>
+              </ion-item>
+              <ion-item>
+                <ion-icon name="globe-outline"></ion-icon>
+                <ion-label>www.olivemfb.com</ion-label>
+              </ion-item>
+            </div>
           </ion-list>
         </ion-content>
       </ng-template>
@@ -206,23 +197,22 @@
               </ion-header>
             </ion-item>
 
-                <div class="avatar-1">
-                  <ion-img src="./assets/images/olive3.png"></ion-img>
-                </div>
-        
-                <div class="about-content">
-                  <h3>Version 3.4.1 (172022)</h3>
-                  <ion-item>
-                    <p>Your app version is up to date</p>
-                  </ion-item>  
-                  <ion-item lines="none">
-                    <p class="text">User agreement</p>
-                  </ion-item>         
-                  <ion-item lines="none">
-                    <p class="text">Privacy policy</p>
-                  </ion-item>  
-                </div>
- 
+            <div class="avatar-1">
+              <ion-img src="./assets/images/olive3.png"></ion-img>
+            </div>
+
+            <div class="about-content">
+              <h3>Version 3.4.1 (172022)</h3>
+              <ion-item>
+                <p>Your app version is up to date</p>
+              </ion-item>
+              <ion-item lines="none">
+                <p class="text">User agreement</p>
+              </ion-item>
+              <ion-item lines="none">
+                <p class="text">Privacy policy</p>
+              </ion-item>
+            </div>
           </ion-list>
         </ion-content>
       </ng-template>
