@@ -1,17 +1,33 @@
-<div class="container">
-  <div class="modal-accountname">
-    <h2>Filter by</h2>
+<ion-content class="ion-padding">
+  <ion-item lines="none">
+    <div class="header">
+      <div class="title">
+        <ion-label class="text">Filter by</ion-label>
+      </div>
+    </div>
+  </ion-item>
+  <div class="bottom-border"></div>
+
+  <ion-item lines="none">
+    <div class="container">
+      <ion-label> Bank </ion-label>
+    </div>
+  </ion-item>
+
+  <div class="ben-filter-container">
+    <div class="check">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Same Bank</ion-label>
+    </div>
+    <div class="check">
+      <ion-checkbox slot="start"></ion-checkbox>
+      <ion-label>Other Bank</ion-label>
+    </div>
   </div>
 
-  <div class="modal-filter"><p></p></div>
-
-  <ion-content class="ion-padding">
-    <ion-item lines="none">
-      <ion-button (click)="cancel()">Transfer to beneficiary</ion-button>
-    </ion-item>
-
-    <ion-item>
-      <ion-label (click)="deleteBeneficiary()">Delete beneficiary</ion-label>
-    </ion-item>
-  </ion-content>
-</div>
+  <div class="button-container">
+    <button class="button" type="submit" expand="block"
+      >Continue</button
+    >
+  </div>
+</ion-content>

@@ -33,37 +33,37 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
   ) {}
 
   async openModal(
-    accountName,
-    accountNumber,
-    benbankName,
-    beneficiaryId,
-    benBankCode
+    // accountName,
+    // accountNumber,
+    // benbankName,
+    // beneficiaryId,
+    // benBankCode
   ) {
     const modal = await this.modalCtrl.create({
       component: ModalPagePage,
       backdropBreakpoint: 0.1,
-      initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
+      initialBreakpoint: 400 / this.platform.height(),
+      breakpoints: [0, 400 / this.platform.height()],
     });
     modal.present();
 
     this.selectedBeneficiary = {
       //pass as prop instead of sessionstorage
-      beneficiaryAcctNo: accountNumber,
-      beneficiaryAcctName: accountName,
-      bankName: benbankName,
-      benID: beneficiaryId,
-      bankCode: benBankCode,
+      // beneficiaryAcctNo: accountNumber,
+      // beneficiaryAcctName: accountName,
+      // bankName: benbankName,
+      // benID: beneficiaryId,
+      // bankCode: benBankCode,
     };
 
-    sessionStorage.setItem(
-      'selectedBeneficiary',
-      JSON.stringify(this.selectedBeneficiary)
-    );
-    sessionStorage.setItem(
-      'beneficiaryId',
-      JSON.stringify(this.selectedBeneficiary.benID)
-    );
+    // sessionStorage.setItem(
+    //   'selectedBeneficiary',
+    //   JSON.stringify(this.selectedBeneficiary)
+    // );
+    // sessionStorage.setItem(
+    //   'beneficiaryId',
+    //   JSON.stringify(this.selectedBeneficiary.benID)
+    // );
 
     const { data, role } = await modal.onWillDismiss();
   }
