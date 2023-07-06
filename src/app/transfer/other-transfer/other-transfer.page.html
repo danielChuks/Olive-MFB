@@ -13,7 +13,7 @@
 
 <ion-content class="ion-padding">
   <form [formGroup]="extTransForm" class="transfer-forms inputGroup">
-    <!-- <p class="title">Select account</p> -->
+    <p class="title">Select account</p>
     <div class="accounts" (click)="isAccount =!isAccount">
       <div class="accounts-header">
         <ion-text>{{accountNumber}}</ion-text
@@ -49,7 +49,6 @@
         [ngModelOptions]="{standalone: true}"
         type="text"
         name="text"
-        placeholder="select destination bank"
         [disabled]="isBankSelected"
       ></ion-input>
     </div>

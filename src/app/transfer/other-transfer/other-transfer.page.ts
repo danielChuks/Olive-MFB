@@ -44,7 +44,7 @@ export class OtherTransferPage implements OnInit, OnDestroy {
   beneficiaryBankName = '';
   multipleAccounts;
   storedAccountNumber;
-  bankName = 'Select Bank';
+  bankName = 'Select destination bank';
   bankCode;
   benAcctNo='';
   beneficiaryAccountName;
