@@ -1,21 +1,22 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="auto"><ion-icon
-          name="chevron-back-outline"
-          routerLink="/new-tab/hometab"
-        ></ion-icon></ion-col>
-        <ion-col size="9.5">Pay Bills</ion-col>
-      </ion-row>
-    </ion-grid>
+
+<ion-header class="ion-no-border ion-no-padding">
+  <ion-toolbar class="ion-padding-horizontal">
+          <ion-icon
+          size="md"
+            name="arrow-back"
+            routerLink="/new-tab/hometab"
+            slot="start"
+          ></ion-icon
+        >
+        <ion-title>Pay Bills</ion-title>
   </ion-toolbar>
 </ion-header>
 
+
+
 <ion-content class="ion-padding">
   <form   class="transfer-forms">
-
-
+   <p class="title">Select account</p>
    <div class="accounts" (click)="isAccount =!isAccount" >
       <div class="accounts-header">
         <ion-text>{{accountNumber}}</ion-text><ion-icon name="chevron-down-outline" slot="end"  ></ion-icon>
@@ -36,6 +37,7 @@
 
 
       <div class="inputGroup">
+         <p class="title">Category</p>
     <ion-select  [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)">
       <ion-select-option class= "my-custom-class"  *ngFor="let category of categories" value={{category.categoryid}}> {{category.categoryname}}</ion-select-option>
     </ion-select>
@@ -43,6 +45,7 @@
 
 
      <div class="inputGroup">
+        <p class="title">Select biller</p>
     <ion-select  #bill placeholder="Select Billers" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getBillerProduct(bill.value)" [disabled]="billerDisable">
       <ion-select-option  *ngFor="let biller of billers" value={{biller.billerid}}>{{ biller.billername }}</ion-select-option>
     </ion-select>
@@ -50,6 +53,7 @@
 
 
      <div class="inputGroup">
+       <p class="title">Select product</p>
     <ion-select #prod placeholder="Select Product" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getTransAmount(prod.value)" [disabled]="productDisable">
       <ion-select-option *ngFor="let product of billerProduct"  value={{product.paymentitemid}}>{{product.paymentitemname}}</ion-select-option>
     </ion-select>
@@ -57,12 +61,16 @@
 
 
     <div class="inputGroup">
+       <p class="title">Amount(NGN)</p>
       <ion-input [(ngModel)]="transfer.amount"  type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
        <!-- <span class="message">{{error}}</span> -->
     </div>
       <div class="transfer-limit">
-      <ion-label>Current. transfer limit: {{limit|currency:"NGN":"symbol-narrow"}}</ion-label>
-    </div>
+        <ion-label>Current. transfer limit:</ion-label>
+        <ion-label class="title">
+          {{limit|currency:"NGN":"symbol-narrow"}}
+        </ion-label>
+      </div>
 
 
     <div class="inputGroup"  *ngIf="display">

@@ -51,9 +51,9 @@
     <p
       class="register-text forgot-text"
       *ngIf="savedAccountNumber"
-      (click)="unlinkDevice()"
+      (click)="presentUnlink()"
     >
-      Not {{savedAccountNumber}}? <span>Unlink device</span>  
+      Not {{savedAccountNumber}}? <span  >Unlink device</span>  
     </p>
     <div *ngIf="!savedAccountNumber" class="signup">
       <!-- <p routerLink="/signup">Open Account</p> -->

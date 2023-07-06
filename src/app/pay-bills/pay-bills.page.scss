@@ -5,16 +5,17 @@ ion-list {
   // margin-top: -32px;
   margin-bottom: 32px;
 }
-// ion-select {
-//   height: 56px;
-//   color: #000;
-//   margin-right: 0.3rem;
-//   margin-left: -0.6rem;
-// }
 
-ion-select-option {
-  color: #000;
+ion-select {
+padding-right: .5rem;
+  width: 100%;
+  justify-content: center;
 }
+
+ion-select::part(text) {
+  font-size: 1rem;
+}
+
 
 ion-label {
   font-size: 14px;
@@ -24,7 +25,6 @@ ion-label {
   height: 56px;
   background-color: #ededed;
   border-color: 2px solid #e5e5e5;
-  margin-top: 1.5rem;
 }
 
 .accounts-header {
@@ -50,6 +50,7 @@ ion-label {
   height: 56px;
   background-color: #ededed;
   border-color: 2px solid #e5e5e5;
+  margin-top: -.5rem;
 
   .account-type {
     h3 {

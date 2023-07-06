@@ -94,7 +94,7 @@ export class CardComponent implements OnInit, OnDestroy {
     this.httpSubscriptions.push(
       this.dashboardService.getMultipleAccounts().subscribe(
         (data) => {
-          this.multipleAccounts = data.multipleAccounts;
+          this.multipleAccounts = data;
         },
 
         (err) => {

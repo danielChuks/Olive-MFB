@@ -144,24 +144,20 @@ height: 3.928rem;
   }
 
   p {
-    color: #040d2c;
+    color: #548f10;
     font-size: 16px;
     line-height: 24px;
     text-align: center;
+    margin: auto;
   }
 
-  ion-button {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-top: 30px;
-    --background: #3e5151;
-    --border-radius: 5px;
-    height: 40px;
-    font-weight: 400;
-    color: #ffffff;
-    font-size: 15px;
+  .text {
+    color: #000000;
+    font-size: 16px;
+    line-height: 24px;
     text-align: center;
+    text-decoration: underline;
+    margin: auto;
   }
 }
 

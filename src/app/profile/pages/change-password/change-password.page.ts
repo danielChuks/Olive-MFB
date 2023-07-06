@@ -19,7 +19,12 @@ import { LoadingController } from '@ionic/angular';
 export class ChangePasswordPage implements OnInit {
   changePasswordForm: FormGroup;
   details = new changePasswordModel();
-
+  pwdIcon = 'eye';
+  showPwd = false;
+  pwdIcons = 'eye';
+  showPwds = false;
+  pwdIconss = 'eye';
+  showPwdss = false;
   constructor(
     private formBuilder: FormBuilder,
     private profileService: ProfileService,
@@ -39,6 +44,21 @@ export class ChangePasswordPage implements OnInit {
       // eslint-disable-next-line max-len
       { validator: this.passwordMatchValidator }
     ); //if this validator is true, formgroup returns invalid, i.e validator must return null for that form to be valid
+  }
+
+  togglePwd() {
+    this.showPwd = !this.showPwd;
+    this.pwdIcon = this.showPwd ? 'eye-off' : 'eye';
+  }
+
+  togglePwds() {
+    this.showPwds = !this.showPwds;
+    this.pwdIcons = this.showPwds ? 'eye-off' : 'eye';
+  }
+
+  togglePwdss() {
+    this.showPwdss = !this.showPwdss;
+    this.pwdIconss = this.showPwdss ? 'eye-off' : 'eye';
   }
 
   passwordMatchValidator(form: AbstractControl): { invalid: boolean } {

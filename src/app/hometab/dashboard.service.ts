@@ -37,6 +37,6 @@ export class DashboardService {
   }
 
   getMultipleAccounts(): Observable<any>{
-  return this.http.get(`${environment.baseApi}` + `account` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}` + `/allAccounts`);
+  return this.http.get(`${environment.baseApi}` + `account` + `/allAccounts` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}` );
    }
 }

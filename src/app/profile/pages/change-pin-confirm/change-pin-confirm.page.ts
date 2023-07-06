@@ -39,7 +39,11 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
     if (this.createPasscodeValues.length !== 4) {
       this.createPasscodeValues.push(num);
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
-        document.getElementById(`circlesss${i}`).classList.add('test');
+        const iconElement = document.createElement('ion-icon');
+        iconElement.setAttribute('name', 'medical-sharp');
+        const circleElement = document.getElementById(`circlesss${i}`);
+        circleElement.innerHTML = '';
+        circleElement.appendChild(iconElement);
       }
       if (this.createPasscodeValues.length === 4) {
         const loading = await this.loadingCtrl.create({
