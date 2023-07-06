@@ -1,19 +1,20 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
+<ion-header class="ion-no-border ion-no-padding">
+  <ion-toolbar class="ion-padding-horizontal">
           <ion-icon
-          size="auto"
+          size="md"
             name="arrow-back"
             routerLink="/new-tab/hometab"
             slot="start"
           ></ion-icon
         >
-        <ion-title>Other Bank Transfer</ion-title>
+        <ion-title>Other Banks Transfer</ion-title>
+
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
   <form [formGroup]="extTransForm" class="transfer-forms inputGroup">
-    <!-- <p class="title">Select account</p> -->
+    <p class="title">Select account</p>
     <div class="accounts" (click)="isAccount =!isAccount">
       <div class="accounts-header">
         <ion-text>{{accountNumber}}</ion-text
@@ -49,7 +50,6 @@
         [ngModelOptions]="{standalone: true}"
         type="text"
         name="text"
-        placeholder="select destination bank"
         [disabled]="isBankSelected"
       ></ion-input>
     </div>

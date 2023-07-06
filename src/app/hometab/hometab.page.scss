@@ -102,6 +102,7 @@ ion-toolbar {
 ion-modal {
   --height: 35%;
   --border-radius: 16px;
+  padding: 1.5rem;
 }
 
 ion-modal::part(backdrop) {
