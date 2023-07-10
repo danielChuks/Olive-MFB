@@ -3,25 +3,25 @@
   height: 110vh;
 
   #date {
-    font-size: 12px;
+    font-size: 0.75rem;
   }
   #name {
-    font-size: 50px;
+    font-size: 3.125rem;
   }
   .transaction-history {
     display: flex;
     ion-item {
       width: 100%;
-      margin: 0px -16px 0px -15px;
+      margin: 0px -1rem 0rem -0.9375rem;
       background: #fafafa;
-      border-radius: 8px;
-      margin-bottom: 10px;
+      border-radius: 0.5rem;
+      margin-bottom: 0.625rem;
     }
 
     .image-container {
-      padding-bottom: 24px;
+      padding-bottom: 1.5rem;
       img {
-        margin-right: 10px;
+        margin-right: 0.625rem;
       }
     }
   }
@@ -30,11 +30,11 @@
     float: left;
     width: 50%;
     align-content: center;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     h3 {
-      font-size: 16px;
-      line-height: 16px;
-      margin-bottom: 4px;
+      font-size: 1rem;
+      line-height: 1rem;
+      margin-bottom: 0.25rem;
     }
 
     .transactions-amount {
@@ -42,8 +42,8 @@
         font-family: "Montserrat";
         font-style: normal;
         font-weight: 400;
-        font-size: 12px;
-        line-height: 15px;
+        font-size: 0.75rem;
+        line-height: 0.9375rem;
         color: #4b4b4b;
       }
     }
@@ -57,13 +57,13 @@
       width: 100%;
       align-content: center;
       direction: rtl;
-      font-size: 16px;
+      font-size: 1rem;
     }
     .transactions-amount-subcontent {
       p {
-        font-size: 10px;
-        line-height: 15px;
-        margin-bottom: 4px;
+        font-size: 0.625rem;
+        line-height: 0.9375rem;
+        margin-bottom: 0.25rem;
         color: #666666;
       }
     }
@@ -72,26 +72,26 @@
   .transaction-amount {
     float: right;
     width: 25%;
-    margin-bottom: 15px;
+    margin-bottom: 0.9375rem;
     font-family: "Montserrat";
     color: #4b4b4b;
     font-style: normal;
     font-weight: 600;
     h3 {
       font-weight: 600;
-      font-size: 16px;
-      line-height: 20px;
+      font-size: 1rem;
+      line-height: 1.25rem;
     }
   }
 
   //change balance color
   h3[class="debit"] {
-    font-size: 25px;
-    margin: 7px 0px 0px 7px;
+    font-size: 1.5625rem;
+    margin: 0.4375rem 0rem 0rem 0.4375rem;
   }
 
   h3[class="credit"] {
-    font-size: 25px;
-    margin: 7px 0px 0px 7px;
+    font-size: 1.5625rem;
+    margin: 0.4375rem 0rem 0rem 0.4375rem;
   }
 }
