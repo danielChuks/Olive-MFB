@@ -1,5 +1,5 @@
-.cardWrapper{
-  margin: -2.5rem 0 -.2rem -1rem;
+.cardWrapper {
+  margin: -2.5rem 0 -0.2rem -1rem;
   position: relative;
   text-align: center;
   color: white !important;
@@ -9,49 +9,48 @@
 
 .top-left {
   position: absolute;
-  top: 3.7rem;
+  top: 4.2rem;
   color: white;
-  left: 2.7rem;
+  left: 2.9rem;
 }
 
-.bottom-left{
+.bottom-left {
   display: flex;
-   flex-direction: column;
-   gap: .3rem;
-    color: white !important;
-    position: absolute;
-    bottom: 3rem;
-    left: 2.5rem;
+  flex-direction: column;
+  gap: 0.3rem;
+  color: white !important;
+  position: absolute;
+  bottom: 3rem;
+  left: 2.9rem;
 
-    .available_text{
-    font-size: 14px;
-     color: white !important;
+  .available_text {
+    font-size: 1rem;
+    color: white !important;
   }
 
-  .hidden-balance{
+  .hidden-balance {
     color: white !important;
-    font-size: 20px !important;
+    font-size: 1.25rem !important;
   }
 
-  .show_balance{
+  .show_balance {
     color: white !important;
-    font-size: 20px !important;
+    font-size: 1.25rem !important;
   }
 }
 
 .bottom-right {
   position: absolute;
   bottom: 3rem;
-  right:  2rem;
+  right: 2rem;
 }
 
-.card-img{
+.card-img {
   width: 100%;
   height: 100%;
 }
 
-
-ion-button{
+ion-button {
   color: #f5f5f5;
   --border-style: none;
 }

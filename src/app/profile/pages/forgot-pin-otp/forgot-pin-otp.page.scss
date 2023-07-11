@@ -1,23 +1,23 @@
-@import '/src/app/auth/Signup/pages/create-pin/create-pin.page.scss';
+@import "/src/app/reusableComponents/generate-otp/generate-otp.component.scss";
 
 .filled{
- background-color: #018401;
+ background-color: #A3A30A;
 }
 
-.regenerate{
-   text-align: center;
-   margin-top: .8rem;
- }
- #timer{
-   text-align: center;
+// .regenerate{
+//    text-align: center;
+//    margin-top: .8rem;
+//  }
+//  #timer{
+//    text-align: center;
 
-   button{
-     padding: .5rem;
-     border-radius: .5rem;
-     background-color: #018401;
-     margin-top: .4rem;
-   }
- }
+//    button{
+//      padding: .5rem;
+//      border-radius: .5rem;
+//      background-color: #018401;
+//      margin-top: .4rem;
+//    }
+//  }
 
 
 
