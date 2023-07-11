@@ -110,7 +110,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
-          console.log(data);
+          // console.log(data);
         },
 
         (err) => {}
@@ -124,7 +124,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
-          console.log(data);
+          // console.log(data);
         },
         (err) => {}
       )
@@ -170,7 +170,7 @@ export class HometabPage implements OnInit, OnDestroy {
       this.dashboardService.getMultipleAccounts().subscribe(
         (data) => {
           this.multipleAccounts = data;
-          console.log(data)
+          // console.log(data)
         },
 
         (err) => {}

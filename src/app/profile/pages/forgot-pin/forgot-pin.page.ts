@@ -75,7 +75,7 @@ export class ForgotPinPage implements OnInit {
       },
       (error) => {
         loading.dismiss();
-        if (error.status === 400 && error.error.message) {
+        if (error.status === 403 && error.error.message) {
           // //console.log(error.error.message);
           this.presentAlert(error.error.message);
         } else if (error.status === 500) {

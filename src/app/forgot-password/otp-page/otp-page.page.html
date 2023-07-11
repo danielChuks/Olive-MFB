@@ -1,14 +1,11 @@
-<ion-header class="ion-no-border">
+<ion-header class="ion-no-border" mode="ios">
   <ion-toolbar>
-    <ion-grid>
-      <ion-row>
-        <ion-col size="auto"><ion-icon
-          name="arrow-back"
-          routerLink="/new-tab/hometab"
-        ></ion-icon></ion-col>
-        <ion-col size="9.5">Change Password</ion-col>
-      </ion-row>
-    </ion-grid>
+    <ion-icon
+    name="arrow-back"
+    routerLink="/forgot-password"
+    slot="start"
+  ></ion-icon>
+    <ion-title class="ion-text-center">Forgot Password</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -27,7 +24,22 @@
         maxlength="6"
         formControlName="otp"
       ></ion-input>
-      <ion-text></ion-text>
+      <!-- <ion-grid class="grid">
+        <ion-row>
+          <ion-col class="resendOtp" size="auto"><ion-icon name="time-outline"></ion-icon></ion-col>
+          <ion-col > <p class="regenerate">Didn't receive Otp? <ion-button fill="clear" 
+            (click)="resendOtp()" [disabled]="disableResendButton">Try again</ion-button></p>
+            <div id="timer">
+              <p class="text" *ngIf="countdownTime > 0">{{countdownTime}} secs </p>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid> -->
+      
+      <div id="timer">
+        <p *ngIf="countdownTime > 0">Resend Otp in: {{countdownTime}} seconds <ion-button fill="clear" 
+          (click)="resendOtp()" [disabled]="disableResendButton">Try again</ion-button></p>
+      </div>
     </div>
 
     <div class="accountNumber">
@@ -54,22 +66,7 @@
       ></ion-input>
       <ion-text></ion-text>
     </div>
-
-    <div
-      style="color: red"
-      *ngIf="changePasswordForm.get('newPassword').value !== changePasswordForm.get('confirmNewPassword').value && changePasswordForm.get('confirmNewPassword').value !== null"
-    >
-      Passwords does not match
-    </div>
-
-    <p class="regenerate">Didn't receive Otp?</p>
-    <div id="timer">
-      <p *ngIf="countdownTime > 0">Resend Otp in: {{countdownTime}} seconds</p>
-      <button (click)="resendOtp()" [disabled]="disableResendButton">
-        Resend OTP
-      </button>
-    </div>
-
+ 
     <div class="btn">
     <ion-button
       expand="block"
