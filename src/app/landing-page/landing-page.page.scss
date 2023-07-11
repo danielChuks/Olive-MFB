@@ -1,10 +1,9 @@
 .header {
-  background: url("../../assets/images/landingpage.png");
+  background: url("../../assets/images/landing.png");
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
   background-size: cover;
-  filter: drop-shadow(2px 2px 4px #303000);
   position: absolute;
   top: 0;
   left: 0;
@@ -15,30 +14,25 @@
 }
 
 .btn {
-  margin-top: 140%;
+  margin-top: 35rem;
   ion-button {
     --background: #ffffff;
     color: #808000;
-    //   --background-activated: #000000;
-    //   --border-radius: 8px;
-    //   height: 50px;
-    //   text-transform: capitalize;
-    //   font-weight: 600;
-    //   font-size: 16px;
+    height: 3.125rem;
+    font-weight: 600;
+    font-size: 1rem;
   }
 }
 
 .btn2 {
-  margin-top: 2.5rem;
+  margin-top: 1.5rem;
   ion-button {
     --border-color: rgb(255, 255, 255);
-    --border-radius: 8px;
+    --border-radius: .5rem;
     height: 3.125rem;
     text-transform: capitalize;
     font-weight: 600;
-    font-size: 16px;
-    color: #FFFFFF;
+    font-size: 1rem;
+    color: #ffffff;
   }
 }
-
-

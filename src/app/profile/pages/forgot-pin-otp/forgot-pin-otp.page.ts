@@ -38,7 +38,9 @@ export class ForgotPinOtpPage implements OnInit, OnDestroy {
     this.startCountdown();
     this.accountNumber = sessionStorage.getItem('accountNumber');
   }
-
+  cancel() {
+    this.router.navigateByUrl('/forgot-pin');
+  }
   //call forgotpin endpoint to create new pin
   async createNewPin() {
     this.forgotPinDetails.accountNumber = this.accountNumber;

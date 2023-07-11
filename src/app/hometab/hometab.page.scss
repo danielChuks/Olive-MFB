@@ -48,8 +48,8 @@ ion-col {
     padding: 1.1rem;
     background-color: #000000;
     color: #ffffff;
-    box-shadow: 0px 0px 4px -10px rgba(218, 218, 218, 0.26);
-    font-size: 16px;
+    box-shadow: 0px 0px .25rem -.625rem rgba(218, 218, 218, 0.26);
+    font-size: 1rem;
     box-sizing: border-box;
     margin-top: 1rem;
   }
@@ -58,8 +58,8 @@ ion-col {
     padding: 1.1rem;
     background-color: #ffffff;
     color: #000000;
-    font-size: 16px;
-    border: 2px solid #000000;
+    font-size: 1rem;
+    border: .125rem solid #000000;
     box-sizing: border-box;
     margin-top: 1rem;
   }
@@ -71,12 +71,12 @@ ion-toolbar {
     display: flex;
     justify-items: center;
     align-items: center;
-    margin-top: 13px;
+    margin-top: .8125rem;
 
     ion-avatar {
-      margin-left: 16px;
-      width: 36px;
-      height: 36px;
+      margin-left: 1rem;
+      width: 2.25rem;
+      height: 2.25rem;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -84,25 +84,25 @@ ion-toolbar {
     }
 
     ion-icon {
-      font-size: 20px;
-      width: 20px;
-      height: 20px;
+      font-size: 1.25rem;
+      width: 1.25rem;
+      height: 1.25rem;
       color: #000000;
     }
 
     ion-label {
-      font-size: 16px;
-      margin: 0px 0 0px 9px;
+      font-size: 1rem;
+      margin: 0rem 0 0px .5625rem;
       font-weight: 600;
       font-size: 1rem;
-      line-height: 16px;
+      line-height: 1rem;
     }
   }
 }
 
 ion-modal {
   --height: 35%;
-  --border-radius: 16px;
+  --border-radius: 1rem;
   padding: 1.5rem;
 }
 
@@ -117,15 +117,15 @@ ion-modal::part(backdrop) {
   padding: 0;
 
   #circle {
-    width: 30px;
-    height: 30px;
-    line-height: 500px;
-    margin: 0px 20px 2px 20px;
+    width: 1.875rem;
+    height: 1.875rem;
+    line-height: 31.25rem;
+    margin: 0rem 1.25rem .125rem 1.25rem;
   }
   a {
     color: #000000;
     text-decoration: none;
-    font-size: 13px;
+    font-size: .8125rem;
     text-align: center;
     width: 100%;
     vertical-align: bottom;
@@ -137,13 +137,13 @@ ion-modal::part(backdrop) {
 .transaction-container {
   background-color: #ffffff;
   margin-top: 300px;
-  padding: 16px 16px 16px 16px;
-  margin-top: 12px;
+  padding: 1rem 1rem 1rem 1rem;
+  margin-top: .75rem;
   position: fixed;
   width: 100%;
 
   .header {
-    border: solid red 1px;
+    border: solid red .0625rem;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -153,33 +153,31 @@ ion-modal::part(backdrop) {
       font-family: "Montserrat";
       font-style: normal;
       font-weight: 700;
-      font-size: 12px;
-      line-height: 24px;
-      font-family: "Montserrat";
+      font-size: .75rem;
+      line-height: 1.5rem;
       font-weight: 600;
       color: #484848 !important;
     }
     .view-more {
       color: #484848 !important;
-      font-family: "Montserrat";
       font-style: normal;
       font-weight: 600;
-      font-size: 12px;
-      line-height: 24px;
+      font-size: .75rem;
+      line-height: 1.5rem;
     }
 
     .funnel-icon {
-      width: 30px;
-      height: 30px;
+      width: 1.875rem;
+      height: 1.875rem;
       color: gray;
-      padding: 27px;
+      padding: 1.6875rem;
     }
     .searchbar {
-      width: 247px;
-      height: 40px;
-      border: 1px solid #a6a6a6;
-      margin-bottom: 10px;
-      border-radius: 10px;
+      width: 15.4375rem;
+      height: 2.5rem;
+      border: .0625rem solid #a6a6a6;
+      margin-bottom: .625rem;
+      border-radius: .625rem;
     }
   }
 
@@ -200,7 +198,7 @@ ion-modal::part(backdrop) {
 
 .transaction-history {
   .overlay {
-    font-size: 55px;
+    font-size: 3.4375rem;
   }
 }
 
@@ -211,5 +209,5 @@ ion-modal::part(backdrop) {
 .sections {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  row-gap: 25px;
+  row-gap: 1.5625rem;
 }

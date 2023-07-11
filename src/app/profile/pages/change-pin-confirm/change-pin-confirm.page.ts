@@ -64,8 +64,9 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
             .changeTransactionPin(this.pinValidationDetails)
             .subscribe(
               (data) => {
+                console.log(data);
                 loading.dismiss();
-                this.router.navigateByUrl('profile/success-page');
+                this.router.navigateByUrl('/success-page');
               },
               (err) => {
                 loading.dismiss();
