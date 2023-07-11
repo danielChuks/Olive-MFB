@@ -1,21 +1,18 @@
-<div class="modal-accountname">
-  <ion-text>{{beneficiaryDetails.beneficiaryAcctName}}</ion-text>
-</div>
-<div class="modal-accountno">
-  <h3></h3><h2>{{beneficiaryDetails.beneficiaryAcctNo}}</h2><h3></h3> 
-</div>  
-<ion-content class="ion-padding">
 
-  <ion-item button>
-    <div class="icons">
-      <ion-icon name="arrow-forward-outline"></ion-icon>
+<ion-content>
+  <div class="contianer">
+    <div class="modal-accountno">
+      <p>{{ beneficiaryDetails.beneficiaryAcctName }}</p>
+      <ion-text>{{ beneficiaryDetails.bankName }}</ion-text>
+      <p class="accountNo">{{ beneficiaryDetails.beneficiaryAcctNo }}</p>
     </div>
-    <ion-label (click)="cancel()">Transfer</ion-label>
-  </ion-item>
-  <ion-item button>
-  <div class="icons red">
-    <ion-icon name="trash-outline"></ion-icon>
+    <button class="button-tranfer"  (click)="cancel()">
+      <ion-label>Transfer to beneficiary</ion-label>
+    </button>
+    <button class="button-delete" (click)="deleteAlert()">
+      <ion-label>Delete beneficiary</ion-label>
+    </button>
   </div>
-    <ion-label (click)="deleteAlert()">Delete</ion-label>
-  </ion-item>
-  </ion-content>
+</ion-content>
+
+<h3>Ionic</h3>
