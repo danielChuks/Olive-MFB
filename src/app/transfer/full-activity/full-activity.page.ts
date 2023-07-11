@@ -28,7 +28,7 @@ message = '';
 name: string;
 segmentModel = '1';
 accountType = 'Savings Account';
-beneficiaryBank = 'NMFB';
+beneficiaryBank = 'Olive MFB';
 commission = 10.75;
 totalAmount: any;
 confirmationDetails: any;
