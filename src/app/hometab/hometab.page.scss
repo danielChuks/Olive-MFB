@@ -3,7 +3,6 @@ swiper-container {
   --swiper-pagination-color: #808000;
   --swiper-pagination-bottom: -0.25rem;
   --swiper-pagination-bullet-horizontal-gap: 0.25rem;
-
 }
 
 .quick_action {
@@ -184,8 +183,8 @@ ion-modal::part(backdrop) {
   }
 
   .history-container {
-    overflow: scroll;
     height: 100vh;
+    overflow: scroll;
   }
 }
 

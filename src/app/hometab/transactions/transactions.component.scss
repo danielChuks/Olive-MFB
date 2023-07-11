@@ -1,6 +1,6 @@
 //ion-items styling
 .transaction-body {
-  height: 110vh;
+  overflow: scroll;
 
   #date {
     font-size: 0.75rem;
@@ -19,7 +19,6 @@
     }
 
     .image-container {
-      padding-bottom: 1.5rem;
       img {
         margin-right: 0.625rem;
       }

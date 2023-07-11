@@ -145,8 +145,9 @@
     </div> -->
     <!-- Transaction History -->
     <div class="history-container">
-      <app-transactions
+      <app-transactions 
         [accountHist]="filteredAccountHistory"
+        [isView]="isView"
       ></app-transactions>
     </div>
   </div>
