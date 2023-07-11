@@ -129,7 +129,7 @@ export class LoginScreenPage {
         if (error.status === 400 && error.error.message) {
           console.log(error.error.message);
           this.presentAlert(error.error.message);
-        } else if (error.status === 401) {
+        } else if (error.status === 403) {
           this.presentAlert('Wrong AccountNo/Password');
         } else if (error.status === 500) {
           this.presentAlert(error.error.error);

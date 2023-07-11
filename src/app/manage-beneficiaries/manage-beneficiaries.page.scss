@@ -98,18 +98,18 @@ ion-fab {
     }
   }
 }
-ion-modal {
-  --height: 35%;
-  --border-radius: 16px;
-  padding: 16px;
-  overflow: hidden;
-  position: fixed;
-}
+// ion-modal {
+//   --height: 35%;
+//   --border-radius: 16px;
+//   padding: 16px;
+//   overflow: hidden;
+//   position: fixed;
+// }
 
-ion-modal::part(backdrop) {
-  background: #000000;
-  opacity: 1;
-}
+// ion-modal::part(backdrop) {
+//   background: #000000;
+//   opacity: 1;
+// }
 
 ion-col {
   text-align: center;
