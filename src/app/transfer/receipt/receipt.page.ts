@@ -11,7 +11,7 @@ export class ReceiptPage implements OnInit {
 
   status = 'Success';
   accountType = 'Savings Account';
-  beneficiaryBank = 'NMF Bank';
+  beneficiaryBank = 'Olive Bank';
   confirmationDetails: any;
   sourceAccount: '';
   narration: '';

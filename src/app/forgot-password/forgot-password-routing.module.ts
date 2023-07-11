@@ -7,7 +7,11 @@ const routes: Routes = [
   {
     path: '',
     component: ForgotPasswordPage
-  }
+  },
+  {
+    path: 'success-page',
+    loadChildren: () => import('./success-page/success-page.module').then( m => m.SuccessPagePageModule)
+  },
 ];
 
 @NgModule({

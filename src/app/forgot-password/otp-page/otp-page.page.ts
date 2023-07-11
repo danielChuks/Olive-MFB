@@ -99,7 +99,7 @@ export class OtpPagePage implements OnInit, OnDestroy {
         .subscribe(
           (data) => {
             this.loadingCtrl.dismiss();
-            this.router.navigateByUrl('/success-page');
+            this.router.navigateByUrl('/forgot-password/success-page');
           },
           (err) => {
             this.loadingCtrl.dismiss();

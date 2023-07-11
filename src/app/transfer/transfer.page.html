@@ -44,7 +44,7 @@
       <!--End list of Accounts -->
 
       <!-- <div class="beneficiary-tab"> -->
-      <div class="inputGroup">
+      <div class="inputGroup form">
         <div class="select-beneficiary title">
           <p>Beneficiary account</p>
           <img
@@ -70,7 +70,7 @@
       </div>
       <!--  </div> -->
 
-      <div class="inputGroup">
+      <div class="inputGroup form">
         <p class="title">Amount(NGN)</p>
         <ion-input
           type="text"
@@ -79,16 +79,15 @@
           placeholder="Input Amount"
           (input)="formatInput($event.target.value)"
         ></ion-input>
+        <div class="transfer-limit">
+          <ion-label>Current. transfer limit:</ion-label>
+          <ion-label class="title">
+            {{limit|currency:"NGN":"symbol-narrow"}}
+          </ion-label>
+        </div>
       </div>
 
-      <div class="transfer-limit">
-        <ion-label>Current. transfer limit:</ion-label>
-        <ion-label class="title">
-          {{limit|currency:"NGN":"symbol-narrow"}}
-        </ion-label>
-      </div>
-
-      <div class="inputGroup">
+      <div class="inputGroup form">
         <p class="title">Narration</p>
         <ion-input
           type="text"

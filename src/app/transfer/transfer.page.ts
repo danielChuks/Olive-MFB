@@ -181,7 +181,7 @@ export class TransferPage implements OnInit, OnDestroy {
       ...this.intTransfer,
       senderAcctNo: this.selectedAccount,
       beneficiaryAcctName: this.beneficiaryAccountName,
-      bankName: 'NMFB',
+      bankName: 'Olive MFB',
       bankCode: 'local',
     };
 
