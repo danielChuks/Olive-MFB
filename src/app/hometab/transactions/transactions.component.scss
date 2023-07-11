@@ -1,6 +1,7 @@
 //ion-items styling
 .transaction-body {
   overflow: scroll;
+  transition:  linear !important;
 
   #date {
     font-size: 0.75rem;
