@@ -16,6 +16,7 @@ export class TransactionsComponent implements OnInit {
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
   @ViewChild(IonModal) modal: IonModal;
   @Input() accountHist: any;
+  @Input()isView: boolean;
 
   message = '';
   name: string;

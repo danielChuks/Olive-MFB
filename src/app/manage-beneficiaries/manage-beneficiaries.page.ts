@@ -20,6 +20,8 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
   filteredBenList: any;
   selectedBeneficiary;
   beneficiaryDetails;
+  benAccountNumber: any;
+  benBankName: any;
 
   private httpSubscriptions: Subscription[] = [];
 
@@ -32,13 +34,16 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  async openModal(
-    // accountName,
-    // accountNumber,
-    // benbankName,
-    // beneficiaryId,
-    // benBankCode
+  openModal(
+    benAccountName: string,
+    benAccountNumber: string,
   ) {
+
+    console.log('hello');
+  }
+
+  async openFilterModal()
+  {
     const modal = await this.modalCtrl.create({
       component: ModalPagePage,
       backdropBreakpoint: 0.1,
@@ -46,24 +51,6 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
       breakpoints: [0, 400 / this.platform.height()],
     });
     modal.present();
-
-    this.selectedBeneficiary = {
-      //pass as prop instead of sessionstorage
-      // beneficiaryAcctNo: accountNumber,
-      // beneficiaryAcctName: accountName,
-      // bankName: benbankName,
-      // benID: beneficiaryId,
-      // bankCode: benBankCode,
-    };
-
-    // sessionStorage.setItem(
-    //   'selectedBeneficiary',
-    //   JSON.stringify(this.selectedBeneficiary)
-    // );
-    // sessionStorage.setItem(
-    //   'beneficiaryId',
-    //   JSON.stringify(this.selectedBeneficiary.benID)
-    // );
 
     const { data, role } = await modal.onWillDismiss();
   }

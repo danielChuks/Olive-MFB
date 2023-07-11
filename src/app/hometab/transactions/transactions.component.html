@@ -1,5 +1,5 @@
 <!-- <ion-content> -->
-<div class="transaction-body">
+<div class="transaction-body" [style.height]="isView ? '100vh' : '30vh'">
   <div
     class="transaction-history"
     *ngFor="let history of accountHist; let i = index"

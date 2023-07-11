@@ -1,7 +1,6 @@
-
 <ion-header *ngIf="isView" class="ion-no-border" mode="ios">
   <ion-toolbar>
-   <ion-icon name="arrow-back" slot="start" (click)="backHome()"></ion-icon>
+    <ion-icon name="arrow-back" slot="start" (click)="backHome()"></ion-icon>
     <ion-title class="ion-text-center">Transaction History</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -19,16 +18,21 @@
 <ion-content class="ion-padding" [fullscreen]="true">
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
     <ion-refresher-content
-     pullingIcon="arrow-dropdown"
-     pullingText="Pull to refresh"
-     refreshingSpinner="circles"
-     refreshingText="Refreshing...">
-   </ion-refresher-content>
+      pullingIcon="arrow-dropdown"
+      pullingText="Pull to refresh"
+      refreshingSpinner="circles"
+      refreshingText="Refreshing..."
+    >
+    </ion-refresher-content>
   </ion-refresher>
   <div>
-    <swiper-container [pagination]="true" [slidesPerView]="1.05" #swiper (slidechange)="swiperSlideChanged($event)">
+    <swiper-container
+      [pagination]="true"
+      [slidesPerView]="1.05"
+      #swiper
+      (slidechange)="swiperSlideChanged($event)"
+    >
       <swiper-slide *ngFor="let account of multipleAccounts; let i = index; ">
-
         <app-card
           [accountBalance]="account.availableBalance"
           [accountNumber]="account.accountNumber"
@@ -36,7 +40,6 @@
         </app-card>
 
         <!-- <p>card 1</p> -->
-
       </swiper-slide>
     </swiper-container>
 
@@ -95,21 +98,21 @@
         </ion-row>
 
         <ion-row class="ion-align-items-center" class="bottom-row">
-          <ion-col   size="4" (click)="ViewMore()">
+          <ion-col size="4" (click)="ViewMore()">
             <div class="column">
               <img src="../../assets/images/Transaction history.svg" />
               <p>Transactions</p>
             </div>
           </ion-col>
 
-          <ion-col  size="4"  routerLink="/manage-beneficiaries">
+          <ion-col size="4" routerLink="/manage-beneficiaries">
             <div class="column">
               <img src="../../assets/images/Beneficiaries.svg" />
               <p>Beneficiaries</p>
             </div>
           </ion-col>
 
-          <ion-col  size="4"  routerLink="/settings">
+          <ion-col size="4" routerLink="/settings">
             <div class="column">
               <img src="../../assets/images/Settings.svg" />
               <p>Settings</p>
@@ -126,10 +129,10 @@
       [class.isView]="isView"
       [style.justify-content]="!isView ? 'space-between' : '' "
     > -->
-      <!-- <h3 class="title" *ngIf="!isView">Recent Transactions</h3> -->
-      <!-- Route to transaction history page -->
-      <!-- <p class="view-more" *ngIf="!isView" (click)="ViewMore()">View More</p> -->
-      <!-- <ion-searchbar
+    <!-- <h3 class="title" *ngIf="!isView">Recent Transactions</h3> -->
+    <!-- Route to transaction history page -->
+    <!-- <p class="view-more" *ngIf="!isView" (click)="ViewMore()">View More</p> -->
+    <!-- <ion-searchbar
         fill="none"
         mode="ios"
         *ngIf="isView"
@@ -138,12 +141,13 @@
         (ionChange)="handleSearchInput($event)"
       ></ion-searchbar> -->
 
-      <!-- <ion-icon name="funnel" class="funnel-icon" *ngIf="isView" (click)="openfilterModal()"> </ion-icon>
+    <!-- <ion-icon name="funnel" class="funnel-icon" *ngIf="isView" (click)="openfilterModal()"> </ion-icon>
     </div> -->
     <!-- Transaction History -->
     <div class="history-container">
-      <app-transactions
+      <app-transactions 
         [accountHist]="filteredAccountHistory"
+        [isView]="isView"
       ></app-transactions>
     </div>
   </div>

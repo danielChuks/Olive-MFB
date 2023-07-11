@@ -3,7 +3,6 @@ swiper-container {
   --swiper-pagination-color: #808000;
   --swiper-pagination-bottom: -0.25rem;
   --swiper-pagination-bullet-horizontal-gap: 0.25rem;
-
 }
 
 .quick_action {
@@ -48,7 +47,7 @@ ion-col {
     padding: 1.1rem;
     background-color: #000000;
     color: #ffffff;
-    box-shadow: 0px 0px .25rem -.625rem rgba(218, 218, 218, 0.26);
+    box-shadow: 0px 0rem 0.25rem -0.625rem rgba(218, 218, 218, 0.26);
     font-size: 1rem;
     box-sizing: border-box;
     margin-top: 1rem;
@@ -59,7 +58,7 @@ ion-col {
     background-color: #ffffff;
     color: #000000;
     font-size: 1rem;
-    border: .125rem solid #000000;
+    border: 0.125rem solid #000000;
     box-sizing: border-box;
     margin-top: 1rem;
   }
@@ -71,7 +70,7 @@ ion-toolbar {
     display: flex;
     justify-items: center;
     align-items: center;
-    margin-top: .8125rem;
+    margin-top: 0.8125rem;
 
     ion-avatar {
       margin-left: 1rem;
@@ -92,7 +91,7 @@ ion-toolbar {
 
     ion-label {
       font-size: 1rem;
-      margin: 0rem 0 0px .5625rem;
+      margin: 0rem 0 0rem 0.5625rem;
       font-weight: 600;
       font-size: 1rem;
       line-height: 1rem;
@@ -120,12 +119,12 @@ ion-modal::part(backdrop) {
     width: 1.875rem;
     height: 1.875rem;
     line-height: 31.25rem;
-    margin: 0rem 1.25rem .125rem 1.25rem;
+    margin: 0rem 1.25rem 0.125rem 1.25rem;
   }
   a {
     color: #000000;
     text-decoration: none;
-    font-size: .8125rem;
+    font-size: 0.8125rem;
     text-align: center;
     width: 100%;
     vertical-align: bottom;
@@ -136,14 +135,14 @@ ion-modal::part(backdrop) {
 //Transactions Component
 .transaction-container {
   background-color: #ffffff;
-  margin-top: 300px;
+  margin-top: 18.75rem;
   padding: 1rem 1rem 1rem 1rem;
-  margin-top: .75rem;
+  margin-top: 0.75rem;
   position: fixed;
   width: 100%;
 
   .header {
-    border: solid red .0625rem;
+    border: solid red 0.0625rem;
     display: flex;
     width: 100%;
     justify-content: space-between;
@@ -153,8 +152,9 @@ ion-modal::part(backdrop) {
       font-family: "Montserrat";
       font-style: normal;
       font-weight: 700;
-      font-size: .75rem;
+      font-size: 0.75rem;
       line-height: 1.5rem;
+      font-family: "Montserrat";
       font-weight: 600;
       color: #484848 !important;
     }
@@ -162,7 +162,7 @@ ion-modal::part(backdrop) {
       color: #484848 !important;
       font-style: normal;
       font-weight: 600;
-      font-size: .75rem;
+      font-size: 0.75rem;
       line-height: 1.5rem;
     }
 
@@ -175,15 +175,15 @@ ion-modal::part(backdrop) {
     .searchbar {
       width: 15.4375rem;
       height: 2.5rem;
-      border: .0625rem solid #a6a6a6;
-      margin-bottom: .625rem;
-      border-radius: .625rem;
+      border: 0.0625rem solid #a6a6a6;
+      margin-bottom: 0.625rem;
+      border-radius: 0.625rem;
     }
   }
 
   .history-container {
-    overflow: scroll;
     height: 100vh;
+    overflow: scroll;
   }
 }
 

@@ -1,9 +1,9 @@
 //ion-items styling
 .transaction-body {
-  height: 110vh;
+  overflow: scroll;
 
   #date {
-    font-size: .75rem;
+    font-size: 0.75rem;
   }
   #name {
     font-size: 3.125rem;
@@ -12,16 +12,15 @@
     display: flex;
     ion-item {
       width: 100%;
-      margin: 0rem -1rem 0rem -.9375rem;
+      margin: 0px -1rem 0rem -0.9375rem;
       background: #fafafa;
-      border-radius: .5rem;
-      margin-bottom: .625rem;
+      border-radius: 0.5rem;
+      margin-bottom: 0.625rem;
     }
 
     .image-container {
-      padding-bottom: 1.5rem;
       img {
-        margin-right: .625rem;
+        margin-right: 0.625rem;
       }
     }
   }
@@ -30,11 +29,11 @@
     float: left;
     width: 50%;
     align-content: center;
-    margin-bottom: .9375rem;
+    margin-bottom: 0.9375rem;
     h3 {
       font-size: 1rem;
       line-height: 1rem;
-      margin-bottom: .25rem;
+      margin-bottom: 0.25rem;
     }
 
     .transactions-amount {
@@ -42,8 +41,8 @@
         font-family: "Montserrat";
         font-style: normal;
         font-weight: 400;
-        font-size: .75rem;
-        line-height: .9375rem;
+        font-size: 0.75rem;
+        line-height: 0.9375rem;
         color: #4b4b4b;
       }
     }
@@ -61,9 +60,9 @@
     }
     .transactions-amount-subcontent {
       p {
-        font-size: .625rem;
-        line-height: .9375rem;
-        margin-bottom: .25rem;
+        font-size: 0.625rem;
+        line-height: 0.9375rem;
+        margin-bottom: 0.25rem;
         color: #666666;
       }
     }
@@ -72,7 +71,7 @@
   .transaction-amount {
     float: right;
     width: 25%;
-    margin-bottom: .9375rem;
+    margin-bottom: 0.9375rem;
     font-family: "Montserrat";
     color: #4b4b4b;
     font-style: normal;
@@ -87,11 +86,11 @@
   //change balance color
   h3[class="debit"] {
     font-size: 1.5625rem;
-    margin: .4375rem 0rem 0rem .4375rem;
+    margin: 0.4375rem 0rem 0rem 0.4375rem;
   }
 
   h3[class="credit"] {
     font-size: 1.5625rem;
-    margin: .4375rem 0rem 0rem .4375rem;
+    margin: 0.4375rem 0rem 0rem 0.4375rem;
   }
 }
