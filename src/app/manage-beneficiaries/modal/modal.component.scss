@@ -1,0 +1,66 @@
+@import "../../transfer/transfer.page.scss";
+
+.modal-accountno {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #000000;
+  margin-bottom: 0.625rem;
+  p {
+    color: #3a3a3a;
+    font-family: "Montserrat";
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 24px;
+    letter-spacing: 0.16px;
+  }
+
+  .accountNo {
+    color: #595757;
+    font-family: "Montserrat";
+    font-size: 10px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
+  ion-text {
+    color: #595757;
+    font-family: Montserrat;
+    font-size: 12px;
+    font-style: normal;
+    font-weight: 600;
+    line-height: 18px;
+    letter-spacing: -0.24px;
+  }
+}
+
+.contianer {
+  display: flex;
+  flex-direction: column;
+  max-width: 19.6875rem;
+  margin: 5rem auto;
+
+  .button-tranfer {
+    height: 3.5625rem;
+    flex-shrink: 0;
+    background: #000;
+    color: #fff;
+    font-family: "Montserrat";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+  }
+  .button-delete {
+    height: 3.5625rem;
+    color: #000;
+    font-family: "Montserrat";
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 600;
+    background-color: #fff;
+    border: 0.125rem solid #000;
+    margin-top: 1.4375rem;
+  }
+}

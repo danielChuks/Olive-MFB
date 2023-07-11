@@ -1,0 +1,18 @@
+
+<ion-content>
+  <div class="contianer">
+    <div class="modal-accountno">
+      <p>{{ beneficiaryDetails.beneficiaryAcctName }}</p>
+      <ion-text>{{ beneficiaryDetails.bankName }}</ion-text>
+      <p class="accountNo">{{ beneficiaryDetails.beneficiaryAcctNo }}</p>
+    </div>
+    <button class="button-tranfer"  (click)="cancel()">
+      <ion-label>Transfer to beneficiary</ion-label>
+    </button>
+    <button class="button-delete" (click)="deleteAlert()">
+      <ion-label>Delete beneficiary</ion-label>
+    </button>
+  </div>
+</ion-content>
+
+<h3>Ionic</h3>

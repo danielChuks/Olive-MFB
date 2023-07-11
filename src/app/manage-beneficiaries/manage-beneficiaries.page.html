@@ -1,10 +1,10 @@
 <ion-header class="ion-no-border" mode="ios">
   <ion-toolbar>
     <ion-icon
-    name="arrow-back"
-    routerLink="/new-tab/hometab"
-    slot="start"
-  ></ion-icon>
+      name="arrow-back"
+      routerLink="/new-tab/hometab"
+      slot="start"
+    ></ion-icon>
     <ion-title class="ion-text-center">Beneficiaries</ion-title>
   </ion-toolbar>
 </ion-header>
@@ -18,7 +18,11 @@
       [debounce]="1000"
       (ionChange)="handleSearchInput($event)"
     ></ion-searchbar>
-    <ion-icon name="filter-outline" class="funnel-icon" (click)="openFilterModal()"></ion-icon>
+    <ion-icon
+      name="filter-outline"
+      class="funnel-icon"
+      (click)="openFilterModal()"
+    ></ion-icon>
   </div>
 
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
@@ -30,57 +34,34 @@
     >
     </ion-refresher-content>
   </ion-refresher>
-  <ion-content>
+  <ion-content class="ion-padding">
     <div class="beneficiaries-list">
       <ion-item-group button detail="true">
-        <ion-item *ngFor="let list of filteredBenList" (click)="openModal(list.benAccountName, list.benAccountNumber)">
-          <!-- (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
-        button -->
+        <ion-item
+          *ngFor="let list of filteredBenList"
+          (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
+          button
+        >
+          <!-- <ion-avatar>
+            <ion-label>AA</ion-label>
+          </ion-avatar> -->
           <div class="beneficiaries-details">
             <div class="ben-name">
               <ion-text>{{list.benAccountName}} </ion-text>
             </div>
             <div class="ben-account">
-              <p>{{list.benAccountNumber}}</p>
-              <p></p>
-              <div class="hiphin">-</div>
-              <p>{{list.benBankName}}</p>
+              <h3>{{list.benAccountNumber}}</h3>
+              <h2>.</h2>
+              <h3>{{list.benBankName}}</h3>
             </div>
           </div>
         </ion-item>
 
         <ion-item *ngIf=" filteredBenList && filteredBenList.length <= 0">
-          <p>Can't find Beneficiary</p>
+          <h3>Can't find Beneficiary</h3>
         </ion-item>
-        
       </ion-item-group>
     </div>
-
-    <ion-modal #modal trigger="open-modal">
-      <ion-col>
-        <ng-template>
-          <ion-content class="ion-padding">
-            <div class="select_transfer">
-              <div class="modal-accountno">
-                <div class="accountNo">
-                  <p>{{benAccountNumber}}</p>
-                </div>
-                <div class="bankName">
-                  <p>{{benBankName}}</p>
-                </div>
-              </div>
-              <button class="transfer-to-beneficiary" (click)="cancel()">
-                Transfer to beneficiary
-              </button>
-
-              <button class="delete-beneficiary" (click)="cancel()">
-                Delete beneficiary
-              </button>
-            </div>
-          </ion-content>
-        </ng-template>
-      </ion-col>
-    </ion-modal>
   </ion-content>
 
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">

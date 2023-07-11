@@ -35,7 +35,7 @@ export class BanksModalComponent implements OnInit {
   ngOnInit() {
     this.beneficiaryService.getListofBanks().subscribe((data) => {
       this.mybank = [
-        { id: '00', cbnCode: '000', bankName: 'NMF mfb', bankCode: 'local' },
+        { id: '00', cbnCode: '000', bankName: 'Olive MFB', bankCode: 'local' },
         ...data.banks,
       ];
       this.banksList = this.mybank;
