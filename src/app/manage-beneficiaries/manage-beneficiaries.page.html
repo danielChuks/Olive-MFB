@@ -18,7 +18,7 @@
       [debounce]="1000"
       (ionChange)="handleSearchInput($event)"
     ></ion-searchbar>
-    <ion-icon name="filter-outline" class="funnel-icon" (click)="openModal()"></ion-icon>
+    <ion-icon name="filter-outline" class="funnel-icon" (click)="openFilterModal()"></ion-icon>
   </div>
 
   <ion-refresher slot="fixed" (ionRefresh)="handleRefresh($event)">
@@ -33,7 +33,7 @@
   <ion-content>
     <div class="beneficiaries-list">
       <ion-item-group button detail="true">
-        <ion-item *ngFor="let list of filteredBenList" id="open-modal">
+        <ion-item *ngFor="let list of filteredBenList" (click)="openModal(list.benAccountName, list.benAccountNumber)">
           <!-- (click)="openModal(list.benAccountName,list.benAccountNumber,list.benBankName,list.benId, list.benBankCode)"
         button -->
           <div class="beneficiaries-details">
@@ -52,6 +52,7 @@
         <ion-item *ngIf=" filteredBenList && filteredBenList.length <= 0">
           <p>Can't find Beneficiary</p>
         </ion-item>
+        
       </ion-item-group>
     </div>
 
@@ -59,13 +60,13 @@
       <ion-col>
         <ng-template>
           <ion-content class="ion-padding">
-            <div class="select_transfer" *ngFor="let list of filteredBenList">
+            <div class="select_transfer">
               <div class="modal-accountno">
                 <div class="accountNo">
-                  <p>{{list.benAccountNumber}}</p>
+                  <p>{{benAccountNumber}}</p>
                 </div>
                 <div class="bankName">
-                  <p>{{list.benBankName}}</p>
+                  <p>{{benBankName}}</p>
                 </div>
               </div>
               <button class="transfer-to-beneficiary" (click)="cancel()">

@@ -5,39 +5,39 @@
   margin: 2rem 0 3rem 0;
   img {
     // width: 35%;
-    width: 71.48px;
-    height: 60.97px;
+    width: 4.4675rem;
+    height: 3.8106rem;
   }
 }
 // welcome text
 ion-content {
   ion-text {
-    margin: 92px 4px 0 4px;
+    margin: 5.75rem .25rem 0 .25rem;
     font-weight: 700;
     font-size: 1.25rem;
     // color: -webkit-linear-gradient(to right, #649173, #3E5151 );
   }
   .sub-text {
     font-weight: 600;
-    font-size: 14px;
+    font-size: .875rem;
     line-height: 140%;
-    margin-top: 10px;
-    margin: 10px 4px 0 4px;
+    margin-top: .625rem;
+    margin: .625rem .25rem 0 .25rem;
   }
 }
 // input fields
 .accountNumber {
-  font-size: 14px;
-  margin: 42px 4px 0 4px;
+  font-size: .875rem;
+  margin: 2.625rem .25rem 0 .25rem;
   background: #ffffff;
-  box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.06);
-  border-radius: 16px;
+  box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.06);
+  border-radius: 1rem;
   padding: 1rem 1rem 0 1rem;
   ion-input {
     background: #f0f3f3;
-    border-radius: 12px;
-    height: 56px;
-    margin-top: 8px;
+    border-radius: .75rem;
+    height: 3.5rem;
+    margin-top: .5rem;
   }
 }
 
@@ -45,59 +45,47 @@ ion-content {
 
   ion-input {
     background: #f0f3f3;
-    border-radius: 12px;
-    border-color: 1px solid #e5e5e5;
-    height: 56px;
-    margin-top: 8px;
+    border-radius: .75rem;
+    border-color: .0625rem solid #e5e5e5;
+    height: 3.5rem;
+    margin-top: .5rem;
   }
   // eye icon
   ion-icon {
     float: right;
-    margin: -40px 12px 0px 0px;
+    margin: -2.5rem .75rem 0px 0px;
     position: relative;
     z-index: 99;
-    font-size: 23px;
+    font-size: 1.4375rem;
   }
 }
 .password ion-input:focus {
-  border: solid 1px red;
+  border: solid .0625rem red;
 
   outline-color: blue !important;
 }
 
-// button
-// ion-button {
-//   margin-top: 56px;
-//   margin-left: 4px;
-//   margin-right: 4px;
-//   --border-radius: 5px;
-//   height: 50px;
-//   font-size: 16px;
-//   --background: #018401;
-//   --background-activated: #01840188;
-// }
-
 // forgot password link
 .forgot-text {
   text-align: center;
-  font-size: 14px;
+  font-size: .875rem;
   margin-top: 2rem;
   color: rgba(60, 60, 67, 0.6);
   span {
     color: #a3a30a;
     text-transform: uppercase;
     font-weight: 600;
-    font-size: 13px;
+    font-size: .8125rem;
   }
 }
 
 .forgot-password {
   float: right;
   font-weight: 600;
-  font-size: 14px;
-  line-height: 18px;
-  letter-spacing: -0.24px;
-  margin-top: 0.8rem;
+  font-size: .875rem;
+  line-height: 1.125rem;
+  letter-spacing: -0.015rem;
+  margin-top: .3125rem;
   margin-bottom: 1.5rem;
 }
 

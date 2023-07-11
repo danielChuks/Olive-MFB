@@ -53,41 +53,41 @@
 
     ion-label {
       color: #000;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-family: "Montserrat";
       font-weight: 500;
-      line-height: 22px;
+      line-height: 1.375rem;
       text-transform: capitalize;
     }
     input {
-      width: 148px;
-      height: 43px;
+      width: 9.25rem;
+      height: 2.6875rem;
       color: #3a0404;
-      font-size: 14px;
+      font-size: 0.875rem;
       font-family: Montserrat;
       font-weight: 500;
-      line-height: 22px;
+      line-height: 1.375rem;
       background-color: white !important;
-      border-radius: 5px;
-      padding-left: 5px !important;
-      border: 1px solid #4b4b4b;
+      border-radius: 0.3125rem;
+      padding-left: 0.3125rem !important;
+      border: 0.0625rem solid #4b4b4b;
     }
     input[type="date"]::-webkit-calendar-picker-indicator {
-      width: 25px;
-      height: 25px;
+      width: 1.5625rem;
+      height: 1.5625rem;
       filter: invert(70%);
-      padding-right: 10px;
-      margin: 0px;
+      padding-right: 0.625rem;
+      margin: 0rem;
     }
   }
 
   ion-label {
     color: #000;
-    font-size: 14px;
+    font-size: 0.875rem;
     font-family: Montserrat;
     font-weight: 600;
-    line-height: 46px;
-    letter-spacing: 0.14px;
+    line-height: 2.875rem;
+    letter-spacing: 0.0088rem;
   }
 }
 .credit-debit-container {
@@ -99,7 +99,7 @@
     display: flex;
     align-items: center;
     ion-checkbox{
-      margin-right: 20px;
+      margin-right: 1.25rem;
     }
   }
 }
