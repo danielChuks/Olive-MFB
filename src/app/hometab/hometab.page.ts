@@ -110,6 +110,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
+          console.log(data);
         },
 
         (err) => {}
@@ -123,6 +124,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
+          console.log(data);
         },
         (err) => {}
       )
