@@ -245,7 +245,6 @@ export class PinModalComponent implements OnInit, OnDestroy {
         //initialize pin to pin object
         this.pinValidationDetails.accountNumber = sessionStorage.getItem('accountNumber');
         //initialize account number
-        console.log(this.pinValidationDetails);
         this.httpSubscriptions.push(
           this.transferService.validatePin(this.pinValidationDetails).subscribe(
             (data) => {

@@ -12,10 +12,6 @@ ion-toolbar {
   line-height: 1.125rem;
   color: #000000;
 
-  .title {
-    font-weight: 600;
-    font-size: .875rem;
-  }
 
   ion-item {
     --background: #ededed;
@@ -34,7 +30,9 @@ ion-toolbar {
       border-radius: .8rem;
     }
 
-
+   ion-input.custom {
+    --padding-start: 10px;
+   }
 
     ion-select {
       height: 3.5rem;
@@ -85,6 +83,7 @@ ion-toolbar {
     }
   }
   .account-list {
+
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -93,7 +92,8 @@ ion-toolbar {
     height: 3.5rem;
     background-color: #ededed;
     border-color: .125rem solid #e5e5e5;
-    margin-top: -.5rem;
+    // margin-top: -1.1rem;
+
 
     .account-type {
       h3 {
@@ -107,9 +107,15 @@ ion-toolbar {
     }
   }
 
+  .accountlist_wrapper{
+   margin: -1.4rem  1.25rem 0;
+  }
+
   .toggle {
     ion-toggle {
-      --background-checked: #018401;
+
+      --background-checked: #a3a30a;
+      --handle-background-checked: #a3a30a;
     }
     margin-top: 2rem;
     display: flex;

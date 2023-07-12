@@ -24,14 +24,22 @@
     </ion-segment-button>
   </ion-segment>
 
+  <form
+    [formGroup]="airtimeForm"
+    class="transfer-forms"
+    *ngIf="segmentModel === 'seg1'"
+  >
+  <section class="form inputGroup">
+    <p class="title">Select account</p>
   <div class="accounts" (click)="isAccount =!isAccount">
     <div class="accounts-header">
       <ion-text>{{accountNumber}}</ion-text
       ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
     </div>
   </div>
+  </section>
 
-  <div *ngIf="isAccount">
+  <div class="accountlist_wrapper" *ngIf="isAccount">
     <div
       *ngFor="let account of multipleAccounts"
       class="account-list"
@@ -50,14 +58,12 @@
     </div>
   </div>
 
-  <form
-    [formGroup]="airtimeForm"
-    class="transfer-forms"
-    *ngIf="segmentModel === 'seg1'"
-  >
-    <div class="inputGroup">
+
+
+    <div class="inputGroup form">
+      <p class="title">Select network provider</p>
       <ion-select
-        placeholder="Select Carrier"
+        placeholder="Select network provider"
         interface="action-sheet"
         [interfaceOptions]="{ cssClass: 'select'}"
         (ionChange)="selectCarrier($event)"
@@ -71,24 +77,28 @@
       </ion-select>
     </div>
 
-    <div class="inputGroup">
+    <div class="inputGroup form">
+      <p class="title">Mobile number</p>
       <ion-input
         [disabled]="isNumberDisabled"
-        placeholder="Enter Mobile Number"
+        placeholder="Input mobile number"
         type="tel"
         id="phoneInput"
+         class="custom"
          maxlength="11"
         formControlName="airtimeNumber"
       ></ion-input>
     </div>
 
-    <div class="inputGroup">
+    <div class="inputGroup form">
+       <p class="title">Top-up amount</p>
       <ion-input
         [ngModel]="airtimeAmount"
         (input)="formatInput($event.target.value)"
         [disabled]="isAmountDisabled"
-        placeholder="Amount"
+        placeholder="input top-up amount"
         type="text"
+         class="custom"
         formControlName="airtimeAmount"
       ></ion-input>
      <div class="transfer-limit">
@@ -111,10 +121,11 @@
     </div>
   </form>
 
-  <form [formGroup]="mobileDataForm" class="transfer-forms" *ngIf="segmentModel === 'seg2'">
+  <form [formGroup]="mobileDataForm"    class="transfer-forms" *ngIf="segmentModel === 'seg2'">
 
 
-    <div class="inputGroup">
+    <div class="form inputGroup">
+        <p class="title">Select network provider</p>
       <ion-select
         placeholder="Select Carrier"
         [interfaceOptions]="{ cssClass: 'select'}"
@@ -131,7 +142,8 @@
 
 
 
-    <div class="inputGroup">
+    <div class="form inputGroup">
+       <p class="title">Select bundle</p>
       <ion-select
         #bund
         placeholder="Select Bundle"
@@ -149,10 +161,12 @@
       </ion-select>
     </div>
 
-    <div class="inputGroup">
+    <div class="form inputGroup">
+      <p class="title">Amount</p>
     <ion-input
       placeholder="Amount"
       [ngModel]="dataAmount"
+       class="custom"
       (input)="formatInput($event.target.value)"
       type="text"
       formControlName="mobileDataAmount"
@@ -166,10 +180,12 @@
       </div>
     </div>
 
-     <div class="inputGroup">
+     <div class="form inputGroup">
+        <p class="title">Mobile number</p>
     <ion-input
-      placeholder="Mobile Number"
+      placeholder="input mobile number"
       type="tel"
+       class="custom"
         maxlength="11"
       formControlName="mobileDataNumber"
       id="phoneInput"
