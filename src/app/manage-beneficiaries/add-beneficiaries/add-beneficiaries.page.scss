@@ -5,16 +5,14 @@
   justify-content: space-between;
   align-items: center;
   background: #ffffff;
-  border: 2px solid #e5e5e5;
-  padding: 14px 8px 10px 8px;
-  height: 56px;
-  margin-top: 26px;
-  margin-bottom: 40px;
+  border: .125rem solid #e5e5e5;
+  padding: .875rem .5rem .625rem .5rem;
+  height: 3.5rem;
 
   .name {
     float: right;
     position: absolute;
-    font-size: 10px;
+    font-size: .625rem;
   }
 
   ion-icon {
@@ -22,33 +20,33 @@
   }
 }
 .account-header {
-  border-radius: 12px;
+  border-radius: .75rem;
   background: #f0f3f3;
   color: #3c3c43;
-  font-size: 14px;
+  font-size: .875rem;
   font-family: Montserrat;
   font-weight: 500;
-  line-height: 18px;
-  letter-spacing: -0.24px;
-  padding: 16px 16px;
+  line-height: 1.125rem;
+  letter-spacing: -0.015rem;
+  padding: 1rem 1rem;
 }
 .account-number {
   display: block;
-  margin-top: 60px;
+  margin-top: 1.875rem;
 
   ion-input {
-    height: 48px;
-    padding: 16px 16px !important;
-    border-radius: 12px;
+    height: 3.5rem;
+    padding: 1rem 1rem !important;
+    border-radius: .75rem;
     background: #f0f3f3;
     color: #3c3c43;
-    line-height: 18px;
-    letter-spacing: -0.24px;
+    line-height: 1.125rem;
+    letter-spacing: -0.015rem;
   }
   #name {
-    font-size: 12px;
+    font-size: .75rem;
     float: right;
-    padding-right: 10px;
+    padding-right: .625rem;
   }
 
   ion-icon {
@@ -56,25 +54,6 @@
   }
 }
 
-.account-name {
-  display: block;
-  margin-top: 60px;
-
-  ion-input {
-    height: 48px;
-    padding: 16px 16px !important;
-    border-radius: 12px;
-    background: #f0f3f3;
-    color: #3c3c43;
-    line-height: 18px;
-    letter-spacing: -0.24px;
-  }
-  #name {
-    font-size: 12px;
-    float: right;
-    padding-right: 10px;
-  }
-}
 .ion-no-border {
   ion-text {
     width: 100%;
@@ -82,7 +61,7 @@
 }
 
 ion-searchbar {
-  margin-top: 32px;
+  margin-top: 2rem;
 }
 
 .scroll {
@@ -91,5 +70,5 @@ ion-searchbar {
 }
 
 .btn {
-  --border-radius: 12px !important;
+  --border-radius: .75rem !important;
 }

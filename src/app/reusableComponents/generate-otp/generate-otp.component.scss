@@ -8,20 +8,20 @@ ion-col {
   // text-align: center;
   flex-direction: column;
   // background-color: #135d54;
-  // border: solid 1px #fff;
+  // border: solid .0625rem #fff;
   color: #A3A30A;
-  font-size: 12px;
+  font-size: .75rem;
   font-weight: 500;
   .regenerate {
-  margin: 5px 0 0 0;
+  margin: .3125rem 0 0 0;
   color: #000000;
   }
   .text {
-    margin-top: -9px;
+    margin-top: -0.5625rem;
   }
   ion-button {
-    margin: -0.5rem 0 0 -10px;
-    font-size: 10px;
+    margin: -.5rem 0 0 -0.625rem;
+    font-size: .625rem;
     color: #000000;
     text-decoration: underline;
     text-transform: capitalize;
@@ -34,50 +34,48 @@ ion-col {
   align-items: center;
   justify-content: center;
   ion-icon {
-    width: 25px;
-    height: 25px;
+    width: 1.5625rem;
+    height: 1.5625rem;
   }
 }
 // text
 ion-text {
   h4 {
-    font-size: 22px;
-    // margin-left: 1.25rem;
-    // margin-top: 1.5rem;
+    font-size: 1.375rem;
   }
   p {
     width: 18.6rem;
-    line-height: 24px;
-    font-size: 0.875rem;
+    line-height: 1.5rem;
+    font-size: .875rem;
     font-weight: 600;
 line-height: 140%;
-    margin-top: 8px;
+    margin-top: .5rem;
   }
 }
 
 // passcode text
 .passcode {
   text-align: center;
-  font-size: 16px;
+  font-size: 1rem;
   color: #000000;
   margin-top: 1rem;
 }
 .ellipses {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem;
   justify-content: center;
-  margin-top: 24px;
+  margin-top: 1.5rem;
   #circle {
-    width: 16px;
-    height: 16px;
+    width: 1rem;
+    height: 1rem;
     border-radius: 50%;
     text-align: center;
     font-weight: bold;
 
     .inner-circle {
-      width: 16px;
-      height: 16px;
-      border: 1px solid #000;
+      width: 1rem;
+      height: 1rem;
+      border: .0625rem solid #000;
       border-radius: 50%;
       text-align: center;
       font-weight: bold;
@@ -93,9 +91,9 @@ line-height: 140%;
 .dialpad {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
-  padding: 20px 17px 20px 17px;
-  column-gap: 20px;
-  row-gap: 20px;
+  padding: 1.25rem 1.0625rem 1.25rem 1.0625rem;
+  column-gap: 1.25rem;
+  row-gap: 1.25rem;
   justify-content: space-evenly;
   // background-color: rgb(102, 13, 13);
 
@@ -103,7 +101,7 @@ line-height: 140%;
     // --background: rgb(110, 79, 79);
     display: grid;
     justify-content: space-evenly;
-    font-size: 35px;
+    font-size: 2.1875rem;
     color: #000000;
   }
 }

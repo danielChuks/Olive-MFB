@@ -43,8 +43,8 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
     const modal = await this.modalCtrl.create({
       component: ModalComponent,
       backdropBreakpoint: 0.1,
-      initialBreakpoint: 600 / this.platform.height(),
-      breakpoints: [0, 600 / this.platform.height()],
+      initialBreakpoint: 300 / this.platform.height(),
+      breakpoints: [0, 300 / this.platform.height()],
     });
     modal.present();
 
@@ -79,8 +79,8 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
     const modal = await this.modalCtrl.create({
       component: ModalPagePage,
       backdropBreakpoint: 0.1,
-      initialBreakpoint: 400 / this.platform.height(),
-      breakpoints: [0, 400 / this.platform.height()],
+      initialBreakpoint: 300 / this.platform.height(),
+      breakpoints: [0, 300 / this.platform.height()],
     });
     modal.present();
     const { data, role } = await modal.onWillDismiss();
