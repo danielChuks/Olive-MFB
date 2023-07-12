@@ -13,19 +13,19 @@
 
 
 
-<ion-content class="ion-padding">
-  <form   class="transfer-forms">
+<ion-content class="ion-padding-horizontal">
+  <form class="transfer-forms">
 
-    <div class="form">
+     <section class="form inputGroup">
    <p class="title">Select account</p>
    <div class="accounts" (click)="isAccount =!isAccount" >
       <div class="accounts-header">
         <ion-text>{{accountNumber}}</ion-text><ion-icon name="chevron-down-outline" slot="end"  ></ion-icon>
       </div>
     </div>
-  </div>
+  </section>
 
-<div *ngIf="isAccount" >
+<div class="accountlist_wrapper" *ngIf="isAccount" >
     <div *ngFor="let account of multipleAccounts"  class="account-list" (click)="selectAccountNumber(account.accountNumber)"  (click)="isAccount =!isAccount">
       <div  class="account-type">
         <h3>{{account.accountNumber}}</h3>
@@ -64,24 +64,26 @@
 
     <div class="inputGroup form">
        <p class="title">Amount(NGN)</p>
-      <ion-input [(ngModel)]="transfer.amount"  type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
+      <ion-input [(ngModel)]="transfer.amount"  class="custom"  type="text" name="amount"  placeholder="N Amount" [disabled]="isDisabled"></ion-input>
        <!-- <span class="message">{{error}}</span> -->
-       <div class="transfer-limit">
-        <ion-label>Current. transfer limit:</ion-label>
-        <ion-label class="title">
-          {{limit|currency:"NGN":"symbol-narrow"}}
-        </ion-label>
-      </div>
+        <div class="transfer-limit">
+           <ion-label>Current. transfer limit:</ion-label>
+      <ion-label class="title">
+        {{limit|currency:"NGN":"symbol-narrow"}}
+      </ion-label>
     </div>
-      
-
-
-    <div class="inputGroup"  *ngIf="display">
-        <ion-input type="text" placeholder={{fieldResult1}} [(ngModel)]="transfer.customer1" name="customer1"></ion-input>
     </div>
 
-    <div class="inputGroup" *ngIf="display2">
-        <ion-input type="text" placeholder={{fieldResult2}}  name="customer2" required></ion-input>
+
+
+    <div class="inputGroup form"  *ngIf="display">
+      <p class="title">{{fieldResult1}}</p>
+        <ion-input  class="custom" type="text" placeholder={{fieldResult1}} [(ngModel)]="transfer.customer1" name="customer1"></ion-input>
+    </div>
+
+    <div class="inputGroup form" *ngIf="display2">
+       <p class="title">{{fieldResult2}}</p>
+        <ion-input  class="custom" type="text" placeholder={{fieldResult2}}  name="customer2" required></ion-input>
     </div>
 
 

@@ -34,52 +34,52 @@ ion-segment {
 }
 
 
-.accounts {
-  height: 56px;
-  background-color: #ededed;
-  border-color: 2px solid #e5e5e5;
-  margin-top: 1.5rem;
-  border-radius: 0.8rem;
-}
+// .accounts {
+//   height: 56px;
+//   background-color: #ededed;
+//   border-color: 2px solid #e5e5e5;
+//   margin-top: 1.5rem;
+//   border-radius: 0.8rem;
+// }
 
-.accounts-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #666666;
-  padding: 18px 8px 10px 8px;
+// .accounts-header {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   color: #666666;
+//   padding: 18px 8px 10px 8px;
 
-  ion-text {
-    height: 15px;
-    font-weight: 400;
-    line-height: 18px;
-  }
-}
+//   ion-text {
+//     height: 15px;
+//     font-weight: 400;
+//     line-height: 18px;
+//   }
+// }
 
-.account-list {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  color: #666666;
-  padding: 18px 8px 10px 8px;
-  height: 56px;
-  background-color: #ededed;
-  border-color: 2px solid #e5e5e5;
-  margin-top: -.5rem;
+// .account-list {
+//   display: flex;
+//   justify-content: space-between;
+//   align-items: center;
+//   color: #666666;
+//   padding: 18px 8px 10px 8px;
+//   height: 56px;
+//   background-color: #ededed;
+//   border-color: 2px solid #e5e5e5;
+//   margin-top: -.5rem;
 
-  .account-type {
-    h3 {
-      font-size: 16px;
-    }
-    p {
-      margin-top: -8px;
-      font-size: 13px;
-      margin-bottom: 20px;
-    }
-  }
-}
-ion-label {
-  font-size: 14px;
-}
+//   .account-type {
+//     h3 {
+//       font-size: 16px;
+//     }
+//     p {
+//       margin-top: -8px;
+//       font-size: 13px;
+//       margin-bottom: 20px;
+//     }
+//   }
+// }
+// ion-label {
+//   font-size: 14px;
+// }
 
 
