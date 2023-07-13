@@ -11,19 +11,22 @@
 
 
 <!-- Transfer Forms -->
-<ion-content class="ion-padding">
+<ion-content class="ion-padding-horizontal">
   <form [formGroup]="intTransForm" class="transfer-forms">
-    <p class="title">Select account</p>
-    <div class="transfer-forms">
+
+    <!-- <div class="transfer-forms"> -->
+      <section class="form inputGroup">
+      <p class="title">Select account</p>
       <div class="accounts" (click)="isAccount =!isAccount">
         <div class="accounts-header">
           <ion-text>{{accountNumber}}</ion-text
           ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
         </div>
       </div>
+      </section>
 
       <!-- list of Accounts -->
-      <div *ngIf="isAccount">
+      <div class="accountlist_wrapper" *ngIf="isAccount">
         <div
           *ngFor="let account of multipleAccounts"
           class="account-list"
@@ -58,6 +61,7 @@
           (input)="getNameEnquiry($event)"
           maxlength="10"
           type="text"
+           class="custom"
           name="beneficiaryAcctNum"
           placeholder="Input beneficiary account"
           formControlName="beneficiaryAcctNum"
@@ -77,6 +81,7 @@
           name="amount"
           formControlName="amount"
           placeholder="Input Amount"
+           class="custom"
           (input)="formatInput($event.target.value)"
         ></ion-input>
         <div class="transfer-limit">
@@ -92,6 +97,7 @@
         <ion-input
           type="text"
           name="narration"
+           class="custom"
           formControlName="narration"
           placeholder="Transaction description"
         ></ion-input>
@@ -99,7 +105,7 @@
       <!--End of Transfer Forms -->
 
       <div class="toggle">
-        <ion-toggle (ionChange)="toggleChange($event)"></ion-toggle>
+        <ion-toggle  (ionChange)="toggleChange($event)"></ion-toggle>
         <ion-text>Save to my list of beneficiaries</ion-text>
       </div>
 
@@ -112,6 +118,6 @@
           >Continue</ion-button
         >
       </div>
-    </div>
+    <!-- </div> -->
   </form>
 </ion-content>

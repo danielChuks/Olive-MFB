@@ -9,8 +9,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
+<ion-content class="ion-padding-horizontal">
   <form [formGroup]="extTransForm" class="transfer-forms inputGroup">
+     <section class="form inputGroup">
     <p class="title">Select account</p>
     <div class="accounts" (click)="isAccount =!isAccount">
       <div class="accounts-header">
@@ -18,8 +19,10 @@
         ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
       </div>
     </div>
+    </section>
 
-    <div *ngIf="isAccount">
+    <!-- list of Accounts -->
+    <div class="accountlist_wrapper" *ngIf="isAccount">
       <div
         *ngFor="let account of multipleAccounts"
         class="account-list"
@@ -39,7 +42,7 @@
     </div>
 
     <!-- //bank modal -->
-    <div class="inputGroup">
+    <div class="inputGroup form">
       <p class="title">Destination bank</p>
       <ion-input
         (click)="openBankModal()"
@@ -47,11 +50,12 @@
         [ngModelOptions]="{standalone: true}"
         type="text"
         name="text"
+         class="custom"
         [disabled]="isBankSelected"
       ></ion-input>
     </div>
 
-    <div class="beneficiary-tab inputGroup">
+    <div class="beneficiary-tab form inputGroup">
       <div class="input beneficiary">
         <div class="select-beneficiary title">
           <p class="title">Beneficiary account</p>
@@ -65,6 +69,7 @@
         <ion-input
           counter="true"
           type="text"
+           class="custom"
           (input)="getNameEnquiry($event)"
           [(ngModel)]="benAcctNo"
           [ngModelOptions]="{standalone: true}"
@@ -138,28 +143,31 @@
       </div>
     </div>
 
-    <div class="inputGroup">
+    <div class="inputGroup form">
       <p class="title">Amount(NGN)</p>
       <ion-input
         type="text"
         name="amount"
+         class="custom"
         formControlName="amount"
         placeholder="Input amount"
         (input)="formatInput($event.target.value)"
       ></ion-input>
-    </div>
-
-    <div class="transfer-limit">
+       <div class="transfer-limit">
       <ion-label>Current. transfer limit:</ion-label>
       <ion-label class="title">
         {{limit|currency:"NGN":"symbol-narrow"}}
       </ion-label>
     </div>
+    </div>
 
-    <div class="inputGroup">
+
+
+    <div class="inputGroup form">
       <p class="title">Narration</p>
       <ion-input
         type="text"
+         class="custom"
         formControlName="narration"
         placeholder="Transaction description"
       ></ion-input>
