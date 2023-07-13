@@ -233,7 +233,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
         const iconElement = document.createElement('ion-icon');
         iconElement.setAttribute('name', 'medical-sharp');
-        const circleElement = document.getElementById(`circles${i}`);
+        const circleElement = document.getElementById(`star${i}`);
         circleElement.innerHTML = '';
         circleElement.appendChild(iconElement);
       }
@@ -266,7 +266,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
   removeNumber() {
     this.createPasscodeValues.pop();
     for (let i = this.createPasscodeValues.length; i >= 0; i--) {
-      const circleElement = document.getElementById(`circles${i}`);
+      const circleElement = document.getElementById(`star${i}`);
       circleElement.innerHTML = '';
       break;
     }

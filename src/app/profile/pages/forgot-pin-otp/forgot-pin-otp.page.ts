@@ -112,7 +112,7 @@ export class ForgotPinOtpPage implements OnInit, OnDestroy {
     if (this.createPasscodeValues.length !== 6) {
       this.createPasscodeValues.push(num);
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
-        document.getElementById(`circles${i}`).classList.add('filled');
+        document.getElementById(`forgotpin${i}`).classList.add('filled');
       }
       if (this.createPasscodeValues.length === 6) {
         this.convertedPin = this.createPasscodeValues
@@ -130,7 +130,7 @@ export class ForgotPinOtpPage implements OnInit, OnDestroy {
     this.createPasscodeValues.pop();
     //console.log(this.createPasscodeValues);
     for (let i = this.createPasscodeValues.length; i >= 0; i++) {
-      document.getElementById(`circles${i}`).classList.remove('filled');
+      document.getElementById(`forgotpin${i}`).classList.remove('filled');
       break;
     }
   }
@@ -138,7 +138,7 @@ export class ForgotPinOtpPage implements OnInit, OnDestroy {
   ngOnDestroy() {
     if (this.createPasscodeValues.length > 0) {
       for (let i = 0; i <= this.createPasscodeValues.length; i++) {
-        document.getElementById(`circles${i}`).classList.remove('filled');
+        document.getElementById(`forgotpin${i}`).classList.remove('filled');
       }
     }
   }
