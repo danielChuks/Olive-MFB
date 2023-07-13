@@ -123,6 +123,34 @@
 
   <form [formGroup]="mobileDataForm"    class="transfer-forms" *ngIf="segmentModel === 'seg2'">
 
+    <section class="form inputGroup">
+    <p class="title">Select account</p>
+  <div class="accounts" (click)="isAccount =!isAccount">
+    <div class="accounts-header">
+      <ion-text>{{accountNumber}}</ion-text
+      ><ion-icon name="chevron-down-outline" slot="end"></ion-icon>
+    </div>
+  </div>
+  </section>
+
+  <div class="accountlist_wrapper" *ngIf="isAccount">
+    <div
+      *ngFor="let account of multipleAccounts"
+      class="account-list"
+      (click)="selectAccountNumber(account.accountNumber)"
+      (click)="isAccount =!isAccount"
+    >
+      <div class="account-type">
+        <h3>{{account.accountNumber}}</h3>
+      </div>
+
+      <div class="acct-number">
+        <ion-text
+          >{{account.availableBalance|currency:"NGN":"symbol-narrow"}}</ion-text
+        >
+      </div>
+    </div>
+  </div>
 
     <div class="form inputGroup">
         <p class="title">Select network provider</p>

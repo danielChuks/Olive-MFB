@@ -6,7 +6,8 @@
 </ion-header>
 
 <!-- <ion-searchbar [debounce]="1000" color="dark"  [debounce]="1000" (ionChange)="handleSearchInput($event)" ></ion-searchbar> -->
-
+  <ion-content class="ion-padding">
+    
   <div class="search-icon-container">
     <ion-searchbar
       fill="none"
@@ -17,7 +18,7 @@
     ></ion-searchbar>
 </div>
 
-<ion-content class="ion-padding">
+
   <div class="beneficiaries-list">
     <ion-item-group  *ngFor="let list of filteredBenList"  button detail="true">
       <ion-item (click)="addBeneficiary(list.benAccountName,list.benAccountNumber, sendTrue)"  button>
@@ -41,4 +42,5 @@
 
 
   </div>
-</ion-content>
+  </ion-content>
+

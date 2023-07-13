@@ -12,6 +12,7 @@ import { Subscription } from 'rxjs';
 import { GeneralServiceService } from '../general-service.service';
 import { IonModal, Platform } from '@ionic/angular';
 import { FilterComponent } from './filter/filter.component';
+import { TransfersModalComponent } from './transfers-modal/transfers-modal.component';
 import { ModalController } from '@ionic/angular';
 
 
@@ -54,7 +55,21 @@ export class HometabPage implements OnInit, OnDestroy {
     private alertController: AlertController,
     private http: HttpClient,
     private generalService: GeneralServiceService
-  ) {}
+  ) { }
+
+
+ async openTransfersModal() {
+   const modal = await this.modalCtrl.create({
+    component: TransfersModalComponent,
+     backdropDismiss:true,
+     swipeToClose:true,
+    //  backdropBreakpoint: 0.1,
+       cssClass: 'transfersModal',
+    //  initialBreakpoint: 500 / this.platform.height(),
+    //  breakpoints: [0, 500 / this.platform.height()],
+   })
+   modal.present();
+  }
 
   async openfilterModal() {
     const modal = await this.modalCtrl.create({
