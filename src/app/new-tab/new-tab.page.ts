@@ -35,48 +35,75 @@ export class NewTabPage implements OnInit {
         processNextHandler();
       }
       // eslint-disable-next-line no-underscore-dangle
-      else if (this._location.isCurrentPathEqualTo('/')) {
-        // Navigate to back page
-        // //console.log('Navigate to back page');
-        // // eslint-disable-next-line no-underscore-dangle
-        // this._location.back();
-        //console.log('Close app!');
+      else if (this._location.isCurrentPathEqualTo('/login-screen')) {
+        // Exit app
         // eslint-disable-next-line @typescript-eslint/dot-notation
         navigator['app'].exitApp();
-      } else {
+      }
+      // Add the condition for the signup-form route
+      // eslint-disable-next-line no-underscore-dangle
+      else if (this._location.isCurrentPathEqualTo('/signup-form')) {
+        // Exit app
+        // eslint-disable-next-line @typescript-eslint/dot-notation
+        navigator['app'].exitApp();
+      }
+      else {
         // Navigate to back page
-        //console.log('Navigate to back page');
         // eslint-disable-next-line no-underscore-dangle
         this._location.back();
       }
     });
   }
 
-  showExitConfirm() {
-    this.alertController
-      .create({
-        // header: 'App termination',
-        message: 'Do you want to close the app?',
-        backdropDismiss: false,
-        buttons: [
-          {
-            text: 'Stay',
-            role: 'cancel',
-            handler: () => {
-              //console.log('Application exit prevented!');
-            },
-          },
-          {
-            text: 'Exit',
-            handler: () => {
-              // eslint-disable-next-line @typescript-eslint/dot-notation
-              this.auth.logout();
-            },
-          },
-        ],
-      })
-      .then((alert) => {
-        alert.present();
-      });
+  // showExitConfirm() {
+  //   this.alertController
+  //     .create({
+  //       // header: 'App termination',
+  //       message: 'Do you want to close the app?',
+  //       backdropDismiss: false,
+  //       buttons: [
+  //         {
+  //           text: 'Stay',
+  //           role: 'cancel',
+  //           handler: () => {
+  //             //console.log('Application exit prevented!');
+  //           },
+  //         },
+  //         {
+  //           text: 'Exit',
+  //           handler: () => {
+  //             // eslint-disable-next-line @typescript-eslint/dot-notation
+  //             this.auth.logout();
+  //           },
+  //         },
+  //       ],
+  //     });
+
+  //     await alert.present();
+
+  // }
+
+  async showExitConfirm() {
+    const alert = await this.alertController.create({
+      header: 'Warning!',
+      message: 'Do you want to close the app?',
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: () => {
+            alert.dismiss();
+          }
+        },
+        {
+          text: 'Exit',
+          handler: () => {
+            this.auth.logout();
+            alert.dismiss();
+          }
+        },
+      ],
+    });
+
+    await alert.present();
   }
 }

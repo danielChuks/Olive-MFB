@@ -19,11 +19,11 @@ export class AuthGuard implements CanActivate {
   canActivate(
     route: ActivatedRouteSnapshot,
     state: RouterStateSnapshot): boolean {
-      if (sessionStorage.getItem(this.USER_AUTH_KEY) != null)
+      if (sessionStorage.getItem('Authorization') != null)
       // eslint-disable-next-line curly
       return true;
     else {
-      this.router.navigate(['/']);
+      this.router.navigate(['/login-screen']);
       return false;
         }
       }
@@ -31,11 +31,11 @@ export class AuthGuard implements CanActivate {
       canActivateChild(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
-          if (sessionStorage.getItem(this.USER_AUTH_KEY) != null)
+          if (sessionStorage.getItem('Authorization') != null)
           // eslint-disable-next-line curly
           return true;
         else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login-screen']);
           return false;
             }
           }
@@ -43,11 +43,11 @@ export class AuthGuard implements CanActivate {
       canLoad(
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot): boolean {
-          if (sessionStorage.getItem(this.USER_AUTH_KEY) != null)
+          if (sessionStorage.getItem('Authorization') != null)
           // eslint-disable-next-line curly
           return true;
         else {
-          this.router.navigate(['/']);
+          this.router.navigate(['/login-screen']);
           return false;
             }
           }

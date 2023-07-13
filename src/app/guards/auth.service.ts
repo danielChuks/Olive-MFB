@@ -70,7 +70,8 @@ export class AuthService {
   }
 
   logout() {
-    sessionStorage.removeItem(this.USER_AUTH_KEY);
+    sessionStorage.removeItem('Authorization');
+    sessionStorage.removeItem('accountNumber');
     this.closeAll();
     this.router.navigate(['/login-screen'], {
       replaceUrl: true,

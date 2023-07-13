@@ -72,7 +72,7 @@ export class GenerateOtpComponent implements OnInit, OnDestroy {
     if (this.createPasscodeValues.length !== 6) {
       this.createPasscodeValues.push(num);
       for (let i = 0; i < this.createPasscodeValues.length; i++) {
-        document.getElementById(`circles${i}`).classList.add('test');
+        document.getElementById(`generateotp${i}`).classList.add('test');
       }
       if (this.createPasscodeValues.length === 6) {
         const loading = await this.loadingCtrl.create({
@@ -107,7 +107,7 @@ export class GenerateOtpComponent implements OnInit, OnDestroy {
   removeNumber() {
     this.createPasscodeValues.pop();
     for (let i = this.createPasscodeValues.length; i >= 0; i++) {
-      document.getElementById(`circles${i}`).classList.remove('test');
+      document.getElementById(`generateotp${i}`).classList.remove('test');
       break;
     }
   }
