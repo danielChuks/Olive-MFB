@@ -24,13 +24,9 @@ export class TransfersModalComponent implements OnInit {
        return;
     }
     else {
-      this.modalCtrl.dismiss();
+      this.modalCtrl.dismiss(null, type);
        return;
     }
   }
 
-  dismiss() {
-    this.router.navigateByUrl('/new-tab/hometab/transfer');
-    this.modalCtrl.dismiss();
-  }
 }

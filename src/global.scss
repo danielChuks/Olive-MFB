@@ -42,30 +42,17 @@
   margin: 0;
 }
 
-.transfersModal{
-  // --ion-backdrop-color: #000000;
-  // background: #000000;
-
-  &::part(content){
+.transfersModal {
+ --height:auto;
+}
+.transfersModal::part(content){
   width: 80%;
   height: 40%;
-  --height: auto
   margin: auto;
   border-radius: 1rem;
   }
-}
 
-// .transfersModal::part(backdrop) {
-//   background: #000000;
-// }
 
-// .transfersModal::part(content) {
-//   width: 80%;
-//   height: 40%;
-//   --height: auto;
-//   margin: auto;
-//   border-radius: 1rem;
-// }
 
 html {
   font-size: 17px;

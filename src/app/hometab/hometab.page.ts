@@ -61,15 +61,15 @@ export class HometabPage implements OnInit, OnDestroy {
  async openTransfersModal() {
    const modal = await this.modalCtrl.create({
     component: TransfersModalComponent,
-     backdropDismiss:true,
-     swipeToClose:true,
-    //  backdropBreakpoint: 0.1,
-       cssClass: 'transfersModal',
-    //  initialBreakpoint: 500 / this.platform.height(),
-    //  breakpoints: [0, 500 / this.platform.height()],
+     backdropDismiss: true,
+     swipeToClose: true,
+     cssClass: 'transfersModal',
    })
+
    modal.present();
   }
+
+
 
   async openfilterModal() {
     const modal = await this.modalCtrl.create({

@@ -46,31 +46,6 @@
       <ion-grid [fixed]="true">
         <ion-row class="row">
           <ion-col (click)="openTransfersModal()"  expand="block">
-            <!-- <ion-modal #modal trigger="open-modal">
-              <ng-template>
-                <ion-content class="ion-padding">
-                  <div class="select_transfer">
-                    <p class="heading">Select the preferred transfer type</p>
-
-                    <button
-                      class="same_transfer"
-                      (click)="cancel()"
-                      routerLink="/new-tab/hometab/transfer"
-                    >
-                      Same Bank Transfer
-                    </button>
-
-                    <button
-                      class="other_transfer"
-                      (click)="cancel()"
-                      routerLink="/other-transfer"
-                    >
-                      Other Bank Transfer
-                    </button>
-                  </div>
-                </ion-content>
-              </ng-template>
-            </ion-modal> -->
             <div (click)="openTransfersModal" class="column">
               <img src="../../assets/images/Transfer.svg" />
               <p>Transfer</p>
