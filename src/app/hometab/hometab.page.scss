@@ -99,16 +99,8 @@ ion-toolbar {
   }
 }
 
-ion-modal {
-  --height: 40%;
-  --border-radius: 1rem;
-  padding: 1.5rem;
-}
 
-ion-modal::part(backdrop) {
-  background: #000000;
-  opacity: 1;
-}
+
 
 .innercontainer {
   text-align: center;

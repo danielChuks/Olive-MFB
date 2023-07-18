@@ -1,0 +1,22 @@
+
+<ion-content class="ion-pading" >
+  <div class="select_transfer">
+    <div class="container">
+  
+    <p class="heading">Select the preferred transfer type</p></div>
+
+    <button class="same_transfer" (click)="closeModal('same')" expand="block">
+      Same Bank Transfer
+    </button>
+
+    <button
+      class="other_transfer"
+      (click)="closeModal('other')"
+      routerLink="/other-transfer"
+      expand="block"
+    >
+      Other Bank Transfer
+    </button>
+  </div>
+</ion-content>
+
