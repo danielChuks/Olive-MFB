@@ -62,8 +62,8 @@ export class ForgotPinPage implements OnInit {
       .toLocaleDateString('en-GB')
       .replace(/\//g, '-');
     this.details.password = formGroup.value.password;
-    this.details.deviceUIID = 'ae49ded2873115c7';
-    // this.details.deviceUIID = Device.uuid;
+    // this.details.deviceUIID = 'ae49ded2873115c7';
+    this.details.deviceUIID = Device.uuid;
 
     //check if password is correct
     this.loginService.loginWithDetails(this.details).subscribe(

@@ -1,0 +1,23 @@
+<ion-content  fullscreen class="ion-padding">
+  <img class="verified" src= "../assets/images/welcome.png">
+  <ion-text>
+  <h3>Welcome!</h3>
+  <p>Dear {{username}}, Welcome to Olive MFB. Your bank account has been successfully created.</p>
+  </ion-text>
+
+  <div class="account-details">
+    <ion-title>Account Name:</ion-title>
+    <ion-label>{{username}}</ion-label>
+    </div>
+
+    <div class="account-details">
+      <ion-title>Account Number:</ion-title>
+      <ion-label>{{accountNumber}}</ion-label>
+      </div>
+
+      <h5 class="notification">Click the button below to sign up on our mobile app</h5>
+
+  <div class="btn">
+    <ion-button routerLink="/signup-form" expand="block">Sign up to mobile app</ion-button>
+   </div>
+</ion-content>

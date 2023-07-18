@@ -92,9 +92,9 @@ export class SignupFormPage implements OnInit, OnDestroy {
     this.register.accountNumber = formGroup.value.accountNumber;
     this.register.password = formGroup.value.confirmPassword;
     this.register.appVersion = 'v3';
-    this.register.deviceUIID = "ae49ded2873115c7";
+    // this.register.deviceUIID = "ae49ded2873115c7";
     this.register.currentDate = '31-01-2025';
-    // this.register.deviceUIID = Device.uuid;
+    this.register.deviceUIID = Device.uuid;
     //set account number to sharedservice, to be used to validate otp(can be refactored by passing prop directly to the otp component)
     this.generalService.updateAccountNum(
       this.SignUpForm.get('accountNumber').value

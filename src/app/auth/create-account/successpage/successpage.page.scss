@@ -1,0 +1,37 @@
+@import "../../logIn/pages/passcode-set/passcode-set.page.scss";
+
+.verified {
+  margin-top: 2rem;
+}
+
+.account-details {
+  text-align: center;
+  margin-top: 1.88rem;
+  ion-title {
+    font-size: 0.875rem;
+    font-style: normal;
+    font-weight: 400;
+  }
+
+  ion-label {
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 700;
+  }
+}
+
+.notification {
+  margin: auto;
+  margin-top: 3.25rem;
+  text-align: center;
+  width: 12rem;
+  font-size: 0.875rem;
+  font-style: normal;
+  font-weight: 500;
+  color: #000000;
+  text-align: justify;
+}
+
+.btn {
+    margin-top: 2.5rem;
+}
