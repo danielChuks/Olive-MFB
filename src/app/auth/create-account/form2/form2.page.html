@@ -1,0 +1,54 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"
+          ><ion-icon name="arrow-back" routerLink="/form1"></ion-icon>
+          <p>Back</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text>
+    <h3>Open an account</h3>
+    <p>Kindly fill the form to open an account with us</p>
+    <h2><span>2/3</span>Contact information</h2>
+  </ion-text>
+
+  <form>
+    <div class="accountNumber">
+      <ion-label>Home Address <span>*</span></ion-label>
+      <ion-input
+        type="text"
+        name="accountNumber"
+        placeholder="Enter your home address"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+    <div class="accountNumber">
+      <ion-label>Mobile Number <span>*</span></ion-label>
+      <ion-input
+        type="text"
+        name="accountNumber"
+        placeholder="Enter your mobile no."
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+    <div class="accountNumber">
+      <ion-label>Email Address <span>*</span></ion-label>
+      <ion-input
+        type="text"
+        name="accountNumber"
+        placeholder="Enter your email address"
+      ></ion-input>
+      <ion-text></ion-text>
+    </div>
+
+    <div class="btn">
+      <ion-button expand="block" routerLink="/form3">Next</ion-button>
+    </div>
+  </form>
+</ion-content>

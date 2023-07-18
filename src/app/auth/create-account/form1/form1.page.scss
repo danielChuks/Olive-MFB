@@ -1,0 +1,23 @@
+@import "../../../forgot-password/forgot-password.page.scss";
+
+ion-content {
+  
+  ion-text {
+    h2 {
+        color: #000;
+        font-size: 0.875rem;
+        font-style: normal;
+        font-weight: 700;
+        margin: 2rem 0 -1.2rem 0;
+      }
+    span {
+        margin-right: 1rem;
+    }
+  }
+
+  .accountNumber {
+    span {
+        color: red;
+      }
+  }
+}
