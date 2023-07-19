@@ -1,19 +1,19 @@
 import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { IonicModule } from '@ionic/angular';
 
-import { Form2Page } from './form2.page';
+import { KycInfoPage } from './kyc-info.page';
 
-describe('Form2Page', () => {
-  let component: Form2Page;
-  let fixture: ComponentFixture<Form2Page>;
+describe('KycInfoPage', () => {
+  let component: KycInfoPage;
+  let fixture: ComponentFixture<KycInfoPage>;
 
   beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
-      declarations: [ Form2Page ],
+      declarations: [ KycInfoPage ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(Form2Page);
+    fixture = TestBed.createComponent(KycInfoPage);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
