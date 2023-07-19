@@ -3,7 +3,7 @@
     <ion-grid>
       <ion-row>
         <ion-col size="auto"
-          ><ion-icon name="arrow-back" routerLink="/landing-page"></ion-icon>
+          ><ion-icon name="arrow-back" routerLink="/form1"></ion-icon>
           <p>Back</p>
         </ion-col>
       </ion-row>
@@ -15,49 +15,40 @@
   <ion-text>
     <h3>Open an account</h3>
     <p>Kindly fill the form to open an account with us</p>
-    <h2><span>1/3</span>Personal information</h2>
+    <h2><span>2/3</span>Contact information</h2>
   </ion-text>
 
   <form>
     <div class="accountNumber">
-      <ion-label>First Name <span>*</span></ion-label>
+      <ion-label>Home Address <span>*</span></ion-label>
       <ion-input
         type="text"
         name="accountNumber"
-        placeholder="Enter your first name"
+        placeholder="Enter your home address"
       ></ion-input>
       <ion-text></ion-text>
     </div>
     <div class="accountNumber">
-      <ion-label>Last Name <span>*</span></ion-label>
+      <ion-label>Mobile Number <span>*</span></ion-label>
       <ion-input
         type="text"
         name="accountNumber"
-        placeholder="Enter your last name"
+        placeholder="Enter your mobile no."
       ></ion-input>
       <ion-text></ion-text>
     </div>
     <div class="accountNumber">
-      <ion-label>Middle Name (Optional)</ion-label>
+      <ion-label>Email Address <span>*</span></ion-label>
       <ion-input
         type="text"
         name="accountNumber"
-        placeholder="Enter your middle name"
-      ></ion-input>
-      <ion-text></ion-text>
-    </div>
-    <div class="accountNumber">
-      <ion-label>Gender <span>*</span></ion-label>
-      <ion-input
-        type="text"
-        name="accountNumber"
-        placeholder="Enter new password"
+        placeholder="Enter your email address"
       ></ion-input>
       <ion-text></ion-text>
     </div>
 
     <div class="btn">
-      <ion-button expand="block" routerLink="/form2">Next</ion-button>
+      <ion-button expand="block" routerLink="/kyc-info">Next</ion-button>
     </div>
   </form>
 </ion-content>

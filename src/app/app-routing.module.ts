@@ -202,21 +202,23 @@ const routes: Routes = [
     loadChildren: () => import('./settings/settings.module').then( m => m.SettingsPageModule)
   },
   {
-    path: 'form1',
-    loadChildren: () => import('./auth/create-account/form1/form1.module').then( m => m.Form1PageModule)
-  },
-  {
-    path: 'form2',
-    loadChildren: () => import('./auth/create-account/form2/form2.module').then( m => m.Form2PageModule)
-  },
-  {
-    path: 'form3',
-    loadChildren: () => import('./auth/create-account/form3/form3.module').then( m => m.Form3PageModule)
-  },
-  {
     path: 'successpage',
     loadChildren: () => import('./auth/create-account/successpage/successpage.module').then( m => m.SuccesspagePageModule)
+  },
+  {
+    path: 'personal-info',
+    loadChildren: () => import('./auth/create-account/personal-info/personal-info.module').then( m => m.PersonalInfoPageModule)
+  },
+  {
+    path: 'contact-info',
+    loadChildren: () => import('./auth/create-account/contact-info/contact-info.module').then( m => m.ContactInfoPageModule)
+  },
+  {
+    path: 'kyc-info',
+    loadChildren: () => import('./auth/create-account/kyc-info/kyc-info.module').then( m => m.KycInfoPageModule)
   }
+
+
 
 
 
