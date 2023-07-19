@@ -169,25 +169,23 @@ export class TopUpPage implements OnInit {
   submitAirtimeDetails(formGroup: FormGroup) {
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
     this.airtimeDetails.sourceAccountNumber = this.accountNumber;
-    this.airtimeDetails.customerId = '234' + formGroup.value.airtimeNumber;
-    this.airtimeDetails.customerMobile = '234' + formGroup.value.airtimeNumber;
+    this.airtimeDetails.customerId = formGroup.value.airtimeNumber;
+    this.airtimeDetails.customerMobile = formGroup.value.airtimeNumber;
     this.airtimeDetails.mobileOperatorDescription = this.airtimeserviceProvider;
     this.airtimeDetails.mobileOperatorID = this.airtimeBillerId;
     this.airtimeDetails.paymentCode = this.airtimePaymentCode;
     this.airtimeDetails.customerEmail = '';
-    this.airtimeDetails.transactionAmount =
-    formGroup.value.airtimeAmount.replaceAll(',', '');
-
+    this.airtimeDetails.transactionAmount = formGroup.value.airtimeAmount.replaceAll(',', '');
     this.airtimeDetails.paymentCode = this.airtimePaymentCode;
     // eslint-disable-next-line max-len
     this.airtimeInfo = {
       sourceAccountNumber: this.accountNumber,
       paymentCode: this.airtimePaymentCode,
-      transactionAmount: formGroup.value.airtimeAmount,
-      customerMobile: '234' + formGroup.value.airtimeNumber,
+      transactionAmount: formGroup.value.airtimeAmount.replaceAll(',', ''),
+      customerMobile: formGroup.value.airtimeNumber,
       customerEmail: '',
     };
-
+    console.log(this.airtimeInfo);
     sessionStorage.setItem('airtimeInfo', JSON.stringify(this.airtimeInfo)); //details to use for the request
 
     this.generalService.updateAirtimeDetails(this.airtimeDetails); //details for display on confirmation page
