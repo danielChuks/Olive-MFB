@@ -4,17 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { Form3PageRoutingModule } from './form3-routing.module';
+import { KycInfoPageRoutingModule } from './kyc-info-routing.module';
 
-import { Form3Page } from './form3.page';
+import { KycInfoPage } from './kyc-info.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    Form3PageRoutingModule
+    KycInfoPageRoutingModule
   ],
-  declarations: [Form3Page]
+  declarations: [KycInfoPage]
 })
-export class Form3PageModule {}
+export class KycInfoPageModule {}

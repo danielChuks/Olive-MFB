@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { Form1Page } from './form1.page';
+import { KycInfoPage } from './kyc-info.page';
 
 const routes: Routes = [
   {
     path: '',
-    component: Form1Page
+    component: KycInfoPage
   }
 ];
 
@@ -14,4 +14,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class Form1PageRoutingModule {}
+export class KycInfoPageRoutingModule {}
