@@ -20,7 +20,7 @@ export class ForgotPasswordService {
   }
 
   requestOtp(accountNum): Observable<any> {
-     return this.http.get(`${environment.baseApi + 'account' + '/otp' + `/${accountNum}`}`);
+     return this.http.get(`${environment.baseApi}account/otp/${accountNum}`);
   }
 
   validateOtp(otpDetails: validateOtpModel): Observable<any>{
