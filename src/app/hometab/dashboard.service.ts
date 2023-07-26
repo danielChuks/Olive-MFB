@@ -25,18 +25,18 @@ export class DashboardService {
   }
 
   getProfileName(): Observable<any>{
-    return this.http.get(`${environment.baseApi}` + `account` + `/name` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`);
+    return this.http.get(`${environment.baseApi}` + `account` + `/name` + `/${sessionStorage.getItem('accountNumber')}`);
   }
 
   getTransactionHistory(): Observable<any>{
-   return this.http.get(`${environment.baseApi}` + `account` + `/history` + `/${JSON.parse(sessionStorage.getItem('currentAcctNumber'))}`);
+   return this.http.get(`${environment.baseApi}` + `account` + `/history` + `/${sessionStorage.getItem('currentAcctNumber')}`);
   }
 
   getTransactionHistoryOnInit(): Observable<any>{
-     return this.http.get(`${environment.baseApi}` + `account` + `/history` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`);
+     return this.http.get(`${environment.baseApi}` + `account` + `/history` + `/${sessionStorage.getItem('accountNumber')}`);
   }
 
   getMultipleAccounts(): Observable<any>{
-  return this.http.get(`${environment.baseApi}` + `account` + `/allAccounts` + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}` );
+  return this.http.get(`${environment.baseApi}` + `account` + `/allAccounts` + `/${sessionStorage.getItem('accountNumber')}` );
    }
 }

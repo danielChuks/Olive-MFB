@@ -42,6 +42,10 @@
   margin: 0;
 }
 
+ion-popover [popover]:not(:popover-open):not(dialog[open]) {
+    display: contents;
+}
+
 .transfersModal {
  --height:auto;
 }
