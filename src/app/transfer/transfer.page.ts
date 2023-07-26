@@ -237,7 +237,7 @@ export class TransferPage implements OnInit, OnDestroy {
       this.beneficiaryAccountName = msg.benName;
     }));
     this.accountNumber = 'Select Account';
-    this.storedAccountNumber = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.storedAccountNumber = (sessionStorage.getItem('accountNumber'));
     this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts().subscribe(
       (data) => {
         this.multipleAccounts = data;

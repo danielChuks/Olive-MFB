@@ -69,7 +69,7 @@ export class CardComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.accountNumber = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.accountNumber = (sessionStorage.getItem('accountNumber'));
     this.generateCardDetails(this.accountNumber); //generate cards details on init
     if (this.listOfCards.length === 0) {
       this.istoggleDisabled = true;

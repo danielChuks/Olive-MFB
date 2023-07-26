@@ -42,6 +42,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
   billsPaymentInfo;
   airtimeDetails;
   externalBenDetails: any;
+  failedAttempts = 0;
 
   private createPasscodeValues: number[] = [];
   private httpSubscriptions: Subscription[] = [];
@@ -173,6 +174,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
               this.modalCtrl.dismiss(null, 'cancel');
               this.saveLocalBeneficiary();
               this.router.navigateByUrl('/transfer/receipt');
+              this.failedAttempts = 0;
             },
 
             (err) => {
@@ -180,7 +182,11 @@ export class PinModalComponent implements OnInit, OnDestroy {
               loading.dismiss();
               if (err.error.message) {
                 this.presentAlert(err.error.message);
-              } else {
+                this.failedAttempts++;
+              }
+                if (this.failedAttempts >= 4) {
+                  this.presentAlert('Account is disabled');
+                } else {
                 this.presentAlert('An error occurred');
               }
             }
@@ -253,6 +259,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
             (err) => {
               if (err.error.message) {
                 this.presentAlert(err.error.message);
+                this.failedAttempts++;
               } else {
                 this.presentAlert('An error occurred');
               }

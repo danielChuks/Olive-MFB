@@ -122,7 +122,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
       bankCode: this.bankCode,
       beneficiaryAcctName: this.beneficiaryname,
       bankName: this.bankName,
-      senderAcctNo: JSON.parse(sessionStorage.getItem('accountNumber')),
+      senderAcctNo: (sessionStorage.getItem('accountNumber')),
     };
 
     this.httpSubscriptions.push(
@@ -144,7 +144,15 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
   async presentAlert(msg) {
     const alert = await this.alertController.create({
       message: msg,
-      buttons: [`OK`],
+      buttons: [
+        {
+          text: 'Ok',
+          handler: () => {
+            this.router.navigate(['/manage-beneficiaries']);
+            alert.dismiss();
+          }
+        },
+      ],
     });
 
     await alert.present();

@@ -280,7 +280,7 @@ export class OtherTransferPage implements OnInit, OnDestroy {
  }));
     this.isAccount = false;
     this.accountNumber = 'Select Account';
-    this.storedAccountNumber = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.storedAccountNumber = (sessionStorage.getItem('accountNumber'));
 
     //get multiple accounts on initialization
     this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts()
