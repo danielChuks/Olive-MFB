@@ -11,7 +11,7 @@ export class DashboardService {
   constructor(private http: HttpClient) {}
 
   getBalanceEnquiry(): Observable<any>{
-    return  this.http.get(`${environment.baseApi + 'balance' + `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`}`);
+    return  this.http.get(`${environment.baseApi + 'balance' + `/${(sessionStorage.getItem('accountNumber'))}`}`);
 
   }
 

@@ -40,6 +40,7 @@ export class LoginScreenPage {
   isFieldDisabled: boolean;
   // eslint-disable-next-line @typescript-eslint/naming-convention
   USER_AUTH_KEY: any;
+  failedAttempts = 0;
 
   constructor(
     private router: Router,
@@ -122,6 +123,7 @@ export class LoginScreenPage {
         this.router.navigateByUrl('new-tab/hometab');
         loading.dismiss();
         this.idleTimer.onInterrupt();
+        this.failedAttempts = 0;
       },
       (error) => {
         console.log(error);
@@ -130,7 +132,12 @@ export class LoginScreenPage {
           // console.log(error.error.message);
           this.presentAlert(error.error.message);
         } else if (error.status === 403) {
-          this.presentAlert('Wrong AccountNo/Password');
+          this.failedAttempts++;
+          if (this.failedAttempts >= 4) {
+            this.presentAlert('Account is disabled');
+          } else {
+            this.presentAlert('Wrong AccountNo/Password');
+          }
         } else if (error.status === 500) {
           this.presentAlert(error.error.error);
         } else {

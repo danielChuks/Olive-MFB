@@ -190,7 +190,7 @@ export class TransferPage implements OnInit, OnDestroy {
         'trnsBeneficiaryDetails',
         JSON.stringify(this.beneficiaryDetails)
       );
-      console.log(this.beneficiaryDetails)
+      console.log(this.beneficiaryDetails);
     } else {
       sessionStorage.removeItem('trnsBeneficiaryDetails');
     }
