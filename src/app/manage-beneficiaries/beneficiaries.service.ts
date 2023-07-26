@@ -38,7 +38,7 @@ export class BeneficiariesService {
         environment.baseApi +
         `account` +
         `/beneficiary` +
-        `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`
+        `/${sessionStorage.getItem('accountNumber')}`
       }`
     );
   }
@@ -49,7 +49,7 @@ export class BeneficiariesService {
         environment.baseApi +
         `account` +
         `/beneficiary` +
-        `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`
+        `/${sessionStorage.getItem('accountNumber')}`
       }` + `?isLocal=y`
     );
   }
@@ -60,7 +60,7 @@ export class BeneficiariesService {
         environment.baseApi +
         `account` +
         `/beneficiary` +
-        `/${JSON.parse(sessionStorage.getItem('accountNumber'))}`
+        `/${sessionStorage.getItem('accountNumber')}`
       }` + `?isLocal=n`
     );
   }
