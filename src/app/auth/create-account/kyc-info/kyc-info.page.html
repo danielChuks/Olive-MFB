@@ -15,25 +15,27 @@
   <ion-text>
     <h3>Open an account</h3>
     <p>Kindly fill the form to open an account with us</p>
-    <h2><span>3/3</span>Personal information</h2>
+    <h2><span>3/3</span>KYC Information</h2>
   </ion-text>
 
-  <form>
+  <form [formGroup]="kycData">
     <div class="accountNumber">
       <ion-label>BVN <span>*</span></ion-label>
       <ion-input
         type="text"
-        name="accountNumber"
-        placeholder="Enter your first name"
+         formControlName="bvn"
+          maxlength="11"
+        placeholder="Enter your valid BVN"
       ></ion-input>
       <ion-text></ion-text>
+       <div class="text-danger" *ngIf="bvn.errors?.minlength">Bvn must be up to 11 digits</div>
     </div>
     <div class="accountNumber">
       <ion-label>Upload Photo <span>*</span></ion-label>
       <ion-input
         type="text"
-        name="accountNumber"
-        placeholder="Enter your last name"
+        name="image"
+        placeholder="upload image"
       ></ion-input>
       <ion-text></ion-text>
     </div>
@@ -41,14 +43,14 @@
       <ion-label>Upload Signature (Optional)</ion-label>
       <ion-input
         type="text"
-        name="accountNumber"
-        placeholder="Enter new password"
+        name="signature"
+        placeholder="Signature"
       ></ion-input>
       <ion-text></ion-text>
     </div>
 
     <div class="btn">
-      <ion-button expand="block" routerLink="/successpage">Next</ion-button>
+      <ion-button (click)="validateInfo(kycData)" expand="block" >Next</ion-button>
     </div>
   </form>
 </ion-content>

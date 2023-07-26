@@ -41,7 +41,6 @@ export class TransferPage implements OnInit, OnDestroy {
   myselectedAccount = '';
   multipleAccounts;
   selectedBeneficiary;
-  detailsFromForm: FormGroup;
   beneficiaryDetails;
   storeState = false;
   isAccountSelected = false;
@@ -66,7 +65,8 @@ export class TransferPage implements OnInit, OnDestroy {
     private modalCtrl: ModalController,
     private generalService: GeneralServiceService,
     private formRetrieval: FormRetrievalService,
-  ) {
+  )
+  {
     this.intTransForm = this.formBuilder.group({
       beneficiaryAcctNum: ['', [Validators.required]],
       amount: ['', [Validators.required]],
@@ -190,6 +190,7 @@ export class TransferPage implements OnInit, OnDestroy {
         'trnsBeneficiaryDetails',
         JSON.stringify(this.beneficiaryDetails)
       );
+      console.log(this.beneficiaryDetails);
     } else {
       sessionStorage.removeItem('trnsBeneficiaryDetails');
     }
@@ -237,7 +238,7 @@ export class TransferPage implements OnInit, OnDestroy {
       this.beneficiaryAccountName = msg.benName;
     }));
     this.accountNumber = 'Select Account';
-    this.storedAccountNumber = (sessionStorage.getItem('accountNumber'));
+    this.storedAccountNumber = sessionStorage.getItem('accountNumber');
     this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts().subscribe(
       (data) => {
         this.multipleAccounts = data;

@@ -18,12 +18,12 @@
     <h2><span>2/3</span>Contact information</h2>
   </ion-text>
 
-  <form>
+  <form [formGroup]="contactData">
     <div class="accountNumber">
       <ion-label>Home Address <span>*</span></ion-label>
       <ion-input
         type="text"
-        name="accountNumber"
+        formControlName="address"
         placeholder="Enter your home address"
       ></ion-input>
       <ion-text></ion-text>
@@ -31,24 +31,33 @@
     <div class="accountNumber">
       <ion-label>Mobile Number <span>*</span></ion-label>
       <ion-input
-        type="text"
-        name="accountNumber"
+        type="tel"
+        formControlName="phone"
+        maxlength="11"
         placeholder="Enter your mobile no."
       ></ion-input>
       <ion-text></ion-text>
+       <div class="text-danger" *ngIf="phone.errors?.minlength">Phone number must be up to 11 digits</div>
     </div>
     <div class="accountNumber">
       <ion-label>Email Address <span>*</span></ion-label>
       <ion-input
-        type="text"
-        name="accountNumber"
+        type="email"
+        formControlName="email"
         placeholder="Enter your email address"
       ></ion-input>
       <ion-text></ion-text>
+       <div class="text-danger" *ngIf="email.errors?.pattern">Email must be a valid email address</div>
     </div>
 
     <div class="btn">
-      <ion-button expand="block" routerLink="/kyc-info">Next</ion-button>
+      <ion-button
+        (click)="validateInfo(contactData)"
+        expand="block"
+        [disabled]="contactData.valid === true ? false : true"
+        routerLink="/kyc-info"
+        >Next</ion-button
+      >
     </div>
   </form>
 </ion-content>

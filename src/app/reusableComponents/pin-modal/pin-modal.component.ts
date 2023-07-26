@@ -118,9 +118,13 @@ export class PinModalComponent implements OnInit, OnDestroy {
         this.beneficiaryService
           .addBeneficiary(this.beneficiaryDetails)
           .subscribe(
-            (data) => {},
+            (data) => {
+              console.log(data);
+            },
 
-            (err) => {}
+            (err) => {
+              console.log(err);
+            }
           )
       );
     }
