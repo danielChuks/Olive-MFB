@@ -110,7 +110,7 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
           console.log(data);
           this.beneficiaryService.beneficiariesList = data.beneficiaryList;
           this.filteredBenList = data.beneficiaryList;
-          //console.log(this.beneficiaryService.beneficiariesList );
+          console.log(data);
         },
 
         (err) => {
