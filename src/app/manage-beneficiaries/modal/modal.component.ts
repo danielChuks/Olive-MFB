@@ -28,7 +28,7 @@ export class ModalComponent implements OnInit {
     private router: Router) {}
 
   ngOnInit() {
-    this.senderAcctNo = JSON.parse(sessionStorage.getItem('accountNumber'));
+    this.senderAcctNo = sessionStorage.getItem('accountNumber');
     this.storedData = JSON.parse(sessionStorage.getItem('selectedBeneficiary'));
     this.beneficiaryDetails = {
       ...this.storedData,
