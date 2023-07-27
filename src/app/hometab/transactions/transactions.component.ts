@@ -35,6 +35,7 @@ export class TransactionsComponent implements OnInit {
     private platform: Platform
   ) {}
 
+
   setOpen(isOpen: boolean) {
     this.isModalOpen = isOpen;
   }
@@ -46,7 +47,9 @@ export class TransactionsComponent implements OnInit {
     this.modal.dismiss(this.name, 'confirm');
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+
+  }
 
   // formating the date
   formatDate(date: string): string {

@@ -139,7 +139,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
-          console.log(data);
+          console.log(data.accountHistory);
         },
         (err) => {
           console.log(err);

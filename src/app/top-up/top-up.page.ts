@@ -185,7 +185,7 @@ export class TopUpPage implements OnInit {
       customerMobile: formGroup.value.airtimeNumber,
       customerEmail: '',
     };
-    console.log(this.airtimeInfo);
+    // console.log(this.airtimeInfo);
     sessionStorage.setItem('airtimeInfo', JSON.stringify(this.airtimeInfo)); //details to use for the request
 
     this.generalService.updateAirtimeDetails(this.airtimeDetails); //details for display on confirmation page
@@ -196,7 +196,7 @@ export class TopUpPage implements OnInit {
     this.mobileDataDetails.customerId = formGroup.value.mobileDataNumber;
     this.mobileDataDetails.initiatingApp = '';
     this.mobileDataDetails.customerMobile = formGroup.value.mobileDataNumber;
-    this.mobileDataDetails.mobileOperatorDescription = '  Mobile Recharge';
+    this.mobileDataDetails.mobileOperatorDescription = 'Mobile Recharge';
     this.mobileDataDetails.mobileOperatorID = this.billerId;
     this.mobileDataDetails.narration = '';
     this.mobileDataDetails.paymentCode = this.paymentCode;

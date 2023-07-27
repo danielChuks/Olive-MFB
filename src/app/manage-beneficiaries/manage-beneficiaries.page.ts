@@ -107,7 +107,7 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
     this.httpSubscriptions.push(
       this.beneficiaryService.getBeneficiaryList().subscribe(
         (data) => {
-          console.log(sessionStorage.getItem('accountNumber'));
+          console.log(data);
           this.beneficiaryService.beneficiariesList = data.beneficiaryList;
           this.filteredBenList = data.beneficiaryList;
           console.log(data);

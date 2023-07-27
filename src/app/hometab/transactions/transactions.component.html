@@ -13,11 +13,11 @@
           history.transactionType,
           history.transactionReference,
           history.transactionAmount,
-          history.senderAndReceiverInfo.sourceAccount,
-          history.senderAndReceiverInfo.beneficiaryName,
+          history.senderAndReceiverInfo?.sourceAccount,
+          history.senderAndReceiverInfo?.beneficiaryName,
           history.statementBalance,
-          history.senderAndReceiverInfo.beneficiaryAccountNumber,
-          history.senderAndReceiverInfo.sourceAccountName
+          history.senderAndReceiverInfo?.beneficiaryAccountNumber,
+          history.senderAndReceiverInfo?.sourceAccountName
         )
       "
       button
