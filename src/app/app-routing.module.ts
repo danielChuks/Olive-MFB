@@ -216,7 +216,12 @@ const routes: Routes = [
   {
     path: 'kyc-info',
     loadChildren: () => import('./auth/create-account/kyc-info/kyc-info.module').then( m => m.KycInfoPageModule)
+  },
+  {
+    path: 'verification',
+    loadChildren: () => import('./reusableComponents/verification/verification.module').then( m => m.VerificationPageModule)
   }
+
 
 
 

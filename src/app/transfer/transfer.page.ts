@@ -12,6 +12,7 @@ import { GeneralServiceService } from '../general-service.service';
 import { FormRetrievalService } from 'src/app/hometab/formRetrieval.service';
 import { Subscription } from 'rxjs';
 
+
 @Component({
   selector: 'app-transfer',
   templateUrl: './transfer.page.html',

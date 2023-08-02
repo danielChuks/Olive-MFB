@@ -1,0 +1,97 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col (click)="backClicked()" size="auto"
+          ><ion-icon  name="arrow-back"></ion-icon>
+          <p>Back</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content class="ion-padding">
+
+<!-- passcode text -->
+<ion-text>
+<h4> Verification</h4>
+<p class="text">Kindly input the OTP that was sent to the
+  phone number attached to this account. </p>
+</ion-text>
+
+<!-- ellipses -->
+<p class="passcode">Enter OTP </p>
+<div class="ellipses">
+        <div id="circle" >
+          <div id="generateotp0" class="inner-circle "></div>
+        </div>
+        <div id="circle " >
+          <div id="circle">
+            <div id="generateotp1" class="inner-circle "></div>
+          </div>
+        </div>
+        <div id="circle">
+          <div id="circle">
+            <div id="generateotp2" class="inner-circle "></div>
+          </div>
+        </div>
+        <div id="circle" >
+          <div id="circle">
+            <div id="generateotp3" class="inner-circle "></div>
+          </div>
+        </div>
+        <div id="circle" >
+          <div id="circle">
+            <div id="generateotp4" class="inner-circle "></div>
+          </div>
+        </div>
+
+        <div id="circle" >
+          <div id="circle">
+            <div id="generateotp5" class="inner-circle "></div>
+          </div>
+        </div>
+        </div>
+
+        <!-- <div class="btn">
+          <ion-button
+          class="button"
+          type="submit"
+          expand="block">Confirm OTP</ion-button>
+        </div> -->
+        <ion-grid class="grid">
+          <ion-row>
+            <ion-col class="resendOtp" size="auto"><ion-icon name="time-outline"></ion-icon></ion-col>
+            <ion-col > <p class="regenerate">Didn't receive Otp? <ion-button fill="clear"
+              (click)="resendOtp()" [disabled]="disableResendButton">Try again</ion-button></p>
+              <div id="timer">
+                <p class="text" *ngIf="countdownTime > 0">{{countdownTime}} secs </p>
+              </div>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+
+
+<!-- dialpad section -->
+<div class="dialpad">
+<ion-button  fill="clear" size="small" class="grid-items" (click)="addNumber(1)">1</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(2)">2</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(3)">3</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(4)">4</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(5)">5</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items"(click)="addNumber(6)">6</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(7)">7</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(8)">8</ion-button>
+<ion-button  fill="clear" type="button" size="small"  class="grid-items" (click)="addNumber(9)">9</ion-button>
+<div></div>
+<ion-button  fill="clear" type="button" size="small" class="grid-items" (click)="addNumber(0)">0</ion-button>
+  <ion-button  fill="clear" type="button" size="small" class="grid-items clear" (click)="removeNumber()"><ion-icon name="backspace-sharp" ></ion-icon></ion-button>
+</div>
+
+
+</ion-content>
+
+
