@@ -1,22 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import {
   FormBuilder,
   FormGroup,
   Validators,
   AbstractControl,
 } from '@angular/forms';
-import { ProfileService } from '../../profile.service';
 import { changePasswordModel } from '../../changePasswordModel';
 import { AlertController } from '@ionic/angular';
-import { AuthService } from 'src/app/guards/auth.service';
-import { LoadingController } from '@ionic/angular';
+import { GeneralServiceService } from 'src/app/general-service.service';
+import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.page.html',
   styleUrls: ['./change-password.page.scss'],
 })
-export class ChangePasswordPage implements OnInit {
+export class ChangePasswordPage implements OnInit, OnDestroy {
   changePasswordForm: FormGroup;
   details = new changePasswordModel();
   pwdIcon = 'eye';
@@ -25,12 +25,13 @@ export class ChangePasswordPage implements OnInit {
   showPwds = false;
   pwdIconss = 'eye';
   showPwdss = false;
+
+  private httpSubscription: Subscription;
   constructor(
+    private router: Router,
     private formBuilder: FormBuilder,
-    private profileService: ProfileService,
     private alertController: AlertController,
-    private authService: AuthService,
-    private loadingCtrl: LoadingController
+    private generalService: GeneralServiceService,
   ) {
     this.changePasswordForm = this.formBuilder.group(
       {
@@ -45,6 +46,8 @@ export class ChangePasswordPage implements OnInit {
       { validator: this.passwordMatchValidator }
     ); //if this validator is true, formgroup returns invalid, i.e validator must return null for that form to be valid
   }
+
+    ngOnInit() {}
 
   togglePwd() {
     this.showPwd = !this.showPwd;
@@ -70,11 +73,6 @@ export class ChangePasswordPage implements OnInit {
   }
 
   async changePassword(formGroup: FormGroup) {
-    const loading = await this.loadingCtrl.create({
-      message: '',
-      cssClass: 'custom-loading',
-    });
-    loading.present();
     this.details.accountNumber = sessionStorage.getItem('accountNumber');
     this.details.oldPassword = formGroup.value.currentPassword;
     this.details.newPassword = formGroup.value.confirmNewPassword;
@@ -85,22 +83,21 @@ export class ChangePasswordPage implements OnInit {
         this.changePasswordForm.get('confirmNewPassword').value &&
       this.changePasswordForm.get('newPassword').value !== '' &&
       this.changePasswordForm.get('confirmNewPassword').value !== ''
-    ) {
-      this.profileService.changePassword(this.details).subscribe(
-        (data) => {
-          loading.dismiss();
-          this.presentAlert(data.responseMessage);
-          setTimeout(() => this.authService.logout(), 2000);
-        },
-        (err) => {
-          loading.dismiss();
-          this.presentAlert(err.error.message || err.error.oldPassword);
-        }
-      );
+    )
+    {
+          this.generalService.setPasswordChangeData(this.details); //set data to be used for http request
+      this.router.navigate(['/verification'], { queryParams: { action: 'changePassword' } });
+      this.changePasswordForm.get('currentPassword').setValue('');
+      this.changePasswordForm.get('newPassword').setValue('');
+       this.changePasswordForm.get('confirmNewPassword').setValue('');
+    }
+    else{
+this.presentAlert('Invalid details, please try again later');
     }
   }
 
-  ngOnInit() {}
+
+
 
   async presentAlert(msg) {
     const alert = await this.alertController.create({
@@ -111,4 +108,11 @@ export class ChangePasswordPage implements OnInit {
 
     await alert.present();
   }
+
+   ngOnDestroy() {
+    if (this.httpSubscription) {
+      this.httpSubscription.unsubscribe();
+     }
+  }
 }
+

@@ -1,5 +1,4 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ProfileService } from '../../profile.service';
 import { Route, Router } from '@angular/router';
 import { AlertController } from '@ionic/angular';
 import { changePinModel } from '../ChangePinModel';
@@ -21,7 +20,6 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
   private httpSubscription: Subscription;
 
   constructor(
-    private profileService: ProfileService,
     private router: Router,
     private alertController: AlertController,
     private generalService: GeneralServiceService,
@@ -60,19 +58,9 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
           sessionStorage.getItem('accountNumber'); //initialize account number
         this.pinValidationDetails.newAccessPin = this.convertedPin;
         if (this.initialCreatedPin === this.convertedPin) {
-          this.httpSubscription = this.profileService
-            .changeTransactionPin(this.pinValidationDetails)
-            .subscribe(
-              (data) => {
-                console.log(data);
-                loading.dismiss();
-                this.router.navigateByUrl('/success-page');
-              },
-              (err) => {
-                loading.dismiss();
-                this.presentAlert(err.message);
-              }
-            );
+          loading.dismiss();
+          this.generalService.setPinChangeData(this.pinValidationDetails); //set data to be used for http request
+          this.router.navigate(['/verification'], { queryParams: { action: 'changePin' } });
         } else {
           loading.dismiss();
           this.presentAlert('PINS do not match');
@@ -82,9 +70,11 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
   }
 
   removeNumber() {
+    //coming back bug, the state doeant't change
     this.createPasscodeValues.pop();
-    for (let i = this.createPasscodeValues.length; i >= 0; i++) {
-      document.getElementById(`circlesss${i}`).classList.remove('test');
+      for (let i = this.createPasscodeValues.length; i >= 0; i--) {
+        const circleElement = document.getElementById(`circlesss${i}`);
+      circleElement.innerHTML = '';
       break;
     }
   }
@@ -102,5 +92,12 @@ export class ChangePinConfirmPage implements OnInit, OnDestroy {
     if (this.httpSubscription) {
       this.httpSubscription.unsubscribe();
     }
+    // if (this.createPasscodeValues.length > 0) {
+    //    for (let i = 0; i <= this.createPasscodeValues.length ; i++) {
+    //      const circleElement = document.getElementById(`circlesss${i}`);
+    //      console.log(circleElement);
+    //      circleElement.innerHTML = ''
+    // }
+    // }
   }
 }

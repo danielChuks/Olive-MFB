@@ -43,14 +43,23 @@ export class GeneralServiceService {
   setForgotPindetails = this.forgotPinDetails.asObservable();
 
   signUpDetails = new BehaviorSubject<any>('');
-
   getcreatedPin = new BehaviorSubject<any>('');
+  pinChangeData = new BehaviorSubject<any>('');
+  passwordChangeData = new BehaviorSubject<any>('');
 
   constructor(private loadingCtrl: LoadingController) { }
 
   //get/update signup data
   updateSignUpDetails(details: object){
     this.signUpDetails.next(details);
+  }
+
+  setPinChangeData(data: object) {
+    this.pinChangeData.next(data);
+  }
+
+  setPasswordChangeData(data: object) {
+    this.passwordChangeData.next(data);
   }
 
   //set newly created pin
@@ -100,9 +109,9 @@ export class GeneralServiceService {
     this.forgotPinDetails.next(details);
   }
 
-  async loader() {
+  async loader(text) {
     const loading = await this.loadingCtrl.create({
-      message: '',
+      message: text,
       cssClass: 'custom-loading',
     });
     loading.present();
