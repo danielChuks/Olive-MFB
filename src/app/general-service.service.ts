@@ -43,14 +43,23 @@ export class GeneralServiceService {
   setForgotPindetails = this.forgotPinDetails.asObservable();
 
   signUpDetails = new BehaviorSubject<any>('');
-
   getcreatedPin = new BehaviorSubject<any>('');
+  pinChangeData = new BehaviorSubject<any>('');
+  passwordChangeData = new BehaviorSubject<any>('');
 
   constructor(private alertController: AlertController) { }
 
   //get/update signup data
   updateSignUpDetails(details: object){
     this.signUpDetails.next(details);
+  }
+
+  setPinChangeData(data: object) {
+    this.pinChangeData.next(data);
+  }
+
+  setPasswordChangeData(data: object) {
+    this.passwordChangeData.next(data);
   }
 
   //set newly created pin

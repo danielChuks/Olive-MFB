@@ -139,7 +139,7 @@ export class HometabPage implements OnInit, OnDestroy {
         (data) => {
           this.accountHistory = data.accountHistory;
           this.filteredAccountHistory = data.accountHistory;
-          console.log(data.accountHistory);
+          // console.log(data.accountHistory);
         },
         (err) => {
           console.log(err);
@@ -181,13 +181,13 @@ export class HometabPage implements OnInit, OnDestroy {
       )
     );
 
-    this.getHistoryOnInit(); //first time the page loads, call the history with the account number saved while logging in.
+    // this.getHistoryOnInit(); //first time the page loads, call the history with the account number saved while logging in.
 
     this.httpSubscriptions.push(
       this.dashboardService.getMultipleAccounts().subscribe(
         (data) => {
           this.multipleAccounts = data;
-          console.log(data)
+          // console.log(data)
         },
 
         (err) => {
@@ -195,6 +195,11 @@ export class HometabPage implements OnInit, OnDestroy {
         }
       )
     );
+  }
+
+  //call transaction history everytime the component mounts
+   ionViewWillEnter() {
+    this.getHistoryOnInit();
   }
 
   async presentAlert(msg) {
@@ -216,6 +221,7 @@ export class HometabPage implements OnInit, OnDestroy {
     setTimeout(() => {
       // Any calls to load data go here
       this.ngOnInit();
+      this.ionViewWillEnter();
       event.target.complete();
     }, 2000);
   }

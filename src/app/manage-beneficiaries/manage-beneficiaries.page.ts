@@ -104,13 +104,16 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.httpSubscriptions.push(
+  }
+
+  //get list of beneficiaries anytime the component mounts
+   ionViewWillEnter() {
+ this.httpSubscriptions.push(
       this.beneficiaryService.getBeneficiaryList().subscribe(
         (data) => {
           console.log(data);
           this.beneficiaryService.beneficiariesList = data.beneficiaryList;
           this.filteredBenList = data.beneficiaryList;
-          console.log(data);
         },
 
         (err) => {
@@ -119,6 +122,7 @@ export class ManageBeneficiariesPage implements OnInit, OnDestroy {
       )
     );
   }
+
 
   handleRefresh(event) {
     setTimeout(() => {
