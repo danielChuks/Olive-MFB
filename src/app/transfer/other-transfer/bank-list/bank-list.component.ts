@@ -14,7 +14,7 @@ export class BankListComponent implements OnInit {
   search: any;
   banksList: any;
   filteredBankList: any;
-
+  spinner = true;
 
   constructor(private  beneficiaryService: BeneficiariesService,private modalCtrl: ModalController,
     private alertController: AlertController, ) { }
@@ -37,14 +37,17 @@ export class BankListComponent implements OnInit {
 
 
   ngOnInit() {
+    this.spinner = true;
     this.beneficiaryService.getListofBanks()
 .subscribe(
   data=>{
+    this.spinner = false;
     this.banksList = data.banks;
     this.filteredBankList = this.banksList;
   },
 
 err=>{
+  this.spinner = false;
   this.presentAlert(err.error.message ||  'Unable to reach server');
 }
 

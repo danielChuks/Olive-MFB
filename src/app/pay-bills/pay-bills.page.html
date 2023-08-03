@@ -40,15 +40,27 @@
 
       <div class="inputGroup form">
          <p class="title">Category</p>
-    <ion-select  [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)">
+      <div *ngIf="isCategory"  class="spinner">
+        <ion-item lines="none">
+          <ion-label>Loading...</ion-label>
+          <ion-spinner name="circles" mode="ios"></ion-spinner>        
+        </ion-item>
+      </div>
+    <ion-select *ngIf="!isCategory" [interfaceOptions]="{ cssClass: 'select'}" [(ngModel)]="categorySelected" name="cat"  #cat  placeholder="Select Category" interface="action-sheet" (ionChange)="loadBillersByCategory(cat.value)"> 
       <ion-select-option class= "my-custom-class"  *ngFor="let category of categories" value={{category.categoryid}}> {{category.categoryname}}</ion-select-option>
     </ion-select>
     </div>
 
 
      <div class="inputGroup form">
-        <p class="title">Select biller</p>
-    <ion-select  #bill placeholder="Select Billers" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getBillerProduct(bill.value)" [disabled]="billerDisable">
+       <p class="title">Select biller</p>
+       <div *ngIf="isBillers"  class="spinner">
+         <ion-item lines="none">
+           <ion-label>Loading...</ion-label>
+           <ion-spinner name="circles" mode="ios"></ion-spinner>        
+         </ion-item>
+       </div>
+    <ion-select *ngIf="!isBillers" #bill placeholder="Select Billers" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getBillerProduct(bill.value)" [disabled]="billerDisable">
       <ion-select-option  *ngFor="let biller of billers" value={{biller.billerid}}>{{ biller.billername }}</ion-select-option>
     </ion-select>
     </div>
@@ -56,7 +68,13 @@
 
      <div class="inputGroup form">
        <p class="title">Select product</p>
-    <ion-select #prod placeholder="Select Product" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getTransAmount(prod.value)" [disabled]="productDisable">
+       <div *ngIf="isProducts" class="inputGroup">
+        <ion-item lines="none">
+          <ion-label>Loading...</ion-label>
+          <ion-spinner name="circles" mode="ios"></ion-spinner>        
+        </ion-item>
+      </div>
+    <ion-select *ngIf="!isProducts"  #prod placeholder="Select Product" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="getTransAmount(prod.value)" [disabled]="productDisable">
       <ion-select-option *ngFor="let product of billerProduct"  value={{product.paymentitemid}}>{{product.paymentitemname}}</ion-select-option>
     </ion-select>
     </div>

@@ -134,7 +134,7 @@ export class LoginScreenPage {
         } else if (error.status === 403) {
           this.failedAttempts++;
           if (this.failedAttempts >= 4) {
-            this.presentAlert('Account is disabled');
+            this.presentAlert('Try forgot password, or your account will be disabled');
           } else {
             this.presentAlert('Wrong AccountNo/Password');
           }

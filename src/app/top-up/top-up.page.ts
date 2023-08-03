@@ -70,6 +70,7 @@ export class TopUpPage implements OnInit {
   isAmountDisabled = true;
   isAccountSelected = false;
   airtimeInfo: any;
+  isBundle = false;
 
   constructor(
     private formBuilder: FormBuilder,
@@ -130,6 +131,7 @@ export class TopUpPage implements OnInit {
 
   // select bundle
   openBundle(id) {
+    this.isBundle = true;
     this.http
       .get<any>(
         `${
@@ -138,6 +140,7 @@ export class TopUpPage implements OnInit {
       )
       .subscribe(
         (data) => {
+          this.isBundle = false;
           this.billerProducts = data.paymentitems;
           for (let i = 0; i <= this.billerProducts.length; i++) {
             if (this.billerProducts[i].paymentitemname === 'Specify Amount') {
@@ -147,7 +150,10 @@ export class TopUpPage implements OnInit {
             }
           }
         },
-        (err) => {}
+        (err) => {
+          this.isBundle = false;
+    this.generalService.loader();
+        }
       );
   }
 

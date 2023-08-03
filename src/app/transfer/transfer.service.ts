@@ -20,6 +20,15 @@ export class TransferService {
   externalFundTransfer(extTransfer: ExternalTransferModel ): Observable<any>{
     return this.http.post(`${environment.baseApi + 'externalFundTransfer'}`, extTransfer);
   }
+  // interSwitch
+  getInterswitchName(details: any): Observable<any>{
+    return this.http.get(`${environment.baseApi}quickteller/nameenquiry/${details.cbnCode}/${details.accountId}`);
+  }
+
+
+  getExternalAccountName(details: any): Observable<any>{
+    return this.http.get(`${environment.baseApi}quickteller/nameenquiry/${details.bankCode}/${details.accountId}`);
+  }
 
 
   validatePin(accessPin: accessPinModel): Observable<any>{

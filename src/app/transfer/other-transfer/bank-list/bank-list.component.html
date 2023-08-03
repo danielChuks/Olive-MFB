@@ -1,7 +1,11 @@
 <ion-content class="ion-padding">
   <div class="header">
   <h3>Banks</h3>
-  <ion-searchbar [debounce]="1000" color="dark" placeholder="Search" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+  <ion-searchbar [debounce]="1000" color="dark" mode="ios" placeholder="Search" (ionChange)="handleSearchInput($event)"></ion-searchbar>
+</div>
+
+<div *ngIf="spinner" class="spinner">
+  <ion-spinner name="circles" mode="ios"></ion-spinner>
 </div>
   <div class="scroll">
     <div *ngIf="filteredBankList &&  filteredBankList.length > 0">

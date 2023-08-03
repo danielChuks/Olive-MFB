@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild, OnDestroy } from '@angular/core';
-import { IonModal, Platform } from '@ionic/angular';
+import { IonModal, LoadingController, Platform } from '@ionic/angular';
 import { ModalController } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
 import { DashboardService } from 'src/app/hometab/dashboard.service';
@@ -46,6 +46,7 @@ export class OtherTransferPage implements OnInit, OnDestroy {
   storedAccountNumber;
   bankName = 'Select destination bank';
   bankCode;
+  cbnCode;
   benAcctNo='';
   beneficiaryAccountName;
   extTransForm: FormGroup;
@@ -75,6 +76,7 @@ export class OtherTransferPage implements OnInit, OnDestroy {
      private formRetrieval: FormRetrievalService,
      private platform: Platform,
      private transferService: TransferService,
+     private loadingCtrl: LoadingController
     ) {
       this.extTransForm = this.formBuilder.group({
         amount : ['', [ Validators.required]],
@@ -209,6 +211,16 @@ export class OtherTransferPage implements OnInit, OnDestroy {
       this.extTransfer.narration, this.extTransfer.transactionAmount, this.extTransfer.beneficiaryName);
   }
 
+  async presentLoading() {
+    const loading = await this.loadingCtrl.create({
+      message: 'Please wait...',
+      cssClass: 'custom-loading',
+    });
+    await loading.present();
+
+    return loading;
+  }
+
   getNameEnquiry(e){
     this.bAcctNo = e.target.value;
     if(this.bAcctNo.length === 10){
@@ -234,6 +246,47 @@ export class OtherTransferPage implements OnInit, OnDestroy {
     else{
       this.beneficiaryAccountName = 'Account number must be 10 digits';
       this.isAccountSelected = false;  //check if accountNumber is valid
+    }
+  }
+
+  async getExternalNameEnquiry(e) {
+    this.bAcctNo = e.target.value;
+    if (this.bAcctNo.length === 10) {
+      const loading = await this.presentLoading();
+      //set data needed for interswitch name enquiry
+      const accountData = {
+        cbnCode: this.cbnCode,
+        accountId: this.bAcctNo,
+      };
+
+      this.httpSubscriptions.push(
+        this.transferService.getInterswitchName(accountData).subscribe(
+          (data) => {
+            loading.dismiss();
+            console.log(data);
+            this.beneficiaryAccountName = data.accountName;
+            this.isAccountSelected = true;
+            if (data.accountName) {
+              loading.dismiss();
+              this.beneficiaryAccountName = data.accountName;
+            this.isAccountSelected = true;
+            } else {
+              loading.dismiss();
+            this.beneficiaryAccountName = 'Invalid Account Number';
+            this.isAccountSelected = false;
+            }
+          },
+          (err) => {
+            console.log(err);
+            loading.dismiss();
+            this.beneficiaryAccountName = 'Invalid Account Number';
+            this.isAccountSelected = false; //check if account number is valid
+          }
+        )
+      );
+    } else {
+      this.beneficiaryAccountName = 'Account number must be 10 digits';
+      this.isAccountSelected = false; //check if accountNumber is valid
     }
   }
 

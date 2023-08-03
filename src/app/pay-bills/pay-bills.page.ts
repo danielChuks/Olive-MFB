@@ -12,6 +12,7 @@ import { TransferService } from '../transfer/transfer.service';
 import { PayBillsService } from './pay-bills.service';
 import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { Subscription } from 'rxjs';
+import { GeneralServiceService } from '../general-service.service';
 
 
 @Component({
@@ -19,7 +20,7 @@ import { Subscription } from 'rxjs';
   templateUrl: './pay-bills.page.html',
   styleUrls: ['./pay-bills.page.scss'],
 })
-export class PayBillsPage implements OnInit, OnDestroy  {
+export class PayBillsPage implements OnDestroy  {
   @ViewChild(IonModal) modal: IonModal;
   @ViewChild(RouterOutlet) outlet: RouterOutlet;
 
@@ -73,7 +74,10 @@ export class PayBillsPage implements OnInit, OnDestroy  {
   billsPaymentData: any;
 
 
-
+//track loading states
+isCategory = true;
+isBillers;
+isProducts;
 
   intTransForm: FormGroup;
   intTransfer = new InternalTransferModel();
@@ -82,7 +86,8 @@ export class PayBillsPage implements OnInit, OnDestroy  {
 
   constructor(private router: Router, private formBuilder: FormBuilder, private dashboardService: DashboardService,
     private actionSheetCtrl: ActionSheetController, private modalCtrl: ModalController, private transferService: TransferService,
-    private payBillsService: PayBillsService, private nativeStorage: NativeStorage, private platform: Platform) {
+    private payBillsService: PayBillsService, private nativeStorage: NativeStorage, private platform: Platform,
+    private generalService: GeneralServiceService) {
     this.intTransForm = this.formBuilder.group({
 
     });
@@ -177,8 +182,12 @@ loadCategories() {
     this.httpSubscriptions.push(this.payBillsService.getCategories()
     .subscribe(
       data => {
+        this.isCategory = false;
         this.categories = data.categorys.filter(cat=> cat.categoryid !== '4'); //remove airtime recharge from bills payment
         //console.log(this.categories);
+      }, err => {
+        this.isCategory = false;
+        this.generalService.loader();
       }
     ));
 }
@@ -189,26 +198,29 @@ loadBillersByCategory(categoryId: string) {
   this.display = false; this.display2 = false; this.transfer.customer1 = ''; this.transfer.customer2 = '';
   this.billers = []; this.billerProduct = []; this.billerDisable = true; this.productDisable = true;
 this.catId = ''; this.billerUniqueId = ''; this.prod = ''; this.transfer.amount = '';
-
+this.isBillers = true;
 
 this.httpSubscriptions.push(this.payBillsService.getBillers(categoryId)
 .subscribe(
     data => {
+      this.isBillers = false;
        if (data.billers !== undefined) {
          this.billers = data.billers;
       this.billerDisable = false;
       }
         else {
+          this.isBillers = false;
       this.billers = [];
       this.billerDisable = true;
       this.productDisable = true;
          this.transfer.amount = '';
-
+         this.generalService.loader();
     }
 
     },
     err => {
-      //console.log(err);
+      this.isBillers = false;
+      this.generalService.loader();
     }
 ));
 
@@ -225,19 +237,22 @@ getBillerProduct(billerId: string) {
   //console.log('2 ran');
   this.display = false; this.display2 = false; this.transfer.customer1 = ''; this.transfer.customer2 = '';
   this.catId = ''; this.billerUniqueId = ''; this.prod = ''; this.transfer.amount = ''; this.billerProduct = [];
-
+  this.isProducts = true;
   this.httpSubscriptions.push(this.payBillsService.getProducts(billerId)
     .subscribe(
       data => {
         if (data.paymentitems !== undefined) {
             this.billerProduct = data.paymentitems;
            this.productDisable = false;
+           this.isProducts = false;
         }
         else {
         this.billerProduct = [];
         this.productDisable = true;
         this.isContinueDisabled = true;
         this.transfer.amount = '';
+        this.isProducts = false;
+        this.generalService.loader();
         }
       },
       err => {
@@ -311,14 +326,17 @@ displayTransactionAmount(transactionAmount) {
 
 
 
-ngOnInit() {
+ionViewWillEnter() {
   this.loadCategories();
+  this.isCategory = true;
    this.isAccount = false;
   this.accountNumber = 'Select Account';
+  // this.accountNumber = JSON.parse(sessionStorage.getItem('accountNumber'));
   this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts()
   .subscribe(
     data=>{
-     this.multipleAccounts = data;
+     this.multipleAccounts = data.multipleAccounts;
+    //console.log(this.multipleAccounts);
     },
 
     err=>{
@@ -326,6 +344,7 @@ ngOnInit() {
     }
   ));
 }
+
 
 ngOnDestroy() {
   this.httpSubscriptions.forEach(subscription => subscription.unsubscribe());

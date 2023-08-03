@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-import { LoadingController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 
 @Injectable({
   providedIn: 'root',
@@ -46,7 +46,7 @@ export class GeneralServiceService {
 
   getcreatedPin = new BehaviorSubject<any>('');
 
-  constructor(private loadingCtrl: LoadingController) { }
+  constructor(private alertController: AlertController) { }
 
   //get/update signup data
   updateSignUpDetails(details: object){
@@ -99,12 +99,12 @@ export class GeneralServiceService {
   updatePinDetails(details: any) {
     this.forgotPinDetails.next(details);
   }
+  async  loader() {
+    const loading = await this.alertController.create({
+     message: 'Service not available, please try again',
+     cssClass: 'custom-loading',
+     });
+     loading.present();
+ }
 
-  async loader() {
-    const loading = await this.loadingCtrl.create({
-      message: '',
-      cssClass: 'custom-loading',
-    });
-    loading.present();
-  }
 }

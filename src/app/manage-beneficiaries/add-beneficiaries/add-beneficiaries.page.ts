@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 import { ManageBeneficiariesPage } from '../manage-beneficiaries.page';
 import { BanksModalComponent } from './banks-modal/banks-modal.component';
 import { Subscription } from 'rxjs';
+import { TransferService } from 'src/app/transfer/transfer.service';
 
 @Component({
   selector: 'app-add-beneficiaries',
@@ -27,7 +28,7 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
   beneficiaryForm: FormGroup;
   beneficiaryname;
   bankCode: any;
-  nameData: string;
+  beneficiaryAccountNum: string;
   success = false;
   beneficiaries = new BeneficiaryModel();
   beneficiaryDetails: any;
@@ -47,7 +48,8 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
     private platform: Platform,
     private alertController: AlertController,
     private router: Router,
-    private managebenPage: ManageBeneficiariesPage
+    private managebenPage: ManageBeneficiariesPage,
+      private transferService: TransferService,
   ) {
     this.beneficiaryForm = this.formBuilder.group({
       beneficiaryAcctNum: ['', [Validators.maxLength(10), Validators.required]],
@@ -66,6 +68,11 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
     const { data, role } = await modal.onWillDismiss();
 
     if (role === 'confirm') {
+      //set beneficiary field to empty when you click on list of banks
+    this.beneficiaryForm.get('beneficiaryAcctNum').setValue('');
+    this.beneficiaryname  = '';
+    this.success = false;
+    this.display = false;
       this.bankName = data.bankName;
       this.bankCode = data.bankCode;
     }
@@ -84,34 +91,57 @@ export class AddBeneficiariesPage implements OnInit, OnDestroy {
 
 
 
-  getNameEnquiry(event) {
-    this.nameData = event.target.value;
-    if (this.nameData.length === 10) {
-      sessionStorage.setItem('destinationAcct', this.nameData);
-      if (this.bankCode === 'ABP') {
-      } else {
-        this.httpSubscriptions.push(
-          this.dashboardService.getName(this.nameData).subscribe(
-            (data) => {
-              this.beneficiaryname = data.accountName;
-              this.success = true;
-              this.display = true;
-            },
+  getNameEnquiry(event){
+    this.beneficiaryAccountNum= event.target.value;
+    if(this.beneficiaryAccountNum.length === 10){
+      sessionStorage.setItem('destinationAcct',  this.beneficiaryAccountNum);
+      //do internal name enquiry if bank code === local
+      if(this.bankCode === 'local'){
+        this.httpSubscriptions.push(this.dashboardService.getName(this.beneficiaryAccountNum)
+      .subscribe(
+         data=>{
+          this.beneficiaryname  = data.accountName;
+          this.success = true;
+          this.display = true;
+         },
 
-            (err) => {
-              this.beneficiaryCheck = 'Invalid Account Number';
-              this.success = false;
-              this.display = false;
-            }
-          )
-        );
+         err=>{
+          this.beneficiaryname  = 'Invalid Account Number';
+          this.success = false;
+          this.display = false;
+        }
+      ));
       }
-    } else {
-      this.beneficiaryCheck = 'Account number must be 10 digits';
+      //if bankcode is not local, perform external name enquiry
+       else{
+        const externalNameEnquiryData = {
+          bankCode: this.bankCode,
+          accountId: this.beneficiaryAccountNum,
+        };
+        this.httpSubscriptions.push(this.transferService.getExternalAccountName(externalNameEnquiryData)
+      .subscribe(
+         data=>{
+          this.beneficiaryname  = data.accountName;
+          this.success = true;
+          this.display = true;
+         },
+
+         err=>{
+          this.beneficiaryname  = 'Invalid Account Number';
+          this.success = false;
+          this.display = false;
+        }
+      ));
+       }
+    }
+
+    else{
+      this.beneficiaryname = 'Account number must be 10 digits';
       this.success = false;
       this.display = false;
     }
   }
+
 
   ngOnInit() {}
 

@@ -43,6 +43,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
   airtimeDetails;
   externalBenDetails: any;
   failedAttempts = 0;
+  isInputDisabled = false;
 
   private createPasscodeValues: number[] = [];
   private httpSubscriptions: Subscription[] = [];
@@ -118,13 +119,9 @@ export class PinModalComponent implements OnInit, OnDestroy {
         this.beneficiaryService
           .addBeneficiary(this.beneficiaryDetails)
           .subscribe(
-            (data) => {
-              console.log(data);
-            },
+            (data) => {},
 
-            (err) => {
-              console.log(err);
-            }
+            (err) => {}
           )
       );
     }
@@ -178,22 +175,17 @@ export class PinModalComponent implements OnInit, OnDestroy {
               this.modalCtrl.dismiss(null, 'cancel');
               this.saveLocalBeneficiary();
               this.router.navigateByUrl('/transfer/receipt');
-              this.failedAttempts = 0;
             },
 
-            (err) => {
-              //console.log(err);
-              loading.dismiss();
-              if (err.error.message) {
-                this.presentAlert(err.error.message);
-                this.failedAttempts++;
-              }
-                if (this.failedAttempts >= 4) {
-                  this.presentAlert('Account is disabled');
-                } else {
-                this.presentAlert('An error occurred');
-              }
-            }
+            // (err) => {
+            //   //console.log(err);
+            //   loading.dismiss();
+            //   if (err.error.message) {
+            //     this.presentAlert(err.error.message);
+            //   } else {
+            //     this.presentAlert('An error occurred');
+            //   }
+            // }
           )
       );
     } else if (this.router.url === '/bills-activity') {
@@ -255,6 +247,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
         //initialize pin to pin object
         this.pinValidationDetails.accountNumber = sessionStorage.getItem('accountNumber');
         //initialize account number
+        if (!this.isInputDisabled) {
         this.httpSubscriptions.push(
           this.transferService.validatePin(this.pinValidationDetails).subscribe(
             (data) => {
@@ -264,12 +257,18 @@ export class PinModalComponent implements OnInit, OnDestroy {
               if (err.error.message) {
                 this.presentAlert(err.error.message);
                 this.failedAttempts++;
+                if (this.failedAttempts >= 4) {
+                  this.presentAlert('Try reset pin or your account will be disabled');
+                  this.isInputDisabled = true;
+                  return;
+                }
               } else {
                 this.presentAlert('An error occurred');
               }
             }
           )
         );
+      }
       }
     }
   }
