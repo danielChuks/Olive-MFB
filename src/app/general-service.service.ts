@@ -46,8 +46,14 @@ export class GeneralServiceService {
   getcreatedPin = new BehaviorSubject<any>('');
   pinChangeData = new BehaviorSubject<any>('');
   passwordChangeData = new BehaviorSubject<any>('');
+  accountCreationData = new BehaviorSubject<any>('');
 
   constructor(private loadingCtrl: LoadingController) { }
+
+  //account creation information
+  updateAccountData(details: object) {
+    this.accountCreationData.next(details);
+  }
 
   //get/update signup data
   updateSignUpDetails(details: object){

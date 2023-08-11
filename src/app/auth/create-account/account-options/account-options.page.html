@@ -1,0 +1,39 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"
+          ><ion-icon name="arrow-back" routerLink="/landing-page"></ion-icon>
+          <p>Back</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text>
+    <h3>Open an account</h3>
+    <p>Kindly select an option to get started</p>
+  </ion-text>
+
+
+         <ion-item [routerLink]="['/bvn-account']"  lines="none">
+          <ion-label>
+            <h4>Open with BVN</h4>
+            <p>link your BVN to get full account capacity</p>
+            </ion-label>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+
+
+
+
+          <ion-item [routerLink]="['/personal-info']" lines="none">
+            <ion-label>
+            <h4>Open without BVN</h4>
+            <p  class="ion-text-wrap">Open account without BVN. You won't get full account capacity</p>
+            </ion-label>
+            <ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+          </ion-item>
+</ion-content>

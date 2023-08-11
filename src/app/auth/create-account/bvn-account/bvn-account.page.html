@@ -1,0 +1,57 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-grid>
+      <ion-row>
+        <ion-col size="auto"
+          ><ion-icon name="arrow-back" routerLink="/account-options"></ion-icon>
+          <p>Back</p>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-text>
+    <h3>Open an account</h3>
+    <p>Kindly fill the form to open an account with us</p>
+  </ion-text>
+
+
+   <form>
+   <div class="accountNumber">
+      <ion-label>BVN <span>*</span></ion-label>
+      <ion-input
+        type="text"
+          maxlength="11"
+        placeholder="Enter your valid BVN"
+      ></ion-input>
+      <ion-text></ion-text>
+       <!-- <div class="text-danger" *ngIf="bvn.errors?.minlength">Bvn must be up to 11 digits</div> -->
+    </div>
+ <!-- formControlName="bvn" -->
+
+     <div class="accountNumber number">
+      <ion-label>Mobile Number <span>*</span></ion-label>
+      <ion-input
+        type="tel"
+        maxlength="11"
+        placeholder="Enter your mobile no."
+      ></ion-input>
+      <ion-text></ion-text>
+       <!-- <div class="text-danger" *ngIf="phone.errors?.minlength">Phone number must be up to 11 digits</div> -->
+    </div>
+   <!-- (click)="validateInfo(contactData)" -->
+      <!-- [disabled]="contactData.valid === true ? false : true" -->
+<!-- formControlName="phone" -->
+       <div class="btn">
+      <ion-button
+
+        expand="block"
+        routerLink="/bvn-account-info"
+        >Next</ion-button
+      >
+    </div>
+   </form>
+
+  </ion-content>

@@ -220,7 +220,22 @@ const routes: Routes = [
   {
     path: 'verification',
     loadChildren: () => import('./reusableComponents/verification/verification.module').then( m => m.VerificationPageModule)
+  },
+  {
+    path: 'account-options',
+    loadChildren: () => import('./auth/create-account/account-options/account-options.module').then( m => m.AccountOptionsPageModule)
+  },
+  {
+    path: 'bvn-account',
+    loadChildren: () => import('./auth/create-account/bvn-account/bvn-account.module').then( m => m.BvnAccountPageModule)
+  },
+  {
+    path: 'bvn-account-info',
+    loadChildren: () => import('./auth/create-account/bvn-account-info/bvn-account-info.module').then( m => m.BvnAccountInfoPageModule)
   }
+
+
+
 
 
 

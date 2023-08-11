@@ -15,15 +15,14 @@
   <ion-text>
     <h3>Open an account</h3>
     <p>Kindly fill the form to open an account with us</p>
-    <h2><span>1/3</span>Personal information</h2>
+    <h2>Personal information</h2>
   </ion-text>
 
-  <form [formGroup]="personalData">
+  <form>
     <div class="accountNumber">
       <ion-label>First Name <span>*</span></ion-label>
       <ion-input
         type="text"
-        formControlName="firstName"
         placeholder="Enter your first name"
       ></ion-input>
       <ion-text></ion-text>
@@ -32,7 +31,6 @@
       <ion-label>Last Name <span>*</span></ion-label>
       <ion-input
         type="text"
-        formControlName="lastName"
         placeholder="Enter your last name"
       ></ion-input>
       <ion-text></ion-text>
@@ -41,7 +39,6 @@
       <ion-label>Middle Name (Optional)</ion-label>
       <ion-input
         type="text"
-        formControlName="middleName"
         placeholder="Enter your middle name"
       ></ion-input>
       <ion-text></ion-text>
@@ -50,7 +47,6 @@
       <ion-label>Gender <span>*</span></ion-label>
 
       <ion-select
-        formControlName="gender"
         placeholder="Select Gender"
         interface="popover"
       >
@@ -60,12 +56,21 @@
       <ion-text></ion-text>
     </div>
 
+      <div class="accountNumber">
+      <ion-label>Email Address <span>*</span></ion-label>
+      <ion-input
+        type="email"
+
+        placeholder="Enter your email address"
+      ></ion-input>
+      <ion-text></ion-text>
+       <!-- <div class="text-danger" *ngIf="email.errors?.pattern">Email must be a valid email address</div> -->
+    </div>
+
     <div class="btn">
       <ion-button
-        (click)="validateInfo(personalData)"
         expand="block"
-          [disabled]="personalData.valid === true ? false : true"
-        routerLink="/contact-info"
+        [routerLink]="['/successpage']"
         >Next</ion-button
       >
     </div>
