@@ -17,9 +17,9 @@ export class ContactInfoPage implements OnInit {
   ngOnInit() {
     this.getExistingData();
      this.contactData = this.formBuilder.group({
-      address: ['', [Validators.required]],
-      phone: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
-      email: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
+      homeAddress: ['', [Validators.required]],
+      mobileNo: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
+      emailAddr: ['', [Validators.required, Validators.email, Validators.pattern('^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$')]],
     });
   }
 
@@ -31,11 +31,11 @@ export class ContactInfoPage implements OnInit {
 
     // eslint-disable-next-line @typescript-eslint/member-ordering
     get email() {
-    return this.contactData.get('email');
+    return this.contactData.get('emailAddr');
   }
   // eslint-disable-next-line @typescript-eslint/member-ordering
   get phone() {
-    return this.contactData.get('phone');
+    return this.contactData.get('mobileNo');
   }
 
   validateInfo(data) {

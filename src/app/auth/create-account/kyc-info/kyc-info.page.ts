@@ -1,9 +1,10 @@
 /* eslint-disable @typescript-eslint/member-ordering */
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { AlertController, LoadingController } from '@ionic/angular';
 import { GeneralServiceService } from 'src/app/general-service.service';
 import { CreateAccountService } from '../create-account.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-kyc-info',
@@ -20,7 +21,9 @@ export class KycInfoPage implements OnInit {
 
   constructor(private formBuilder: FormBuilder,
     private alertController: AlertController,
+    private router: Router,
     private generalService: GeneralServiceService,
+    private loadingCtrl: LoadingController,
     private createAccountService: CreateAccountService) {
     this.kycData = this.formBuilder.group({
       bvn: ['', [Validators.required, Validators.minLength(11), Validators.maxLength(11)]],
@@ -53,7 +56,12 @@ export class KycInfoPage implements OnInit {
   }
 
 
-  createAccount(data) {
+  async createAccount(data) {
+    const loading = await this.loadingCtrl.create({
+      cssClass: 'custom-loading',
+    });
+    loading.present();
+
     console.log({
       ...this.accountCreationData,
       image: this.fileUploadObject.imageUrl,
@@ -62,15 +70,21 @@ export class KycInfoPage implements OnInit {
 
     const accountCreationDetails = {
       ...this.accountCreationData,
+      bvn: '',
       image: this.fileUploadObject.imageUrl,
       signature: this.fileUploadObject.signatureUrl
     };
 
     this.createAccountService.handleCreateAccount(accountCreationDetails).subscribe(response => {
+      loading.dismiss();
+      this.generalService.updateAccountResponse(response); //set response to state so it can be used in receipt
       console.log(response);
+      this.router.navigateByUrl('/successpage');
     },
       (err) => {
-        console.log(err);
+        // console.log(err);
+        this.presentAlert('An error occured, please try again later');
+        loading.dismiss();
       }
     );
   }
