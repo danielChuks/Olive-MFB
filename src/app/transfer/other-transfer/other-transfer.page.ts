@@ -99,7 +99,8 @@ export class OtherTransferPage implements OnInit, OnDestroy {
 
       if (role === 'confirm') {
         this.bankName = data.bankName;
-        this.bankCode = data.bankCode;
+        this.bankCode = data.cbnCode;
+        this.cbnCode = data.cbnCode;
       }
     }
 

@@ -81,4 +81,7 @@ export class BeneficiariesService {
       `${environment.baseApi + `quickteller` + `/bankcodes`}`
     );
   }
+  getInterswitchBanks():  Observable<any>{
+    return this.http.get(`${environment.baseApi}quickteller/bankcodes`);
+   }
 }

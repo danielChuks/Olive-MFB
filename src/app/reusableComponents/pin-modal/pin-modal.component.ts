@@ -260,6 +260,7 @@ export class PinModalComponent implements OnInit, OnDestroy {
                 if (this.failedAttempts >= 4) {
                   this.presentAlert('Try reset pin or your account will be disabled');
                   this.isInputDisabled = true;
+                  sessionStorage.setItem('PinModal', JSON.stringify(this.isInputDisabled)); //To disable pinmodal after 3 incorrect attempts
                   return;
                 }
               } else {

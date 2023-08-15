@@ -10,7 +10,7 @@
   <div class="scroll">
     <div *ngIf="filteredBankList &&  filteredBankList.length > 0">
 <ion-item *ngFor="let bank of filteredBankList"  >
-  <ion-label (click)="confirm(bank.bankName, bank.bankCode)">{{bank.bankName}}</ion-label>
+  <ion-label (click)="confirm(bank.bankName, bank.cbnCode)">{{bank.bankName}}</ion-label>
 </ion-item>
 </div>
 <div  *ngIf="filteredBankList && filteredBankList.length <=0" >
