@@ -1,23 +1,26 @@
 /* eslint-disable @typescript-eslint/member-ordering */
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AlertController, LoadingController } from '@ionic/angular';
 import { GeneralServiceService } from 'src/app/general-service.service';
 import { CreateAccountService } from '../create-account.service';
 import { Router } from '@angular/router';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-kyc-info',
   templateUrl: './kyc-info.page.html',
   styleUrls: ['./kyc-info.page.scss'],
 })
-export class KycInfoPage implements OnInit {
+export class KycInfoPage implements OnInit, OnDestroy {
   kycData: FormGroup;
   fileUploadObject: any = {
     imageUrl: '',
     signatureUrl : ''
   };
   accountCreationData: object;
+   private httpSubscriptions: Subscription[] = [];
 
   constructor(private formBuilder: FormBuilder,
     private alertController: AlertController,
@@ -75,7 +78,7 @@ export class KycInfoPage implements OnInit {
       signature: this.fileUploadObject.signatureUrl
     };
 
-    this.createAccountService.handleCreateAccount(accountCreationDetails).subscribe(response => {
+   this.httpSubscriptions.push(this.createAccountService.handleCreateAccount(accountCreationDetails).subscribe(response => {
       loading.dismiss();
       this.generalService.updateAccountResponse(response); //set response to state so it can be used in receipt
       console.log(response);
@@ -86,7 +89,7 @@ export class KycInfoPage implements OnInit {
         this.presentAlert('An error occured, please try again later');
         loading.dismiss();
       }
-    );
+    ));
   }
 
 
@@ -116,4 +119,14 @@ export class KycInfoPage implements OnInit {
        };
          }
     };
+
+    ngOnDestroy() {
+  if (this.httpSubscriptions.length > 0) {
+      this.httpSubscriptions.forEach((subscription) =>
+        subscription.unsubscribe()
+      );
+    }
+  }
 }
+
+

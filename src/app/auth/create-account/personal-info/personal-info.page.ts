@@ -28,7 +28,7 @@ export class PersonalInfoPage implements OnInit {
   //cancel subscription
   validateInfo(data) {
     this.generalService.updateAccountData(data.value);
-    console.log(data.value);
+    // console.log(data.value);
   }
 
 }
