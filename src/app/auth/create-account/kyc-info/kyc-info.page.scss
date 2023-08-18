@@ -1,1 +1,40 @@
 @import "../contact-info/contact-info.page.scss";
+.accountNumber {
+
+padding: 1rem 1.5rem;
+height: 8rem;
+
+}
+
+
+input[type=file]::file-selector-button {
+   background: #f0f3f3;
+  padding: 1rem 1rem;
+  border-radius: .5rem;
+  border: none;
+  color: black;
+  transition: 1s;
+  margin : auto;
+}
+input[type="file"] {
+  padding: 1rem 2rem 0 0;
+  border-radius: .75rem;
+    height: auto;
+    margin-top: .5rem;
+    // border: 1px solid red;
+    width: 100%;
+}
+
+
+.signature{
+  margin-top: 1.5rem;
+}
+
+.custom-file-upload{
+  background: #f0f3f3;
+    border-radius: .75rem;
+    height: 3.5rem;
+    margin-top: 50rem;
+    border: 1px solid red;
+    width: 100%;
+}

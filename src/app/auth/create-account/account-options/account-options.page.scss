@@ -1,0 +1,33 @@
+@import "../../../forgot-password/forgot-password.page.scss";
+// @import "../../../profile/profile.page.scss";
+ion-content {
+
+  h4{
+    margin-top: 0;
+    font-size: 1.1rem;
+    font-weight: 800;
+    color: #a3a30a;
+    text-decoration: none;
+  }
+  p {
+    color: #000000;
+    font-size: .875rem;
+    font-weight: 200;
+    line-height: 140%;
+    // width: 20.3125rem;
+  }
+
+  ion-text {
+   p{
+    margin-top: 2rem;
+   }
+  }
+
+
+  ion-item{
+    margin-top: 1.3rem;
+    border-radius: .5rem;
+    padding: .5rem;
+     box-shadow: 0rem 0rem .5rem rgba(0, 0, 0, 0.06);
+  }
+}

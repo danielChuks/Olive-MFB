@@ -19,7 +19,7 @@
   </ion-text>
 
   <form [formGroup]="kycData">
-    <div class="accountNumber">
+    <!-- <div class="accountNumber">
       <ion-label>BVN <span>*</span></ion-label>
       <ion-input
         type="text"
@@ -29,28 +29,35 @@
       ></ion-input>
       <ion-text></ion-text>
        <div class="text-danger" *ngIf="bvn.errors?.minlength">Bvn must be up to 11 digits</div>
-    </div>
+    </div> -->
     <div class="accountNumber">
-      <ion-label>Upload Photo <span>*</span></ion-label>
-      <ion-input
-        type="text"
+      <ion-label>Upload Photo <span>*</span></ion-label><br/>
+      <input
+        type="file"
+        accept="image/"
         name="image"
         placeholder="upload image"
-      ></ion-input>
-      <ion-text></ion-text>
-    </div>
-    <div class="accountNumber">
-      <ion-label>Upload Signature (Optional)</ion-label>
-      <ion-input
-        type="text"
-        name="signature"
-        placeholder="Signature"
-      ></ion-input>
-      <ion-text></ion-text>
+       (change)="handleImageUpload($event, 'avatar')"
+      >
     </div>
 
+
+    <div class="accountNumber signature">
+      <ion-label>Upload Signature (Optional)</ion-label>
+      <input
+         type="file"
+        accept="image/*"
+        name="signature"
+        placeholder="Signature"
+        (change)="handleImageUpload($event, 'signature')"
+      >
+    </div>
+
+    <!-- <img [src]="fileUploadObject.imageUrl" alt=""/>
+     <img [src]="fileUploadObject.signatureUrl" alt=""/> -->
+
     <div class="btn">
-      <ion-button (click)="validateInfo(kycData)" expand="block" >Next</ion-button>
+      <ion-button [disabled]="fileUploadObject.imageUrl && fileUploadObject.signatureUrl ? false : true" (click)="createAccount(kycData)" expand="block" >Next</ion-button>
     </div>
   </form>
 </ion-content>
