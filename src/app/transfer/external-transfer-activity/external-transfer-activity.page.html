@@ -22,25 +22,24 @@
   <div class="content">
     <section>
       <p>From</p>
-      <p>Savings Account</p>
-      <p class="bold_text">2001017191</p>
+      <p>{{sourceAccountName}}</p>
+      <p class="bold_text">{{sourceAccount}}</p>
     </section>
 
     <section>
        <p>To</p>
-      <p  class="bold_text">Oladapo Timilehin</p>
-      <p>2001017191</p>
-      <p>Zenith Bank Plc.</p>
+      <p  class="bold_text">{{benAccountName}}</p>
+      <p>{{destinationAccount}} . {{bankName}}</p>
     </section>
 
     <section>
         <p>Amount</p>
-        <p  class="bold_text">{{1000 |currency:"NGN":"symbol-narrow"}}</p>
+        <p  class="bold_text">{{amount |currency:"NGN":"symbol-narrow"}}</p>
     </section>
 
-      <section>
+      <section *ngIf="narration">
         <p>Narration</p>
-         <p  class="bold_text">Transaction description</p>
+         <p  class="bold_text">{{narration}}</p>
     </section>
 
   </div>

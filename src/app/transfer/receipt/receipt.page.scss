@@ -86,13 +86,15 @@ ion-icon {
 
 .download_share{
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   margin-top: 3rem;
+  padding: 0 1.5rem;
 
   .wrapper{
     display: flex;
     gap: .3125rem;
     font-weight: 600;
+    font-size: 1rem;
   }
 }
 

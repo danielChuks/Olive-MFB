@@ -18,8 +18,15 @@ export const environment = {
 // baseApi: 'http://192.168.1.2:8080/api/v1/',
 
 //Faith IP
-baseUrl: 'http://10.152.2.134',
-baseApi: 'http://10.152.2.134:5000/api/v1/',
+// baseUrl: 'http://10.100.80.177',
+// baseApi: 'http://10.100.80.177:5000/api/v1/',
+
+baseUrl: 'http://105.112.133.253:5000',
+baseApi: 'http://105.112.133.253:5000/api/v1/',
+
+//Mr Rash IP
+//  baseUrl: 'http://10.100.80.121',
+//   baseApi: 'http://10.100.80.121:6001/api/v1/',
 };
 
 /*

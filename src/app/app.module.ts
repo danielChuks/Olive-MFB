@@ -17,6 +17,8 @@ import { Idle, IdleExpiry, SimpleExpiry } from '@ng-idle/core';
 import { Network } from '@ionic-native/network/ngx';
 import { AuthInterceptor } from './auth.interceptor';
 import { FormatInputDirective } from './format-input.directive';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @NgModule({
   declarations: [AppComponent, FormatInputDirective],
@@ -33,6 +35,8 @@ import { FormatInputDirective } from './format-input.directive';
   providers: [
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
     PDFGenerator,
+    SocialSharing,
+    FingerprintAIO,
     Idle,
     { provide: IdleExpiry, useClass: SimpleExpiry },
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },

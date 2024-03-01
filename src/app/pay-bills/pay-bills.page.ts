@@ -335,7 +335,7 @@ ionViewWillEnter() {
   this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts()
   .subscribe(
     data=>{
-     this.multipleAccounts = data.multipleAccounts;
+     this.multipleAccounts = data;
     //console.log(this.multipleAccounts);
     },
 

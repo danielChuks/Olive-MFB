@@ -13,6 +13,7 @@ import { NativeStorage } from '@awesome-cordova-plugins/native-storage/ngx';
 import { TransferService } from '../transfer.service';
 import { Subscription } from 'rxjs';
 import { ExternalBeneficiariesComponent } from '../external-beneficiaries/external-beneficiaries.component';
+import { ProfileService } from '../../profile/profile.service';
 
 
 
@@ -64,6 +65,8 @@ export class OtherTransferPage implements OnInit, OnDestroy {
   senderOtherName;
   externalName: any;
   filteredBenList: any;
+  originatorBvn: any;
+  originatorName: any;
   private httpSubscriptions: Subscription[] = [];
 
 
@@ -76,7 +79,8 @@ export class OtherTransferPage implements OnInit, OnDestroy {
      private formRetrieval: FormRetrievalService,
      private platform: Platform,
      private transferService: TransferService,
-     private loadingCtrl: LoadingController
+     private loadingCtrl: LoadingController,
+     private profileService: ProfileService,
     ) {
       this.extTransForm = this.formBuilder.group({
         amount : ['', [ Validators.required]],
@@ -194,11 +198,11 @@ export class OtherTransferPage implements OnInit, OnDestroy {
     senderLastName: this.senderLastName,
     senderOtherName: this.senderOtherName,
     senderAccountNumber: this.accountNumber,
-    beneficiaryLastName: this.externalName[2],
-    beneficiaryOtherName: this.externalName[1],
+    beneficiaryLastName: this.externalName[1] || this.externalName[2],
+    beneficiaryOtherName: this.externalName[0],
     beneficiaryEntityCode:  this.bankCode,
     beneficiaryAccountNumberOrCardNumber: this.benAcctNo,
-    amount: formGroup.value.amount,
+    amount: formGroup.value.amount.replaceAll(',',''),
     // billerId: this.billerUniqueId,
    };
 
@@ -315,14 +319,13 @@ export class OtherTransferPage implements OnInit, OnDestroy {
   ngOnInit() {
         //get the beneficiary full name and check for the empty space
      this.generalService.currentName.subscribe(name => {
-       if (name[0] === '') {
-         this.senderOtherName = name[2];
-         this.senderLastName = name[3];
-       }
-       else {
-       this.senderLastName = name[2];
-       this.senderOtherName = name[1];
-       }
+      if (name[0] === '') {
+        this.senderOtherName = name[1];
+        this.senderLastName = name[2];
+      } else {
+        this.senderLastName = name[0];
+        this.senderOtherName = name[1];
+      }
      });
 
 
@@ -334,14 +337,16 @@ export class OtherTransferPage implements OnInit, OnDestroy {
  }));
     this.isAccount = false;
     this.accountNumber = 'Select Account';
-    this.storedAccountNumber = (sessionStorage.getItem('accountNumber'));
+    this.storedAccountNumber = (
+      sessionStorage.getItem('accountNumber')
+    );
 
     //get multiple accounts on initialization
     this.httpSubscriptions.push(this.dashboardService.getMultipleAccounts()
     .subscribe(
       data=>{
-       this.multipleAccounts = data;
-      //console.log(this.multipleAccounts);
+        this.multipleAccounts = data;
+        console.log(this.multipleAccounts);
       },
 
       err=>{
@@ -364,6 +369,20 @@ export class OtherTransferPage implements OnInit, OnDestroy {
       }
 
     ));
+
+    //run account information to get ussers bvn(refactor using state management library)
+    this.httpSubscriptions.push(
+      this.profileService.getAccountInformation().subscribe(
+        (data) => {
+          //  console.log(data);
+          this.originatorBvn = data.bvn;
+          this.originatorName = data.accountName;
+        },
+        (err) => {
+          console.log(err);
+        }
+      )
+    );
   }
 
   ionViewWillEnter() {

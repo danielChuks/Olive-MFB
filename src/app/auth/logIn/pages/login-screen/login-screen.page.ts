@@ -17,6 +17,7 @@ import { IdleTimerService } from 'src/app/idle-timer.service';
 import { Platform } from '@ionic/angular';
 import { Location } from '@angular/common';
 import { Device } from '@ionic-native/device';
+import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
 
 @Component({
   selector: 'app-login-screen',
@@ -34,7 +35,7 @@ export class LoginScreenPage {
   signInForm: FormGroup;
   inputAccountNumber;
   savedAccountNumber;
-  pwdIcon = 'eye';
+  pwdIcon = 'Neptune1234';
   showPwd = false;
   isFirstEnter = true;
   isFieldDisabled: boolean;
@@ -52,7 +53,8 @@ export class LoginScreenPage {
     private alertController: AlertController,
     private idleTimer: IdleTimerService,
     private _location: Location,
-    private platform: Platform
+    private platform: Platform,
+    private fingerprint: FingerprintAIO
   ) {
     this.signInForm = this.formBuilder.group({
       accountNumber: ['', [Validators.required, Validators.minLength(8)]],
@@ -76,53 +78,69 @@ export class LoginScreenPage {
       this.signInForm.get('password').setValue('');
       if (this.savedAccountNumber) {
         this.signInForm.get('accountNumber').setValue(this.savedAccountNumber);
-      } else {
+      }
+      else {
       }
     }
     this.isFirstEnter = false;
   }
 
   unlinkDevice() {
-    // this.unlinkDetails.accountNumber = this.signInForm.get('accountNumber').value;
-    // this.unlinkDetails.deviceUIID = '';
-    // this.LoginService.ulinkDeviceId(this.unlinkDetails).subscribe(
-    //   data=>{
-    //     //console.log(data);
-    //   },
-    //   err=>{
-    //        //console.log(err);
-    //   }
-    // );
     localStorage.clear();
     sessionStorage.clear();
     this.savedAccountNumber = '';
     this.signInForm.get('accountNumber').setValue('');
   }
 
-  async signIn(formGroup: FormGroup) {
-    //loading component
+  async loginWithFingerprint() {
+    const storedPassword = localStorage.getItem('password');
+
+    if (storedPassword) {
+      // Password is stored, proceed with fingerprint authentication
+      const options = {
+        title: 'Olive App Authentication',
+        description: 'Touch your fingerprint sensor',
+        fallbackButtonTitle: 'Use Backup',
+        disableBackup: false,
+      };
+
+      try {
+        await this.fingerprint.show(options);
+        this.signIn(); // Call signIn function on successful fingerprint authentication
+      } catch (err) {
+        // Handle fingerprint authentication error
+      }
+    } else {
+      // No password stored, call signIn directly with formGroup as an argument
+      this.signIn(this.signInForm);
+    }
+  }
+
+  async signIn(formGroup?: FormGroup) {
+    // Loading component
     const loading = await this.loadingCtrl.create({
       message: 'Signing in....',
       cssClass: 'custom-loading',
     });
     loading.present();
 
-    this.login.accountNumber = formGroup.value.accountNumber;
-    this.login.password = formGroup.value.password;
+    this.login.accountNumber = formGroup ? formGroup.value.accountNumber : localStorage.getItem('accountNumber');
+    this.login.password = formGroup ? formGroup.value.password : localStorage.getItem('password');
     this.login.appVersion = 'v3';
-    this.login.deviceUIID = 'ae49ded2873115c7'; //capacitor / cordova
+    this.login.deviceUIID = 'fbfb6fc7-359c-4ea3-bf42-7e438879ce3c'; // capacitor / cordova
     const date = new Date();
-    // this.login.currentDate = date.toLocaleDateString('en-GB').replace(/\//g, '-');
-    this.login.currentDate = '31-01-2025'; //not hard-coded
-    // this.login.deviceUIID = Device.uuid;
+    this.login.currentDate = '31-01-2025'; // not hard-coded
+
     this.LoginService.loginWithDetails(this.login).subscribe(
       (data) => {
+        console.log(data);
         sessionStorage.setItem('accountNumber', this.login.accountNumber);
         localStorage.setItem('accountNumber', this.login.accountNumber);
+        localStorage.setItem('password', this.login.password);
         this.savedAccountNumber = localStorage.getItem('accountNumber');
         this.router.navigateByUrl('new-tab/hometab');
         loading.dismiss();
-        this.idleTimer.onInterrupt();
+        // this.idleTimer.onInterrupt();
         this.failedAttempts = 0;
       },
       (error) => {
@@ -134,7 +152,9 @@ export class LoginScreenPage {
         } else if (error.status === 403) {
           this.failedAttempts++;
           if (this.failedAttempts >= 4) {
-            this.presentAlert('Try forgot password, or your account will be disabled');
+            this.presentAlert(
+              'Try forgot password, or your account will be disabled'
+            );
           } else {
             this.presentAlert('Wrong AccountNo/Password');
           }
@@ -156,11 +176,11 @@ export class LoginScreenPage {
     await alert.present();
   }
 
-
   async presentUnlink() {
     const alert = await this.alertController.create({
       header: 'Warning!',
-      message: 'This action will clear all login details. Do you wish to continue?',
+      message:
+        'This action will clear all login details. Do you wish to continue?',
       buttons: [
         {
           text: 'Cancel',
@@ -171,7 +191,7 @@ export class LoginScreenPage {
           handler: () => {
             this.unlinkDevice();
             alert.dismiss();
-          }
+          },
         },
       ],
     });

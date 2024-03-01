@@ -109,8 +109,7 @@
 
     <div class="btn">
       <ion-button
-        (click)="internalTransfer(intTransForm)"
-        [disabled]="intTransForm.invalid || !isAccountSelected"
+      (click)="internalTransfer(intTransForm)" [disabled]="intTransForm.valid === true && isAccountSelected === true ? false : true" 
         type="submit"
         expand="block"
         >Continue</ion-button

@@ -21,34 +21,33 @@ export class AppComponent implements OnInit, OnDestroy {
   ) {}
 
 ngOnInit(): void {
-  this.idleTimer.startIdleTime();
-  this.idleTimer.start();
+  this.idleTimer.startWatchingForInactivity();
 }
 
 ngOnDestroy(): void {
-  this.idleTimer.stopIdleTime();
+  // this.idleTimer.stopIdleTime();
 }
 
-start() {
-  document.addEventListener('visibilitychange', () => {
-    if (document.visibilityState === 'hidden') {
-      // Check if the current page is an excluded page
-      if (!this.isExcludedPage()) {
-        this.timer = setTimeout(() => {
-          this.auth.logout(); // Run auth.logout() after the timeout
-        }, 60000);
-      } else {
-        clearTimeout(this.timer); // Clear the timer without running auth.logout()
-      }
-    } else {
-      clearTimeout(this.timer);
-    }
-  });
-}
+// start() {
+//   document.addEventListener('visibilitychange', () => {
+//     if (document.visibilityState === 'hidden') {
+//       // Check if the current page is an excluded page
+//       if (!this.isExcludedPage()) {
+//         this.timer = setTimeout(() => {
+//           this.auth.logout(); // Run auth.logout() after the timeout
+//         }, 60000);
+//       } else {
+//         clearTimeout(this.timer); // Clear the timer without running auth.logout()
+//       }
+//     } else {
+//       clearTimeout(this.timer);
+//     }
+//   });
+// }
 
-isExcludedPage(): boolean {
-  const excludedPages = ['/signup-form', '/landing-page']; // Add additional excluded pages here
-  const currentUrl = window.location.pathname;
-  return excludedPages.includes(currentUrl);
-}
+// isExcludedPage(): boolean {
+//   const excludedPages = ['/signup-form', '/landing-page']; // Add additional excluded pages here
+//   const currentUrl = window.location.pathname;
+//   return excludedPages.includes(currentUrl);
+// }
 }
