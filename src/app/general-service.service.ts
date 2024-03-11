@@ -128,4 +128,12 @@ export class GeneralServiceService {
      loading.present();
  }
 
+ async alert(text){
+  const loading = await this.alertController.create({
+    message: text,
+    cssClass: 'custom-loading',
+    });
+    loading.present();
+}
+
 }

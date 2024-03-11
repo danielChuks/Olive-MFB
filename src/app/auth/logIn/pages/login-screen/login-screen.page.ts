@@ -92,29 +92,31 @@ export class LoginScreenPage {
     this.signInForm.get('accountNumber').setValue('');
   }
 
-  async loginWithFingerprint() {
-    const storedPassword = localStorage.getItem('password');
+  // async loginWithFingerprint() {
+  //   const storedPassword = localStorage.getItem('password');
 
-    if (storedPassword) {
-      // Password is stored, proceed with fingerprint authentication
-      const options = {
-        title: 'Olive App Authentication',
-        description: 'Touch your fingerprint sensor',
-        fallbackButtonTitle: 'Use Backup',
-        disableBackup: false,
-      };
+  //   if (storedPassword) {
+  //     // Password is stored, proceed with fingerprint authentication
+  //     const options = {
+  //       title: 'Olive App Authentication',
+  //       description: 'Touch your fingerprint sensor',
+  //       fallbackButtonTitle: 'Use Backup',
+  //       disableBackup: false,
+  //     };
 
-      try {
-        await this.fingerprint.show(options);
-        this.signIn(); // Call signIn function on successful fingerprint authentication
-      } catch (err) {
-        // Handle fingerprint authentication error
-      }
-    } else {
-      // No password stored, call signIn directly with formGroup as an argument
-      this.signIn(this.signInForm);
-    }
-  }
+  //     try {
+  //       await this.fingerprint.show(options);
+  //       this.savedAccountNumber = localStorage.getItem('accountNumber');
+  //       this.router.navigateByUrl('new-tab/hometab');
+  //       // this.signIn(); // Call signIn function on successful fingerprint authentication
+  //     } catch (err) {
+  //       // Handle fingerprint authentication error
+  //     }
+  //   } else {
+  //     // No password stored, call signIn directly with formGroup as an argument
+  //     this.signIn(this.signInForm);
+  //   }
+  // }
 
   async signIn(formGroup?: FormGroup) {
     // Loading component
@@ -124,10 +126,12 @@ export class LoginScreenPage {
     });
     loading.present();
 
-    this.login.accountNumber = formGroup ? formGroup.value.accountNumber : localStorage.getItem('accountNumber');
-    this.login.password = formGroup ? formGroup.value.password : localStorage.getItem('password');
+    // this.login.accountNumber = formGroup ? formGroup.value.accountNumber : localStorage.getItem('accountNumber');
+    // this.login.password = formGroup ? formGroup.value.password : localStorage.getItem('password');
+    this.login.accountNumber = formGroup.value.accountNumber;
+    this.login.password = formGroup.value.password;
     this.login.appVersion = 'v3';
-    this.login.deviceUIID = 'fbfb6fc7-359c-4ea3-bf42-7e438879ce3c'; // capacitor / cordova
+    this.login.deviceUIID = 'ae49ded2873115c7'; // capacitor / cordova
     const date = new Date();
     this.login.currentDate = '31-01-2025'; // not hard-coded
 

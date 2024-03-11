@@ -43,7 +43,7 @@ export class TopupConfirmationPage implements OnInit {
       this.sourceAccountNumber = data.sourceAccountNumber;
       this.phoneNo = data.customerMobile; //mobile number or customer id
       this.amount = data.transactionAmount;
-      this.product = 'Mobile Recharge';
+      this.product = 'Recharge';
       this.carrier = data.mobileOperatorDescription;
 
       this.confirmationDetails = {

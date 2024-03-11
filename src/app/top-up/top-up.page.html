@@ -62,18 +62,10 @@
 
     <div class="inputGroup form">
       <p class="title">Select network provider</p>
-      <ion-select
-        placeholder="Select network provider"
-        interface="action-sheet"
-        [interfaceOptions]="{ cssClass: 'select'}"
-        (ionChange)="selectCarrier($event)"
-      >
-        <ion-select-option
-          [disabled]="true"
-          *ngFor="let biller of billers"
-          value="{{biller.billerid}}"
-          >{{biller.billername}}</ion-select-option
-        >
+      <ion-select placeholder="Select network provider" interface="action-sheet" [interfaceOptions]="{ cssClass: 'select'}" (ionChange)="tempselectedCarrier($event)">
+        <ion-select-option [disabled]="true" *ngFor="let biller of tempBillersList" [value]="biller.paymentCode">
+         {{biller.billerName}}
+        </ion-select-option>
       </ion-select>
     </div>
 
@@ -94,7 +86,7 @@
        <p class="title">Top-up amount</p>
       <ion-input
         [ngModel]="airtimeAmount"
-        (input)="formatInput($event.target.value)"
+        (input)="formatInput($event.target.value)" fixed 
         [disabled]="isAmountDisabled"
         placeholder="input top-up amount"
         type="text"
@@ -154,18 +146,9 @@
 
     <div class="form inputGroup">
         <p class="title">Select network provider</p>
-      <ion-select
-        placeholder="Select Carrier"
-        [interfaceOptions]="{ cssClass: 'select'}"
-        interface="action-sheet"
-        (ionChange)="selectCarrierForBundle($event)"
-      >
-        <ion-select-option
-          *ngFor="let biller of billers"
-          value="{{biller.billerid}}"
-          >{{biller.billername}}</ion-select-option
-        >
-      </ion-select>
+        <ion-select placeholder="Select network provider" [interfaceOptions]="{ cssClass: 'select'}"   interface="action-sheet" (ionChange)="getTempBundle($event)">
+          <ion-select-option  *ngFor="let biller of tempDataBillers" value={{biller.billerid}} >{{biller.billerName}}</ion-select-option>
+        </ion-select>
     </div>
 
 
@@ -178,20 +161,8 @@
           <ion-spinner></ion-spinner>
         </ion-item>
       </div>
-      <ion-select *ngIf="!isBundle"
-        #bund
-        placeholder="Select Bundle"
-        interface="action-sheet"
-         [interfaceOptions]="{ cssClass: 'select'}"
-        (ionChange)="getAmount(bund.value)"
-      >
-        <ion-select-option
-          *ngFor="let bundle of billerProducts"
-          value="{{bundle.paymentitemid}}"
-        >
-          {{bundle.paymentitemname}}mb for {{bundle.amount / 100 |
-          currency:"NGN":"symbol-narrow"}}</ion-select-option
-        >
+      <ion-select *ngIf="!isBundle" #bund placeholder="Select Bundle"  [interfaceOptions]="{ cssClass: 'select'}"   interface="action-sheet" (ionChange)="getTempAmount(bund.value)">
+        <ion-select-option    *ngFor="let bundle of dataBundles" value={{bundle.paymentCode}}> {{bundle.paymentitemname}}</ion-select-option>
       </ion-select>
     </div>
 

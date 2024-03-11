@@ -12,5 +12,6 @@ export class AirtimeModel{
     customerMobile: string;
     mobileOperatorName: string;
     customerEmail: string;
+    productName: string;
 }
 

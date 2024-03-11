@@ -97,6 +97,7 @@
     <div class="inputGroup form"  *ngIf="display">
       <p class="title">{{fieldResult1}}</p>
         <ion-input  class="custom" type="text" placeholder={{fieldResult1}} [(ngModel)]="transfer.customer1" name="customer1"></ion-input>
+        <p *ngIf="isCustomerValid" class="top danger">{{customerName}}</p>
     </div>
 
     <div class="inputGroup form" *ngIf="display2">
@@ -106,7 +107,7 @@
 
 
     <div class="btn">
-      <ion-button class="button" (click)="continue()" [disabled]="transfer.customer1 ? false : true"  type="submit" expand="block" routerLink="/bills-activity" >Continue</ion-button>
+      <ion-button class="button" (click)="continue()" [disabled]="transfer.customer1 ? false : true"  type="submit" expand="block">Continue</ion-button>
       </div>
 
   </form>
