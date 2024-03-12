@@ -86,7 +86,7 @@
        <p class="title">Top-up amount</p>
       <ion-input
         [ngModel]="airtimeAmount"
-        (input)="formatInput($event.target.value)" fixed 
+        (input)="onChange($event.target['value'])"  
         [disabled]="isAmountDisabled"
         placeholder="input top-up amount"
         type="text"
@@ -172,7 +172,7 @@
       placeholder="Amount"
       [ngModel]="dataAmount"
        class="custom"
-      (input)="formatInput($event.target.value)"
+       (input)="onChange($event.target['value'])"  
       type="text"
       formControlName="mobileDataAmount"
       required

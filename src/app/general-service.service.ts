@@ -136,4 +136,14 @@ export class GeneralServiceService {
     loading.present();
 }
 
+formatAmount(input: string){
+  const formattedValue = input.replace(/,/g, '').replace(/[^\d\.]/g, ''); // remove all commas and non-numeric characters
+  const parts = formattedValue.split('.');
+  const integerPart = parts[0];
+  const decimalPart = parts[1] || '';
+  const integerDisplayValue = integerPart.replace(/\d(?=(\d{3})+$)/g, '$&,'); // add commas to integer part
+  const displayValue = decimalPart ? integerDisplayValue + '.' + decimalPart : integerDisplayValue; // add decimal part if present
+return displayValue;
+}
+
 }

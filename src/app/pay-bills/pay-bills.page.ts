@@ -19,6 +19,7 @@ import { GeneralServiceService } from '../general-service.service';
 import { FormRetrievalService } from '../hometab/formRetrieval.service';
 
 
+
 @Component({
   selector: 'app-pay-bills',
   templateUrl: './pay-bills.page.html',
@@ -389,7 +390,7 @@ displayTransactionAmount(transactionAmount, charge) {
     const convertedAmt: number = parseInt(transactionAmount); //converted the string to a number
     const formattedAmount: number =
       convertedAmt / 100 + convertedCharge / 100; //converted amount to naira
-       this.transfer.amount = this.formatInput(formattedAmount.toString());
+       this.transfer.amount = this.generalService.formatAmount(formattedAmount.toString());
   }
 }
 
@@ -445,7 +446,7 @@ async handleCustomerId(id: string) {
     }
 
 ionViewWillEnter() {
-  console.log('i just entered');
+  // console.log('i just entered');
   this.loadCategories();
   this.isCategory = true;
    this.isAccount = false;

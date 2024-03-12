@@ -80,7 +80,7 @@
         formControlName="amount"
         placeholder="Input Amount"
         class="custom"
-        (input)="formatInput($event.target.value)"
+        (input)="onChange($event.target['value'])"
       ></ion-input>
       <div class="transfer-limit">
         <ion-label>Current. transfer limit:</ion-label>

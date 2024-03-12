@@ -28,8 +28,6 @@ export class TopupConfirmationPage implements OnInit {
   product = '';
   confirmationDetails: any;
 
-  private createPasscodeValues: number[] = [];
-
   constructor(
     private generalService: GeneralServiceService,
     private nativeStorage: NativeStorage,

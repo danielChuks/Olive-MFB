@@ -311,17 +311,13 @@ getTempAmount(bundleId: any){
    this.displayTransactionAmount(transactionAmount);
 }
 
-  formatInput(inputValue: string) {
-    const formattedValue = inputValue.replace(/,/g, '').replace(/[^\d\.]/g, ''); // remove all commas and non-numeric characters
-    const parts = formattedValue.split('.');
-    const integerPart = parts[0];
-    const decimalPart = parts[1] || '';
-    const integerDisplayValue = integerPart.replace(/\d(?=(\d{3})+$)/g, '$&,'); // add commas to integer part
-    const displayValue = decimalPart ? integerDisplayValue + '.' + decimalPart : integerDisplayValue; // add decimal part if present
-    this.airtimeForm.get('airtimeAmount').setValue(displayValue);
-    this.mobileDataForm.get('mobileDataAmount').setValue(displayValue); // update the form control value
-    // update the form control value
-    }
+onChange(inputValue: string){
+const formattedAmount = this.generalService.formatAmount(inputValue);
+this.airtimeForm.get('airtimeAmount').setValue(formattedAmount);
+this.mobileDataForm.get('mobileDataAmount').setValue(formattedAmount);
+}
+
+
 
   submitAirtimeDetails(formGroup: FormGroup){
     // eslint-disable-next-line @typescript-eslint/prefer-for-of
@@ -424,7 +420,7 @@ getTempAmount(bundleId: any){
       const convertedAmt: number = parseInt(transactionAmount); //converted the string to a number
       const formattedAmount: number = (convertedAmt / 100); //converted the string to 2 decimal places
       const inputAmount =  Math.ceil(formattedAmount); //roumd up to nearest integer
-      this.formatInput(inputAmount.toString()); //add commas to amount
+      this.generalService.formatAmount(inputAmount.toString()); //add commas to amount
     }
   }
 
