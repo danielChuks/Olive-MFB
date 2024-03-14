@@ -38,6 +38,7 @@ export class TransferPage implements OnInit, OnDestroy {
   transferTo = '';
   text: '';
   tranferDetails;
+  senderNames;
   storedAccountNumber;
   myselectedAccount = '';
   multipleAccounts;
@@ -54,6 +55,8 @@ export class TransferPage implements OnInit, OnDestroy {
   isFirstEnter = true;
   benAmount;
   benNarration;
+  senderLastName;
+  senderOtherName;
 
   private httpSubscriptions: Subscription[] = [];
 
@@ -89,6 +92,7 @@ export class TransferPage implements OnInit, OnDestroy {
   beneficiary() {
     this.modal.dismiss(this.name, 'confirm');
     this.selectedAccount = this.accountNumber;
+    this.transferTo = this.accountName;
   }
 
   onWillDismiss(event: Event) {
@@ -197,18 +201,14 @@ export class TransferPage implements OnInit, OnDestroy {
     }
   }
 
-  formatInput(inputValue: string) {
-    const formattedValue = inputValue.replace(/,/g, '').replace(/[^\d\.]/g, ''); // remove all commas and non-numeric characters
-    const parts = formattedValue.split('.');
-    const integerPart = parts[0];
-    const decimalPart = parts[1] || '';
-    const integerDisplayValue = integerPart.replace(/\d(?=(\d{3})+$)/g, '$&,'); // add commas to integer part
-    const displayValue = decimalPart ? integerDisplayValue + '.' + decimalPart : integerDisplayValue; // add decimal part if present
-    this.intTransForm.get('amount').setValue(displayValue); // update the form control value
-    }
+  onChange(inputValue: string){
+    const formattedAmount = this.generalService.formatAmount(inputValue);
+    this.intTransForm.get('amount').setValue(formattedAmount); // update the form control value
+  };
 
 
   internalTransfer(formGroup: FormGroup) {
+    console.log('clicked');
     this.intTransfer.sourceAccountNumber = this.accountNumber;
     this.intTransfer.transactionAmount = formGroup.value.amount;
     this.intTransfer.transactionAmount = formGroup.value.amount.replaceAll(',', '');
@@ -219,6 +219,14 @@ export class TransferPage implements OnInit, OnDestroy {
       sourceAccountNumber: this.selectedAccount,
       beneficiaryAccountNumber: formGroup.value.beneficiaryAcctNum,
     };
+    this.senderNames = {
+      senderLastName: this.senderLastName,
+      senderOtherName: this.senderOtherName,
+    };
+    sessionStorage.setItem(
+      'Name',
+      JSON.stringify(this.senderNames)
+    );
     sessionStorage.setItem('intTransfer', JSON.stringify(this.tranferDetails));
 
     this.formRetrieval.saveInternalFormData(
@@ -232,6 +240,16 @@ export class TransferPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
+    this.generalService.currentName.subscribe((name) => {
+      console.log(name);
+      if (name[0] === '') {
+        this.senderOtherName = name[1];
+        this.senderLastName = name[2];
+      } else {
+        this.senderLastName = name[0];
+        this.senderOtherName = name[1];
+      }
+    });
     this.httpSubscriptions.push(this.generalService.currentMessage.subscribe((msg) => {
       //get beneficiary details from beneficiaries page
       this.isAccountSelected = msg.isTrue;

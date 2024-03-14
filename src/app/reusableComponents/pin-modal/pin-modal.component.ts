@@ -147,12 +147,18 @@ export class PinModalComponent implements OnInit, OnDestroy {
           .externalFundTransfer(this.extTransferDetails)
           .subscribe(
             (data) => {
-              if (data.return.responseCode === '00') {
+              if (data.responseCode === '00') {
+                this.extTransferDetails.paymentReference = data.paymentReference;
+        sessionStorage.setItem('externalDetails', JSON.stringify(this.extTransferDetails));
                 this.saveExternalBeneficiary(); //save beneficary
                 this.modalCtrl.dismiss(null, 'cancel');
                 this.router.navigateByUrl('/ext-receipt'); //receipt page for external tf
                 loading.dismiss();
               }
+              else{
+                loading.dismiss();
+                this.presentAlert('Service not available. Please try again later');
+                }
             },
 
             (err) => {
@@ -177,15 +183,11 @@ export class PinModalComponent implements OnInit, OnDestroy {
               this.router.navigateByUrl('/transfer/receipt');
             },
 
-            // (err) => {
-            //   //console.log(err);
-            //   loading.dismiss();
-            //   if (err.error.message) {
-            //     this.presentAlert(err.error.message);
-            //   } else {
-            //     this.presentAlert('An error occurred');
-            //   }
-            // }
+            err=>{
+              console.log(err);
+              loading.dismiss();
+              this.presentAlert(err.error ? err.error.message : 'Service not available. Please try again later');
+            }
           )
       );
     } else if (this.router.url === '/bills-activity') {

@@ -33,6 +33,8 @@ commission = 10.75;
 totalAmount: any;
 confirmationDetails: any;
 sourceAccount: '';
+sourceAccountName;
+senderAccountName;
 narration: '';
 destinationAccount: '';
 amount: '';
@@ -75,10 +77,11 @@ transferModel = new InternalTransferModel();
 
   ngOnInit() {
     this.confirmationDetails = JSON.parse(sessionStorage.getItem('intTransfer'));
-    //console.log(this.confirmationDetails);
+    this.senderAccountName = JSON.parse(sessionStorage.getItem('Name'));
     const {sourceAccountNumber, narration, beneficiaryAccountNumber, transactionAmount, name} =  this.confirmationDetails;
-    //console.log(this.confirmationDetails);
+    const { senderLastName, senderOtherName } = this.senderAccountName;
     this.sourceAccount = sourceAccountNumber;
+    this.sourceAccountName = `${senderLastName} ${senderOtherName}`;
     this.narration = narration;
     this.destinationAccount = beneficiaryAccountNumber;
     this.amount = transactionAmount;

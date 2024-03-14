@@ -20,7 +20,7 @@
     <div class="from">
       <ion-label>
         <h2>From</h2>
-        <h3>{{accountType}}</h3>
+        <h3>{{senderAccountName}}</h3>
         <p>{{account}}</p>
       </ion-label>
     </div>
@@ -33,14 +33,21 @@
       </ion-label>
     </div>
 
+    <div class="to">
+      <ion-label>
+        <h2>Transaction Date</h2>
+        <p>{{transDate}}</p>
+      </ion-label>
+    </div>
+
     </div>
 
 
     <div class="download_share">
-       <!-- <div  class="wrapper">
-        <img class="" src="./assets/icon/share.svg"/>
-        <p>Share receipt</p>
-      </div> -->
+      <div (click)="share()" class="wrapper">
+     <img class="" src="./assets/icon/share.svg"/>
+     <p>Share receipt</p>
+   </div>
 
 
       <div (click)="downloadInvoice()" class="wrapper">
@@ -67,7 +74,7 @@
     <h4 style="
       font-size: 18px;
       line-height: 18px;
-    ">Nwannegadi Microfinance Bank</h4>
+    ">olive Microfinance Bank</h4>
   </div>
 
 <div class="ion-padding receipt">
@@ -80,29 +87,42 @@
 
 
   <ion-list class="ion-padding" >
-    <!-- <ion-item style=" margin: 0px -35px 5px -15px;
-    display: flex;
-    justify-content: space-between ;
-    align-items: center;">
-      <ion-label style="font-size: 14px;">Transaction type:</ion-label>
-      <p style="font-size: 14px;">{{getintTransfer.transType}}</p>
-    </ion-item> -->
-    <ion-item style="margin: -30px -35px -10px -15px;
+    <ion-item
+    style="
+      margin: -30px -35px -10px -15px;
+      display: flex;
+      padding: 16px;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <ion-label style="font-size: 14px">Transaction Date:</ion-label>
+    <p style="font-size: 14px; padding: 16px">{{transDate}}</p>
+  </ion-item>
+  <ion-item
+  style="
+    margin: -30px -35px -10px -15px;
     display: flex;
     padding: 16px;
-    justify-content: space-between ;
-    align-items: center;">
-      <ion-label style="font-size: 14px;">Transfer from:</ion-label>
-      <p style="font-size: 14px; padding: 16px;">{{account}}</p>
-    </ion-item>
-    <ion-item style="margin: -30px -35px -10px -15px;
-    display: flex;
-    padding: 16px;
-    justify-content: space-between ;
-    align-items: center;">
-      <ion-label style="font-size: 14px;">Transfer to:</ion-label>
-      <p style="font-size: 14px; padding: 16px;">{{destinationAccount}}</p>
-    </ion-item>
+    justify-content: space-between;
+    align-items: center;
+  "
+>
+  <ion-label style="font-size: 14px">Sender:</ion-label>
+  <p style="font-size: 14px; padding: 16px">{{senderAccountName}}</p>
+</ion-item>
+<ion-item
+style="
+  margin: -50px -35px -10px -15px;
+  display: flex;
+  padding: 16px;
+  justify-content: space-between;
+  align-items: center;
+"
+>
+<ion-label style="font-size: 14px"></ion-label>
+<p style="font-size: 14px; padding: 16px">{{account}}</p>
+</ion-item>
     <ion-item style="margin: -30px -35px -10px -15px;
     display: flex;
     padding: 16px;
@@ -111,13 +131,20 @@
       <ion-label style="font-size: 14px;">Beneficiary’s Name:</ion-label>
       <p style="font-size: 14px; padding: 16px;">{{beneficiaryName}}</p>
     </ion-item>
-    <!-- <ion-item style=" margin: 0px -35px 5px -15px;
-    display: flex;
-    justify-content: space-between ;
-    align-items: center;">
-      <ion-label style="font-size: 14px;">Bank:</ion-label>
-      <p style="font-size: 14px;">Access Bank PLC</p>
-    </ion-item> -->
+    <ion-item
+    style="
+      margin: -30px -35px -10px -15px;
+      display: flex;
+      padding: 16px;
+      justify-content: space-between;
+      align-items: center;
+    "
+  >
+    <ion-label style="font-size: 14px"
+      >Beneficiary Account Number:</ion-label
+    >
+    <p style="font-size: 14px; padding: 16px">{{destinationAccount}}</p>
+  </ion-item>
     <ion-item style="margin: -30px -35px -10px -15px;
     display: flex;
     padding: 16px;
@@ -133,7 +160,7 @@
       <ion-label style="font-size: 14px;">Date:</ion-label>
       <p style="font-size: 14px;">{{getintTransfer.transDate}}</p>
     </ion-item> -->
-    <ion-item style="margin: -30px -35px -10px -15px;
+    <ion-item *ngIf="narration" style="margin: -30px -35px -10px -15px;
     display: flex;
     padding: 16px;
     justify-content: space-between ;
@@ -141,13 +168,22 @@
       <ion-label style="font-size: 14px;">Narration:</ion-label>
       <p style="font-size: 14px; padding: 16px;">{{narration}}</p>
     </ion-item>
-    <!-- <ion-item style=" margin: 0px -35px 5px -15px;
+    <ion-item *ngIf="!narration" style="margin: -30px -35px -10px -15px;
     display: flex;
+    padding: 16px;
     justify-content: space-between ;
     align-items: center;">
-      <ion-label style="font-size: 14px;">Reference Number:</ion-label>
-      <p style="font-size: 14px;">{{transRef}}</p>
-    </ion-item>   -->
+      <ion-label style="font-size: 14px;">Narration:</ion-label>
+      <p style="font-size: 14px; padding: 16px;">Transfer from {{senderAccountName}} to {{beneficiaryName}}</p>
+    </ion-item>
+    <ion-item style="margin: -30px -35px -10px -15px;
+    display: flex;
+    padding: 16px;
+    justify-content: space-between ;
+    align-items: center;">
+      <ion-label style="font-size: 14px;">Transaction Reference:</ion-label>
+      <p style="font-size: 14px; padding: 16px;">{{referenceID}}</p>
+    </ion-item>  
   </ion-list>
   <p style="font-weight: 400;
   font-size: 14px;

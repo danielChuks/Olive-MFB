@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
-import { billsPaymentModel } from './billsPaymentModel';
+import { CustomerData, billsPaymentModel } from './billsPaymentModel';
 
 @Injectable({
   providedIn: 'root'
@@ -27,5 +27,11 @@ getCategories(): Observable<any>{
 
   payBills(paymentDetails: billsPaymentModel): Observable<any>{
     return this.http.post(`${environment.baseApi + `billsPayment`}`, paymentDetails);
+  }
+
+  validateCustomer(customerDetails: CustomerData): Observable<any> {
+    return this.http.get(
+      `${environment.baseApi}quickteller/customerValidation2/${customerDetails.paymentCode}/${customerDetails.customerId}`
+    );
   }
 }

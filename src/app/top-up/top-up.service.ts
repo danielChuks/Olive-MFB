@@ -19,4 +19,8 @@ export class TopUpService {
   buyAirtime(details: AirtimeModel): Observable<any> {
     return this.http.post(`${environment.baseApi + 'airtime'}`, details);
   }
+
+  getDataBundles(id: any): Observable<any>{
+    return this.http.get(`${environment.baseApi}quickteller/billerPaymentItems/${id}`);
+  }
 }

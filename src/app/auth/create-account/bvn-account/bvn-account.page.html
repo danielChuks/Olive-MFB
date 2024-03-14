@@ -18,12 +18,13 @@
   </ion-text>
 
 
-   <form>
+   <form [formGroup]="bvnData">
    <div class="accountNumber">
       <ion-label>BVN <span>*</span></ion-label>
       <ion-input
         type="text"
-          maxlength="11"
+        maxlength="11"
+        formControlName="bvn"
         placeholder="Enter your valid BVN"
       ></ion-input>
       <ion-text></ion-text>
@@ -36,6 +37,7 @@
       <ion-input
         type="tel"
         maxlength="11"
+        formControlName="phoneNumber"
         placeholder="Enter your mobile no."
       ></ion-input>
       <ion-text></ion-text>
@@ -46,8 +48,9 @@
 <!-- formControlName="phone" -->
        <div class="btn">
       <ion-button
-
-        expand="block"
+      (click)="validateInfo(bvnData)"
+      expand="block"
+        [disabled]="bvnData.valid === true ? false : true"
         routerLink="/bvn-account-info"
         >Next</ion-button
       >

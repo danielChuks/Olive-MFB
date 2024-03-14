@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BeneficiariesService } from 'src/app/manage-beneficiaries/beneficiaries.service';
 import { ModalController } from '@ionic/angular';
 import { AlertController } from '@ionic/angular';
+import { LoadingController } from '@ionic/angular';
 
 @Component({
   selector: 'app-bank-list',
@@ -18,11 +19,21 @@ export class BankListComponent implements OnInit {
   spinner = true;
 
   constructor(private  beneficiaryService: BeneficiariesService,private modalCtrl: ModalController,
-    private alertController: AlertController, ) { }
+    private alertController: AlertController, private loadingCtrl: LoadingController) { }
 
 
     confirm(bankName, cbnCode){
       return this.modalCtrl.dismiss({bankName, cbnCode},  'confirm');
+    }
+    async presentLoading() {
+      const loading = await this.loadingCtrl.create({
+        message: 'Please wait...',
+        cssClass: 'custom-loading',
+          backdropDismiss: true,
+      });
+      await loading.present();
+
+      return loading;
     }
 
   handleSearchInput(e) {
@@ -69,6 +80,35 @@ export class BankListComponent implements OnInit {
       }
     );
   }
+
+  async getNipBankList() {
+    const loading = await this.presentLoading();
+    this.spinner = false;
+       this.beneficiaryService.getNipListofBanks()
+.subscribe(
+ data => {
+   if (this.type) {
+   this.mybank = [{id: '00',
+    cbnCode: '000',
+    bankName: 'Olive mfb',
+   bankCode: 'local' }, ...data.banks];
+    this.banksList = this.mybank;
+     this.filteredBankList = this.banksList;
+     loading.dismiss();
+       }
+       else {
+         console.log(data);
+       this.banksList = data.banks;
+       this.filteredBankList = this.banksList;
+        loading.dismiss();
+       }
+ },
+err => {
+    loading.dismiss();
+ this.presentAlert(err.error.message ||  'Service not available');
+}
+);
+ }
 
 
   ngOnInit() {

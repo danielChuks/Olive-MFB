@@ -14,3 +14,7 @@ export class billsPaymentModel{
         mobileNumber: string;
         customerMail: string;
   }
+  export interface CustomerData {
+      customerId: string;
+      paymentCode: string;
+    }

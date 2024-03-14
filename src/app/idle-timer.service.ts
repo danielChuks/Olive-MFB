@@ -2,48 +2,43 @@ import { Injectable } from '@angular/core';
 import { AuthService } from './guards/auth.service';
 import { DEFAULT_INTERRUPTSOURCES, Idle } from '@ng-idle/core';
 
+const INACTIVITY_TIMEOUT = 120000; // App timeout - 2 minute
+
 @Injectable({
   providedIn: 'root'
 })
 export class IdleTimerService {
-  private timer: any;
+  private inactivityTimer: any;
 
   constructor(private auth: AuthService,
     private idle: Idle) { }
 
-    startIdleTime(){
-      this.idle.setIdle(5000);
-      this.idle.setTimeout(90);
-      this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
-      this.idle.onTimeout.subscribe(() => {
-        this.auth.logout();
-      });
-      this.idle.onInterrupt.subscribe(() => {
-        this.idle.watch();
-        this.idle.setIdle(5000);
-        this.idle.setTimeout(90);
-      });
-      this.idle.watch();
+    private resetTimer() {
+      clearTimeout(this.inactivityTimer);
+      if (window.location.pathname !== '/signup-form') {
+        this.inactivityTimer = setTimeout(() => {
+          this.auth.logout();
+        }, INACTIVITY_TIMEOUT);
+      }
+    };
+
+    // eslint-disable-next-line @typescript-eslint/member-ordering
+    startWatchingForInactivity() {
+      // Attach event listeners for user activity (e.g., clicks, key presses)
+      document.addEventListener('click', () => this.resetTimer());
+      document.addEventListener('keypress', () => this.resetTimer());
+
+      // Start the inactivity timer
+      this.resetTimer();
     }
 
-    stopIdleTime(){
-      this.idle.stop();
-    }
+     // eslint-disable-next-line @typescript-eslint/member-ordering
+     stopWatchingForInactivity() {
+      // Remove the event listeners when they're no longer needed
+      document.removeEventListener('click', () => this.resetTimer());
+      document.removeEventListener('keypress', () => this.resetTimer());
 
-    onInterrupt() {
-  this.stopIdleTime();
-  this.startIdleTime();
-    }
-
-    start() {
-      document.addEventListener('visibilitychange', () => {
-        if (document.visibilityState === 'hidden') {
-          this.timer = setTimeout(() => {
-            this.auth.logout();
-          }, 60000);
-        } else {
-          clearTimeout(this.timer);
-        }
-      });
+      // Clear the inactivity timer
+      clearTimeout(this.inactivityTimer);
     }
 }

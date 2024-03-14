@@ -6,6 +6,8 @@ import {
   PDFGenerator,
   PDFGeneratorOptions,
 } from '@ionic-native/pdf-generator/ngx';
+import { SocialSharing } from '@ionic-native/social-sharing/ngx';
+
 
 @Component({
   selector: 'app-transaction-modal',
@@ -22,7 +24,8 @@ export class TransactionModalComponent implements OnInit {
   constructor(
     private route: Router,
     private modalCtrl: ModalController,
-    private pdfGenerator: PDFGenerator
+    private pdfGenerator: PDFGenerator,
+    private socialSharing: SocialSharing
   ) {}
 
   ngOnInit() {
@@ -55,5 +58,28 @@ export class TransactionModalComponent implements OnInit {
       .catch((error) => {
         //console.log('error', error);
       });
+  }
+
+  async share() {
+    try {
+      // Generate the PDF and get the base64 data
+      const content = document.getElementById('PrintInvoice').innerHTML;
+      const options: PDFGeneratorOptions = {
+        documentSize: 'A4',
+        type: 'base64', // Generate as base64 data
+        fileName: 'TransferReceipt.pdf',
+      };
+      const base64 = await this.pdfGenerator.fromData(content, options);
+
+      await this.socialSharing.share(
+        'Check out this awesome PDF!',
+        'Receipt',
+        `data:application/pdf;base64,${base64}`, // Attach the PDF as base64 data
+        null // URL (optional)
+      );
+      console.log('Shared PDF successfully');
+    } catch (error) {
+      console.error('Error sharing PDF:', error);
+    }
   }
 }

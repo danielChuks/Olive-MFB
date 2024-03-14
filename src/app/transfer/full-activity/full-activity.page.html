@@ -19,14 +19,14 @@
   <div class="content">
     <section>
       <p>From</p>
-      <p>Savings Account</p>
+      <p>{{sourceAccountName}}</p>
       <p class="bold_text">{{sourceAccount}}</p>
     </section>
 
     <section>
        <p>To</p>
       <p  class="bold_text">{{beneficiaryName}}</p>
-      <p>{{destinationAccount}}</p>
+      <p>{{destinationAccount}} . {{beneficiaryBank}}</p>    
     </section>
 
     <section>
@@ -34,7 +34,7 @@
         <p  class="bold_text">{{amount |currency:"NGN":"symbol-narrow"}}</p>
     </section>
 
-      <section>
+      <section *ngIf="narration">
         <p>Narration</p>
          <p  class="bold_text">{{narration}}</p>
     </section>
