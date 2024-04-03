@@ -25,12 +25,17 @@ export const environment = {
 // baseApi: 'http://105.112.133.253:5000/api/v1/',
 
 //Liberty IP
-// baseUrl: 'http://10.100.80.110',
-// baseApi: 'http://10.100.80.110:5000/api/v1/',
+baseUrl: 'http://10.100.80.110',
+baseApi: 'http://10.100.80.110:5000/api/v1/',
 
 //Mr Rash IP
- baseUrl: 'http://10.100.80.121',
- baseApi: 'http://10.100.80.121:6001/api/v1/',
+//  baseUrl: 'http://10.100.80.121',
+//  baseApi: 'http://10.100.80.121:6001/api/v1/',
+
+//olive IP
+// baseUrl: 'http://159.138.167.120',
+// baseApi: 'http://159.138.167.120/6001/api/v1/',
+
 };
 
 /*
