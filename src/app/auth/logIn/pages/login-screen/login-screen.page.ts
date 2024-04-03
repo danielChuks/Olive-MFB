@@ -92,31 +92,31 @@ export class LoginScreenPage {
     this.signInForm.get('accountNumber').setValue('');
   }
 
-  // async loginWithFingerprint() {
-  //   const storedPassword = localStorage.getItem('password');
+  async loginWithFingerprint() {
+    const storedPassword = localStorage.getItem('password');
 
-  //   if (storedPassword) {
-  //     // Password is stored, proceed with fingerprint authentication
-  //     const options = {
-  //       title: 'Olive App Authentication',
-  //       description: 'Touch your fingerprint sensor',
-  //       fallbackButtonTitle: 'Use Backup',
-  //       disableBackup: false,
-  //     };
+    if (storedPassword) {
+      // Password is stored, proceed with fingerprint authentication
+      const options = {
+        title: 'Olive App Authentication',
+        description: 'Touch your fingerprint sensor',
+        fallbackButtonTitle: 'Use Backup',
+        disableBackup: false,
+      };
 
-  //     try {
-  //       await this.fingerprint.show(options);
-  //       this.savedAccountNumber = localStorage.getItem('accountNumber');
-  //       this.router.navigateByUrl('new-tab/hometab');
-  //       // this.signIn(); // Call signIn function on successful fingerprint authentication
-  //     } catch (err) {
-  //       // Handle fingerprint authentication error
-  //     }
-  //   } else {
-  //     // No password stored, call signIn directly with formGroup as an argument
-  //     this.signIn(this.signInForm);
-  //   }
-  // }
+      try {
+        await this.fingerprint.show(options);
+        this.savedAccountNumber = sessionStorage.getItem('accountNumber');
+        this.router.navigateByUrl('new-tab/hometab');
+        // this.signIn(); // Call signIn function on successful fingerprint authentication
+      } catch (err) {
+        // Handle fingerprint authentication error
+      }
+    } else {
+      // No password stored, call signIn directly with formGroup as an argument
+      this.signIn(this.signInForm);
+    }
+  }
 
   async signIn(formGroup?: FormGroup) {
     // Loading component
@@ -125,7 +125,6 @@ export class LoginScreenPage {
       cssClass: 'custom-loading',
     });
     loading.present();
-
     // this.login.accountNumber = formGroup ? formGroup.value.accountNumber : localStorage.getItem('accountNumber');
     // this.login.password = formGroup ? formGroup.value.password : localStorage.getItem('password');
     this.login.accountNumber = formGroup.value.accountNumber;
@@ -142,7 +141,7 @@ export class LoginScreenPage {
         localStorage.setItem('accountNumber', this.login.accountNumber);
         localStorage.setItem('password', this.login.password);
         this.savedAccountNumber = localStorage.getItem('accountNumber');
-        this.router.navigateByUrl('new-tab/hometab');
+        this.biometricMsg();
         loading.dismiss();
         // this.idleTimer.onInterrupt();
         this.failedAttempts = 0;
@@ -175,6 +174,29 @@ export class LoginScreenPage {
     const alert = await this.alertController.create({
       message: msg,
       buttons: ['OK'],
+    });
+
+    await alert.present();
+  }
+
+  async biometricMsg() {
+    const alert = await this.alertController.create({
+      header: 'Warning!',
+      message:
+        'Would you like a faster login using biometrics?',
+      buttons: [
+        {
+          text: 'No',
+          role: 'No',
+        },
+        {
+          text: 'Yes',
+          handler: () => {
+            this.router.navigateByUrl('new-tab/hometab');
+            alert.dismiss();
+          },
+        },
+      ],
     });
 
     await alert.present();
