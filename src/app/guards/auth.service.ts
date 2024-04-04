@@ -71,7 +71,7 @@ export class AuthService {
 
   logout() {
     sessionStorage.removeItem('Authorization');
-    sessionStorage.removeItem('accountNumber');
+    // sessionStorage.removeItem('accountNumber');
     this.closeAll();
     this.router.navigate(['/login-screen'], {
       replaceUrl: true,

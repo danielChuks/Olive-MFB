@@ -25,6 +25,7 @@ import { FingerprintAIO } from '@ionic-native/fingerprint-aio/ngx';
   styleUrls: ['./login-screen.page.scss'],
 })
 export class LoginScreenPage {
+  loginMsg = 'Log in'
   message: string;
   // eslint-disable-next-line @typescript-eslint/semi
   login = new LoginModel();
@@ -35,7 +36,7 @@ export class LoginScreenPage {
   signInForm: FormGroup;
   inputAccountNumber;
   savedAccountNumber;
-  pwdIcon = 'Neptune1234';
+  pwdIcon = 'eye';
   showPwd = false;
   isFirstEnter = true;
   isFieldDisabled: boolean;
@@ -70,6 +71,7 @@ export class LoginScreenPage {
     if (this.savedAccountNumber) {
       this.signInForm.get('accountNumber').setValue(this.savedAccountNumber);
     }
+    this.checkLoginStatus();
   }
 
   ionViewWillEnter() {
@@ -92,10 +94,21 @@ export class LoginScreenPage {
     this.signInForm.get('accountNumber').setValue('');
   }
 
-  async loginWithFingerprint() {
-    const storedPassword = localStorage.getItem('password');
+  async checkLoginStatus() {
+    const storedAccNo = sessionStorage.getItem('accountNumber');
+    if (storedAccNo) {
+        // Account number is stored, set loginMsg to "Login with Biometrics"
+        this.loginMsg = "Login with Biometrics";
+    } else {
+        // No account number stored, set loginMsg to "Login"
+        this.loginMsg = "Login";
+    }
+}
 
-    if (storedPassword) {
+  async loginWithFingerprint() {
+    const storedAccNo = sessionStorage.getItem('accountNumber');
+
+    if (storedAccNo) {
       // Password is stored, proceed with fingerprint authentication
       const options = {
         title: 'Olive App Authentication',
@@ -106,7 +119,7 @@ export class LoginScreenPage {
 
       try {
         await this.fingerprint.show(options);
-        this.savedAccountNumber = sessionStorage.getItem('accountNumber');
+        // this.savedAccountNumber = sessionStorage.getItem('accountNumber');
         this.router.navigateByUrl('new-tab/hometab');
         // this.signIn(); // Call signIn function on successful fingerprint authentication
       } catch (err) {
@@ -139,7 +152,7 @@ export class LoginScreenPage {
         console.log(data);
         sessionStorage.setItem('accountNumber', this.login.accountNumber);
         localStorage.setItem('accountNumber', this.login.accountNumber);
-        localStorage.setItem('password', this.login.password);
+        // localStorage.setItem('password', this.login.password);
         this.savedAccountNumber = localStorage.getItem('accountNumber');
         this.biometricMsg();
         loading.dismiss();
